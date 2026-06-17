@@ -1,4 +1,5 @@
 const SITE_URL = 'https://autodiagnostix.com';
+const CURRENCY = 'PKR';
 
 export function organizationSchema() {
   return {
@@ -37,6 +38,7 @@ export function productSchema(product: {
   heroImages?: string[];
   brand?: string;
   category?: string;
+  price?: number | null;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -53,7 +55,8 @@ export function productSchema(product: {
       '@type': 'Offer',
       url: `${SITE_URL}/product/${product.id}`,
       availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
+      priceCurrency: CURRENCY,
+      ...(product.price ? { price: product.price } : {}),
     },
     category: product.category,
   };
@@ -73,5 +76,29 @@ export function websiteSchema() {
       },
       'query-input': 'required name=search_term_string',
     },
+  };
+}
+
+export function itemListSchema(items: { name: string; url: string }[], type: 'ItemList' | 'CollectionPage' = 'ItemList') {
+  return {
+    '@context': 'https://schema.org',
+    '@type': type,
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: item.url,
+      name: item.name,
+    })),
+  };
+}
+
+export function brandSchema(brand: { name: string; url: string; description?: string; image?: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Brand',
+    name: brand.name,
+    url: brand.url,
+    ...(brand.description ? { description: brand.description } : {}),
+    ...(brand.image ? { image: brand.image } : {}),
   };
 }

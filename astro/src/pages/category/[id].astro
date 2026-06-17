@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCategories, getProducts } from '../../lib/payload';
-import { breadcrumbListSchema } from '../../utils/schema';
+import { breadcrumbListSchema, itemListSchema } from '../../utils/schema';
 
 export const prerender = false;
 
@@ -39,7 +39,7 @@ async function getCategory(id: string) {
   title={category.name}
   description={`Browse ${filtered.length} professional ${category.name} products at Autodiagnostix.`}
   canonical={`https://autodiagnostix.com/category/${id}`}
-  jsonLd={breadcrumbListSchema(breadcrumbs)}
+  jsonLd={[breadcrumbListSchema(breadcrumbs), itemListSchema(filtered.map(p => ({ name: p.name, url: `https://autodiagnostix.com/product/${p.id}` })))]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 

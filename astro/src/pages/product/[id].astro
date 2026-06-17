@@ -34,6 +34,7 @@ const breadcrumbs = [
   description={product.summary || product.description?.substring(0, 160) || ''}
   canonical={`https://autodiagnostix.com/product/${id}`}
   ogType="product"
+  ogImage={product.heroImages?.[0] || undefined}
   jsonLd={[productSchema(product), breadcrumbListSchema(breadcrumbs)]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />

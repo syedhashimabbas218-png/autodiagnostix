@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:16-alpine
@@ -28,12 +26,26 @@ services:
     environment:
       DATABASE_URL: postgres://autodiagnostix:${POSTGRES_PASSWORD:-devpassword}@postgres:5432/autodiagnostix
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:-dev-secret-change-in-production}
-      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:5173}
+      FRONTEND_URL: ${SITE_URL:-https://autodiagnostix.com}
     depends_on:
       postgres:
         condition: service_healthy
     volumes:
       - media:/app/public/media
+
+  astro:
+    build:
+      context: ./astro
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "4321:4321"
+    environment:
+      PAYLOAD_URL: http://cms:3000
+      SITE_URL: ${SITE_URL:-https://autodiagnostix.com}
+    depends_on:
+      cms:
+        condition: service_started
 
 volumes:
   pgdata:
