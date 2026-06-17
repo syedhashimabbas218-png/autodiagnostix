@@ -1,0 +1,6 @@
+node_modules/
+.next/
+dist/
+payload-types.ts
+.env
+*.log

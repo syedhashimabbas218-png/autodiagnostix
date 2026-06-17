@@ -1,0 +1,236 @@
+- generic [ref=e2]:
+  - generic [ref=e6]:
+    - link "LAUNCH TECH CO.,LTD" [ref=e7] [cursor=pointer]:
+      - /url: /
+      - img "LAUNCH TECH CO.,LTD" [ref=e8]
+    - link [ref=e10] [cursor=pointer]:
+      - /url: /login/
+  - generic:
+    - link:
+      - /url: javascript:;
+    - generic [ref=e14]:
+      - generic [ref=e16]:
+        - link "LAUNCH TECH CO.,LTD" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img "LAUNCH TECH CO.,LTD" [ref=e18]
+        - link [ref=e19] [cursor=pointer]:
+          - /url: javascript:;
+      - list [ref=e21]:
+        - listitem [ref=e22]:
+          - link "Intelligent Vehicle Diagnostics" [ref=e24] [cursor=pointer]:
+            - /url: /products/c-14.html
+        - listitem [ref=e25]:
+          - link "Intelligent Vehicle Maintenance" [ref=e27] [cursor=pointer]:
+            - /url: "javascript:"
+        - listitem [ref=e28]:
+          - link "EV" [ref=e30] [cursor=pointer]:
+            - /url: /products/c-17.html
+        - listitem [ref=e31]:
+          - link "Big data" [ref=e33] [cursor=pointer]:
+            - /url: "javascript:"
+        - listitem [ref=e34]:
+          - link "Service" [ref=e36] [cursor=pointer]:
+            - /url: /service/
+        - listitem [ref=e37]:
+          - link "Related Products" [ref=e39] [cursor=pointer]:
+            - /url: /products/c-19.html
+        - listitem [ref=e40]:
+          - generic [ref=e41]: Language
+  - generic [ref=e43]:
+    - generic [ref=e45]:
+      - link "Home" [ref=e46] [cursor=pointer]:
+        - /url: /
+      - text: ">"
+      - link "Inspection & Maintenance" [ref=e47] [cursor=pointer]:
+        - /url: /products/c-3.html
+      - text: "> VSP-800 Video Scope"
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - generic [ref=e52]:
+          - img "VSP-800 Video Scope" [ref=e54]
+          - generic:
+            - img "VSP-800 Video Scope"
+          - generic:
+            - img "VSP-800 Video Scope"
+          - generic:
+            - img "VSP-800 Video Scope"
+        - generic [ref=e56]:
+          - generic [ref=e57] [cursor=pointer]: Share
+          - generic [ref=e58] [cursor=pointer]: Like 0
+      - generic [ref=e59]:
+        - heading "VSP-800 Video Scope" [level=2] [ref=e60]
+        - generic [ref=e61]: Standalone Videoscope
+        - generic [ref=e62]: VSP800 video scope helps technicians to check issues on unreachable area in a vehicle. With 2.7'TFT display, technicians can conveniently check the real-time viewing of internal structure of the vehicle. Meanwhile, they can view, record and save images and videos.
+      - generic [ref=e64]:
+        - generic [ref=e65]: Related Products
+        - generic [ref=e68]:
+          - link [ref=e69] [cursor=pointer]:
+            - /url: javascript:;
+          - link [ref=e70] [cursor=pointer]:
+            - /url: javascript:;
+    - generic [ref=e71]:
+      - generic [ref=e76]:
+        - link "Features" [ref=e78] [cursor=pointer]:
+          - /url: /products-detail/i-80.html#pro-fun
+        - link "Specification" [ref=e80] [cursor=pointer]:
+          - /url: /products-detail/i-80.html#pro-par
+        - link "Suggestions" [ref=e82] [cursor=pointer]:
+          - /url: /products-detail/i-80.html#pro_form
+        - link "Message" [ref=e84] [cursor=pointer]:
+          - /url: /products-detail/i-80.html#pro-mes
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]: Features
+          - list [ref=e89]:
+            - listitem [ref=e90]:
+              - paragraph [ref=e91]: View, record and save images and videos.
+            - listitem [ref=e92]:
+              - paragraph [ref=e93]: IP67 water proof camera head with adjustable intensity LED lights.
+            - listitem [ref=e94]:
+              - paragraph [ref=e95]: The pre-inspect and after-inspect process to get the work done.
+            - listitem [ref=e96]:
+              - paragraph [ref=e97]: Vehicle systems include engine, gears, compressors, headers and valves, body components, etc.
+            - listitem [ref=e98]:
+              - paragraph [ref=e99]: Thin 5.5mm diameter of the LEN O.D. that can reach most inner structure of the vehicles.
+            - listitem [ref=e100]:
+              - paragraph [ref=e101]: Without extensive disassembly of the components.
+        - generic [ref=e102]:
+          - generic [ref=e103]: Specification
+          - generic [ref=e104]:
+            - table [ref=e105]:
+              - rowgroup [ref=e106]:
+                - row "LEN O.D. 5.5mm" [ref=e107]:
+                  - cell "LEN O.D." [ref=e108]:
+                    - paragraph [ref=e109]:
+                      - strong [ref=e110]: LEN O.D.
+                  - cell "5.5mm" [ref=e111]:
+                    - paragraph [ref=e112]: 5.5mm
+                - row "Display Screen 2.7\" TFT" [ref=e113]:
+                  - cell "Display Screen" [ref=e114]:
+                    - paragraph [ref=e115]:
+                      - strong [ref=e116]: Display Screen
+                  - cell "2.7\" TFT" [ref=e117]:
+                    - paragraph [ref=e118]: 2.7" TFT
+                - row "Tube Length 1000mm" [ref=e119]:
+                  - cell "Tube Length" [ref=e120]:
+                    - paragraph [ref=e121]:
+                      - strong [ref=e122]: Tube Length
+                  - cell "1000mm" [ref=e123]:
+                    - paragraph [ref=e124]: 1000mm
+                - row "Resolution 1280*720" [ref=e125]:
+                  - cell "Resolution" [ref=e126]:
+                    - paragraph [ref=e127]:
+                      - strong [ref=e128]: Resolution
+                  - cell "1280*720" [ref=e129]:
+                    - paragraph [ref=e130]: 1280*720
+                - row "Operating Temperature -20℃ ~ 60℃ (-4° ~ 140 °F)" [ref=e131]:
+                  - cell "Operating Temperature" [ref=e132]:
+                    - paragraph [ref=e133]:
+                      - strong [ref=e134]: Operating Temperature
+                  - cell "-20℃ ~ 60℃ (-4° ~ 140 °F)" [ref=e135]:
+                    - paragraph [ref=e136]: "-20℃ ~ 60℃ (-4° ~ 140 °F)"
+                - row "Power Supply 4*1.5V (AA) Battery" [ref=e137]:
+                  - cell "Power Supply" [ref=e138]:
+                    - paragraph [ref=e139]:
+                      - strong [ref=e140]: Power Supply
+                  - cell "4*1.5V (AA) Battery" [ref=e141]:
+                    - paragraph [ref=e142]: 4*1.5V (AA) Battery
+                - row "ROM 8M" [ref=e143]:
+                  - cell "ROM" [ref=e144]:
+                    - paragraph [ref=e145]:
+                      - strong [ref=e146]: ROM
+                  - cell "8M" [ref=e147]:
+                    - paragraph [ref=e148]: 8M
+            - paragraph [ref=e149]
+        - generic [ref=e150]:
+          - generic [ref=e151]: Suggestions
+          - generic [ref=e152]:
+            - generic [ref=e153]: You are welcome to provide more valuable suggestions
+            - generic [ref=e154]:
+              - generic [ref=e155]:
+                - textbox "Name" [ref=e156]
+                - textbox "Telephone" [ref=e157]
+              - textbox "Contents" [ref=e158]
+              - generic [ref=e159]:
+                - generic [ref=e160] [cursor=pointer]: Submit
+                - generic [ref=e161]:
+                  - text: Login to leave message ,
+                  - link "Log in now" [ref=e162] [cursor=pointer]:
+                    - /url: /login/
+        - generic [ref=e163]:
+          - generic [ref=e164]: Message
+          - generic [ref=e166]:
+            - textbox "Please leave your message here" [ref=e167]
+            - generic [ref=e168]:
+              - generic [ref=e169] [cursor=pointer]: Submit
+              - generic [ref=e170]:
+                - text: Login to leave message ,
+                - link "Log in now" [ref=e171] [cursor=pointer]:
+                  - /url: /login/
+  - generic [ref=e173]:
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - link "Intelligent Vehicle Diagnostics" [ref=e178] [cursor=pointer]:
+          - /url: /products/c-14.html
+        - link "EV" [ref=e181] [cursor=pointer]:
+          - /url: /products/c-17.html
+        - link "Related Products" [ref=e184] [cursor=pointer]:
+          - /url: /products/c-19.html
+        - link "Service & Support" [ref=e187] [cursor=pointer]:
+          - /url: /service/
+        - link "About us" [ref=e190] [cursor=pointer]:
+          - /url: /about/
+      - generic [ref=e191]:
+        - generic [ref=e192]: Contact
+        - generic [ref=e193]: Email：sales@cnlaunch.com （sales） overseas.service@cnlaunch.com（service）
+        - generic [ref=e194]: Address:Launch Industrial Park, North of Wuhe Avenue, Banxuegang, Longgang, Shenzhen
+        - generic [ref=e195]:
+          - link [ref=e196] [cursor=pointer]:
+            - /url: https://www.facebook.com/LaunchTechHQ/
+          - link [ref=e197] [cursor=pointer]:
+            - /url: https://twitter.com/LaunchHQ_
+          - link [ref=e198] [cursor=pointer]:
+            - /url: https://www.youtube.com/channel/UCbvALB0e346y-54bD9f9SZw?view_as=subscriber
+          - link [ref=e199] [cursor=pointer]:
+            - /url: https://remotediag.x431.com/new#/login
+        - generic [ref=e202]:
+          - textbox "Your email address..." [ref=e203]
+          - button "SUBSCRIBE" [ref=e204] [cursor=pointer]
+    - generic [ref=e205]:
+      - generic [ref=e206]: "Links:"
+      - generic [ref=e207]:
+        - link "X-431" [ref=e208] [cursor=pointer]:
+          - /url: https://eninfo.x431.com/
+        - link "USA" [ref=e209] [cursor=pointer]:
+          - /url: http://launchtechusa.com/
+        - link "Europe" [ref=e210] [cursor=pointer]:
+          - /url: https://launch-europe.eu/
+        - link "Italiano" [ref=e211] [cursor=pointer]:
+          - /url: https://launch-italy.com/
+        - link "한국어" [ref=e212] [cursor=pointer]:
+          - /url: https://kr.cnlaunch.com/
+        - link "Español Latin" [ref=e213] [cursor=pointer]:
+          - /url: https://cnlaunchlatin.com/
+        - link "Pусский" [ref=e214] [cursor=pointer]:
+          - /url: http://www.launch-cis.ru/
+        - link "Português" [ref=e215] [cursor=pointer]:
+          - /url: https://www.launchtech.com.br/
+        - link "España" [ref=e216] [cursor=pointer]:
+          - /url: https://www.launchiberica.com/
+        - link "UK" [ref=e217] [cursor=pointer]:
+          - /url: https://www.launchtech.co.uk/
+    - generic [ref=e218]:
+      - generic [ref=e219]:
+        - text: Copyright ©2017 LAUNCH TECH CO.,LTD
+        - link "粤B2-20042039号" [ref=e220] [cursor=pointer]:
+          - /url: http://beian.miit.gov.cn/
+        - text: "|"
+        - link "Site map" [ref=e221] [cursor=pointer]:
+          - /url: /sitemap.xml
+        - text: "|"
+        - link "imprint" [ref=e222] [cursor=pointer]:
+          - /url: /imprint/
+      - generic [ref=e223]: English
+  - link:
+    - /url: https://remotediag.x431.com/new#/login
+    - img

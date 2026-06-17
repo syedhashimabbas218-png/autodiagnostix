@@ -1,0 +1,1748 @@
+[
+  {
+    "id": "launch-smartsafe-adas-pro-v2",
+    "name": "LAUNCH SMARTSAFE ADAS PRO+V2",
+    "brand": "SMARTSAFE",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Advanced ADAS calibration tool with comprehensive coverage for modern vehicle safety systems",
+    "description": "The LAUNCH SMARTSAFE ADAS PRO+V2 is a professional-grade ADAS calibration tool designed for automotive workshops and service centers. It provides precise calibration for Advanced Driver Assistance Systems including adaptive cruise control, lane departure warning, blind spot detection, and parking assist systems. The tool features a portable design with high-precision targets and comprehensive vehicle coverage for major automotive brands.",
+    "specs": [
+      "Comprehensive ADAS calibration coverage",
+      "Portable and lightweight design",
+      "High-precision calibration targets",
+      "Compatible with major vehicle brands",
+      "Easy setup and operation",
+      "Professional-grade accuracy"
+    ],
+    "heroImages": [
+      "images-new/launch-smartsafe-adas-pro-v2.png"
+    ],
+    "features": [
+      {
+        "title": "ADAS Calibration",
+        "description": "Complete calibration for modern ADAS systems including cameras, radar, and sensors",
+        "image": "images-new/launch-smartsafe-adas-pro-v2.png"
+      },
+      {
+        "title": "Portable Design",
+        "description": "Lightweight and easy to transport between service bays",
+        "image": "images-new/launch-smartsafe-adas-pro-v2.png"
+      },
+      {
+        "title": "High Precision",
+        "description": "Professional-grade accuracy ensures reliable calibration results",
+        "image": "images-new/launch-smartsafe-adas-pro-v2.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "ADAS Calibration Tool"
+      },
+      {
+        "label": "Brand",
+        "value": "SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "launch-smartsafe-cnc-605-pro-plus",
+    "name": "LAUNCH SMARTSAFE CNC 605 PRO+",
+    "brand": "SMARTSAFE",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Professional fuel injector cleaner and tester with ultrasonic cleaning technology",
+    "description": "The LAUNCH SMARTSAFE CNC 605 PRO+ is an advanced fuel injector cleaning and testing machine that combines ultrasonic cleaning technology with comprehensive testing capabilities. It efficiently cleans clogged injectors and tests their spray pattern, flow rate, and leak rate. Ideal for automotive workshops requiring professional-grade fuel system maintenance equipment.",
+    "specs": [
+      "Ultrasonic cleaning technology",
+      "Flow rate testing capability",
+      "Spray pattern analysis",
+      "Leak detection testing",
+      "Supports most injector types",
+      "Automatic test cycles"
+    ],
+    "heroImages": [
+      "images-new/launch-smartsafe-cnc-605-pro-plus.png",
+      "images-new/launch-smartsafe-cnc-605-pro-plus.webp"
+    ],
+    "features": [
+      {
+        "title": "Ultrasonic Cleaning",
+        "description": "Deep cleaning removes carbon deposits and contaminants from fuel injectors",
+        "image": "images-new/launch-smartsafe-cnc-605-pro-plus.png"
+      },
+      {
+        "title": "Comprehensive Testing",
+        "description": "Tests flow rate, spray pattern, and leak rate for thorough diagnostics",
+        "image": "images-new/launch-smartsafe-cnc-605-pro-plus.png"
+      },
+      {
+        "title": "Wide Compatibility",
+        "description": "Supports most gasoline and diesel injector types",
+        "image": "images-new/launch-smartsafe-cnc-605-pro-plus.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Fuel Injector Cleaner & Tester"
+      },
+      {
+        "label": "Cleaning Method",
+        "value": "Ultrasonic"
+      },
+      {
+        "label": "Brand",
+        "value": "SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "launch-videoscope-vsp-800",
+    "name": "LAUNCH VIDEOSCOPE VSP 800",
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "High-definition automotive inspection camera with flexible probe",
+    "description": "The LAUNCH VIDEOSCOPE VSP 800 is a professional automotive inspection camera featuring a flexible probe and high-definition display. It allows technicians to inspect hard-to-reach areas such as engine cylinders, intake manifolds, and exhaust systems. The device captures clear images and videos for documentation and diagnostic purposes.",
+    "specs": [
+      "High-definition camera",
+      "Flexible probe for tight spaces",
+      "LED illumination",
+      "Image and video capture",
+      "Portable design",
+      "Multiple probe lengths available"
+    ],
+    "heroImages": [
+      "images-new/launch-videoscope-vsp-800_1.png",
+      "images-new/launch-videoscope-vsp-800_2.png",
+      "images-new/launch-videoscope-vsp-800_3.png",
+      "images-new/launch-videoscope-vsp-800_4.png"
+    ],
+    "features": [
+      {
+        "title": "HD Imaging",
+        "description": "High-definition camera provides clear visual inspection of internal components",
+        "image": "images-new/launch-videoscope-vsp-800_1.png"
+      },
+      {
+        "title": "Flexible Probe",
+        "description": "Bendable probe navigates through tight engine spaces and cylinders",
+        "image": "images-new/launch-videoscope-vsp-800_1.png"
+      },
+      {
+        "title": "LED Lighting",
+        "description": "Built-in LED illumination for clear visibility in dark areas",
+        "image": "images-new/launch-videoscope-vsp-800_1.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Automotive Videoscope"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-videoscope-vsp-828",
+    "name": "LAUNCH VIDEOSCOPE VSP 828",
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Advanced automotive borescope with enhanced display and dual-camera capability",
+    "description": "The LAUNCH VIDEOSCOPE VSP 828 is an advanced automotive inspection camera featuring dual-camera technology and a high-resolution display. It provides comprehensive visual inspection capabilities for engine diagnostics, cylinder inspection, and hard-to-reach component examination. The dual-camera setup allows for both forward and side-view imaging.",
+    "specs": [
+      "Dual-camera technology",
+      "High-resolution display",
+      "360-degree rotation capability",
+      "Enhanced LED lighting",
+      "Wireless connectivity options",
+      "Long battery life"
+    ],
+    "heroImages": [
+      "images-new/launch-videoscope-vsp-828_1.png",
+      "images-new/launch-videoscope-vsp-828_2.png",
+      "images-new/launch-videoscope-vsp-828_3.png",
+      "images-new/launch-videoscope-vsp-828_5.jpg",
+      "images-new/launch-videoscope-vsp-828_6.jpg"
+    ],
+    "features": [
+      {
+        "title": "Dual Camera",
+        "description": "Forward and side-view cameras for comprehensive inspection coverage",
+        "image": "images-new/launch-videoscope-vsp-828_1.png"
+      },
+      {
+        "title": "360\u00b0 Rotation",
+        "description": "Articulating probe provides complete viewing angle control",
+        "image": "images-new/launch-videoscope-vsp-828_1.png"
+      },
+      {
+        "title": "Wireless Connectivity",
+        "description": "Connect to mobile devices for easy image sharing and documentation",
+        "image": "images-new/launch-videoscope-vsp-828_1.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Advanced Automotive Videoscope"
+      },
+      {
+        "label": "Camera",
+        "value": "Dual-camera system"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-battery-tester-bst-360",
+    "name": "LAUNCH BATTERY TESTER BST 360",
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Compact Bluetooth battery tester with smartphone connectivity",
+    "description": "The LAUNCH BATTERY TESTER BST 360 is a compact and portable battery testing device that connects via Bluetooth to smartphones. It provides comprehensive battery health analysis including CCA rating, voltage, internal resistance, and state of health. Compatible with most 12V batteries, it's perfect for quick diagnostics in automotive workshops.",
+    "specs": [
+      "Bluetooth connectivity",
+      "Smartphone app integration",
+      "12V battery compatibility",
+      "CCA testing capability",
+      "Internal resistance measurement",
+      "Compact portable design"
+    ],
+    "heroImages": [
+      "images-new/launch-battery-tester-bst-360_1.png",
+      "images-new/launch-battery-tester-bst-360_2.png",
+      "images-new/launch-battery-tester-bst-360_3.png",
+      "images-new/launch-battery-tester-bst-360_4.png",
+      "images-new/launch-battery-tester-bst-360_5.jpg",
+      "images-new/launch-battery-tester-bst-360_6.jpg"
+    ],
+    "features": [
+      {
+        "title": "Bluetooth Connection",
+        "description": "Wireless connectivity to smartphones for easy data viewing and sharing",
+        "image": "images-new/launch-battery-tester-bst-360_1.png"
+      },
+      {
+        "title": "Comprehensive Testing",
+        "description": "Tests CCA, voltage, internal resistance, and battery health status",
+        "image": "images-new/launch-battery-tester-bst-360_1.png"
+      },
+      {
+        "title": "Portable Design",
+        "description": "Compact size fits in pocket for convenient field use",
+        "image": "images-new/launch-battery-tester-bst-360_1.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Bluetooth Battery Tester"
+      },
+      {
+        "label": "Voltage",
+        "value": "12V"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-battery-tester-bst-560s",
+    "name": "LAUNCH BATTERY TESTER BST 560S",
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Professional battery analyzer with printer and comprehensive reporting",
+    "description": "The LAUNCH BATTERY TESTER BST 560S is a professional-grade battery and electrical system analyzer featuring an integrated thermal printer. It provides detailed testing of 12V and 24V batteries, starter systems, and charging systems. The built-in printer allows technicians to provide customers with detailed test reports.",
+    "specs": [
+      "12V and 24V battery testing",
+      "Integrated thermal printer",
+      "Starter system analysis",
+      "Charging system testing",
+      "Large color display",
+      "Multiple battery type support"
+    ],
+    "heroImages": [
+      "images-new/launch-battery-tester-bst-560s.jpg",
+      "images-new/launch-battery-tester-bst-560s_1.jpg"
+    ],
+    "features": [
+      {
+        "title": "Integrated Printer",
+        "description": "Built-in thermal printer provides professional test reports for customers",
+        "image": "images-new/launch-battery-tester-bst-560s.jpg"
+      },
+      {
+        "title": "Complete System Testing",
+        "description": "Tests battery, starter, and charging system for comprehensive diagnostics",
+        "image": "images-new/launch-battery-tester-bst-560s.jpg"
+      },
+      {
+        "title": "Multi-Voltage Support",
+        "description": "Compatible with both 12V and 24V battery systems",
+        "image": "images-new/launch-battery-tester-bst-560s.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Professional Battery Analyzer"
+      },
+      {
+        "label": "Voltage",
+        "value": "12V/24V"
+      },
+      {
+        "label": "Printer",
+        "value": "Built-in thermal"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-battery-tester-bst-860s",
+    "name": "LAUNCH BATTERY TESTER BST 860S",
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Advanced battery management system tester with graphical analysis",
+    "description": "The LAUNCH BATTERY TESTER BST 860S is an advanced battery testing solution featuring graphical analysis and comprehensive reporting capabilities. It supports testing of various battery types including AGM, EFB, GEL, and conventional lead-acid batteries. The large touchscreen display provides intuitive operation and detailed visualization of test results.",
+    "specs": [
+      "Large touchscreen display",
+      "Graphical test results",
+      "Multiple battery type support",
+      "AGM, EFB, GEL compatible",
+      "Cloud data management",
+      "Professional reporting"
+    ],
+    "heroImages": [
+      "images-new/launch-battery-tester-bst-860s.jpg",
+      "images-new/launch-battery-tester-bst-860s_1.jpg"
+    ],
+    "features": [
+      {
+        "title": "Touchscreen Interface",
+        "description": "Large color touchscreen provides intuitive operation and clear result display",
+        "image": "images-new/launch-battery-tester-bst-860s.jpg"
+      },
+      {
+        "title": "Graphical Analysis",
+        "description": "Visual charts and graphs make test results easy to understand",
+        "image": "images-new/launch-battery-tester-bst-860s.jpg"
+      },
+      {
+        "title": "Cloud Connectivity",
+        "description": "Store and manage test results in the cloud for easy access",
+        "image": "images-new/launch-battery-tester-bst-860s.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Advanced Battery Tester"
+      },
+      {
+        "label": "Display",
+        "value": "Color touchscreen"
+      },
+      {
+        "label": "Battery Types",
+        "value": "AGM, EFB, GEL, Lead-acid"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-smartsafe-ac-519",
+    "name": "LAUNCH SMARTSAFE AC 519",
+    "brand": "LAUNCH/SMARTSAFE",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Full-function automotive air conditioning service station",
+    "description": "The LAUNCH SMARTSAFE AC 519 is a comprehensive automotive air conditioning service station designed for professional workshops. It performs refrigerant recovery, vacuuming, recharging, and leak testing for R134a and R1234yf systems. The unit features automatic operation modes and precise electronic scales for accurate refrigerant handling.",
+    "specs": [
+      "R134a and R1234yf compatible",
+      "Automatic recovery and recharge",
+      "Electronic scales for precision",
+      "Vacuum pump included",
+      "Leak detection capability",
+      "Database with vehicle specifications"
+    ],
+    "heroImages": [
+      "images-new/launch-smartsafe-ac-519.png"
+    ],
+    "features": [
+      {
+        "title": "Dual Refrigerant Support",
+        "description": "Compatible with both R134a and R1234yf AC systems",
+        "image": "images-new/launch-smartsafe-ac-519.png"
+      },
+      {
+        "title": "Automatic Operation",
+        "description": "Automated recovery, vacuum, and recharge cycles save time",
+        "image": "images-new/launch-smartsafe-ac-519.png"
+      },
+      {
+        "title": "Precision Scales",
+        "description": "Electronic scales ensure accurate refrigerant measurement",
+        "image": "images-new/launch-smartsafe-ac-519.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "AC Service Station"
+      },
+      {
+        "label": "Refrigerant",
+        "value": "R134a, R1234yf"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH/SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "launch-smartsafe-ac-519-plus",
+    "name": "LAUNCH SMARTSAFE AC 519+",
+    "brand": "LAUNCH/SMARTSAFE",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Enhanced AC service station with printer and database updates",
+    "description": "The LAUNCH SMARTSAFE AC 519+ is an enhanced version of the AC 519 featuring a built-in printer for service documentation and wireless database updates. It provides complete air conditioning service capabilities including recovery, recycling, vacuuming, and recharging for modern automotive AC systems. The integrated printer generates detailed service reports for customer records.",
+    "specs": [
+      "Built-in thermal printer",
+      "Wireless database updates",
+      "R134a and R1234yf support",
+      "Automatic operation modes",
+      "High-precision scales",
+      "Comprehensive vehicle database"
+    ],
+    "heroImages": [
+      "images-new/launch-smartsafe-ac-519-plus.png",
+      "images-new/launch-smartsafe-ac-519-plus.webp"
+    ],
+    "features": [
+      {
+        "title": "Integrated Printer",
+        "description": "Built-in printer generates professional service reports",
+        "image": "images-new/launch-smartsafe-ac-519-plus.png"
+      },
+      {
+        "title": "Database Updates",
+        "description": "Wireless updates keep vehicle specifications current",
+        "image": "images-new/launch-smartsafe-ac-519-plus.png"
+      },
+      {
+        "title": "Complete AC Service",
+        "description": "Full-service capability for modern automotive AC systems",
+        "image": "images-new/launch-smartsafe-ac-519-plus.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "AC Service Station Plus"
+      },
+      {
+        "label": "Printer",
+        "value": "Built-in thermal"
+      },
+      {
+        "label": "Refrigerant",
+        "value": "R134a, R1234yf"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH/SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "autool-spt-360-5-plug-tester",
+    "name": "AUTOOL SPT 360 5 PLUG TESTER",
+    "brand": "AUTOOL",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Five-hole spark plug tester with flashover analyzer",
+    "description": "The AUTOOL SPT 360 is a professional spark plug testing device capable of testing up to five spark plugs simultaneously. It features flashover analysis to detect insulation breakdown and misfire conditions. The device supports both 110V and 220V power inputs, making it suitable for global use in automotive workshops.",
+    "specs": [
+      "Five-hole testing capability",
+      "Flashover detection",
+      "Spark intensity analysis",
+      "Dual voltage support (110V/220V)",
+      "Digital display",
+      "Adjustable testing frequency"
+    ],
+    "heroImages": [
+      "images-new/autool-spt-360-5-plug-tester.jpg",
+      "images-new/autool-spt-360-5-plug-tester_1.jpg",
+      "images-new/autool-spt-360-5-plug-tester_2.png",
+      "images-new/autool-spt-360-5-plug-tester_3.jpg"
+    ],
+    "features": [
+      {
+        "title": "Five-Hole Testing",
+        "description": "Test up to five spark plugs simultaneously for efficient diagnostics",
+        "image": "images-new/autool-spt-360-5-plug-tester.jpg"
+      },
+      {
+        "title": "Flashover Analysis",
+        "description": "Detects insulation breakdown and potential misfire conditions",
+        "image": "images-new/autool-spt-360-5-plug-tester.jpg"
+      },
+      {
+        "title": "Universal Voltage",
+        "description": "Supports both 110V and 220V for worldwide compatibility",
+        "image": "images-new/autool-spt-360-5-plug-tester.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Spark Plug Tester"
+      },
+      {
+        "label": "Testing Capacity",
+        "value": "5 plugs"
+      },
+      {
+        "label": "Voltage",
+        "value": "110V/220V"
+      },
+      {
+        "label": "Brand",
+        "value": "AUTOOL"
+      }
+    ]
+  },
+  {
+    "id": "launch-smartsafe-cnc-605a",
+    "name": "LAUNCH SMARTSAFE CNC 605A",
+    "brand": "SMARTSAFE",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Professional fuel injector cleaner with automatic test cycles",
+    "description": "The LAUNCH SMARTSAFE CNC 605A is a professional fuel injector cleaning machine featuring automatic test cycles and ultrasonic cleaning technology. It efficiently removes carbon deposits and contaminants from fuel injectors while testing their performance. The machine supports both gasoline and diesel injectors with user-friendly operation.",
+    "specs": [
+      "Ultrasonic cleaning system",
+      "Automatic test cycles",
+      "Flow rate measurement",
+      "Spray pattern testing",
+      "Leak detection",
+      "Universal injector compatibility"
+    ],
+    "heroImages": [
+      "images-new/launch-smartsafe-cnc-605a.webp"
+    ],
+    "features": [
+      {
+        "title": "Ultrasonic Cleaning",
+        "description": "Deep cleaning removes stubborn carbon deposits from injectors",
+        "image": "images-new/launch-smartsafe-cnc-605a.webp"
+      },
+      {
+        "title": "Automatic Testing",
+        "description": "Automated test cycles save time and ensure consistent results",
+        "image": "images-new/launch-smartsafe-cnc-605a.webp"
+      },
+      {
+        "title": "Universal Compatibility",
+        "description": "Supports most gasoline and diesel injector types",
+        "image": "images-new/launch-smartsafe-cnc-605a.webp"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Fuel Injector Cleaner"
+      },
+      {
+        "label": "Cleaning Method",
+        "value": "Ultrasonic"
+      },
+      {
+        "label": "Brand",
+        "value": "SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "launch-safesafe-ismartvideo-400",
+    "name": "SMARTSAFE ISMARTVIDEO400",
+    "brand": "SMARTSAFE",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Advanced digital inspection camera with wireless connectivity",
+    "description": "The SMARTSAFE ISMARTVIDEO400 is an advanced digital inspection camera featuring wireless connectivity and high-definition imaging. It allows technicians to inspect internal engine components, cylinders, and hard-to-reach areas with clear visualization. The wireless design provides flexibility and convenience during automotive diagnostics.",
+    "specs": [
+      "Wireless connectivity",
+      "High-definition camera",
+      "Flexible probe",
+      "LED illumination",
+      "Image/video capture",
+      "Long battery life"
+    ],
+    "heroImages": [
+      "images-new/launch-safesafe-ismartvideo-400.png"
+    ],
+    "features": [
+      {
+        "title": "Wireless Design",
+        "description": "Cable-free operation provides maximum flexibility during inspections",
+        "image": "images-new/launch-safesafe-ismartvideo-400.png"
+      },
+      {
+        "title": "HD Imaging",
+        "description": "High-resolution camera delivers clear images of internal components",
+        "image": "images-new/launch-safesafe-ismartvideo-400.png"
+      },
+      {
+        "title": "Flexible Probe",
+        "description": "Bendable probe navigates through tight spaces and cylinders",
+        "image": "images-new/launch-safesafe-ismartvideo-400.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Digital Inspection Camera"
+      },
+      {
+        "label": "Connectivity",
+        "value": "Wireless"
+      },
+      {
+        "label": "Brand",
+        "value": "SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "launch-3-ton-jack-lh-330",
+    "name": "LAUNCH 3 TON JACK LH 330",
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "Professional hydraulic floor jack with 3-ton capacity",
+    "description": "The LAUNCH 3 TON JACK LH 330 is a professional-grade hydraulic floor jack designed for automotive workshops. With a 3-ton lifting capacity, it's suitable for cars, SUVs, and light trucks. The jack features a low-profile design for easy positioning under vehicles and a safety overload valve for protection.",
+    "specs": [
+      "3-ton lifting capacity",
+      "Low-profile design",
+      "Hydraulic operation",
+      "Safety overload valve",
+      "Swivel saddle",
+      "Heavy-duty construction"
+    ],
+    "heroImages": [],
+    "features": [
+      {
+        "title": "3-Ton Capacity",
+        "description": "Heavy-duty lifting capacity suitable for most vehicles",
+        "image": ""
+      },
+      {
+        "title": "Low Profile",
+        "description": "Low clearance design fits under lowered vehicles",
+        "image": ""
+      },
+      {
+        "title": "Safety Valve",
+        "description": "Overload protection valve prevents unsafe operation",
+        "image": ""
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Hydraulic Floor Jack"
+      },
+      {
+        "label": "Capacity",
+        "value": "3 tons"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "unite-bl-202-on-car-brake-disc-lathe",
+    "name": "UNITE BL-202 ON CAR BRAKE DISC LATHE",
+    "brand": "UNITE",
+    "category": "Maintenance and ADAS Equipment",
+    "summary": "On-car brake disc lathe for precision rotor resurfacing",
+    "description": "The UNITE BL-202 is a professional on-car brake disc lathe designed for precision rotor resurfacing without wheel removal. This innovative machine allows technicians to resurface brake discs directly on the vehicle, ensuring perfect alignment and eliminating runout issues. Ideal for automotive workshops requiring efficient brake service solutions.",
+    "specs": [
+      "On-car operation",
+      "Precision cutting system",
+      "Adjustable cutting depth",
+      "Universal adapter kit",
+      "Dust collection system",
+      "Quiet operation"
+    ],
+    "heroImages": [
+      "images-new/unite-bl-202-on-car-brake-disc-lathe.jpg"
+    ],
+    "features": [
+      {
+        "title": "On-Car Resurfacing",
+        "description": "Resurface brake discs without removing wheels for perfect alignment",
+        "image": "images-new/unite-bl-202-on-car-brake-disc-lathe.jpg"
+      },
+      {
+        "title": "Precision Cutting",
+        "description": "Advanced cutting system delivers smooth, accurate rotor surfaces",
+        "image": "images-new/unite-bl-202-on-car-brake-disc-lathe.jpg"
+      },
+      {
+        "title": "Universal Adapters",
+        "description": "Compatible with most vehicle makes and models",
+        "image": "images-new/unite-bl-202-on-car-brake-disc-lathe.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "On-Car Brake Disc Lathe"
+      },
+      {
+        "label": "Operation",
+        "value": "On-car"
+      },
+      {
+        "label": "Brand",
+        "value": "UNITE"
+      }
+    ]
+  },
+  {
+    "id": "launch-smartsafe-x861l",
+    "name": "LAUNCH SMARTSAFE X861L",
+    "brand": "LAUNCH/SMARTSAFE",
+    "category": "Wheel Equipment",
+    "summary": "Stationary 3D wheel aligner with advanced camera technology",
+    "description": "The LAUNCH SMARTSAFE X861L is a stationary 3D wheel alignment system featuring advanced camera technology for precise measurements. It provides comprehensive alignment data for all four wheels simultaneously, making it ideal for busy automotive workshops. The system includes a detailed database of vehicle specifications and generates professional alignment reports.",
+    "specs": [
+      "3D camera measurement system",
+      "Four-wheel simultaneous alignment",
+      "Large vehicle database",
+      "Automatic camber/caster measurement",
+      "Professional reporting software",
+      "User-friendly interface"
+    ],
+    "heroImages": [
+      "images-new/launch-smartsafe-x861l_1.jpg"
+    ],
+    "features": [
+      {
+        "title": "3D Camera System",
+        "description": "Advanced camera technology provides precise alignment measurements",
+        "image": "images-new/launch-smartsafe-x861l_1.jpg"
+      },
+      {
+        "title": "Simultaneous Alignment",
+        "description": "Measures all four wheels at once for faster service times",
+        "image": "images-new/launch-smartsafe-x861l_1.jpg"
+      },
+      {
+        "title": "Vehicle Database",
+        "description": "Comprehensive database includes specifications for thousands of vehicles",
+        "image": "images-new/launch-smartsafe-x861l_1.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "3D Wheel Aligner"
+      },
+      {
+        "label": "Measurement",
+        "value": "3D Camera"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH/SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "launch-smartsafe-x861-pro",
+    "name": "LAUNCH SMARTSAFE X861 PRO",
+    "brand": "LAUNCH/SMARTSAFE",
+    "category": "Wheel Equipment",
+    "summary": "Four-wheel alignment machine with enhanced precision and speed",
+    "description": "The LAUNCH SMARTSAFE X861 PRO is a professional four-wheel alignment machine featuring enhanced precision sensors and faster measurement capabilities. It provides comprehensive alignment diagnostics including camber, caster, toe, and thrust angle measurements. The system is designed for high-volume workshops requiring quick and accurate alignment services.",
+    "specs": [
+      "Enhanced precision sensors",
+      "Four-wheel measurement",
+      "Quick measurement cycle",
+      "Camber, caster, toe analysis",
+      "Thrust angle measurement",
+      "Color display interface"
+    ],
+    "heroImages": [
+      "images-new/launch-smartsafe-x861-pro.png"
+    ],
+    "features": [
+      {
+        "title": "Enhanced Precision",
+        "description": "High-accuracy sensors provide reliable alignment measurements",
+        "image": "images-new/launch-smartsafe-x861-pro.png"
+      },
+      {
+        "title": "Fast Measurement",
+        "description": "Quick measurement cycle increases workshop throughput",
+        "image": "images-new/launch-smartsafe-x861-pro.png"
+      },
+      {
+        "title": "Complete Analysis",
+        "description": "Measures all alignment angles including thrust angle",
+        "image": "images-new/launch-smartsafe-x861-pro.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Four-Wheel Alignment Machine"
+      },
+      {
+        "label": "Measurement",
+        "value": "Four-wheel"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH/SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "launch-smartsafe-x613",
+    "name": "LAUNCH SMARTSAFE X613",
+    "brand": "LAUNCH/SMARTSAFE",
+    "category": "Wheel Equipment",
+    "summary": "Professional wheel aligner with CCD sensor technology",
+    "description": "The LAUNCH SMARTSAFE X613 is a professional wheel alignment system utilizing CCD sensor technology for accurate measurements. It provides comprehensive wheel alignment services including front and rear wheel adjustments. The system features a user-friendly interface and detailed alignment reports for customer documentation.",
+    "specs": [
+      "CCD sensor technology",
+      "Front and rear alignment",
+      "User-friendly interface",
+      "Detailed reporting",
+      "Wireless communication",
+      "Compact design"
+    ],
+    "heroImages": [
+      "images-new/launch-smartsafe-x613_2.webp",
+      "images-new/launch-smartsafe-x613_3.webp"
+    ],
+    "features": [
+      {
+        "title": "CCD Technology",
+        "description": "Advanced CCD sensors provide accurate alignment readings",
+        "image": "images-new/launch-smartsafe-x613_2.webp"
+      },
+      {
+        "title": "Complete Alignment",
+        "description": "Full front and rear wheel alignment capability",
+        "image": "images-new/launch-smartsafe-x613_2.webp"
+      },
+      {
+        "title": "Wireless Operation",
+        "description": "Wireless sensor communication eliminates cable clutter",
+        "image": "images-new/launch-smartsafe-x613_2.webp"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "CCD Wheel Aligner"
+      },
+      {
+        "label": "Sensor",
+        "value": "CCD Technology"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH/SMARTSAFE"
+      }
+    ]
+  },
+  {
+    "id": "unite-g68",
+    "name": "UNITE G68",
+    "brand": "UNITE",
+    "category": "Wheel Equipment",
+    "summary": "Digital wheel balancer with LCD display, precision calibration, and heavy-duty motor",
+    "description": "The G-68 Digital Wheel Balancer is the perfect solution for modern automotive workshops, tire service centers, and repair garages. It offers precision calibration, multiple balancing programs, easy operation, heavy-duty durability, automatic positioning, and quick cycle time. Built with advanced LCD digital display technology, the G-68 guarantees accurate and user-friendly operation for technicians. Its reinforced steel design ensures stability and vibration-free performance, making it suitable for demanding, high-volume conditions.",
+    "specs": [
+      "PRECISION CALIBRATION: G-68 Wheel Balancer measures with high accuracy and supports wheels up to 24 inches",
+      "MULTIPLE MODES: Includes 9 dynamic and static balancing programs",
+      "EASY OPERATION: Features an LCD digital display with user-friendly touch controls",
+      "HEAVY-DUTY DESIGN: Made with reinforced steel housing that provides stability and vibration-free operation",
+      "AUTO POSITIONING: Automatic stop at unbalanced point with precision correction",
+      "QUICK CYCLE TIME: Fast measurement and calibration improve workflow efficiency"
+    ],
+    "heroImages": [
+      "images-new/unite-g68.jpg"
+    ],
+    "features": [
+      {
+        "title": "Precision Calibration",
+        "description": "Measures with high accuracy and supports wheels up to 24 inches for professional automotive workshops",
+        "image": "images-new/unite-g68.jpg"
+      },
+      {
+        "title": "9 Balancing Modes",
+        "description": "Includes 9 dynamic and static balancing programs for endless workshop possibilities",
+        "image": "images-new/unite-g68.jpg"
+      },
+      {
+        "title": "LCD Display",
+        "description": "Features an LCD digital display with user-friendly touch controls for fast and precise readings",
+        "image": "images-new/unite-g68.jpg"
+      },
+      {
+        "title": "Heavy-Duty Design",
+        "description": "Made with reinforced steel housing that provides stability and vibration-free operation",
+        "image": "images-new/unite-g68.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Product Code",
+        "value": "G68"
+      },
+      {
+        "label": "Balancing Modes",
+        "value": "9"
+      },
+      {
+        "label": "Balancing Speed",
+        "value": "200 r.p.m"
+      },
+      {
+        "label": "Rim Diameter",
+        "value": "252-610 mm (10\"-24\")"
+      },
+      {
+        "label": "Rim Width",
+        "value": "40-510 mm (1.5\"-20\")"
+      },
+      {
+        "label": "Measuring Time",
+        "value": "8s"
+      },
+      {
+        "label": "Balancing Accuracy",
+        "value": "\u00b11g(\u00b10.04 oz)"
+      },
+      {
+        "label": "Max. Wheel Weight",
+        "value": "65 kg (143 lbs)"
+      },
+      {
+        "label": "Power Supply",
+        "value": "110v (1ph)/ 220v (1ph)"
+      },
+      {
+        "label": "Motor Power",
+        "value": "0.20kw"
+      },
+      {
+        "label": "Noise Level",
+        "value": "< 70dB"
+      },
+      {
+        "label": "Weight",
+        "value": "102/126kg (225/278 lbs)"
+      }
+    ]
+  },
+  {
+    "id": "unite-g55",
+    "name": "UNITE G55",
+    "brand": "UNITE",
+    "category": "Wheel Equipment",
+    "summary": "Self-calibrating computer wheel balancer with pro-line design",
+    "description": "The UNITE G55 is a professional self-calibrating computer wheel balancer featuring pro-line design and advanced balancing technology. It provides accurate wheel balancing for passenger vehicles with automatic calibration and user-friendly operation. The compact design fits most workshop spaces while delivering professional-grade performance.",
+    "specs": [
+      "Self-calibrating system",
+      "Computer-controlled balancing",
+      "Automatic measurement",
+      "LCD display",
+      "Compact design",
+      "Multiple balancing modes"
+    ],
+    "heroImages": [
+      "images-new/unite-g55.jpg"
+    ],
+    "features": [
+      {
+        "title": "Self-Calibrating",
+        "description": "Automatic calibration ensures consistent accuracy over time",
+        "image": "images-new/unite-g55.jpg"
+      },
+      {
+        "title": "Computer Control",
+        "description": "Advanced computer system provides precise balancing calculations",
+        "image": "images-new/unite-g55.jpg"
+      },
+      {
+        "title": "Compact Design",
+        "description": "Space-saving design fits smaller workshops without compromising performance",
+        "image": "images-new/unite-g55.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Computer Wheel Balancer"
+      },
+      {
+        "label": "Calibration",
+        "value": "Self-calibrating"
+      },
+      {
+        "label": "Brand",
+        "value": "UNITE"
+      }
+    ]
+  },
+  {
+    "id": "launch-crp-919-max",
+    "name": "LAUNCH CRP 919 MAX",
+    "brand": "LAUNCH",
+    "category": "Scanners",
+    "summary": "Full-system diagnostic scanner with comprehensive coverage and bi-directional control",
+    "description": "The LAUNCH CRP 919 MAX is a professional full-system diagnostic scanner featuring comprehensive vehicle coverage and bi-directional control capabilities. It provides complete diagnostics for all vehicle systems including engine, transmission, ABS, SRS, and more. The tablet-style interface offers intuitive operation and regular software updates keep coverage current.",
+    "specs": [
+      "Full-system diagnostics",
+      "Bi-directional control",
+      "Comprehensive vehicle coverage",
+      "Tablet-style interface",
+      "Regular software updates",
+      "Service reset functions"
+    ],
+    "heroImages": [
+      "images-new/launch-crp-919-max.png",
+      "images-new/launch-crp-919-max_1.png",
+      "images-new/launch-crp-919-max_2.png",
+      "images-new/launch-crp-919-max_3.png"
+    ],
+    "features": [
+      {
+        "title": "Full-System Coverage",
+        "description": "Diagnoses all vehicle systems including engine, transmission, ABS, SRS, and more",
+        "image": "images-new/launch-crp-919-max.png"
+      },
+      {
+        "title": "Bi-Directional Control",
+        "description": "Actuates components for active testing and verification",
+        "image": "images-new/launch-crp-919-max.png"
+      },
+      {
+        "title": "Service Functions",
+        "description": "Performs oil reset, EPB, SAS, DPF, and other maintenance functions",
+        "image": "images-new/launch-crp-919-max.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Full-System Diagnostic Scanner"
+      },
+      {
+        "label": "Display",
+        "value": "Tablet-style"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-pro-se-2026",
+    "name": "LAUNCH PRO SE 2026 MODEL",
+    "brand": "LAUNCH",
+    "category": "Scanners",
+    "summary": "Professional diagnostic scanner with enhanced hardware and software",
+    "description": "The LAUNCH PRO SE 2026 MODEL is an enhanced professional diagnostic scanner featuring upgraded hardware specifications and expanded software capabilities. It provides comprehensive diagnostics for passenger and light commercial vehicles with fast processing speed and extensive vehicle coverage. The device supports advanced functions including coding and programming for compatible vehicles.",
+    "specs": [
+      "Enhanced hardware specifications",
+      "Extended vehicle coverage",
+      "Fast processing speed",
+      "Coding and programming support",
+      "Cloud-based updates",
+      "Professional reporting"
+    ],
+    "heroImages": [
+      "images-new/launch-pro-se-2026_1.webp",
+      "images-new/launch-pro-se-2026_2.webp"
+    ],
+    "features": [
+      {
+        "title": "Enhanced Hardware",
+        "description": "Upgraded processor and memory for faster diagnostics",
+        "image": "images-new/launch-pro-se-2026_1.webp"
+      },
+      {
+        "title": "Coding Support",
+        "description": "Supports coding and programming functions for compatible vehicles",
+        "image": "images-new/launch-pro-se-2026_1.webp"
+      },
+      {
+        "title": "Cloud Updates",
+        "description": "Cloud-based software updates keep coverage current",
+        "image": "images-new/launch-pro-se-2026_1.webp"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Professional Diagnostic Scanner"
+      },
+      {
+        "label": "Model Year",
+        "value": "2026"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-pro-3-link",
+    "name": "LAUNCH PRO 3 LINK",
+    "brand": "LAUNCH",
+    "category": "Scanners",
+    "summary": "Advanced diagnostic platform with wireless connectivity and comprehensive coverage",
+    "description": "The LAUNCH PRO 3 LINK is an advanced diagnostic platform featuring wireless VCI connectivity and comprehensive vehicle coverage. It provides professional-grade diagnostics with fast data transfer and extensive system coverage. The platform supports advanced functions including ECU coding, programming, and comprehensive service resets.",
+    "specs": [
+      "Wireless VCI connectivity",
+      "Comprehensive system coverage",
+      "ECU coding and programming",
+      "Fast data transfer",
+      "Extensive vehicle database",
+      "Professional reporting tools"
+    ],
+    "heroImages": [
+      "images-new/launch-pro-3-link.png",
+      "images-new/launch-pro-3-link_1.png",
+      "images-new/launch-pro-3-link_2.png",
+      "images-new/launch-pro-3-link_3.png"
+    ],
+    "features": [
+      {
+        "title": "Wireless Connectivity",
+        "description": "Wireless VCI eliminates cable clutter and provides freedom of movement",
+        "image": "images-new/launch-pro-3-link.png"
+      },
+      {
+        "title": "ECU Programming",
+        "description": "Supports coding and programming for compatible ECUs",
+        "image": "images-new/launch-pro-3-link.png"
+      },
+      {
+        "title": "Fast Diagnostics",
+        "description": "High-speed data transfer enables quick system scanning",
+        "image": "images-new/launch-pro-3-link.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Advanced Diagnostic Platform"
+      },
+      {
+        "label": "Connectivity",
+        "value": "Wireless VCI"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-pad-9-link",
+    "name": "LAUNCH PAD 9 LINK",
+    "brand": "LAUNCH",
+    "category": "Scanners",
+    "summary": "High-end diagnostic tablet with 9-inch display and comprehensive functionality",
+    "description": "The LAUNCH PAD 9 LINK is a high-end diagnostic tablet featuring a large 9-inch display and comprehensive diagnostic functionality. It provides professional-grade diagnostics for all vehicle systems with an intuitive touchscreen interface. The device supports advanced functions including ECU coding, programming, and extensive service reset capabilities.",
+    "specs": [
+      "9-inch touchscreen display",
+      "Full-system diagnostics",
+      "ECU coding and programming",
+      "Wireless connectivity",
+      "Comprehensive service functions",
+      "Professional reporting"
+    ],
+    "heroImages": [
+      "images-new/launch-pad-9-link_1.png"
+    ],
+    "features": [
+      {
+        "title": "Large Display",
+        "description": "9-inch touchscreen provides clear data visualization and easy operation",
+        "image": "images-new/launch-pad-9-link_1.png"
+      },
+      {
+        "title": "Full Diagnostics",
+        "description": "Comprehensive coverage of all vehicle systems and modules",
+        "image": "images-new/launch-pad-9-link_1.png"
+      },
+      {
+        "title": "Advanced Functions",
+        "description": "Supports coding, programming, and extensive service resets",
+        "image": "images-new/launch-pad-9-link_1.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Diagnostic Tablet"
+      },
+      {
+        "label": "Display",
+        "value": "9-inch"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-crt-511s-v2",
+    "name": "CRT 511S V2",
+    "brand": "LAUNCH",
+    "category": "Scanners",
+    "summary": "TPMS diagnostic tool with sensor programming and activation",
+    "description": "The CRT 511S V2 is a professional TPMS diagnostic tool featuring sensor programming, activation, and relearn capabilities. It supports most TPMS sensors on the market and provides comprehensive diagnostic functions for tire pressure monitoring systems. The device features a user-friendly interface and regular database updates.",
+    "specs": [
+      "TPMS sensor programming",
+      "Sensor activation",
+      "Relearn procedures",
+      "Wide sensor coverage",
+      "OBDII diagnostics",
+      "Regular database updates"
+    ],
+    "heroImages": [
+      "images-new/launch-crt-511s-v2.png",
+      "images-new/launch-crt-511s-v2_1.png",
+      "images-new/launch-crt-511s-v2_2.png",
+      "images-new/launch-crt-511s-v2_3.png",
+      "images-new/launch-crt-511s-v2_4.png"
+    ],
+    "features": [
+      {
+        "title": "Sensor Programming",
+        "description": "Programs new TPMS sensors with vehicle-specific data",
+        "image": "images-new/launch-crt-511s-v2.png"
+      },
+      {
+        "title": "Sensor Activation",
+        "description": "Activates and tests TPMS sensors before installation",
+        "image": "images-new/launch-crt-511s-v2.png"
+      },
+      {
+        "title": "Relearn Procedures",
+        "description": "Performs sensor relearn procedures for various vehicle makes",
+        "image": "images-new/launch-crt-511s-v2.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "TPMS Diagnostic Tool"
+      },
+      {
+        "label": "Function",
+        "value": "Programming/Activation"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "launch-i-tpms",
+    "name": "LAUNCH I-TPMS",
+    "brand": "LAUNCH",
+    "category": "Scanners",
+    "summary": "Intelligent TPMS service tool with comprehensive diagnostics",
+    "description": "The LAUNCH I-TPMS is an intelligent TPMS service tool designed for comprehensive tire pressure monitoring system diagnostics. It provides sensor testing, activation, programming, and vehicle relearn procedures. The device supports a wide range of sensor types and vehicle makes, making it ideal for automotive workshops offering TPMS services.",
+    "specs": [
+      "Comprehensive TPMS diagnostics",
+      "Sensor activation and testing",
+      "Sensor programming capability",
+      "Vehicle relearn procedures",
+      "Wide vehicle coverage",
+      "User-friendly interface"
+    ],
+    "heroImages": [
+      "images-new/launch-i-tpms.png",
+      "images-new/launch-i-tpms_1.png",
+      "images-new/launch-i-tpms_2.png"
+    ],
+    "features": [
+      {
+        "title": "Complete TPMS Service",
+        "description": "Full range of TPMS diagnostic and service functions",
+        "image": "images-new/launch-i-tpms.png"
+      },
+      {
+        "title": "Sensor Testing",
+        "description": "Tests sensor battery life, signal strength, and functionality",
+        "image": "images-new/launch-i-tpms.png"
+      },
+      {
+        "title": "Wide Coverage",
+        "description": "Supports TPMS systems from major vehicle manufacturers",
+        "image": "images-new/launch-i-tpms.png"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "TPMS Service Tool"
+      },
+      {
+        "label": "Function",
+        "value": "Diagnostics/Programming"
+      },
+      {
+        "label": "Brand",
+        "value": "LAUNCH"
+      }
+    ]
+  },
+  {
+    "id": "unite-4-ton-2-post-clearfloor-lift-pl-4-2dbs",
+    "name": "Unite 4 ton 2 post clearfloor lift (PL 4 2DBS)",
+    "brand": "UNITE",
+    "category": "Car Lifts",
+    "summary": "Professional 4-ton two-post clearfloor lift for automotive workshops",
+    "description": "The UNITE PL 4 2DBS is a professional-grade 4-ton capacity two-post clearfloor lift designed for automotive service centers and workshops. The clearfloor design provides unobstructed access to the vehicle undercarriage, making it ideal for exhaust, transmission, and suspension work. Features symmetric arms suitable for a wide range of vehicle types.",
+    "specs": [
+      "4-ton lifting capacity",
+      "Two-post clearfloor design",
+      "Symmetric arm configuration",
+      "Hydraulic lifting system",
+      "Safety lock mechanisms",
+      "Durable steel construction"
+    ],
+    "heroImages": [
+      "images-new/unite-4-ton-2-post-clearfloor-lift-pl-4-2dbs.jpg"
+    ],
+    "features": [
+      {
+        "title": "4-Ton Capacity",
+        "description": "Heavy-duty 4-ton capacity suitable for cars, SUVs, and light trucks",
+        "image": "images-new/unite-4-ton-2-post-clearfloor-lift-pl-4-2dbs.jpg"
+      },
+      {
+        "title": "Clearfloor Design",
+        "description": "Unobstructed floor space provides easy access to vehicle undercarriage",
+        "image": "images-new/unite-4-ton-2-post-clearfloor-lift-pl-4-2dbs.jpg"
+      },
+      {
+        "title": "Symmetric Arms",
+        "description": "Symmetric arm configuration accommodates various vehicle wheelbases",
+        "image": "images-new/unite-4-ton-2-post-clearfloor-lift-pl-4-2dbs.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Two-Post Clearfloor Lift"
+      },
+      {
+        "label": "Capacity",
+        "value": "4 tons"
+      },
+      {
+        "label": "Model",
+        "value": "PL 4 2DBS"
+      },
+      {
+        "label": "Brand",
+        "value": "UNITE"
+      }
+    ]
+  },
+  {
+    "id": "unite-4-ton-2-post-baseplate-lift-pl-4-2d",
+    "name": "Unite 4 ton 2 post baseplate lift (PL 4 2D)",
+    "brand": "UNITE",
+    "category": "Car Lifts",
+    "summary": "Professional 4-ton two-post baseplate lift with symmetric arms",
+    "description": "The UNITE PL 4 2D is a professional 4-ton capacity two-post baseplate lift featuring symmetric arm configuration for versatile vehicle accommodation. The baseplate design provides stability while allowing installation in workshops with lower ceiling heights. Ideal for automotive service centers requiring reliable lifting equipment for daily operations.",
+    "specs": [
+      "4-ton lifting capacity",
+      "Two-post baseplate design",
+      "Symmetric arms",
+      "Dual hydraulic cylinders",
+      "Automatic safety locks",
+      "Powder-coated finish"
+    ],
+    "heroImages": [
+      "images-new/unite-4-ton-2-post-baseplate-lift-pl-4-2d.jpg"
+    ],
+    "features": [
+      {
+        "title": "Heavy-Duty Capacity",
+        "description": "4-ton capacity handles most passenger vehicles and light trucks",
+        "image": "images-new/unite-4-ton-2-post-baseplate-lift-pl-4-2d.jpg"
+      },
+      {
+        "title": "Baseplate Design",
+        "description": "Baseplate-mounted columns suitable for lower ceiling installations",
+        "image": "images-new/unite-4-ton-2-post-baseplate-lift-pl-4-2d.jpg"
+      },
+      {
+        "title": "Dual Cylinders",
+        "description": "Dual hydraulic cylinders ensure smooth and balanced lifting",
+        "image": "images-new/unite-4-ton-2-post-baseplate-lift-pl-4-2d.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Two-Post Baseplate Lift"
+      },
+      {
+        "label": "Capacity",
+        "value": "4 tons"
+      },
+      {
+        "label": "Model",
+        "value": "PL 4 2D"
+      },
+      {
+        "label": "Brand",
+        "value": "UNITE"
+      }
+    ]
+  },
+  {
+    "id": "unite-midrise-scissor-lift-uz30c",
+    "name": "Unite MIDRISE SCISSOR LIFT (MODEL UZ30C)",
+    "brand": "UNITE",
+    "category": "Car Lifts",
+    "summary": "Mid-rise scissor lift for wheel service and body work",
+    "description": "The UNITE UZ30C Midrise Scissor Lift is designed for wheel service, brake work, and body repairs. The mid-rise height provides comfortable working access while maintaining a compact footprint. Features a hydraulic scissor mechanism for smooth lifting operation and automatic safety locks for secure positioning.",
+    "specs": [
+      "Mid-rise lifting height",
+      "Scissor lift mechanism",
+      "Hydraulic operation",
+      "Automatic safety locks",
+      "Compact footprint",
+      "Suitable for wheel service"
+    ],
+    "heroImages": [
+      "images-new/unite-midrise-scissor-lift-uz30c.jpg"
+    ],
+    "features": [
+      {
+        "title": "Mid-Rise Height",
+        "description": "Optimal height for wheel service, brake work, and body repairs",
+        "image": "images-new/unite-midrise-scissor-lift-uz30c.jpg"
+      },
+      {
+        "title": "Scissor Mechanism",
+        "description": "Hydraulic scissor mechanism provides smooth and stable lifting",
+        "image": "images-new/unite-midrise-scissor-lift-uz30c.jpg"
+      },
+      {
+        "title": "Compact Design",
+        "description": "Space-saving design fits smaller workshops and service bays",
+        "image": "images-new/unite-midrise-scissor-lift-uz30c.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Mid-Rise Scissor Lift"
+      },
+      {
+        "label": "Model",
+        "value": "UZ30C"
+      },
+      {
+        "label": "Brand",
+        "value": "UNITE"
+      }
+    ]
+  },
+  {
+    "id": "unite-4-post-lift",
+    "name": "UNITE 4 POST LIFT",
+    "brand": "UNITE",
+    "category": "Car Lifts",
+    "summary": "Heavy-duty four-post lift for alignment and service work",
+    "description": "The UNITE 4 Post Lift is a heavy-duty automotive lift designed for wheel alignment, tire service, and general vehicle maintenance. The four-post design provides excellent stability and features rolling jacks for lifting wheels off the runways. Ideal for alignment services and workshops requiring versatile lifting equipment.",
+    "specs": [
+      "Four-post design",
+      "High lifting capacity",
+      "Alignment-ready runways",
+      "Rolling jack capability",
+      "Hydraulic drive system",
+      "Safety descent controls"
+    ],
+    "heroImages": [
+      "images-new/unite-4-post-lift.jpg"
+    ],
+    "features": [
+      {
+        "title": "Four-Post Stability",
+        "description": "Four-post design provides maximum stability during lifting operations",
+        "image": "images-new/unite-4-post-lift.jpg"
+      },
+      {
+        "title": "Alignment Ready",
+        "description": "Runways designed for wheel alignment equipment integration",
+        "image": "images-new/unite-4-post-lift.jpg"
+      },
+      {
+        "title": "Rolling Jacks",
+        "description": "Optional rolling jacks lift wheels off runways for brake and tire service",
+        "image": "images-new/unite-4-post-lift.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Four-Post Lift"
+      },
+      {
+        "label": "Design",
+        "value": "Four-post"
+      },
+      {
+        "label": "Brand",
+        "value": "UNITE"
+      }
+    ]
+  },
+  {
+    "id": "liberty-lift-full-rise-scissor-lift",
+    "name": "LIBERTY LIFT FULL RISE SCISSOR LIFT",
+    "brand": "LIBERTY LIFT",
+    "category": "Car Lifts",
+    "summary": "Full-rise scissor lift for complete undercarriage access",
+    "description": "The LIBERTY LIFT Full Rise Scissor Lift provides full-rise height capability for complete undercarriage access. The scissor mechanism offers smooth lifting operation and the full-rise height allows technicians to work comfortably underneath vehicles. Features safety locks and durable construction for reliable daily use.",
+    "specs": [
+      "Full-rise lifting height",
+      "Scissor lift mechanism",
+      "Hydraulic power unit",
+      "Multiple safety locks",
+      "Durable steel construction",
+      "Suitable for service bays"
+    ],
+    "heroImages": [
+      "images-new/liberty-lift-full-rise-scissor-lift.jpg"
+    ],
+    "features": [
+      {
+        "title": "Full-Rise Height",
+        "description": "Complete rise height provides full undercarriage access for all service work",
+        "image": "images-new/liberty-lift-full-rise-scissor-lift.jpg"
+      },
+      {
+        "title": "Scissor Mechanism",
+        "description": "Reliable scissor mechanism ensures smooth lifting and lowering",
+        "image": "images-new/liberty-lift-full-rise-scissor-lift.jpg"
+      },
+      {
+        "title": "Safety Locks",
+        "description": "Multiple safety lock positions ensure secure vehicle positioning",
+        "image": "images-new/liberty-lift-full-rise-scissor-lift.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Full-Rise Scissor Lift"
+      },
+      {
+        "label": "Height",
+        "value": "Full-rise"
+      },
+      {
+        "label": "Brand",
+        "value": "LIBERTY LIFT"
+      }
+    ]
+  },
+  {
+    "id": "liberty-lift-6-8-ton-super-heavy-duty-car-lift",
+    "name": "LIBERTY LIFT 6.8 TON SUPER HEAVYDUTY CAR LIFT",
+    "brand": "LIBERTY LIFT",
+    "category": "Car Lifts",
+    "summary": "Super heavy-duty car lift with 6.8-ton capacity for commercial vehicles",
+    "description": "The LIBERTY LIFT 6.8 Ton Super Heavy Duty Car Lift is designed for commercial vehicles, trucks, and heavy-duty applications. With exceptional 6.8-ton capacity, it handles the heaviest vehicles in the shop. Features reinforced construction, heavy-duty hydraulics, and multiple safety systems for reliable operation under maximum loads.",
+    "specs": [
+      "6.8-ton lifting capacity",
+      "Super heavy-duty construction",
+      "Reinforced structural steel",
+      "Heavy-duty hydraulic system",
+      "Commercial vehicle capable",
+      "Multiple redundant safeties"
+    ],
+    "heroImages": [
+      "images-new/liberty-lift-6-8-ton-super-heavy-duty-car-lift.jpg",
+      "images-new/liberty-lift-6-8-ton-super-heavy-duty-car-lift_1.jpg"
+    ],
+    "features": [
+      {
+        "title": "6.8-Ton Capacity",
+        "description": "Exceptional 6.8-ton capacity handles commercial trucks and heavy vehicles",
+        "image": "images-new/liberty-lift-6-8-ton-super-heavy-duty-car-lift.jpg"
+      },
+      {
+        "title": "Heavy-Duty Build",
+        "description": "Reinforced steel construction designed for maximum loads",
+        "image": "images-new/liberty-lift-6-8-ton-super-heavy-duty-car-lift.jpg"
+      },
+      {
+        "title": "Commercial Grade",
+        "description": "Built for commercial vehicle service centers and heavy-duty workshops",
+        "image": "images-new/liberty-lift-6-8-ton-super-heavy-duty-car-lift.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Super Heavy-Duty Lift"
+      },
+      {
+        "label": "Capacity",
+        "value": "6.8 tons"
+      },
+      {
+        "label": "Brand",
+        "value": "LIBERTY LIFT"
+      }
+    ]
+  },
+  {
+    "id": "liberty-lift-5-ton-wheel-alignment-scissor-lift",
+    "name": "LIBERTY LIFT 5 TON WHEEL ALIGNMENT SCISSOR LIFT",
+    "brand": "LIBERTY LIFT",
+    "category": "Car Lifts",
+    "summary": "Wheel alignment scissor lift with integrated turntables and slip plates",
+    "description": "The LIBERTY LIFT 5 Ton Wheel Alignment Scissor Lift combines lifting capability with integrated alignment equipment. Features built-in turntables and slip plates for complete four-wheel alignment service. The scissor design provides stable lifting while the alignment-ready platform streamlines service workflow.",
+    "specs": [
+      "5-ton lifting capacity",
+      "Integrated turnplates",
+      "Slip plate system",
+      "Scissor lift design",
+      "Alignment-ready platform",
+      "Hydraulic operation"
+    ],
+    "heroImages": [
+      "images-new/liberty-lift-5-ton-wheel-alignment-scissor-lift.jpg",
+      "images-new/liberty-lift-5-ton-wheel-alignment-scissor-lift_1.jpg"
+    ],
+    "features": [
+      {
+        "title": "Integrated Alignment",
+        "description": "Built-in turnplates and slip plates ready for wheel alignment service",
+        "image": "images-new/liberty-lift-5-ton-wheel-alignment-scissor-lift.jpg"
+      },
+      {
+        "title": "5-Ton Capacity",
+        "description": "5-ton capacity accommodates most passenger vehicles and light trucks",
+        "image": "images-new/liberty-lift-5-ton-wheel-alignment-scissor-lift.jpg"
+      },
+      {
+        "title": "Alignment Platform",
+        "description": "Specialized platform designed for accurate alignment measurements",
+        "image": "images-new/liberty-lift-5-ton-wheel-alignment-scissor-lift.jpg"
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Wheel Alignment Lift"
+      },
+      {
+        "label": "Capacity",
+        "value": "5 tons"
+      },
+      {
+        "label": "Features",
+        "value": "Turnplates & Slip Plates"
+      },
+      {
+        "label": "Brand",
+        "value": "LIBERTY LIFT"
+      }
+    ]
+  },
+  {
+    "id": "unite-hf50a-dent-puller",
+    "name": "UNITE HF50A DENT PULLER",
+    "brand": "UNITE",
+    "category": "Denting and Painting Tools",
+    "summary": "Professional spot welder dent puller for auto body repair",
+    "description": "The UNITE HF50A Dent Puller is a professional-grade spot welding dent removal system designed for auto body repair shops. It uses spot welding technology to weld pulling pins onto damaged panels, allowing technicians to pull out dents with precision control. Features adjustable power settings and various pulling accessories for different dent types.",
+    "specs": [
+      "Spot welding dent removal",
+      "Adjustable power settings",
+      "Multiple pulling accessories",
+      "Professional-grade welder",
+      "Portable design",
+      "Suitable for steel panels"
+    ],
+    "heroImages": [],
+    "features": [
+      {
+        "title": "Spot Weld Technology",
+        "description": "Welds pulling pins directly to damaged panels for controlled dent removal",
+        "image": ""
+      },
+      {
+        "title": "Adjustable Power",
+        "description": "Variable power settings for different panel thicknesses and dent sizes",
+        "image": ""
+      },
+      {
+        "title": "Professional Grade",
+        "description": "Built for professional auto body shops with heavy-duty construction",
+        "image": ""
+      }
+    ],
+    "technicalTable": [
+      {
+        "label": "Type",
+        "value": "Spot Weld Dent Puller"
+      },
+      {
+        "label": "Model",
+        "value": "HF50A"
+      },
+      {
+        "label": "Application",
+        "value": "Steel Panels"
+      },
+      {
+        "label": "Brand",
+        "value": "UNITE"
+      }
+    ]
+  }
+]

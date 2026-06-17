@@ -1,0 +1,1458 @@
+[
+  {
+    "brand": "SmartSafe",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "SmartSafe CNC 605 PRO PLUS is a cleaning and testing equipment suitable for piezoelectric (140V), GDI (65V/12V) and conventional fuel injectors. It uses ultrasonic cleaning technology combined with microprocessor oil pressure control technology to simulate various engine working conditions and clean and test automobile fuel injectors.",
+    "features": [
+      {
+        "description": "Can select EFI (12V), GDI (65V) or PIEZO (140V) operating mode based on the injector type",
+        "image": "images-new/cnc-605-pro-plus.jpg",
+        "title": "Multi-Mode Operation"
+      },
+      {
+        "description": "Capable of simultaneously ultrasonic cleaning multiple injectors, effectively removing carbon buildup",
+        "image": "images-new/cnc-605-pro-plus.jpg",
+        "title": "Ultrasonic Cleaning"
+      },
+      {
+        "description": "Includes low resistance testing, uniformity/spray testing, sealing test, and fuel injection quantity detection",
+        "image": "images-new/cnc-605-pro-plus.jpg",
+        "title": "Comprehensive Testing"
+      }
+    ],
+    "heroImages": [
+      "images-new/cnc-605-pro-plus.jpg"
+    ],
+    "id": "cnc-605-pro-plus",
+    "name": "CNC 605 PRO PLUS",
+    "specs": [
+      "Working mode selection: Can select EFI (12V), GDI (65V) or PIEZO (140V) operating mode based on the injector type",
+      "Ultrasonic Cleaning: Capable of simultaneously ultrasonic cleaning multiple injectors, effectively removing carbon buildup",
+      "Low resistance testing: Supports low-resistance injector testing, capable of detecting short circuits and open circuits in fuel injectors",
+      "Uniformity/Spray Testing Function: Detects the uniformity of fuel injection quantity for each injector and the spray atomization of the injector can be comprehensively and carefully observed using the background light",
+      "Sealing Test Function: Tests the sealing and leakage of injectors under system pressure",
+      "Fuel Injection Quantity Detection Function: Measures the fuel injection quantity of injectors under a constant 15-second injection condition",
+      "Automatic Cleaning and Testing Function: Under specific working parameters, realistically simulates injector testing under various conditions",
+      "Reverse Flush Function: For the uniformity/spray testing item, performs a reverse flush using a reverse flush adapter to remove internal injector contaminants and residues attached to the filter screen",
+      "Non-Dismantle Cleaning Function: Equipped with various non-dismantle cleaning adapters, allowing non-dismantle cleaning and maintenance for multiple vehicle models"
+    ],
+    "summary": "CNC605+ is a cleaning and testing equipment suitable for piezoelectric (140V), GDI (65V/12V) and conventional fuel injectors.",
+    "technicalTable": [
+      {
+        "label": "Host power supply",
+        "value": "AC110V/AC220V 50Hz/60Hz"
+      },
+      {
+        "label": "Simulation speed range",
+        "value": "100~9900rpm Step length 10rpm"
+      },
+      {
+        "label": "Host power",
+        "value": "500W"
+      },
+      {
+        "label": "Pulse Width",
+        "value": "0.1-25ms, step length: 0.1ms"
+      },
+      {
+        "label": "Fuel tank capacity",
+        "value": "2500 ml"
+      },
+      {
+        "label": "Resistance test accuracy",
+        "value": "1%"
+      },
+      {
+        "label": "Ultrasonic cleaning machine power",
+        "value": "100W"
+      },
+      {
+        "label": "Resistance test range",
+        "value": "0-100\u03a9"
+      },
+      {
+        "label": "Working pressure",
+        "value": "0.1-9bar"
+      },
+      {
+        "label": "Host size",
+        "value": "412\u00d7398\u00d7550mm"
+      }
+    ]
+  },
+  {
+    "brand": "SmartSafe",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "CNC605 launched by SmartSafe, is a Injector Cleaner and Tester suitable for GDI, EFI, SFI and other injectors. The injector can be cleaned and tested by simulating the engine condition. It can also be used to clean the fuel injector ad fuel supply system on the vehicle without disassembly. It is ideal for repair and maintenance service centers!",
+    "features": [
+      {
+        "description": "Supports cleaning and testing of GDI, EFI, and SFI fuel injectors",
+        "image": "images-new/cnc-605a.jpg",
+        "title": "Multi-Injector Support"
+      },
+      {
+        "description": "Utilizes ultrasonic intensive cleaning technology to thoroughly remove carbon deposits and filter screen residues",
+        "image": "images-new/cnc-605a.jpg",
+        "title": "Ultrasonic Technology"
+      },
+      {
+        "description": "Utilizes microcomputer automatic control technology for automatic control of the cleaning and testing process",
+        "image": "images-new/cnc-605a.jpg",
+        "title": "Automatic Control"
+      }
+    ],
+    "heroImages": [
+      "images-new/cnc-605a.jpg"
+    ],
+    "id": "cnc-605a",
+    "name": "CNC605 GDI Injector Cleaner & Tester",
+    "specs": [
+      "Supports cleaning and testing of GDI, EFI, and SFI fuel injectors",
+      "Utilizes ultrasonic intensive cleaning technology to thoroughly remove carbon deposits and filter screen residues from the fuel injectors",
+      "Utilizes microcomputer automatic control technology for automatic control of the cleaning and testing process, and real-time monitoring of the key performance of the fuel injectors",
+      "Equipped with various non-dismantle cleaning connectors, capable of non-dismantle cleaning and maintenance for multiple vehicle models",
+      "Through simulating engine operating conditions, comprehensively tests various aspects of the fuel injector's performance",
+      "Working Mode Selection: Can select GDI or EFI working mode based on the injector type",
+      "Ultrasonic Cleaning: Capable of simultaneously ultrasonic cleaning multiple injectors, effectively removing carbon buildup",
+      "Uniformity/Spray Testing: Detects the uniformity of fuel injection quantity for each injector and allows comprehensive observation of the injector spray pattern using background lighting",
+      "Sealing Test: Tests the sealing and leakage of injectors under system pressure",
+      "Fuel Injection Quantity Detection: Measures the fuel injection quantity of injectors under a constant 15-second injection condition"
+    ],
+    "summary": "CNC605 is an Injector Cleaner and Tester suitable for GDI, EFI, SFI, and other injectors. The injector can be cleaned and tested by simulating the engine condition.",
+    "technicalTable": [
+      {
+        "label": "Power Supply",
+        "value": "AC110V/AC220V 50Hz/60Hz"
+      },
+      {
+        "label": "Main Engine Power",
+        "value": "350W"
+      },
+      {
+        "label": "Ultrasonic Cleaning Power",
+        "value": "100W"
+      },
+      {
+        "label": "Fuel Pressure",
+        "value": "0.1~10 bar"
+      },
+      {
+        "label": "Air Inlet Pressure",
+        "value": "5~8 bar"
+      },
+      {
+        "label": "Tank Capacity",
+        "value": "3L"
+      },
+      {
+        "label": "Size",
+        "value": "442\u00d7490\u00d7533mm"
+      },
+      {
+        "label": "Revolutions Per Minute",
+        "value": "100~9900rpm Step length 100rpm"
+      },
+      {
+        "label": "Pulse Width",
+        "value": "0.5~25ms Step length 0.1ms"
+      },
+      {
+        "label": "Timer Range",
+        "value": "1~30min"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "The VSP-828 videoscope is designed for accessing narrow, curved spaces like evaporation boxes, combustion chambers, and three-way catalytic sensors. It captures vivid, clear and multi-angle videos and images, transferring them to a computer or smartphone display via a data cable for versatile inspections. Three versions with varying lens tubes are available for your choice.",
+    "features": [
+      {
+        "description": "Three lens versions available: 6.2mm Rotating Lens, 5.5mm Dual-lens, and 5.5mm Standard Version",
+        "image": "images-new/vsp-828.jpg",
+        "title": "Multiple Lens Options"
+      },
+      {
+        "description": "4GB built-in storage with support for external TF cards up to 32GB, picture taking and audio/video recording",
+        "image": "images-new/vsp-828.jpg",
+        "title": "Storage & Recording"
+      },
+      {
+        "description": "Flashlight assist, 3x magnification, 4-gear LED light adjustment, image rotation and color switching",
+        "image": "images-new/vsp-828.jpg",
+        "title": "Advanced Features"
+      }
+    ],
+    "heroImages": [
+      "images-new/vsp-828.jpg"
+    ],
+    "id": "vsp-828",
+    "name": "VSP-828",
+    "specs": [
+      "Three lens versions for choice: 6.2mm Rotating Lens Version (RECOMMENDED), 5.5mm Dual-lens Version (Switch between front and side), 5.5mm Standard Version (Single direction)",
+      "4GB built-in storage on mainboard",
+      "Support for external TF cards up to 32GB",
+      "Picture taking & audio/video recording supported",
+      "Flashlight assist function",
+      "3 times magnification can be achieved",
+      "4-gear LED light for adjustment",
+      "Rotate static image in 4 directions",
+      "Switch the image between black-and-white and color",
+      "High temperature alarm function"
+    ],
+    "summary": "The VSP-828 videoscope is designed for accessing narrow, curved spaces like evaporation boxes, combustion chambers, and three-way catalytic sensors.",
+    "technicalTable": [
+      {
+        "label": "Image Sensor",
+        "value": "1/9'' CMOS 720PHD"
+      },
+      {
+        "label": "Frame Rate",
+        "value": "30"
+      },
+      {
+        "label": "Diameter",
+        "value": "5.5mm single lens tube / 5.5mm dual lens tube / 6.2mm rotating lens tube available"
+      },
+      {
+        "label": "Imaging Focal Length",
+        "value": "\uff1e5.5mm"
+      },
+      {
+        "label": "Best Imaging Distance",
+        "value": "3-8cm"
+      },
+      {
+        "label": "Tube Length",
+        "value": "1m (3m or 5m can be customized)"
+      },
+      {
+        "label": "Display Screen",
+        "value": "TFT display screen"
+      },
+      {
+        "label": "Display Pixels",
+        "value": "1280*720"
+      },
+      {
+        "label": "Power Supply",
+        "value": "Built-in 18650 Lithium battery, 3.7V"
+      },
+      {
+        "label": "TF Card Storage",
+        "value": "32GB (Optional)"
+      }
+    ]
+  },
+  {
+    "brand": "SmartSafe",
+    "category": "Wheel Equipment",
+    "description": "SmartSafe WA861 PRO is an Ultra HD 4 wheel alignment machine. Automatically adjusts the height of the camera beam according to the height of the target, moving cabinets and beams built for increased productivity. It is an intelligent 3D four-wheel aligner that can collect ultra-high speed and high-precision tire data for the vehicle.",
+    "features": [
+      {
+        "description": "5 million pixel industrial camera that easily adapts to various lighting environments",
+        "image": "images-new/wa861-pro.jpg",
+        "title": "Ultra HD Camera"
+      },
+      {
+        "description": "50000+ global vehicle model database with lifetime free upgrade",
+        "image": "images-new/wa861-pro.jpg",
+        "title": "Extensive Database"
+      },
+      {
+        "description": "Intelligent self-adaptive tracking system that automatically tracks the target and adjusts beam height",
+        "image": "images-new/wa861-pro.jpg",
+        "title": "Adaptive Tracking"
+      }
+    ],
+    "heroImages": [
+      "images-new/wa861-pro.jpg"
+    ],
+    "id": "wa861-pro",
+    "name": "WA861 PRO 3D Wheel Aligner",
+    "specs": [
+      "50000+ global vehicle model database, lifetime free upgrade",
+      "5 million pixel industrial camera, easily adapt to a variety of lighting environment",
+      "8-12 cm rolling compensation, saving time and effort",
+      "Adaptive tracking system, freely adjust the operating space under the chassis",
+      "The whole machine is movable and can be shared by multiple stations, which improves the space utilization rate of the repair shop",
+      "When the beam is raised or lowered, it will automatically stop when encountering obstacles to protect the safety of personnel and equipment",
+      "Four-wheel alignment measurement with standard and quick measurement modes",
+      "Intelligent self-adaptive tracking system that automatically tracks the target",
+      "Supports positioning data of 50,000+ global vehicle models",
+      "Support measurement report saving and printing"
+    ],
+    "summary": "SmartSafe WA861 PRO is an Ultra HD 4 wheel alignment machine. Automatically adjusts the height of the camera beam according to the height of the target.",
+    "technicalTable": [
+      {
+        "label": "Display Accuracy",
+        "value": "1'/0.01/0.1mm"
+      },
+      {
+        "label": "Toe",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Camber",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Caster",
+        "value": "\u00b14'"
+      },
+      {
+        "label": "Kingpin Inclination",
+        "value": "\u00b16'"
+      },
+      {
+        "label": "Trust Angle",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Wheel Track",
+        "value": "\u00b12mm"
+      },
+      {
+        "label": "Wheel Base",
+        "value": "\u00b12mm"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "The LAUNCH plug-to-play battery tester BST-560S is designed for many battery-powered vehicles such as cars, boats, motorcycles more. It's a compact handheld design with LCD display.",
+    "features": [
+      {
+        "description": "International measurement standards supported including CCA, BCI, CA, MCA, JIS, DIN, IEC, EN, SAE, GB",
+        "image": "images-new/bst-560s.jpg",
+        "title": "Multiple Standards"
+      },
+      {
+        "description": "6 battery & electrical test functions including Ripple Detection, Battery Test, Electric Current Test, Starter Test, Charging System Test, and Voltage Test",
+        "image": "images-new/bst-560s.jpg",
+        "title": "Comprehensive Testing"
+      },
+      {
+        "description": "Generate health report within 3 seconds and intuitively display all data on the color screen",
+        "image": "images-new/bst-560s.jpg",
+        "title": "Fast Results"
+      }
+    ],
+    "heroImages": [
+      "images-new/bst-560s.jpg"
+    ],
+    "id": "bst-560s",
+    "name": "BST-560S",
+    "specs": [
+      "International measurement standards supported: CCA, BCI, CA, MCA, JIS, DIN, IEC, EN, SAE, GB",
+      "6 battery & electrical test functions supported: Ripple Detection, Battery Test, Electric Current Test, Starter Test, Charging System Test, Voltage Test",
+      "Generate the health report within 3 seconds and intuitively display all data on the color screen",
+      "Available to the batch inspection of battery by testing continuously and repeatedly",
+      "Applicable vehicles include car, motorcycles, lawn mowers and other gardening machines, Group 31, commercial vehicles 4D/8D",
+      "Applicable battery types include 12V: Regular Flooded, Gel Battery, AGM Battery, EFB Battery, Lithium Battery",
+      "Applicable 12V vehicle's Starter Test and Rectifier Diode Test",
+      "Safety always comes first. No heating, no discharge, no spark and no operating risks",
+      "Multi-language supported"
+    ],
+    "summary": "The LAUNCH plug-to-play battery tester BST-560S is designed for many battery-powered vehicles such as cars, boats, motorcycles more. It's a compact handheld design with LCD display.",
+    "technicalTable": [
+      {
+        "label": "Display",
+        "value": "2.4\" TFT LCD display with backlight"
+      },
+      {
+        "label": "Working Temperature",
+        "value": "-18~60\u2103"
+      },
+      {
+        "label": "Test Cable",
+        "value": "25.98\" irreplaceable test cable"
+      },
+      {
+        "label": "Case Material",
+        "value": "ABS acid-proof plastic, industrial case design"
+      },
+      {
+        "label": "Dimension",
+        "value": "155*85*32(mm)"
+      },
+      {
+        "label": "Weight",
+        "value": "315g"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "The LAUNCH plug-to-play battery tester BST-860S is designed for many battery-powered vehicles such as cars, boats, motorcycles, and more. It can quickly detect complete battery system and generate & print the health report within 3 seconds.",
+    "features": [
+      {
+        "description": "International measurement standards supported including CCA, BCI, CA, MCA, JIS, DIN, IEC, EN, SAE, GB",
+        "image": "images-new/bst-860s.jpg",
+        "title": "Multiple Standards"
+      },
+      {
+        "description": "6 battery & electrical test functions including Ripple Detection, Battery Test, Electric Current Test, Starter Test, Charging System Test, and Voltage Test",
+        "image": "images-new/bst-860s.jpg",
+        "title": "Comprehensive Testing"
+      },
+      {
+        "description": "Generate health report within 3 seconds and intuitively display all data on the color screen. Reports can be printed anytime by built-in thermal printer",
+        "image": "images-new/bst-860s.jpg",
+        "title": "Fast Results & Printing"
+      }
+    ],
+    "heroImages": [
+      "images-new/bst-860s.jpg"
+    ],
+    "id": "bst-860s",
+    "name": "BST-860S",
+    "specs": [
+      "International measurement standards supported: CCA, BCI, CA, MCA, JIS, DIN, IEC, EN, SAE, GB",
+      "6 battery & electrical test functions supported: Ripple Detection, Battery Test, Electric Current Test, Starter Test, Charging System Test, Voltage Test",
+      "Generate the health report within 3 seconds and intuitively display all data on the color screen",
+      "The reports to be printed anytime by built-in thermal printer",
+      "Available to the batch inspection of battery by testing continuously and repeatedly",
+      "Applicable vehicles include car, motorcycles, lawn mowers and other gardening machines, Group 31, commercial vehicles 4D/8D",
+      "Applicable battery types include 12V/24V: Regular Flooded, Gel Battery, AGM Battery, EFB Battery, Lithium Battery",
+      "Applicable 12V/24V vehicle's Starter Test and Charging System Test",
+      "Safety always comes first. No heating, no discharge, no spark and no operating risks",
+      "Multi-language supported"
+    ],
+    "summary": "The LAUNCH plug-to-play battery tester BST-860S is designed for many battery-powered vehicles such as cars, boats, motorcycles, and more. It can quickly detect complete battery system and generate & print the health report within 3 seconds.",
+    "technicalTable": [
+      {
+        "label": "Display",
+        "value": "2.4\" TFT LCD display with backlight"
+      },
+      {
+        "label": "Working Temperature",
+        "value": "-18~60\u2103"
+      },
+      {
+        "label": "Test Cable",
+        "value": "25.98\" irreplaceable test cable"
+      },
+      {
+        "label": "Case Material",
+        "value": "ABS acid-proof plastic, industrial case design"
+      },
+      {
+        "label": "Dimension",
+        "value": "195*100*40(mm)"
+      },
+      {
+        "label": "Weight",
+        "value": "462g"
+      }
+    ]
+  },
+  {
+    "brand": "AUTOOL",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "The AUTOOL SPT360 is a 5-hole digital HF tester for spark plug testing on all crankshaft engines and motorbikes on the market.",
+    "features": [
+      {
+        "description": "5-hole digital HF tester for comprehensive spark plug testing",
+        "image": "images-new/autool-spt360.jpg",
+        "title": "5-Hole Testing"
+      },
+      {
+        "description": "Suitable for all crankshaft engines and motorbikes on the market",
+        "image": "images-new/autool-spt360.jpg",
+        "title": "Wide Compatibility"
+      },
+      {
+        "description": "Digital HF technology for accurate and precise testing results",
+        "image": "images-new/autool-spt360.jpg",
+        "title": "Digital Technology"
+      }
+    ],
+    "heroImages": [
+      "images-new/autool-spt360.jpg"
+    ],
+    "id": "autool-spt360",
+    "name": "AUTOOL SPT360",
+    "specs": [
+      "5-hole digital HF tester for spark plug testing",
+      "Suitable for all crankshaft engines and motorbikes on the market",
+      "Digital HF technology for accurate and precise testing results",
+      "Comprehensive spark plug analysis and diagnosis",
+      "High-frequency testing capability",
+      "Multi-engine compatibility"
+    ],
+    "summary": "The AUTOOL SPT360 is a 5-hole digital HF tester for spark plug testing on all crankshaft engines and motorbikes on the market.",
+    "technicalTable": [
+      {
+        "label": "Testing Type",
+        "value": "5-hole digital HF tester"
+      },
+      {
+        "label": "Compatibility",
+        "value": "All crankshaft engines and motorbikes"
+      },
+      {
+        "label": "Technology",
+        "value": "Digital HF technology"
+      },
+      {
+        "label": "Power Supply",
+        "value": "110-220V"
+      },
+      {
+        "label": "Testing Capability",
+        "value": "High-frequency spark plug analysis"
+      }
+    ]
+  },
+  {
+    "brand": "SmartSafe",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "ADAS PRO+ V2 is a professional-grade passenger car ADAS calibration device equipped with a 75-inch high-definition LCD screen and a digital display of the front camera target.",
+    "features": [
+      {
+        "description": "Realize digital display of front camera targets, eliminate the installation steps of front camera target head",
+        "image": "images-new/adas-pro-plus-v2.jpg",
+        "title": "Digital Target Display"
+      },
+      {
+        "description": "Equipped with a 75-inch high-definition LCD screen, 4K resolution",
+        "image": "images-new/adas-pro-plus-v2.jpg",
+        "title": "75-inch 4K Display"
+      }
+    ],
+    "heroImages": [
+      "images-new/adas-pro-plus-v2.jpg"
+    ],
+    "id": "adas-pro-plus-v2",
+    "name": "ADAS PRO+ V2",
+    "specs": [
+      "75-inch high-definition LCD screen with 4K resolution",
+      "Digital display of front camera targets",
+      "Supports more than 30 front camera targets"
+    ],
+    "summary": "ADAS PRO+ V2 is a professional-grade passenger car ADAS calibration device.",
+    "technicalTable": [
+      {
+        "label": "Display",
+        "value": "75-inch HD LCD, 4K resolution"
+      }
+    ]
+  },
+  {
+    "brand": "SmartSafe",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "AC519 is a fully automatic intelligent automobile air conditioning maintenance equipment that integrates functions such as disassembly-free cleaning, refrigerant recovery, filling, and vacuuming.",
+    "features": [
+      {
+        "description": "Equipped with automobile refrigerant model database, no manual setting is required",
+        "image": "images-new/ac519.jpg",
+        "title": "Auto Database"
+      },
+      {
+        "description": "Supports two refrigerants: R134A or R1234YF",
+        "image": "images-new/ac519.jpg",
+        "title": "Dual Refrigerant Support"
+      }
+    ],
+    "heroImages": [
+      "images-new/ac519.jpg"
+    ],
+    "id": "ac519",
+    "name": "AC519 A/C Service Station",
+    "specs": [
+      "Equipped with automobile refrigerant model database",
+      "Supports R134A or R1234YF",
+      "Automatic mode one-click operation"
+    ],
+    "summary": "AC519 is a fully automatic intelligent automobile air conditioning maintenance equipment.",
+    "technicalTable": [
+      {
+        "label": "Power Supply",
+        "value": "AC110V/AC220V 50Hz/60Hz"
+      },
+      {
+        "label": "Recycling Capacity",
+        "value": "Gaseous: 400g/min, Liquid: 700g/min"
+      },
+      {
+        "label": "Main Engine Power",
+        "value": "700W"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "VSP800 video scope helps technicians to check issues on unreachable area in a vehicle. With 2.7 TFT display for real-time viewing.",
+    "features": [
+      {
+        "description": "View, record and save images and videos",
+        "image": "images-new/vsp-800.jpg",
+        "title": "Recording Capability"
+      },
+      {
+        "description": "IP67 water proof camera head with adjustable intensity LED lights",
+        "image": "images-new/vsp-800.jpg",
+        "title": "Waterproof Camera"
+      }
+    ],
+    "heroImages": [
+      "images-new/vsp-800.jpg"
+    ],
+    "id": "vsp-800",
+    "name": "VSP-800 Video Scope",
+    "specs": [
+      "View, record and save images and videos",
+      "IP67 waterproof camera head",
+      "2.7 TFT display",
+      "1280*720 resolution"
+    ],
+    "summary": "VSP800 video scope helps technicians to check issues on unreachable area in a vehicle.",
+    "technicalTable": [
+      {
+        "label": "LEN O.D.",
+        "value": "5.5mm"
+      },
+      {
+        "label": "Display Screen",
+        "value": "2.7 TFT"
+      },
+      {
+        "label": "Tube Length",
+        "value": "1000mm"
+      },
+      {
+        "label": "Resolution",
+        "value": "1280*720"
+      }
+    ]
+  },
+  {
+    "brand": "SmartSafe",
+    "category": "Wheel Equipment",
+    "description": "SmartSafe WA861 LITE uses 3D imaging principle to collect ultra-high-speed and high-precision tire data of vehicles. Classic stationary 3D wheel aligner.",
+    "features": [
+      {
+        "description": "50000+ global vehicle model database, lifetime free upgrade",
+        "image": "images-new/wa861-lite.jpg",
+        "title": "Extensive Database"
+      },
+      {
+        "description": "10-15cm rolling compensation, saving time and effort",
+        "image": "images-new/wa861-lite.jpg",
+        "title": "Rolling Compensation"
+      }
+    ],
+    "heroImages": [
+      "images-new/wa861-lite.jpg"
+    ],
+    "id": "wa861-lite",
+    "name": "WA861 LITE 3D Wheel Aligner",
+    "specs": [
+      "50000+ global vehicle model database",
+      "10-15cm rolling compensation",
+      "Classic stationary design"
+    ],
+    "summary": "SmartSafe WA861 LITE uses 3D imaging principle to collect ultra-high-speed and high-precision tire data.",
+    "technicalTable": [
+      {
+        "label": "Display Accuracy",
+        "value": "1'/0.01/0.1mm"
+      },
+      {
+        "label": "Toe",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Camber",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Caster",
+        "value": "\u00b14'"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Wheel Equipment",
+    "description": "With the dual pump design and universal joint release mechanism, the LAUNCH LH330/340 Floor Jack provides Fast Lifting & Smooth Lowering service.",
+    "features": [
+      {
+        "description": "Dual pump design makes the lifting faster",
+        "image": "images-new/lh-330-340.jpg",
+        "title": "Dual Pump Design"
+      },
+      {
+        "description": "Universal joint release mechanism allows smoother and more controllable lowering",
+        "image": "images-new/lh-330-340.jpg",
+        "title": "Universal Joint Release"
+      }
+    ],
+    "heroImages": [
+      "images-new/lh-330-340.jpg"
+    ],
+    "id": "lh-330-340",
+    "name": "LH-330/LH-340 Dual Pump Floor Jack",
+    "specs": [
+      "Dual pump design",
+      "Universal joint release mechanism",
+      "Low-position design",
+      "High-quality steel frame"
+    ],
+    "summary": "The LAUNCH LH330/340 Floor Jack provides Fast Lifting & Smooth Lowering service.",
+    "technicalTable": [
+      {
+        "label": "LH-340 Capacity",
+        "value": "4 Ton/ 8800 LBS/ 4000 KG"
+      },
+      {
+        "label": "LH-330 Capacity",
+        "value": "3 Ton/ 6600 LBS/ 3000KG"
+      },
+      {
+        "label": "LH-340 Max Height",
+        "value": "533mm/ 21 inch"
+      },
+      {
+        "label": "LH-330 Max Height",
+        "value": "500mm/ 19-5/8 inch"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Scanners & TPMS",
+    "description": "Brand-new design with DoIP/CAN FD functions, the X-431 PRO SE will be the best choice for entry-level technicians.",
+    "features": [
+      {
+        "description": "Upgraded Android 10.0 operation system, 4GB memory and 64GB storage",
+        "image": "images-new/x-431-pro-se.jpg",
+        "title": "Android 10.0 System"
+      },
+      {
+        "description": "Brand new designed VCI supports CAN, CAN FD, DoIP protocols",
+        "image": "images-new/x-431-pro-se.jpg",
+        "title": "Advanced VCI"
+      }
+    ],
+    "heroImages": [
+      "images-new/x-431-pro-se.jpg"
+    ],
+    "id": "x-431-pro-se",
+    "name": "X-431 PRO SE",
+    "specs": [
+      "Android 10.0 OS, 4GB RAM, 64GB storage",
+      "Supports CAN, CAN FD, DoIP",
+      "Full system OE-Level diagnostics"
+    ],
+    "summary": "Brand-new design with DoIP/CAN FD functions, the X-431 PRO SE will be the best choice for entry-level technicians.",
+    "technicalTable": [
+      {
+        "label": "OS",
+        "value": "Android 10.0"
+      },
+      {
+        "label": "Display",
+        "value": "8\", 1280*800"
+      },
+      {
+        "label": "CPU",
+        "value": "2.0GHz, Quad-Core"
+      },
+      {
+        "label": "RAM",
+        "value": "4GB"
+      },
+      {
+        "label": "Storage",
+        "value": "64GB"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Scanners & TPMS",
+    "description": "The X-431 PRO3 LINK takes dual diagnostic modes (local diagnosis and Smartlink remote diagnosis) with expanded diagnostic functions.",
+    "features": [
+      {
+        "description": "Enables you to diagnose light, medium & heavy duty vehicles with Smartlink C",
+        "image": "images-new/x-431-pro3-link.jpg",
+        "title": "Multi-Vehicle Support"
+      },
+      {
+        "description": "Full system vehicle coverage for U.S., Asian and European markets over 110 manufacturers",
+        "image": "images-new/x-431-pro3-link.jpg",
+        "title": "Extensive Coverage"
+      }
+    ],
+    "heroImages": [
+      "images-new/x-431-pro3-link.jpg"
+    ],
+    "id": "x-431-pro3-link",
+    "name": "X-431 PRO3 LINK",
+    "specs": [
+      "Dual diagnostic modes (local and Smartlink remote)",
+      "Full system vehicle coverage 110+ manufacturers",
+      "Real-time voltage display"
+    ],
+    "summary": "The X-431 PRO3 LINK takes dual diagnostic modes (local diagnosis and Smartlink remote diagnosis).",
+    "technicalTable": [
+      {
+        "label": "OS",
+        "value": "Android 10.0"
+      },
+      {
+        "label": "Display",
+        "value": "10.1\", 1920*800"
+      },
+      {
+        "label": "CPU",
+        "value": "2.0GHz, Quad-core"
+      },
+      {
+        "label": "Memory",
+        "value": "4GB"
+      },
+      {
+        "label": "Storage",
+        "value": "64GB"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Scanners & TPMS",
+    "description": "Equipped with Android 8.1, the Creader TPMS 511S V2 is a standalone TPMS service and programming tool with unlimited programming capability.",
+    "features": [
+      {
+        "description": "Supports 99% Vehicle Coverage with TPMS-equipped system",
+        "image": "images-new/creader-tpms-511s-v2.jpg",
+        "title": "99% Coverage"
+      },
+      {
+        "description": "All 315/433 MHZ Sensors 100% activated",
+        "image": "images-new/creader-tpms-511s-v2.jpg",
+        "title": "Full Activation"
+      }
+    ],
+    "heroImages": [
+      "images-new/creader-tpms-511s-v2.jpg"
+    ],
+    "id": "creader-tpms-511s-v2",
+    "name": "Creader TPMS 511S V2",
+    "specs": [
+      "99% vehicle coverage",
+      "All 315/433 MHZ sensors activated",
+      "Unlimited LAUNCH sensor programming"
+    ],
+    "summary": "The Creader TPMS 511S V2 is a standalone TPMS service and programming tool.",
+    "technicalTable": [
+      {
+        "label": "OS",
+        "value": "Android 8.1"
+      },
+      {
+        "label": "Display",
+        "value": "5'', 720P touch screen"
+      },
+      {
+        "label": "Battery",
+        "value": "6000mAh"
+      },
+      {
+        "label": "Storage",
+        "value": "2+32GB"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Scanners & TPMS",
+    "description": "The CRP 919 MAX is one of the best choices for entry-level technicians, featuring all system full functionality for comprehensive diagnostic business.",
+    "features": [
+      {
+        "description": "Full system and comprehensive diagnostic functions including DTC, live data, bi-directional control",
+        "image": "images-new/crp-919-max.jpg",
+        "title": "Full System Diagnostics"
+      },
+      {
+        "description": "Wide OE-level coverage for U.S., Asian and European vehicles, 98%+ vehicle coverage",
+        "image": "images-new/crp-919-max.jpg",
+        "title": "98% Vehicle Coverage"
+      }
+    ],
+    "heroImages": [
+      "images-new/crp-919-max.jpg"
+    ],
+    "id": "crp-919-max",
+    "name": "Creader Professional 919 MAX",
+    "specs": [
+      "Full system diagnostic functions",
+      "98%+ vehicle coverage",
+      "Supports CAN/CANFD/DoIP protocols"
+    ],
+    "summary": "The CRP 919 MAX is one of the best choices for entry-level technicians with full system functionality.",
+    "technicalTable": [
+      {
+        "label": "OS",
+        "value": "Android 10.0"
+      },
+      {
+        "label": "Display",
+        "value": "7\", 1024*600"
+      },
+      {
+        "label": "CPU",
+        "value": "2.0GHz, Quad-core"
+      },
+      {
+        "label": "RAM",
+        "value": "4GB"
+      },
+      {
+        "label": "Storage",
+        "value": "64GB"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Scanners & TPMS",
+    "description": "The X-431 PAD9 LINK is a new flagship high-end diagnostic tool with SmartLink C V3.0, featuring 10x faster multi-channel scanning.",
+    "features": [
+      {
+        "description": "Full system vehicle coverage: 150+ passenger cars, 110+ commercial vehicles, 140+ new energy vehicles",
+        "image": "images-new/x-431-pad9-link.jpg",
+        "title": "Extensive Coverage"
+      },
+      {
+        "description": "Multi-channel high-speed scan about 10 times faster",
+        "image": "images-new/x-431-pad9-link.jpg",
+        "title": "10x Faster Scanning"
+      }
+    ],
+    "heroImages": [
+      "images-new/x-431-pad9-link.jpg"
+    ],
+    "id": "x-431-pad9-link",
+    "name": "X-431 PAD9 LINK",
+    "specs": [
+      "150+ passenger cars, 110+ commercial vehicles, 140+ new energy vehicles",
+      "10x faster multi-channel scanning",
+      "SmartLink C V3.0"
+    ],
+    "summary": "The X-431 PAD9 LINK is a new flagship high-end diagnostic tool with 10x faster scanning.",
+    "technicalTable": [
+      {
+        "label": "OS",
+        "value": "Android 13.0"
+      },
+      {
+        "label": "Display",
+        "value": "13.6 inch, 2560*1600"
+      },
+      {
+        "label": "CPU",
+        "value": "2.0GHz Octa-core"
+      },
+      {
+        "label": "Memory",
+        "value": "12GB"
+      },
+      {
+        "label": "Storage",
+        "value": "512GB"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "BST360 is a Bluetooth battery tester suitable for technicians and consumers, safe with anti-heat characteristics and spark prevention.",
+    "features": [
+      {
+        "description": "Real-time monitor the battery health status",
+        "image": "images-new/bst360.jpg",
+        "title": "Real-time Monitoring"
+      },
+      {
+        "description": "Generate health report within 3 seconds",
+        "image": "images-new/bst360.jpg",
+        "title": "Fast Results"
+      }
+    ],
+    "heroImages": [
+      "images-new/bst360.jpg"
+    ],
+    "id": "bst360",
+    "name": "BST360 Bluetooth Battery Tester",
+    "specs": [
+      "Real-time battery health monitoring",
+      "3-second report generation",
+      "6 test functions",
+      "No heating, no spark"
+    ],
+    "summary": "BST360 is a Bluetooth battery tester safe for technicians and consumers.",
+    "technicalTable": [
+      {
+        "label": "Battery Types",
+        "value": "12V Lead-acid, GEL, AGM"
+      },
+      {
+        "label": "Standards",
+        "value": "CCA, BCI, CA, MCA, JIS, DIN, IEC, EN, SAE, GB"
+      },
+      {
+        "label": "Test Types",
+        "value": "6 kinds of tests"
+      },
+      {
+        "label": "Report Time",
+        "value": "Within 3 seconds"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Wheel Equipment",
+    "description": "Composed of two magnetic measurement units and four wheel clamp targets, connected via a wireless network, the X-613 is another wireless, ready-to-use four-wheel aligner for repair shops. Unlike traditional 3D wheel aligners, the X-613 eliminates the need for beams and cabinets, pairing with the LAUNCH diagnostic tool(X-431 PAD9/7/5 LINK) to perform precise four-wheel alignment detection. The X-613 supports both standard measurement and quick measurement, including key parameters such as toe, camber, caster, kingpin inclination, and thrust angle, as well as additional measurements including track width, wheelbase, wheel offset, axle offset, diagonal offset, and center offset.",
+    "features": [
+      {
+        "description": "No wiring required, ready to use by simply screwing targets onto wheel clamps",
+        "image": "images-new/x-613-1.png",
+        "title": "Wireless Ready-to-Use"
+      },
+      {
+        "description": "No beams or cabinets for preinstallation, ideal for repair shops with limited space",
+        "image": "images-new/x-613-1.png",
+        "title": "Space Saving"
+      },
+      {
+        "description": "Supports alignment data for 50,000+ vehicle models worldwide",
+        "image": "images-new/x-613-1.png",
+        "title": "Extensive Database"
+      }
+    ],
+    "heroImages": [
+      "images-new/x-613-1.png"
+    ],
+    "id": "x-613",
+    "name": "X-613 Portable 3D Wheel Aligner",
+    "specs": [
+      "2 magnetic measurement units + 4 wheel clamp targets",
+      "No wiring required, ready to use",
+      "No beams or cabinets needed",
+      "Supports 50,000+ vehicle models",
+      "Generates results within 30 seconds",
+      "Compatible with X-431 PAD9/7/5 LINK",
+      "Supports both standard and quick measurement",
+      "Measures toe, camber, caster, kingpin inclination, thrust angle",
+      "Additional measurements: track width, wheelbase, wheel offset, axle offset, diagonal offset, center offset"
+    ],
+    "summary": "Composed of two magnetic measurement units and four wheel clamp targets, the X-613 is a wireless, ready-to-use four-wheel aligner for repair shops.",
+    "technicalTable": [
+      {
+        "label": "Toe Angle",
+        "value": "\u00b120\u00b0"
+      },
+      {
+        "label": "Camber Angle",
+        "value": "\u00b110\u00b0"
+      },
+      {
+        "label": "Kingpin Castor Angle",
+        "value": "\u00b120\u00b0"
+      },
+      {
+        "label": "Kingpin Inclination Angle",
+        "value": "\u00b120\u00b0"
+      },
+      {
+        "label": "Track Width",
+        "value": "1290~1900 mm"
+      },
+      {
+        "label": "Wheelbase",
+        "value": "1940~4600 mm"
+      },
+      {
+        "label": "Wheel Hub Diameter",
+        "value": "275~640 mm"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Scanners & TPMS",
+    "description": "The i-TPMS provides professional and comprehensive TPMS services for repair shops to develop their TPMS business. It can program LAUNCH LTR RF sensors for unlimited times to replace OE sensors. The sensor data can be read instantly and accurately, including sensor ID, tire pressure, tire temperature, battery status, etc.",
+    "features": [
+      {
+        "description": "Program LAUNCH LTR RF sensors for unlimited times to replace OE sensors",
+        "image": "images-new/i-tpms-1.png",
+        "title": "Unlimited Programming"
+      },
+      {
+        "description": "Read sensor data instantly and accurately including ID, pressure, temperature, battery status",
+        "image": "images-new/i-tpms-1.png",
+        "title": "Instant Data Reading"
+      }
+    ],
+    "heroImages": [
+      "images-new/i-tpms-1.png"
+    ],
+    "id": "i-tpms",
+    "name": "i-TPMS",
+    "specs": [
+      "Professional and comprehensive TPMS services",
+      "Program LAUNCH LTR RF sensors unlimited times",
+      "Replace OE sensors",
+      "Instant and accurate sensor data reading",
+      "Read sensor ID, tire pressure, tire temperature, battery status",
+      "Help repair shops develop TPMS business"
+    ],
+    "summary": "The i-TPMS provides professional and comprehensive TPMS services for repair shops to develop their TPMS business.",
+    "technicalTable": [
+      {
+        "label": "Sensor Programming",
+        "value": "Unlimited LAUNCH LTR RF sensors"
+      },
+      {
+        "label": "Data Reading",
+        "value": "Sensor ID, pressure, temperature, battery status"
+      },
+      {
+        "label": "Application",
+        "value": "TPMS service for repair shops"
+      }
+    ]
+  },
+  {
+    "brand": "SmartSafe",
+    "category": "Maintenance and ADAS Equipment",
+    "description": "AC519+ is a fully automatic intelligent automobile air-conditioning maintenance equipment suitable for fuel vehicles, pure electric vehicles and hybrid vehicles. It integrates functions such as disassembly-free cleaning, refrigerant recovery, filling, vacuuming, etc. It can effectively improve problems such as poor air-conditioning cooling effect, heavy compressor load, etc.",
+    "features": [
+      {
+        "description": "Equipped with automobile refrigerant model database, the database is updated free of charge",
+        "image": "images-new/ac519-plus.png",
+        "title": "Auto Database"
+      },
+      {
+        "description": "Supports two refrigerants: R134A or R1234YF",
+        "image": "images-new/ac519-plus.png",
+        "title": "Dual Refrigerant Support"
+      },
+      {
+        "description": "128L/min dual-stage vacuum capacity, significantly boosts work efficiency",
+        "image": "images-new/ac519-plus.png",
+        "title": "High Efficiency"
+      }
+    ],
+    "heroImages": [
+      "images-new/ac519-plus.png"
+    ],
+    "id": "ac519-plus",
+    "name": "AC519+ A/C Service Station",
+    "specs": [
+      "Fully automatic intelligent automobile air-conditioning maintenance equipment",
+      "Suitable for fuel vehicles, pure electric vehicles and hybrid vehicles",
+      "Integrates disassembly-free cleaning, refrigerant recovery, filling, vacuuming",
+      "Equipped with automobile refrigerant model database",
+      "Supports R134A or R1234YF refrigerants",
+      "128L/min dual-stage vacuum capacity",
+      "10.1-inch touch screen display",
+      "Automatic mode one-click operation",
+      "Built-in Android system, supports ST13 terminal remote control"
+    ],
+    "summary": "AC519+ is a fully automatic intelligent automobile air-conditioning maintenance equipment suitable for fuel vehicles, pure electric vehicles and hybrid vehicles.",
+    "technicalTable": [
+      {
+        "label": "Power Supply",
+        "value": "AC110V/AC220V 50Hz/60Hz"
+      },
+      {
+        "label": "Power",
+        "value": "1000W"
+      },
+      {
+        "label": "Working Environment Temperature",
+        "value": "10~50\u2103"
+      },
+      {
+        "label": "Display",
+        "value": "10.1-inch touch screen"
+      },
+      {
+        "label": "Vacuum Pump Capacity",
+        "value": "dual-stage 128L/min"
+      },
+      {
+        "label": "Working Tank Capacity",
+        "value": "22kg"
+      },
+      {
+        "label": "Product Size",
+        "value": "1135mm(H)\u00d7660mm(D)\u00d7530mm(W)"
+      }
+    ]
+  },
+  {
+    "brand": "SmartSafe",
+    "category": "Wheel Equipment",
+    "description": "SmartSafe WA861 PRO is an Ultra HD 4 wheel alignment machine. Automatically adjusts the height of the camera beam according to the height of the target, moving cabinets and beams built for increased productivity. It is an intelligent 3D four-wheel aligner that can collect ultra-high speed and high-precision tire data for the vehicle.",
+    "features": [
+      {
+        "description": "50000+ global vehicle model database, lifetime free upgrade",
+        "image": "images-new/wa861-pro-plus.png",
+        "title": "Extensive Database"
+      },
+      {
+        "description": "5 million pixel industrial camera, easily adapt to a variety of lighting environment",
+        "image": "images-new/wa861-pro-plus.png",
+        "title": "Ultra HD Camera"
+      },
+      {
+        "description": "Adaptive tracking system, freely adjust the operating space under the chassis",
+        "image": "images-new/wa861-pro-plus.png",
+        "title": "Adaptive Tracking"
+      }
+    ],
+    "heroImages": [
+      "images-new/wa861-pro-plus.png"
+    ],
+    "id": "wa861-pro-plus",
+    "name": "WA861 PRO 3D Wheel Aligner (X-861 PRO)",
+    "specs": [
+      "50000+ global vehicle model database, lifetime free upgrade",
+      "5 million pixel industrial camera, easily adapt to a variety of lighting environment",
+      "8-12 cm rolling compensation, saving time and effort",
+      "Adaptive tracking system, freely adjust the operating space under the chassis",
+      "The whole machine is movable and can be shared by multiple stations",
+      "When the beam is raised or lowered, it will automatically stop when encountering obstacles",
+      "Four-wheel alignment measurement with standard and quick measurement modes",
+      "Intelligent self-adaptive tracking system that automatically tracks the target",
+      "Supports positioning data of 50,000+ global vehicle models",
+      "Support measurement report saving and printing"
+    ],
+    "summary": "SmartSafe WA861 PRO is an Ultra HD 4 wheel alignment machine. Automatically adjusts the height of the camera beam according to the height of the target.",
+    "technicalTable": [
+      {
+        "label": "Display Accuracy",
+        "value": "1'/0.01/0.1mm"
+      },
+      {
+        "label": "Toe",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Camber",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Caster",
+        "value": "\u00b14'"
+      },
+      {
+        "label": "Kingpin Inclination",
+        "value": "\u00b16'"
+      },
+      {
+        "label": "Trust Angle",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Wheel Track",
+        "value": "\u00b12mm"
+      },
+      {
+        "label": "Wheel Base",
+        "value": "\u00b12mm"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Scanners & TPMS",
+    "description": "Brand-new design with DoIP/CAN FD functions, the X-431 PRO SE will be the best choice for entry-level technicians. Upgraded Android 10.0 operation system, 4GB memory and 64GB storage ensure faster and smooth diagnosis.",
+    "features": [
+      {
+        "description": "Upgraded Android 10.0 operation system, 4GB memory and 64GB storage ensure faster and smooth diagnosis",
+        "image": "images-new/x-431-pro-se.jpg",
+        "title": "Android 10.0 System"
+      },
+      {
+        "description": "Brand new designed VCI supports even more communication protocols, e.g. CAN, CAN FD, DoIP",
+        "image": "images-new/x-431-pro-se.jpg",
+        "title": "Advanced VCI"
+      },
+      {
+        "description": "Full system OE-Level diagnostics on 1996 and newer U.S., European and Asian vehicles",
+        "image": "images-new/x-431-pro-se.jpg",
+        "title": "OE-Level Diagnostics"
+      }
+    ],
+    "heroImages": [
+      "images-new/x-431-pro-se.jpg"
+    ],
+    "id": "x-431-pro-se-2026",
+    "name": "X-431 PRO SE 2026 Model",
+    "specs": [
+      "Android 10.0 OS, 4GB RAM, 64GB storage",
+      "Brand new designed VCI supports CAN, CAN FD, DoIP",
+      "Wireless communication offers flexible and easy connections",
+      "Full system OE-Level diagnostics on 1996 and newer vehicles",
+      "Full diagnostic functionality includes comprehensive OBD II diagnostics",
+      "Read/clear DTCs, bi-directional control, remote diagnosis, live data streaming, coding",
+      "Optional ADAS calibration capability",
+      "Expand diagnostic coverage via Mall",
+      "One-stop Info Center includes vehicle repair information",
+      "Review previous diagnostic report via Diagnostic History"
+    ],
+    "summary": "Brand-new design with DoIP/CAN FD functions, the X-431 PRO SE will be the best choice for entry-level technicians.",
+    "technicalTable": [
+      {
+        "label": "OS",
+        "value": "Android 10.0"
+      },
+      {
+        "label": "Display",
+        "value": "8\", 1280*800"
+      },
+      {
+        "label": "CPU",
+        "value": "2.0GHz, Quad-Core"
+      },
+      {
+        "label": "RAM",
+        "value": "4GB"
+      },
+      {
+        "label": "Storage",
+        "value": "64GB"
+      },
+      {
+        "label": "Battery",
+        "value": "47.88Wh (7.6V, 6300mAh)"
+      },
+      {
+        "label": "Camera",
+        "value": "Rear 8MP"
+      },
+      {
+        "label": "Dimensions",
+        "value": "234*166*39.5 mm"
+      }
+    ]
+  },
+  {
+    "brand": "SmartSafe",
+    "category": "Wheel Equipment",
+    "description": "SmartSafe WA861 LITE uses 3D imaging principle to collect ultra-high-speed and high-precision tire data of vehicles. The four wheel alignment angles mainly include: camber, toe-in, caster and steering axle inclination. It is a classic stationary 3D wheel aligner, ideal for professional repair shops and tire service centers!",
+    "features": [
+      {
+        "description": "50000+ global vehicle model database, lifetime free upgrade",
+        "image": "images-new/x861l.png",
+        "title": "Extensive Database"
+      },
+      {
+        "description": "10-15cm rolling compensation, saving time and effort",
+        "image": "images-new/x861l.png",
+        "title": "Rolling Compensation"
+      },
+      {
+        "description": "Classic stationary 3D wheel aligner design",
+        "image": "images-new/x861l.png",
+        "title": "Stationary Design"
+      }
+    ],
+    "heroImages": [
+      "images-new/x861l.png"
+    ],
+    "id": "x861l",
+    "name": "WA861 LITE3D Wheel Aligner(Original Model: X-861 L)",
+    "specs": [
+      "50000+ global vehicle model database",
+      "10-15cm rolling compensation",
+      "Classic stationary 3D wheel aligner",
+      "Ideal for professional repair shops and tire service centers",
+      "3D imaging principle for ultra-high-speed and high-precision tire data",
+      "Measures camber, toe-in, caster and steering axle inclination"
+    ],
+    "summary": "SmartSafe WA861 LITE uses 3D imaging principle to collect ultra-high-speed and high-precision tire data of vehicles.",
+    "technicalTable": [
+      {
+        "label": "Display Accuracy",
+        "value": "1'/0.01/0.1mm"
+      },
+      {
+        "label": "Toe",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Camber",
+        "value": "\u00b12'"
+      },
+      {
+        "label": "Caster",
+        "value": "\u00b14'"
+      }
+    ]
+  },
+  {
+    "brand": "LAUNCH",
+    "category": "Wheel Equipment",
+    "description": "With the dual pump design and universal joint release mechanism, the LAUNCH LH330/340 Floor Jack provides Fast Lifting & Smooth Lowering service during your auto repair process.",
+    "features": [
+      {
+        "description": "Dual pump design makes the lifting faster",
+        "image": "images-new/lh-330.jpg",
+        "title": "Dual Pump Design"
+      },
+      {
+        "description": "Universal joint release mechanism allows smoother and more controllable lowering",
+        "image": "images-new/lh-330.jpg",
+        "title": "Universal Joint Release"
+      },
+      {
+        "description": "Low-position design for easy access under vehicles",
+        "image": "images-new/lh-330.jpg",
+        "title": "Low-Position Design"
+      }
+    ],
+    "heroImages": [
+      "images-new/lh-330.jpg"
+    ],
+    "id": "lh-330-340",
+    "name": "LH-330/LH-340 Dual Pump Floor Jack",
+    "specs": [
+      "Dual pump design for fast lifting",
+      "Universal joint release mechanism for smooth lowering",
+      "Low-position design for easy access",
+      "High-quality steel frame construction",
+      "Suitable for auto shops and repair centers",
+      "Provides fast lifting and smooth lowering service"
+    ],
+    "summary": "The LAUNCH LH330/340 Floor Jack provides Fast Lifting & Smooth Lowering service during your auto repair process.",
+    "technicalTable": [
+      {
+        "label": "LH-340 Capacity",
+        "value": "4 Ton/ 8800 LBS/ 4000 KG"
+      },
+      {
+        "label": "LH-330 Capacity",
+        "value": "3 Ton/ 6600 LBS/ 3000KG"
+      },
+      {
+        "label": "LH-340 Max Height",
+        "value": "533mm/ 21 inch"
+      },
+      {
+        "label": "LH-330 Max Height",
+        "value": "500mm/ 19-5/8 inch"
+      }
+    ]
+  }
+]

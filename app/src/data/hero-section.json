@@ -1,0 +1,183 @@
+{
+  "website_info": {
+    "site_name": "Autodiagnostix",
+    "tagline": "Authorized Dealer of LAUNCH, SMARTSAFE, UNITE & More",
+    "business_type": "B2B Automotive Equipment Supplier",
+    "location": "Pakistan"
+  },
+  "hero_slides": [
+    {
+      "id": 1,
+      "tagline": "Authorized Dealer in Pakistan",
+      "headline": "Professional Automotive Diagnostics.",
+      "highlight_text": "Redefined.",
+      "description": "Your trusted partner for LAUNCH, SMARTSAFE, UNITE, and industry-leading automotive equipment. Serving Pakistan's professional service centers with authentic B2B solutions.",
+      "cta_primary": {
+        "label": "Browse Products",
+        "href": "#products",
+        "style": "primary-gradient"
+      },
+      "cta_secondary": {
+        "label": "Contact Us",
+        "href": "#contact",
+        "style": "border-outline"
+      },
+      "background": {
+        "image": "/images/hero-slide-1.png",
+        "alt": "Professional automotive diagnostic equipment",
+        "overlay": "dark-gradient-left",
+        "overlay_opacity": 0.6
+      },
+      "accent_color": "#97000d",
+      "text_color": "white",
+      "animation": "fade-in-left",
+      "duration": 5000
+    },
+    {
+      "id": 2,
+      "tagline": "Precision Engineering",
+      "headline": "Advanced Workshop Solutions.",
+      "highlight_text": "For Pros.",
+      "description": "From wheel alignment systems to hydraulic lifts, discover equipment that transforms your service center's capabilities. Authorized dealer for Pakistan's automotive industry.",
+      "cta_primary": {
+        "label": "View Equipment",
+        "href": "#equipment",
+        "style": "primary-gradient"
+      },
+      "cta_secondary": {
+        "label": "Request Quote",
+        "href": "#quote",
+        "style": "border-outline"
+      },
+      "background": {
+        "image": "/images/hero-slide-2.png",
+        "alt": "Modern automotive workshop with equipment",
+        "overlay": "dark-gradient-left",
+        "overlay_opacity": 0.5
+      },
+      "accent_color": "#97000d",
+      "text_color": "white",
+      "animation": "fade-in-up",
+      "duration": 5000
+    },
+    {
+      "id": 3,
+      "tagline": "Official Partnership",
+      "headline": "LAUNCH & SMARTSAFE.",
+      "highlight_text": "Authorized.",
+      "description": "Genuine products, local support, and warranty services for Pakistan's automotive industry. Your official distributor for professional diagnostic equipment.",
+      "cta_primary": {
+        "label": "Our Brands",
+        "href": "#brands",
+        "style": "primary-gradient"
+      },
+      "cta_secondary": {
+        "label": "Learn More",
+        "href": "#about",
+        "style": "border-outline"
+      },
+      "background": {
+        "image": "/images/hero-slide-3.png",
+        "alt": "LAUNCH and SMARTSAFE equipment showcase",
+        "overlay": "dark-gradient-left",
+        "overlay_opacity": 0.55
+      },
+      "accent_color": "#97000d",
+      "text_color": "white",
+      "animation": "fade-in-right",
+      "duration": 5000
+    }
+  ],
+  "slider_config": {
+    "auto_play": true,
+    "interval": 6000,
+    "transition_duration": 800,
+    "transition_type": "fade",
+    "show_indicators": true,
+    "show_navigation": true,
+    "pause_on_hover": true,
+    "infinite_loop": true,
+    "indicators_style": {
+      "type": "bars",
+      "active_color": "#97000d",
+      "inactive_color": "rgba(255,255,255,0.3)",
+      "height": "4px",
+      "width": "48px",
+      "spacing": "8px"
+    }
+  },
+  "layout_config": {
+    "container": {
+      "max_width": "1536px",
+      "padding_x": "32px"
+    },
+    "content_position": "left",
+    "content_max_width": "672px",
+    "vertical_alignment": "center",
+    "text_alignment": "left"
+  },
+  "typography": {
+    "tagline": {
+      "font": "Inter",
+      "size": "14px",
+      "weight": "700",
+      "letter_spacing": "0.2em",
+      "text_transform": "uppercase",
+      "color": "#97000d"
+    },
+    "headline": {
+      "font": "Manrope",
+      "size_mobile": "48px",
+      "size_desktop": "80px",
+      "weight": "800",
+      "line_height": "1.1",
+      "letter_spacing": "-0.02em",
+      "color": "#ffffff"
+    },
+    "highlight": {
+      "color": "#97000d"
+    },
+    "description": {
+      "font": "Inter",
+      "size": "18px",
+      "size_desktop": "20px",
+      "weight": "400",
+      "line_height": "1.6",
+      "color": "#a1a1aa",
+      "max_width": "512px"
+    }
+  },
+  "buttons": {
+    "primary": {
+      "background": "linear-gradient(135deg, #97000d 0%, #bb2221 100%)",
+      "color": "#ffffff",
+      "padding": "16px 32px",
+      "font": "Manrope",
+      "font_weight": "500",
+      "font_size": "14px",
+      "border_radius": "0",
+      "text_transform": "none",
+      "letter_spacing": "-0.01em",
+      "hover_scale": 0.98,
+      "hover_brightness": 1.1
+    },
+    "secondary": {
+      "background": "transparent",
+      "border": "1px solid rgba(255,255,255,0.2)",
+      "color": "#ffffff",
+      "padding": "16px 32px",
+      "font": "Manrope",
+      "font_weight": "500",
+      "font_size": "14px",
+      "border_radius": "0",
+      "text_transform": "none",
+      "letter_spacing": "-0.01em",
+      "hover_background": "rgba(255,255,255,0.1)"
+    }
+  },
+  "seo": {
+    "title": "Autodiagnostix | Professional Automotive Diagnostics - Authorized Dealer Pakistan",
+    "description": "Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE automotive diagnostic equipment. B2B sales for professional service centers.",
+    "keywords": ["automotive diagnostics", "LAUNCH Pakistan", "SMARTSAFE dealer", "car scanners", "workshop equipment", "B2B automotive"]
+  }
+}

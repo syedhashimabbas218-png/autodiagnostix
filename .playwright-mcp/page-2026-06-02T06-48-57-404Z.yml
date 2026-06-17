@@ -1,0 +1,787 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - navigation [ref=e7]:
+        - link "AUTOOL" [ref=e9] [cursor=pointer]:
+          - /url: https://shop.autooltech.com/
+          - img "AUTOOL" [ref=e10]
+        - text: 
+        - list [ref=e12]:
+          - listitem [ref=e13]:
+            - link "Home" [ref=e14] [cursor=pointer]:
+              - /url: https://shop.autooltech.com/
+          - listitem [ref=e15]:
+            - link "Categories " [ref=e16] [cursor=pointer]:
+              - /url: https://shop.autooltech.com/shop/
+              - text: Categories
+              - generic [ref=e17]: 
+            - generic [ref=e19]:
+              - button "Scroll for more" [ref=e21] [cursor=pointer]:
+                - generic [ref=e22]: 
+              - generic [ref=e24]:
+                - list [ref=e25]:
+                  - listitem [ref=e26]:
+                    - link "Automotive Repair & Testing Equipment" [ref=e27] [cursor=pointer]:
+                      - /url: "#tab_automotive-repair-&-testing-equipment"
+                      - generic [ref=e28]: Automotive Repair & Testing Equipment
+                  - listitem [ref=e29]:
+                    - link "Automotive Repair & Maintenance Equipment" [ref=e30] [cursor=pointer]:
+                      - /url: "#tab_automotive-repair-&-maintenance-equipment"
+                      - generic [ref=e31]: Automotive Repair & Maintenance Equipment
+                  - listitem [ref=e32]:
+                    - link "Wheel and Tire Repair Equipment" [ref=e33] [cursor=pointer]:
+                      - /url: "#tab_wheel-and-tire-repair-equipment"
+                      - generic [ref=e34]: Wheel and Tire Repair Equipment
+                  - listitem [ref=e35]:
+                    - link "Carbon Deposit Cleaning Equipment" [ref=e36] [cursor=pointer]:
+                      - /url: "#tab_carbon-deposit-cleaning-equipment"
+                      - generic [ref=e37]: Carbon Deposit Cleaning Equipment
+                  - listitem [ref=e38]:
+                    - link "Workshop Tool Storage" [ref=e39] [cursor=pointer]:
+                      - /url: "#tab_workshop-tool-storage"
+                      - generic [ref=e40]: Workshop Tool Storage
+                  - listitem [ref=e41]:
+                    - link "OBD Diagnostic Tools" [ref=e42] [cursor=pointer]:
+                      - /url: "#tab_obd-diagnostic-tools"
+                      - generic [ref=e43]: OBD Diagnostic Tools
+                  - listitem [ref=e44]:
+                    - link "Accessories" [ref=e45] [cursor=pointer]:
+                      - /url: "#tab_accessories"
+                      - generic [ref=e46]: Accessories
+                  - listitem [ref=e47]:
+                    - link [ref=e48] [cursor=pointer]:
+                      - /url: "#tab_accessories"
+                - generic [ref=e51]:
+                  - generic [ref=e53]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-smoke-machine/
+                    - generic [ref=e54]:
+                      - link [ref=e55] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-smoke-machine/
+                      - generic [ref=e59]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-smoke-machine/
+                        - generic [ref=e60]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-smoke-machine/
+                          - paragraph [ref=e61]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-smoke-machine/
+                            - link "Smoke Leak Detector" [ref=e62] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-smoke-machine/
+                              - strong [ref=e63]: Smoke Leak Detector
+                  - generic [ref=e65]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/car-inspection-camera/
+                    - generic [ref=e66]:
+                      - link [ref=e67] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/car-inspection-camera/
+                      - generic [ref=e71]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/car-inspection-camera/
+                        - generic [ref=e72]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/car-inspection-camera/
+                          - paragraph [ref=e73]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/car-inspection-camera/
+                            - link "Smart Articulating Borescope" [ref=e74] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/car-inspection-camera/
+                              - strong [ref=e75]: Smart Articulating Borescope
+                  - generic [ref=e77]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/car-battery-tester/
+                    - generic [ref=e78]:
+                      - link [ref=e79] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/car-battery-tester/
+                      - generic [ref=e83]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/car-battery-tester/
+                        - generic [ref=e84]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/car-battery-tester/
+                          - paragraph [ref=e85]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/car-battery-tester/
+                            - link "Battery System Tester" [ref=e86] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/car-battery-tester/
+                              - strong [ref=e87]: Battery System Tester
+                  - generic [ref=e89]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product/autool-re110-auto-remote-key-frequency-tester/
+                    - generic [ref=e90]:
+                      - link [ref=e91] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product/autool-re110-auto-remote-key-frequency-tester/
+                      - generic [ref=e95]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product/autool-re110-auto-remote-key-frequency-tester/
+                        - generic [ref=e96]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product/autool-re110-auto-remote-key-frequency-tester/
+                          - paragraph [ref=e97]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product/autool-re110-auto-remote-key-frequency-tester/
+                              - generic:
+                                - strong
+                            - strong [ref=e98]:
+                              - link "Automotive Key Frequency Tester" [ref=e99] [cursor=pointer]:
+                                - /url: https://shop.autooltech.com/product/autool-re110-auto-remote-key-frequency-tester/
+                  - generic [ref=e101]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/freon-leak-detector-autool/
+                    - generic [ref=e102]:
+                      - link [ref=e103] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/freon-leak-detector-autool/
+                      - generic [ref=e107]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/freon-leak-detector-autool/
+                        - generic [ref=e108]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/freon-leak-detector-autool/
+                          - paragraph [ref=e109]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/freon-leak-detector-autool/
+                            - link "Air Conditioning System Tester" [ref=e110] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/freon-leak-detector-autool/
+                              - strong [ref=e111]: Air Conditioning System Tester
+                  - generic [ref=e113]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/spark-plug-tester-tool/
+                    - generic [ref=e114]:
+                      - link [ref=e115] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/spark-plug-tester-tool/
+                      - generic [ref=e119]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/spark-plug-tester-tool/
+                        - generic [ref=e120]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/spark-plug-tester-tool/
+                          - paragraph [ref=e121]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/spark-plug-tester-tool/
+                              - generic:
+                                - strong
+                            - strong [ref=e122]:
+                              - link "Spark Plug Tester" [ref=e123] [cursor=pointer]:
+                                - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/spark-plug-tester-tool/
+                  - generic [ref=e125]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/ciruit/
+                    - generic [ref=e126]:
+                      - link [ref=e127] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/ciruit/
+                      - generic [ref=e131]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/ciruit/
+                        - generic [ref=e132]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/ciruit/
+                          - paragraph [ref=e133]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/ciruit/
+                            - link "Automotive Circuit Tester" [ref=e134] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/ciruit/
+                              - strong [ref=e135]: Automotive Circuit Tester
+                  - generic [ref=e137]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/diagnostic-multimeter/
+                    - generic [ref=e138]:
+                      - link [ref=e139] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/diagnostic-multimeter/
+                      - generic [ref=e143]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/diagnostic-multimeter/
+                        - generic [ref=e144]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/diagnostic-multimeter/
+                          - paragraph [ref=e145]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/diagnostic-multimeter/
+                            - link "Diagnostic Multimeter" [ref=e146] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-multimeter/
+                              - strong [ref=e147]: Diagnostic Multimeter
+                  - generic [ref=e149]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/engine-pressure-tester/
+                    - generic [ref=e150]:
+                      - link [ref=e151] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/engine-pressure-tester/
+                      - generic [ref=e155]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/engine-pressure-tester/
+                        - generic [ref=e156]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/engine-pressure-tester/
+                          - paragraph [ref=e157]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/engine-pressure-tester/
+                              - generic:
+                                - strong
+                            - strong [ref=e158]:
+                              - link "Engine Pressure Tester" [ref=e159] [cursor=pointer]:
+                                - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/intelligent-pressure-tester/
+                  - generic [ref=e161]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/used-car-diagnostic-tester/
+                    - generic [ref=e162]:
+                      - link [ref=e163] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/used-car-diagnostic-tester/
+                      - generic [ref=e167]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/used-car-diagnostic-tester/
+                        - generic [ref=e168]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/used-car-diagnostic-tester/
+                          - paragraph [ref=e169]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/used-car-diagnostic-tester/
+                            - link "Used Car Diagnostic Tester" [ref=e170] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/used-car-diagnostic-tester/
+                              - strong [ref=e171]: Used Car Diagnostic Tester
+                  - generic [ref=e173]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-oil-tester-serise/
+                    - generic [ref=e174]:
+                      - link [ref=e175] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-oil-tester-serise/
+                      - generic [ref=e179]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-oil-tester-serise/
+                        - generic [ref=e180]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-oil-tester-serise/
+                          - paragraph [ref=e181]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-oil-tester-serise/
+                            - link "Automotive Oil & Fluid Analyzer" [ref=e182] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/automotive-oil-tester-serise/
+                              - strong [ref=e183]: Automotive Oil & Fluid Analyzer
+                  - generic [ref=e185]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/maintenance-environmental-monitoring-series/
+                    - generic [ref=e186]:
+                      - link [ref=e187] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/maintenance-environmental-monitoring-series/
+                      - generic [ref=e191]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/maintenance-environmental-monitoring-series/
+                        - generic [ref=e192]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/maintenance-environmental-monitoring-series/
+                          - paragraph [ref=e193]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/maintenance-environmental-monitoring-series/
+                            - link "Maintenance Environment Tester" [ref=e194] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-maintance-tools/maintenance-environmental-monitoring-series/
+                              - strong [ref=e195]: Maintenance Environment Tester
+                  - generic [ref=e197]:
+                    - link:
+                      - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/digital-differential-pressure-gauge/
+                    - generic [ref=e198]:
+                      - link [ref=e199] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/digital-differential-pressure-gauge/
+                      - generic [ref=e203]:
+                        - link:
+                          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/digital-differential-pressure-gauge/
+                        - generic [ref=e204]:
+                          - link:
+                            - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/digital-differential-pressure-gauge/
+                          - paragraph [ref=e205]:
+                            - link:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/digital-differential-pressure-gauge/
+                            - link "Digital Differential Pressure Gauge" [ref=e206] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/digital-differential-pressure-gauge/
+                              - strong [ref=e207]: Digital Differential Pressure Gauge
+          - listitem [ref=e208]:
+            - generic [ref=e209]:
+              - text: Support
+              - generic [ref=e210]: 
+            - generic [ref=e215]:
+              - generic [ref=e217]:
+                - paragraph [ref=e219]:
+                  - strong [ref=e220]: Help Center
+                - generic [ref=e221]:
+                  - link " Shipping Policy" [ref=e223] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/shipping-policy/
+                    - generic [ref=e224]: 
+                    - generic [ref=e225]: Shipping Policy
+                  - link " Return & Refund Policy" [ref=e227] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/return-refund-policy/
+                    - generic [ref=e228]: 
+                    - generic [ref=e229]: Return & Refund Policy
+                  - link " Payment & Billing Terms" [ref=e231] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/payment-billing-terms/
+                    - generic [ref=e232]: 
+                    - generic [ref=e233]: Payment & Billing Terms
+                  - link " Terms of Service" [ref=e235] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/terms-of-service
+                    - generic [ref=e236]: 
+                    - generic [ref=e237]: Terms of Service
+                  - link " Privacy Policy" [ref=e239] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/privacy-policy
+                    - generic [ref=e240]: 
+                    - generic [ref=e241]: Privacy Policy
+              - generic [ref=e243]:
+                - paragraph [ref=e245]:
+                  - strong [ref=e246]: Customer Service
+                - generic [ref=e247]:
+                  - link " Track Your Order" [ref=e249] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/track-your-order/
+                    - generic [ref=e250]: 
+                    - generic [ref=e251]: Track Your Order
+                  - link " FAQs" [ref=e253] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/faqs/
+                    - generic [ref=e254]: 
+                    - generic [ref=e255]: FAQs
+                  - link " Tech Support" [ref=e257] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/tech-support/
+                    - generic [ref=e258]: 
+                    - generic [ref=e259]: Tech Support
+                  - link " Contact AUTOOL" [ref=e261] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/contact-us/
+                    - generic [ref=e262]: 
+                    - generic [ref=e263]: Contact AUTOOL
+                  - link " Alliance Marketing" [ref=e265] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/alliance-marketing
+                    - generic [ref=e266]: 
+                    - generic [ref=e267]: Alliance Marketing
+                  - link " Custom Solutions (OEM & ODM)" [ref=e269] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/custom-solutions-oem-odm/
+                    - generic [ref=e270]: 
+                    - generic [ref=e271]: Custom Solutions (OEM & ODM)
+              - generic [ref=e273]:
+                - paragraph [ref=e275]:
+                  - strong [ref=e276]: Update Imformation
+                - generic [ref=e277]:
+                  - link " Software Update" [ref=e279] [cursor=pointer]:
+                    - /url: https://www.autooltech.com/update-info/
+                    - generic [ref=e280]: 
+                    - generic [ref=e281]: Software Update
+                  - link " User Manual Download" [ref=e283] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/autool-help-center/manual-download/
+                    - generic [ref=e284]: 
+                    - generic [ref=e285]: User Manual Download
+        - list [ref=e287]:
+          - listitem [ref=e288]:
+            - link "Search" [ref=e290] [cursor=pointer]:
+              - /url: "#search-lightbox"
+              - generic [ref=e291]: 
+            - text: 
+          - listitem [ref=e292]
+          - listitem [ref=e293]:
+            - link "" [ref=e295] [cursor=pointer]:
+              - /url: https://shop.autooltech.com/my-account/
+              - generic [ref=e296]: 
+          - listitem [ref=e297]:
+            - link "$ 0.00 " [ref=e299] [cursor=pointer]:
+              - /url: https://shop.autooltech.com/cart/
+              - generic [ref=e303]:
+                - generic [ref=e304]: $
+                - text: "0.00"
+              - generic [ref=e305]: 
+        - text: 
+    - generic [ref=e311]:
+      - navigation [ref=e314]:
+        - link "Home" [ref=e315] [cursor=pointer]:
+          - /url: https://shop.autooltech.com
+        - text: /
+        - link "Auto Inspection Tools" [ref=e316] [cursor=pointer]:
+          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/
+        - text: /
+        - link "Spark Plug Tester Tool" [ref=e317] [cursor=pointer]:
+          - /url: https://shop.autooltech.com/product-category/auto-inspection-tools/spark-plug-tester-tool/
+      - list [ref=e319]:
+        - listitem [ref=e320]:
+          - link "" [ref=e321] [cursor=pointer]:
+            - /url: https://shop.autooltech.com/product/smoke-machine-for-vacuum-leaks-autool-sdt206/
+            - generic [ref=e322]: 
+          - link "AUTOOL SDT206 Smoke Machine For Vacuum Leaks" [ref=e324] [cursor=pointer]:
+            - /url: https://shop.autooltech.com/product/smoke-machine-for-vacuum-leaks-autool-sdt206/
+        - listitem [ref=e325]:
+          - link "" [ref=e326] [cursor=pointer]:
+            - /url: https://shop.autooltech.com/product/autool-spt101-spark-plug-tester-for-12v-vehicles/
+            - generic [ref=e327]: 
+          - link "AUTOOL SPT101 Spark Plug Tester Spark Plug Checker" [ref=e329] [cursor=pointer]:
+            - /url: https://shop.autooltech.com/product/autool-spt101-spark-plug-tester-for-12v-vehicles/
+    - main [ref=e330]:
+      - generic [ref=e333]:
+        - generic [ref=e335]:
+          - generic [ref=e336]:
+            - generic [ref=e337]:
+              - generic [ref=e338]:
+                - generic:
+                  - generic: NEW
+              - figure [ref=e339]:
+                - generic [ref=e341]:
+                  - link "SPT360" [ref=e343] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2025/03/SPT360.jpg
+                    - img "SPT360" [ref=e344]
+                  - link [ref=e346] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2021/06/SPT360-spark-plug-tester.jpg
+                    - img [ref=e347]
+                  - link [ref=e349] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2024/07/d1af5d1d-5147-4c8e-8e49-a7a84fdc1fbf.png
+                    - img [ref=e350]
+                  - link [ref=e352] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2021/06/d16750f8-0176-875e-7a13-6ac9b26b2151.jpg
+                    - img [ref=e353]
+                  - link [ref=e355] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2021/06/ca94cb2d-e39b-39a2-236a-f90ee48b3ffc.jpg
+                    - img [ref=e356]
+                  - link [ref=e358] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2021/06/29ab2c88-69db-587e-39c8-21696c70ab4b.jpg
+                    - img [ref=e359]
+                  - link [ref=e361] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2021/06/21a4c2de-f05c-70d4-7612-313c44fd1484.jpg
+                    - img [ref=e362]
+                  - link [ref=e364] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2021/06/7cee983b-a086-5130-9bcf-97b3742c48f5.jpg
+                    - img [ref=e365]
+                  - link [ref=e367] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2021/06/a6102c04-4ace-07e6-9a08-439e3aada3c1.jpg
+                    - img [ref=e368]
+                  - link [ref=e370] [cursor=pointer]:
+                    - /url: https://shop.autooltech.com/wp-content/uploads/2021/06/89e0705c-4297-c8a3-d5fd-afc50e502b67.jpg
+                    - img [ref=e371]
+                - button "Previous" [ref=e372] [cursor=pointer]:
+                  - img [ref=e373]
+                - button "Next" [ref=e375] [cursor=pointer]:
+                  - img [ref=e376]
+              - generic [ref=e378]:
+                - link "" [ref=e379] [cursor=pointer]:
+                  - /url: https://www.youtube.com/watch?v=pzqbk9Y9Lhg
+                  - generic [ref=e380]: 
+                - link "" [ref=e381] [cursor=pointer]:
+                  - /url: "#product-zoom"
+                  - generic [ref=e382]: 
+            - generic [ref=e383]:
+              - button "Previous" [disabled]:
+                - img
+              - button "Next" [ref=e406] [cursor=pointer]:
+                - img [ref=e407]
+          - generic [ref=e409]:
+            - heading "AUTOOL SPT360 Spark Plug Tester Automotive Diagnostic" [level=1] [ref=e410]
+            - generic [ref=e412]:
+              - img "Rated 4.97 out of 5" [ref=e413]:
+                - text: 
+                - generic [ref=e414]:
+                  - text:  Rated
+                  - strong [ref=e415]: "4.97"
+                  - text: out of 5 based on
+                  - generic [ref=e416]:  36
+                  - text: customer ratings
+              - link "(36 customer reviews)" [ref=e417] [cursor=pointer]:
+                - /url: "#reviews"
+            - paragraph [ref=e419]:
+              - generic [ref=e421]: $59.00
+            - list [ref=e423]:
+              - listitem [ref=e424]:
+                - strong [ref=e425]: "Five-Hole Test:"
+                - text: For testing four spark plugs and a new spark plug at the same time.
+              - listitem [ref=e426]:
+                - strong [ref=e427]: "Simulated 200-9900RPM Test:"
+                - text: .Compatible with crankshaft engines and motorbike spark plugs.
+              - listitem [ref=e428]:
+                - strong [ref=e429]: "Three-year warranty:"
+                - text: Contact us anytime with issues, and we’ll deal within 24 hours!
+                - strong [ref=e431]:
+                  - link "Online Support>>" [ref=e432] [cursor=pointer]:
+                    - /url: https://api.whatsapp.com/send/?phone=%2B8618926477404&text=5Onlinesupprot
+            - generic [ref=e433]:
+              - generic [ref=e434]:
+                - img [ref=e436]
+                - generic [ref=e438]:
+                  - heading "Wholesale & Discount Pricing" [level=4] [ref=e439]
+                  - paragraph [ref=e440]:
+                    - text: Select the correct warehouse before payment. EU users choosing Germany stock enjoy
+                    - strong [ref=e441]: free shipping and no customs duties.
+                - button "Get A Quote" [ref=e443] [cursor=pointer]
+              - button "NEXT ➔" [ref=e444] [cursor=pointer]
+            - generic [ref=e446]:
+              - generic [ref=e447]: Voltage
+              - generic [ref=e448]: ": 110V"
+              - radiogroup "Voltage" [ref=e449]:
+                - radio "110V" [checked] [ref=e450] [cursor=pointer]:
+                  - generic [ref=e452]: 110V
+                - radio "220V" [ref=e453] [cursor=pointer]:
+                  - generic [ref=e455]: 220V
+              - generic [ref=e456]: Ship From
+              - generic [ref=e457]: ": China"
+              - radiogroup "Ship From" [ref=e458]:
+                - radio "Germany":
+                  - generic:
+                    - img
+                - radio "United States" [ref=e459] [cursor=pointer]:
+                  - generic [ref=e460]:
+                    - img
+                - radio "United Kingdom":
+                  - generic:
+                    - img
+                - radio "China" [checked] [ref=e461] [cursor=pointer]:
+                  - generic [ref=e462]:
+                    - img
+              - link "Clear options" [ref=e463] [cursor=pointer]:
+                - /url: "#"
+                - text: Clear
+              - alert [ref=e464]
+              - generic [ref=e466]:
+                - generic [ref=e467]:
+                  - button "-" [ref=e468] [cursor=pointer]
+                  - generic [ref=e469]: AUTOOL SPT360 Spark Plug Tester Automotive Diagnostic quantity
+                  - spinbutton "AUTOOL SPT360 Spark Plug Tester Automotive Diagnostic quantity" [ref=e470]: "1"
+                  - button "+" [ref=e471] [cursor=pointer]
+                - button "Add to cart" [ref=e472] [cursor=pointer]
+                - button "Buy now" [ref=e473] [cursor=pointer]
+        - generic [ref=e476]:
+          - tablist [ref=e477]:
+            - tab "Description" [ref=e478]:
+              - link "Description" [ref=e479] [cursor=pointer]:
+                - /url: "#tab-description"
+            - tab "Video" [ref=e480]:
+              - link "Video" [ref=e481] [cursor=pointer]:
+                - /url: "#tab-ux_video_tab"
+            - tab "SPECIFICATIONS" [ref=e482]:
+              - link "SPECIFICATIONS" [ref=e483] [cursor=pointer]:
+                - /url: "#tab-specifications"
+            - tab "Reviews (36)" [ref=e484]:
+              - link "Reviews (36)" [ref=e485] [cursor=pointer]:
+                - /url: "#tab-reviews"
+          - generic [ref=e486]:
+            - tabpanel "Description" [ref=e487]:
+              - generic [ref=e490]:
+                - heading "The AUTOOL SPT360 is a digital spark plug high-frequency tester with a maximum speed of 9000 rpm. It is compatible with all crankshaft engines and motorbikes and can test up to five spark plugs simultaneously." [level=3] [ref=e491]
+                - generic [ref=e492]:
+                  - generic [ref=e493]:
+                    - link " How To Use AUTOOL SPT360 Spark Plug Tester?" [ref=e494] [cursor=pointer]:
+                      - /url: "#"
+                      - button "" [ref=e495]:
+                        - generic [ref=e496]: 
+                      - text: How To Use AUTOOL SPT360 Spark Plug Tester?
+                    - paragraph [ref=e498]:
+                      - text: "Step 1: Insert the new spark plug into the hole ①, and insert the old spark plug into the hole ②③④⑤;"
+                      - text: "Step 2: Insert the power adapter into the 10 power port on the back of the host, and the indicator light will light up;"
+                      - text: "Step 3: Turn on the power switch and press the up and down buttons to adjust the working frequency. The higher the frequency, the higher the intensity of the spark plug."
+                  - link " AUTOOL SPT360 Manual" [ref=e500] [cursor=pointer]:
+                    - /url: "#"
+                    - button "" [ref=e501]:
+                      - generic [ref=e502]: 
+                    - text: AUTOOL SPT360 Manual
+                - generic [ref=e511]:
+                  - heading "What is the difference betwenn all AUTOOL Car Spark Plug Tester?" [level=3] [ref=e512]
+                  - heading "AUTOOL Automotive Spark Plug Tester Quick Search" [level=3] [ref=e515]
+                  - generic [ref=e516]:
+                    - generic [ref=e519]:
+                      - link "AUTOOL SPT101 Spark Plug Tester Spark Plug Checker" [ref=e522] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product/autool-spt101-spark-plug-tester-for-12v-vehicles/
+                      - generic [ref=e523]:
+                        - paragraph [ref=e525]:
+                          - link "AUTOOL SPT101 Spark Plug Tester Spark Plug Checker" [ref=e526] [cursor=pointer]:
+                            - /url: https://shop.autooltech.com/product/autool-spt101-spark-plug-tester-for-12v-vehicles/
+                        - generic [ref=e530]: $39.90
+                    - generic [ref=e533]:
+                      - link "AUTOOL SPT105 Spark Plug Tester Tool Adjustable Spark Tester" [ref=e536] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product/autool-spt105-car-spark-plug-tester-with-auto-adjustable-for-12v-vehicles/
+                      - generic [ref=e537]:
+                        - paragraph [ref=e539]:
+                          - link "AUTOOL SPT105 Spark Plug Tester Tool Adjustable Spark Tester" [ref=e540] [cursor=pointer]:
+                            - /url: https://shop.autooltech.com/product/autool-spt105-car-spark-plug-tester-with-auto-adjustable-for-12v-vehicles/
+                        - generic [ref=e544]: $32.90
+                    - generic [ref=e547]:
+                      - link "AUTOOL SPT301 Car Spark Tester Automotive Diagnostic" [ref=e550] [cursor=pointer]:
+                        - /url: https://shop.autooltech.com/product/autool-spt301-automotive-spark-plug-tester/
+                      - generic [ref=e551]:
+                        - paragraph [ref=e553]:
+                          - link "AUTOOL SPT301 Car Spark Tester Automotive Diagnostic" [ref=e554] [cursor=pointer]:
+                            - /url: https://shop.autooltech.com/product/autool-spt301-automotive-spark-plug-tester/
+                        - generic [ref=e558]: $59.00
+                    - generic [ref=e560]:
+                      - generic [ref=e561]:
+                        - generic:
+                          - generic: NEW
+                      - generic [ref=e562]:
+                        - link "AUTOOL SPT360 Spark Plug Tester Automotive Diagnostic" [ref=e565] [cursor=pointer]:
+                          - /url: https://shop.autooltech.com/product/autool-spt360-car-spark-plug-tester-ignition-testers-automotive-diagnostic-tool-five-hole-spark-plug-flashover-analyzer-110-220v/
+                        - generic [ref=e566]:
+                          - paragraph [ref=e568]:
+                            - link "AUTOOL SPT360 Spark Plug Tester Automotive Diagnostic" [ref=e569] [cursor=pointer]:
+                              - /url: https://shop.autooltech.com/product/autool-spt360-car-spark-plug-tester-ignition-testers-automotive-diagnostic-tool-five-hole-spark-plug-flashover-analyzer-110-220v/
+                          - generic [ref=e573]: $59.00
+                - generic [ref=e576]:
+                  - heading "AUTOOL SPT360 Spark Plug Tester Function" [level=3] [ref=e577]
+                  - list [ref=e579]:
+                    - listitem [ref=e580]:
+                      - strong [ref=e581]: "5 test holes:"
+                      - text: 5 spark plugs can be tested at the same time (1 standard spark plug, 4 test plugs).
+                    - listitem [ref=e582]:
+                      - strong [ref=e583]: "Adjustable test hole height:"
+                      - text: for long spark plug ends. Compatible with crankshaft engines and motorbikes.
+                    - listitem [ref=e584]:
+                      - strong [ref=e585]: "Digital Colour Display:"
+                      - text: High definition display with real time RPM adjustment to ensure accurate test results.
+                    - listitem [ref=e586]:
+                      - strong [ref=e587]: "Support 0-9999 rpm:"
+                      - text: the higher the frequency the stronger the spark plug.
+                    - listitem [ref=e588]:
+                      - strong [ref=e589]: "Easy to operate:"
+                      - text: insert the spark plug, switch on the power and adjust the frequency to quickly assess the spark plug status.
+                    - listitem [ref=e590]: "3 YEARS WARRANTY: For damages not caused by human factors, we promise to re-send the parts for free within 3 years."
+                  - link "Onlie Support " [ref=e591] [cursor=pointer]:
+                    - /url: https://api.whatsapp.com/send/?phone=%2B8618926477404&text=5Onlinesupprot
+                    - generic [ref=e592]: Onlie Support
+                    - generic [ref=e593]: 
+                - heading "Packing List" [level=3] [ref=e603]
+            - option "Most Recent" [selected]
+            - option "Most Helpful"
+            - option "Highest Rating"
+            - option "Lowest Rating"
+    - contentinfo [ref=e604]:
+      - generic [ref=e606]:
+        - generic [ref=e607]:
+          - heading "You've reached the end, but it doesn't have to be over." [level=3] [ref=e608]
+          - paragraph [ref=e609]: Sign up for our newsletter to receive cutting-edge updates!
+        - group "Subscription260323" [ref=e613]:
+          - generic: Subscription260323
+          - textbox "Your Email Address" [ref=e616]
+          - button "Subscribe" [ref=e618] [cursor=pointer]
+      - generic [ref=e619]:
+        - generic [ref=e620]:
+          - img "AUTOOL Logo" [ref=e621]
+          - generic [ref=e622]:
+            - generic [ref=e623]:
+              - img [ref=e625]
+              - generic [ref=e627]:
+                - strong [ref=e628]: "Address:"
+                - text: 2nd Floor, Building 2, Hezhou Anle Industrial Park, Hezhou Community, Hangcheng, Bao'an, Shenzhen, Guangdong, China, 518101
+            - generic [ref=e629]:
+              - img [ref=e631]
+              - generic [ref=e633]:
+                - strong [ref=e634]: "Phone / WhatsApp:"
+                - link "+86 189 2647 7404" [ref=e635] [cursor=pointer]:
+                  - /url: https://api.whatsapp.com/send/?phone=%2B8618926477404&text=after-sales%20service
+            - generic [ref=e636]:
+              - img [ref=e638]
+              - generic [ref=e640]:
+                - strong [ref=e641]: "Email:"
+                - link "shop@autooltech.com" [ref=e642] [cursor=pointer]:
+                  - /url: mailto:shop@autooltech.com
+        - generic [ref=e643]:
+          - heading "About Us" [level=4] [ref=e644]
+          - list [ref=e645]:
+            - listitem [ref=e646]:
+              - link "Home" [ref=e647] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e648]:
+              - link "Shop" [ref=e649] [cursor=pointer]:
+                - /url: /shop
+            - listitem [ref=e650]:
+              - link "About AUTOOL" [ref=e651] [cursor=pointer]:
+                - /url: /about-us
+            - listitem [ref=e652]:
+              - link "Alliance Marketing" [ref=e653] [cursor=pointer]:
+                - /url: /alliance-marketing
+        - generic [ref=e654]:
+          - heading "Customer Service" [level=4] [ref=e655]
+          - list [ref=e656]:
+            - listitem [ref=e657]:
+              - link "My Account" [ref=e658] [cursor=pointer]:
+                - /url: /my-account
+            - listitem [ref=e659]:
+              - link "Track Your Order" [ref=e660] [cursor=pointer]:
+                - /url: /track-your-order
+            - listitem [ref=e661]:
+              - link "FAQs" [ref=e662] [cursor=pointer]:
+                - /url: /faqs
+            - listitem [ref=e663]:
+              - link "Tech Support" [ref=e664] [cursor=pointer]:
+                - /url: /tech-support
+            - listitem [ref=e665]:
+              - link "Contact AUTOOL" [ref=e666] [cursor=pointer]:
+                - /url: /contact-us
+        - generic [ref=e667]:
+          - heading "Policies & Terms" [level=4] [ref=e668]
+          - list [ref=e669]:
+            - listitem [ref=e670]:
+              - link "Shipping Policy" [ref=e671] [cursor=pointer]:
+                - /url: /shipping-policy
+            - listitem [ref=e672]:
+              - link "Return & Refund Policy" [ref=e673] [cursor=pointer]:
+                - /url: /return-refund-policy
+            - listitem [ref=e674]:
+              - link "Payment & Billing Terms" [ref=e675] [cursor=pointer]:
+                - /url: /payment-billing-terms
+            - listitem [ref=e676]:
+              - link "Terms of Service" [ref=e677] [cursor=pointer]:
+                - /url: /terms-of-service
+            - listitem [ref=e678]:
+              - link "Privacy Policy" [ref=e679] [cursor=pointer]:
+                - /url: /privacy-policy
+      - generic [ref=e681]:
+        - generic [ref=e683]:
+          - img [ref=e685]
+          - img [ref=e688]
+          - img [ref=e691]
+          - img [ref=e694]
+        - generic [ref=e697]: Copyright © 2026 AUTOOL All Rights Reserved
+      - link "Go to top":
+        - /url: "#top"
+        - generic: 
+  - text:   
+  - generic [ref=e699]:
+    - generic [ref=e700] [cursor=pointer]:
+      - generic [ref=e701]: USD
+      - link "United States (US) dollar" [ref=e702]:
+        - /url: "#"
+    - generic [ref=e703] [cursor=pointer]: +
+  - paragraph [ref=e705]:
+    - text: Unique promotions and bonuses make
+    - link "1Win" [ref=e706] [cursor=pointer]:
+      - /url: https://cdu-art.ru/
+    - text: even more attractive for all betting enthusiasts.
+  - paragraph [ref=e708]:
+    - text: Kasyno online
+    - link "Mostbet" [ref=e709] [cursor=pointer]:
+      - /url: https://mostbet-casino-graj.pl/
+    - text: oferuje szeroki wybor automatow do gier oraz klasycznych gier stolowych, takich jak ruletka czy blackjack.
+  - paragraph [ref=e711]:
+    - link "Glory Casino" [ref=e712] [cursor=pointer]:
+      - /url: https://www.deimpeu.com/
+    - text: collaborates with renowned software providers for high-quality gaming.
+  - paragraph [ref=e714]:
+    - link "1xbet" [ref=e715] [cursor=pointer]:
+      - /url: https://xn--80aeg3amk6b4b.xn--p1ai/
+    - text: supports a variety of payment methods, including cryptocurrency.
+  - paragraph [ref=e717]:
+    - link "Aviator-a" [ref=e718] [cursor=pointer]:
+      - /url: https://biofleischerei.com/
+    - text: m?rc etm?k ucun ?n yaxs? vaxt? tap?n.
+  - status [ref=e719]
+  - img [ref=e720]
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - link "Whatsapp":
+              - /url: https://web.whatsapp.com/send?phone=8618926477404&text=
+              - generic:
+                - generic:
+                  - img
+          - generic:
+            - link "Email":
+              - /url: mailto:shop@autooltech.com
+              - generic:
+                - generic:
+                  - img
+          - generic:
+            - link "Phone":
+              - /url: tel:+8618926477404
+              - generic:
+                - generic:
+                  - img
+        - generic [ref=e721] [cursor=pointer]:
+          - generic: Contact us
+          - button "Open chaty" [ref=e723]:
+            - img [ref=e725]
+            - generic [ref=e731]: Open chaty

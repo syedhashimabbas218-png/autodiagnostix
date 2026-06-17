@@ -1,0 +1,251 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - button "Close Menu" [ref=e4] [cursor=pointer]:
+      - generic "Collapse" [ref=e6]:
+        - img [ref=e7]
+    - generic [ref=e10]:
+      - banner [ref=e11]:
+        - generic [ref=e14]:
+          - generic "Dashboard" [ref=e18]:
+            - img [ref=e19]
+          - link "Account" [ref=e22] [cursor=pointer]:
+            - /url: /admin/account
+            - img "yas" [ref=e23]
+      - generic [ref=e25]:
+        - banner [ref=e26]:
+          - generic [ref=e28]:
+            - heading "Products" [level=1] [ref=e29]
+            - link "Create new Product" [ref=e31] [cursor=pointer]:
+              - /url: /admin/collections/products/create
+              - generic:
+                - generic: Create New
+        - generic [ref=e33]:
+          - img
+          - textbox "Search by Product Name" [ref=e35]
+          - generic [ref=e36]:
+            - button "Columns" [disabled] [ref=e37] [cursor=pointer]:
+              - generic [ref=e38]: Columns
+              - img [ref=e40]
+            - button "Filters" [disabled] [ref=e42] [cursor=pointer]:
+              - generic [ref=e43]: Filters
+              - img [ref=e45]
+        - table [ref=e50]:
+          - rowgroup [ref=e51]:
+            - row "select-all Product Name Sort by Product Name Ascending Sort by Product Name Descending Brand Sort by Brand Ascending Sort by Brand Descending Category Sort by Category Ascending Sort by Category Descending Price Sort by Price Ascending Sort by Price Descending Badge Sort by Badge Ascending Sort by Badge Descending Updated At Sort by Updated At Ascending Sort by Updated At Descending" [ref=e52]:
+              - columnheader "select-all" [ref=e53]:
+                - checkbox "select-all" [disabled] [ref=e56]
+              - columnheader "Product Name Sort by Product Name Ascending Sort by Product Name Descending" [ref=e57]:
+                - generic [ref=e58]:
+                  - generic [ref=e59]: Product Name
+                  - generic [ref=e60]:
+                    - button "Sort by Product Name Ascending" [ref=e61] [cursor=pointer]:
+                      - img [ref=e62]
+                    - button "Sort by Product Name Descending" [ref=e64] [cursor=pointer]:
+                      - img [ref=e65]
+              - columnheader "Brand Sort by Brand Ascending Sort by Brand Descending" [ref=e67]:
+                - generic [ref=e68]:
+                  - generic [ref=e69]: Brand
+                  - generic [ref=e70]:
+                    - button "Sort by Brand Ascending" [ref=e71] [cursor=pointer]:
+                      - img [ref=e72]
+                    - button "Sort by Brand Descending" [ref=e74] [cursor=pointer]:
+                      - img [ref=e75]
+              - columnheader "Category Sort by Category Ascending Sort by Category Descending" [ref=e77]:
+                - generic [ref=e78]:
+                  - generic [ref=e79]: Category
+                  - generic [ref=e80]:
+                    - button "Sort by Category Ascending" [ref=e81] [cursor=pointer]:
+                      - img [ref=e82]
+                    - button "Sort by Category Descending" [ref=e84] [cursor=pointer]:
+                      - img [ref=e85]
+              - columnheader "Price Sort by Price Ascending Sort by Price Descending" [ref=e87]:
+                - generic [ref=e88]:
+                  - generic [ref=e89]: Price
+                  - generic [ref=e90]:
+                    - button "Sort by Price Ascending" [ref=e91] [cursor=pointer]:
+                      - img [ref=e92]
+                    - button "Sort by Price Descending" [ref=e94] [cursor=pointer]:
+                      - img [ref=e95]
+              - columnheader "Badge Sort by Badge Ascending Sort by Badge Descending" [ref=e97]:
+                - generic [ref=e98]:
+                  - generic [ref=e99]: Badge
+                  - generic [ref=e100]:
+                    - button "Sort by Badge Ascending" [ref=e101] [cursor=pointer]:
+                      - img [ref=e102]
+                    - button "Sort by Badge Descending" [ref=e104] [cursor=pointer]:
+                      - img [ref=e105]
+              - columnheader "Updated At Sort by Updated At Ascending Sort by Updated At Descending" [ref=e107]:
+                - generic [ref=e108]:
+                  - generic [ref=e109]: Updated At
+                  - generic [ref=e110]:
+                    - button "Sort by Updated At Ascending" [ref=e111] [cursor=pointer]:
+                      - img [ref=e112]
+                    - button "Sort by Updated At Descending" [ref=e114] [cursor=pointer]:
+                      - img [ref=e115]
+          - rowgroup [ref=e117]:
+            - row "GTI.TOOLS RFT(PRO) LOW PROFILE TYRE CHANGER <No Brand> <No Category> <No Price> Loading..." [ref=e118]:
+              - cell [ref=e119]:
+                - checkbox [disabled] [ref=e122]
+              - cell "GTI.TOOLS RFT(PRO) LOW PROFILE TYRE CHANGER" [ref=e123]:
+                - link "GTI.TOOLS RFT(PRO) LOW PROFILE TYRE CHANGER" [ref=e124] [cursor=pointer]:
+                  - /url: /admin/collections/products/gti-tools-rft-pro-low-profile-tyre-changer
+              - cell "<No Brand>" [ref=e125]:
+                - generic [ref=e127]: <No Brand>
+              - cell "<No Category>" [ref=e128]:
+                - generic [ref=e130]: <No Category>
+              - cell "<No Price>" [ref=e131]:
+                - generic [ref=e132]: <No Price>
+              - cell [ref=e133]
+              - cell "Loading..." [ref=e134]:
+                - generic [ref=e135]: Loading...
+            - row "GTI.TOOLS G-Extreme 28 TYRE CHANGER RED COLOUR <No Brand> <No Category> <No Price> Loading..." [ref=e136]:
+              - cell [ref=e137]:
+                - checkbox [disabled] [ref=e140]
+              - cell "GTI.TOOLS G-Extreme 28 TYRE CHANGER RED COLOUR" [ref=e141]:
+                - link "GTI.TOOLS G-Extreme 28 TYRE CHANGER RED COLOUR" [ref=e142] [cursor=pointer]:
+                  - /url: /admin/collections/products/gti-tools-g-extreme-28-tyre-changer-red
+              - cell "<No Brand>" [ref=e143]:
+                - generic [ref=e145]: <No Brand>
+              - cell "<No Category>" [ref=e146]:
+                - generic [ref=e148]: <No Category>
+              - cell "<No Price>" [ref=e149]:
+                - generic [ref=e150]: <No Price>
+              - cell [ref=e151]
+              - cell "Loading..." [ref=e152]:
+                - generic [ref=e153]: Loading...
+            - row "GTI.TOOLS G-Extreme 24 TYRE CHANGER YELLOW COLOUR <No Brand> <No Category> <No Price> Loading..." [ref=e154]:
+              - cell [ref=e155]:
+                - checkbox [disabled] [ref=e158]
+              - cell "GTI.TOOLS G-Extreme 24 TYRE CHANGER YELLOW COLOUR" [ref=e159]:
+                - link "GTI.TOOLS G-Extreme 24 TYRE CHANGER YELLOW COLOUR" [ref=e160] [cursor=pointer]:
+                  - /url: /admin/collections/products/gti-tools-g-extreme-24-tyre-changer-yellow
+              - cell "<No Brand>" [ref=e161]:
+                - generic [ref=e163]: <No Brand>
+              - cell "<No Category>" [ref=e164]:
+                - generic [ref=e166]: <No Category>
+              - cell "<No Price>" [ref=e167]:
+                - generic [ref=e168]: <No Price>
+              - cell [ref=e169]
+              - cell "Loading..." [ref=e170]:
+                - generic [ref=e171]: Loading...
+            - row "GTI.TOOLS G-Extreme 24 TYRE CHANGER BLUE COLOUR <No Brand> <No Category> <No Price> Loading..." [ref=e172]:
+              - cell [ref=e173]:
+                - checkbox [disabled] [ref=e176]
+              - cell "GTI.TOOLS G-Extreme 24 TYRE CHANGER BLUE COLOUR" [ref=e177]:
+                - link "GTI.TOOLS G-Extreme 24 TYRE CHANGER BLUE COLOUR" [ref=e178] [cursor=pointer]:
+                  - /url: /admin/collections/products/gti-tools-g-extreme-24-tyre-changer-blue
+              - cell "<No Brand>" [ref=e179]:
+                - generic [ref=e181]: <No Brand>
+              - cell "<No Category>" [ref=e182]:
+                - generic [ref=e184]: <No Category>
+              - cell "<No Price>" [ref=e185]:
+                - generic [ref=e186]: <No Price>
+              - cell [ref=e187]
+              - cell "Loading..." [ref=e188]:
+                - generic [ref=e189]: Loading...
+            - row "GTI.TOOLS G-Extreme 24 TYRE CHANGER RED COLOUR <No Brand> <No Category> <No Price> Loading..." [ref=e190]:
+              - cell [ref=e191]:
+                - checkbox [disabled] [ref=e194]
+              - cell "GTI.TOOLS G-Extreme 24 TYRE CHANGER RED COLOUR" [ref=e195]:
+                - link "GTI.TOOLS G-Extreme 24 TYRE CHANGER RED COLOUR" [ref=e196] [cursor=pointer]:
+                  - /url: /admin/collections/products/gti-tools-g-extreme-24-tyre-changer-red
+              - cell "<No Brand>" [ref=e197]:
+                - generic [ref=e199]: <No Brand>
+              - cell "<No Category>" [ref=e200]:
+                - generic [ref=e202]: <No Category>
+              - cell "<No Price>" [ref=e203]:
+                - generic [ref=e204]: <No Price>
+              - cell [ref=e205]
+              - cell "Loading..." [ref=e206]:
+                - generic [ref=e207]: Loading...
+            - row "GTI.TOOLS DIGITAL PLUS <No Brand> <No Category> <No Price> Loading..." [ref=e208]:
+              - cell [ref=e209]:
+                - checkbox [disabled] [ref=e212]
+              - cell "GTI.TOOLS DIGITAL PLUS" [ref=e213]:
+                - link "GTI.TOOLS DIGITAL PLUS" [ref=e214] [cursor=pointer]:
+                  - /url: /admin/collections/products/gti-tools-digital-plus
+              - cell "<No Brand>" [ref=e215]:
+                - generic [ref=e217]: <No Brand>
+              - cell "<No Category>" [ref=e218]:
+                - generic [ref=e220]: <No Category>
+              - cell "<No Price>" [ref=e221]:
+                - generic [ref=e222]: <No Price>
+              - cell [ref=e223]
+              - cell "Loading..." [ref=e224]:
+                - generic [ref=e225]: Loading...
+            - row "GTI.TOOLS LCD PREMIUM <No Brand> <No Category> <No Price> Loading..." [ref=e226]:
+              - cell [ref=e227]:
+                - checkbox [disabled] [ref=e230]
+              - cell "GTI.TOOLS LCD PREMIUM" [ref=e231]:
+                - link "GTI.TOOLS LCD PREMIUM" [ref=e232] [cursor=pointer]:
+                  - /url: /admin/collections/products/gti-tools-lcd-premium
+              - cell "<No Brand>" [ref=e233]:
+                - generic [ref=e235]: <No Brand>
+              - cell "<No Category>" [ref=e236]:
+                - generic [ref=e238]: <No Category>
+              - cell "<No Price>" [ref=e239]:
+                - generic [ref=e240]: <No Price>
+              - cell [ref=e241]
+              - cell "Loading..." [ref=e242]:
+                - generic [ref=e243]: Loading...
+            - row "UNITE HF50A DENT PULLER <No Brand> <No Category> <No Price> Loading..." [ref=e244]:
+              - cell [ref=e245]:
+                - checkbox [disabled] [ref=e248]
+              - cell "UNITE HF50A DENT PULLER" [ref=e249]:
+                - link "UNITE HF50A DENT PULLER" [ref=e250] [cursor=pointer]:
+                  - /url: /admin/collections/products/unite-hf50a-dent-puller
+              - cell "<No Brand>" [ref=e251]:
+                - generic [ref=e253]: <No Brand>
+              - cell "<No Category>" [ref=e254]:
+                - generic [ref=e256]: <No Category>
+              - cell "<No Price>" [ref=e257]:
+                - generic [ref=e258]: <No Price>
+              - cell [ref=e259]
+              - cell "Loading..." [ref=e260]:
+                - generic [ref=e261]: Loading...
+            - row "LIBERTY LIFT 5 TON WHEEL ALIGNMENT SCISSOR LIFT <No Brand> <No Category> <No Price> Loading..." [ref=e262]:
+              - cell [ref=e263]:
+                - checkbox [disabled] [ref=e266]
+              - cell "LIBERTY LIFT 5 TON WHEEL ALIGNMENT SCISSOR LIFT" [ref=e267]:
+                - link "LIBERTY LIFT 5 TON WHEEL ALIGNMENT SCISSOR LIFT" [ref=e268] [cursor=pointer]:
+                  - /url: /admin/collections/products/liberty-lift-5-ton-wheel-alignment-scissor-lift
+              - cell "<No Brand>" [ref=e269]:
+                - generic [ref=e271]: <No Brand>
+              - cell "<No Category>" [ref=e272]:
+                - generic [ref=e274]: <No Category>
+              - cell "<No Price>" [ref=e275]:
+                - generic [ref=e276]: <No Price>
+              - cell [ref=e277]
+              - cell "Loading..." [ref=e278]:
+                - generic [ref=e279]: Loading...
+            - row "LIBERTY LIFT 6.8 TON SUPER HEAVYDUTY CAR LIFT <No Brand> <No Category> <No Price> Loading..." [ref=e280]:
+              - cell [ref=e281]:
+                - checkbox [disabled] [ref=e284]
+              - cell "LIBERTY LIFT 6.8 TON SUPER HEAVYDUTY CAR LIFT" [ref=e285]:
+                - link "LIBERTY LIFT 6.8 TON SUPER HEAVYDUTY CAR LIFT" [ref=e286] [cursor=pointer]:
+                  - /url: /admin/collections/products/liberty-lift-6-8-ton-super-heavy-duty-car-lift
+              - cell "<No Brand>" [ref=e287]:
+                - generic [ref=e289]: <No Brand>
+              - cell "<No Category>" [ref=e290]:
+                - generic [ref=e292]: <No Category>
+              - cell "<No Price>" [ref=e293]:
+                - generic [ref=e294]: <No Price>
+              - cell [ref=e295]
+              - cell "Loading..." [ref=e296]:
+                - generic [ref=e297]: Loading...
+        - generic [ref=e298]:
+          - generic [ref=e299]:
+            - button [disabled] [ref=e300]:
+              - img [ref=e301]
+            - button [ref=e303] [cursor=pointer]:
+              - img [ref=e304]
+            - button "1" [ref=e306]
+            - button "2" [ref=e307] [cursor=pointer]
+            - generic [ref=e308]: —
+            - button "6" [ref=e309] [cursor=pointer]
+          - generic [ref=e310]: 1-10 of 57
+          - 'button "Per Page: 10" [ref=e314] [cursor=pointer]':
+            - generic [ref=e315]:
+              - generic [ref=e316]: "Per Page: 10"
+              - img [ref=e317]
+  - region "Notifications alt+T"

@@ -1,0 +1,257 @@
+- generic [ref=e3]:
+  - region "top of page"
+  - generic [ref=e9]:
+    - banner [ref=e10]:
+      - generic [ref=e14]:
+        - generic:
+          - generic:
+            - generic [ref=e20]:
+              - generic:
+                - generic:
+                  - paragraph [ref=e24]: Local Support & Warranty
+                  - paragraph [ref=e25]: Proudly NZ Owned & Operated
+                  - paragraph [ref=e26]:
+                    - generic [ref=e27]:
+                      - text: Call
+                      - link "0272321319" [ref=e28] [cursor=pointer]:
+                        - /url: tel:0272321319
+            - generic [ref=e34]:
+              - generic:
+                - generic:
+                  - generic "scanzed_nz_dark.png" [ref=e38] [cursor=pointer]:
+                    - link "scanzed nz logo.webp" [ref=e39]:
+                      - /url: https://www.scanzed.co.nz
+                      - img "scanzed nz logo.webp" [ref=e40]
+                  - paragraph [ref=e41]: Automotive Scan Tools, Diagnostic Equipment and Torque Calibration Specialists
+                  - search [ref=e45]:
+                    - generic [ref=e46]:
+                      - searchbox "Search..." [ref=e51]
+                      - button "Search..." [ref=e52] [cursor=pointer]:
+                        - img [ref=e54]
+            - navigation "Site" [ref=e57]:
+              - list [ref=e58]:
+                - listitem [ref=e59]:
+                  - link "Home" [ref=e61] [cursor=pointer]:
+                    - /url: https://www.scanzed.co.nz
+                    - generic [ref=e63]: Home
+                - listitem [ref=e64]:
+                  - generic [ref=e65]:
+                    - button "Products" [ref=e66] [cursor=pointer]:
+                      - generic [ref=e68]: Products
+                    - generic:
+                      - button "Toggle Products":
+                        - img
+                - listitem [ref=e70]:
+                  - link "Brands" [ref=e72] [cursor=pointer]:
+                    - /url: https://www.scanzed.co.nz/brands
+                    - generic [ref=e74]: Brands
+                - listitem [ref=e75]:
+                  - generic [ref=e76]:
+                    - button "Services" [ref=e77] [cursor=pointer]:
+                      - generic [ref=e79]: Services
+                    - generic:
+                      - button "Toggle Services":
+                        - img
+                - listitem [ref=e81]:
+                  - link "Where To Buy" [ref=e83] [cursor=pointer]:
+                    - /url: https://www.scanzed.co.nz/where-to-buy
+                    - generic [ref=e85]: Where To Buy
+                - listitem [ref=e86]:
+                  - link "Videos" [ref=e88] [cursor=pointer]:
+                    - /url: https://www.scanzed.co.nz/support-videos
+                    - generic [ref=e90]: Videos
+                - listitem [ref=e91]:
+                  - link "Support" [ref=e93] [cursor=pointer]:
+                    - /url: https://www.scanzed.co.nz/support
+                    - generic [ref=e95]: Support
+                - listitem [ref=e96]:
+                  - link "Clearance" [ref=e98] [cursor=pointer]:
+                    - /url: https://www.scanzed.co.nz/category/tools/clearance-sale
+                    - generic [ref=e100]: Clearance
+    - main [ref=e101]:
+      - generic [ref=e106]:
+        - generic:
+          - generic:
+            - paragraph [ref=e110]:
+              - generic [ref=e112]: All Prices Exclude GST
+            - button [ref=e116] [cursor=pointer]:
+              - img [ref=e118]
+            - article [ref=e126]:
+              - generic [ref=e128]:
+                - navigation [ref=e130]
+                - article [ref=e133]:
+                  - button "CNC605+ GDI Injector Cleaner & Tester" [ref=e139]:
+                    - img "CNC605+ GDI Injector Cleaner & Tester" [ref=e151]
+                  - generic [ref=e152]:
+                    - heading "CNC605+ GDI Injector Cleaner & Tester" [level=1] [ref=e154]
+                    - generic [ref=e157]:
+                      - generic [ref=e159]:
+                        - text: $2,280.00
+                        - generic [ref=e160]: Price
+                      - generic [ref=e161]: Excluding GST
+                    - paragraph [ref=e168]: CNC605+ is a cleaning and testing equipment suitable for piezoelectric (140V), GDI (65V/12V) and conventional fuel injectors. It uses ultrasonic cleaning technology combined with microprocessor oil pressure control technology to simulate various engine working conditions and clean and test automobile fuel injectors.
+                    - button "Add To Cart" [ref=e172] [cursor=pointer]:
+                      - generic [ref=e173]: Add To Cart
+              - list [ref=e179]:
+                - listitem [ref=e180]:
+                  - button "Features:" [expanded] [ref=e181] [cursor=pointer]:
+                    - paragraph [ref=e182]: "Features:"
+                    - img [ref=e184]
+                  - generic [ref=e196]:
+                    - paragraph [ref=e197]: 1.Support the cleaning and testing of all types of injectors (PIEZO, GDI, conventional injectors) under safe oil pressure.
+                    - paragraph [ref=e198]: 2.The use of ultrasonic strong cleaning technology can completely remove carbon deposits on the fuel injector and filter deposits.
+                    - paragraph [ref=e199]: 3.Utilizes microcomputer automatic control technology for automatic control of the cleaning and testing process, and real-time monitoring of the key performance of the fuel injectors.
+                    - paragraph [ref=e200]: 4.Equipped with various non-dismantle cleaning connectors, capable of non-dismantle cleaning and maintenance for multiple vehicle models.
+                    - paragraph [ref=e201]: 5.Optional side-feed injector kit available.
+                    - paragraph [ref=e202]: 6.Through simulating engine operating conditions, comprehensively tests various aspects of the fuel injector's performance.
+                    - paragraph [ref=e203]: 7.Equipped with a 7-inch colour screen, the display is more intuitive, and the operation is more convenient.
+                - listitem [ref=e204]:
+                  - button "Functions:" [ref=e205] [cursor=pointer]:
+                    - paragraph [ref=e206]: "Functions:"
+                    - img [ref=e208]
+                  - generic [ref=e215]:
+                    - paragraph [ref=e216]: "1. Working mode selection: Can select EFI (12V), GDI (65V) or PIEZO (140V) operating mode based on the injector type."
+                    - paragraph [ref=e217]: "2. Ultrasonic Cleaning: Capable of simultaneously ultrasonic cleaning multiple injectors, effectively removing carbon buildup."
+                    - paragraph [ref=e218]: "3. Sealing Test Function: Tests the sealing and leakage of injectors under system pressure."
+                    - paragraph [ref=e219]: "4. Uniformity/Spray Testing Function: Detects the uniformity of fuel injection quantity for each injector and the spray atomization of the injector can be comprehensively and carefully observed using the background light."
+                    - paragraph [ref=e220]: "5. Fuel Injection Quantity Detection Function: Measures the fuel injection quantity of injectors under a constant 15-second injection condition."
+                    - paragraph [ref=e221]: "6. Automatic Cleaning and Testing Function: Under specific working parameters, realistically simulates injector testing under various conditions."
+                    - paragraph [ref=e222]: "7. Reverse Flush Function: For the uniformity/spray testing item, performs a reverse flush using a reverse flush adapter to remove internal injector contaminants and residues attached to the filter screen."
+                    - paragraph [ref=e223]: "8. Non-Dismantle Cleaning Function: Equipped with various non-dismantle cleaning adapters, allowing non-dismantle cleaning and maintenance for multiple vehicle models."
+                - listitem [ref=e224]:
+                  - button "PACKAGE SIZE" [ref=e225] [cursor=pointer]:
+                    - paragraph [ref=e226]: PACKAGE SIZE
+                    - img [ref=e228]
+                  - generic [ref=e235]:
+                    - paragraph [ref=e236]: 50.2*46.3*57.5cm
+                    - paragraph [ref=e237]: 29kg
+            - generic [ref=e248]:
+              - tablist [ref=e250]:
+                - tab "Videos" [selected] [ref=e251] [cursor=pointer]:
+                  - generic [ref=e252]: Videos
+                - tab "Downloads" [ref=e253] [cursor=pointer]:
+                  - generic [ref=e254]: Downloads
+              - tabpanel "Videos" [ref=e257]:
+                - generic [ref=e258]:
+                  - generic:
+                    - generic:
+                      - paragraph [ref=e259]:
+                        - generic [ref=e261]: Loading...
+                      - generic:
+                        - list
+                      - button "Load More" [disabled] [ref=e263]:
+                        - generic [ref=e264]: Load More
+    - contentinfo [ref=e265]:
+      - generic [ref=e275]:
+        - generic:
+          - generic:
+            - generic:
+              - heading "How can we help?" [level=5] [ref=e279]
+              - paragraph [ref=e280]
+              - paragraph [ref=e281]: Customer Service
+              - paragraph [ref=e282]
+              - paragraph [ref=e283]:
+                - link "+64 27 232 1319" [ref=e284] [cursor=pointer]:
+                  - /url: tel:+64 27 232 1319
+              - paragraph [ref=e285]:
+                - link "sales@scanzed.co.nz" [ref=e286] [cursor=pointer]:
+                  - /url: mailto:sales@scanzed.co.nz
+              - paragraph [ref=e287]: Totara Vale, Auckland
+              - paragraph [ref=e288]: New Zealand
+              - paragraph [ref=e289]
+              - paragraph [ref=e290]: NZ Auto Diagnostic Solutions Limited
+            - generic:
+              - heading "Brands" [level=5] [ref=e291]
+              - paragraph [ref=e292]:
+                - link "Autecs" [ref=e294] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/autecs
+              - paragraph [ref=e295]:
+                - link "Autel" [ref=e297] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/autel
+              - paragraph [ref=e298]:
+                - link "Autoland" [ref=e300] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/autoland
+              - paragraph [ref=e301]:
+                - link "Autool" [ref=e303] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/autool
+              - paragraph [ref=e304]:
+                - link "Eucleia" [ref=e306] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/eucleia
+              - paragraph [ref=e307]:
+                - link "GoDiag" [ref=e309] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/godiag
+              - paragraph [ref=e310]:
+                - link "Launch" [ref=e312] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/launch
+              - paragraph [ref=e313]:
+                - link "Microtronik" [ref=e315] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/microtronik
+              - paragraph [ref=e316]:
+                - link "Micsig" [ref=e318] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/micsig
+              - paragraph [ref=e319]:
+                - link "OBDStar" [ref=e321] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/odbstar
+              - paragraph [ref=e322]:
+                - link "Texa" [ref=e324] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/texa
+              - paragraph [ref=e325]:
+                - link "Topdon" [ref=e327] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/topdon
+              - paragraph [ref=e328]:
+                - link "Xhorse" [ref=e330] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/xhorse
+              - paragraph [ref=e331]:
+                - link "XTool" [ref=e333] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/brands/xtool
+            - generic:
+              - heading "Products" [level=5] [ref=e334]
+              - paragraph [ref=e335]:
+                - link "Scan Tools" [ref=e337] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/tools/diagnostic-scan-tools
+              - paragraph [ref=e338]:
+                - link "Accessories" [ref=e340] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/accessories/all
+              - paragraph [ref=e341]:
+                - link "Torque Wrench Calibration" [ref=e343] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/torque-wrench-calibrations
+              - paragraph [ref=e344]:
+                - generic:
+                  - link:
+                    - /url: https://www.scanzed.co.nz
+            - generic:
+              - heading "scaNZed" [level=5] [ref=e345]
+              - paragraph [ref=e346]:
+                - link "Shop All" [ref=e348] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/category/products-and-services/all
+              - paragraph [ref=e349]:
+                - link "About Us" [ref=e351] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/about
+              - paragraph [ref=e352]:
+                - link "Contact" [ref=e354] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/contact-us
+              - paragraph [ref=e355]:
+                - link "FAQ" [ref=e357] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/faq
+              - paragraph [ref=e358]:
+                - link "Blog" [ref=e360] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/blog
+              - paragraph [ref=e361]:
+                - link "Promotions" [ref=e363] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/promotions
+              - paragraph [ref=e364]:
+                - link "Catalogue" [ref=e366] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/current-catalogue
+              - paragraph [ref=e367]:
+                - link "Privacy Policy" [ref=e369] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/policies
+              - paragraph [ref=e370]:
+                - link "Terms of Service" [ref=e372] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/terms-of-service
+              - paragraph [ref=e373]:
+                - link "Return Policy" [ref=e375] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/return-policy
+              - paragraph [ref=e376]:
+                - link "Warranty" [ref=e378] [cursor=pointer]:
+                  - /url: https://www.scanzed.co.nz/warranty
+  - region "bottom of page"

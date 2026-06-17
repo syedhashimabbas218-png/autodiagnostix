@@ -1,0 +1,84 @@
+import React, { useState, useEffect } from 'react';
+import GsapReveal from './GsapReveal';
+import { Link } from 'react-router-dom';
+import { getCategories } from '../payloadApi';
+
+const IconMap = {
+    qr_code_scanner: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+            <rect x="7" y="7" width="10" height="10" rx="1"></rect>
+        </svg>
+    ),
+    vertical_align_top: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="8 11 12 7 16 11"></polyline>
+            <line x1="12" y1="7" x2="12" y2="21"></line>
+            <line x1="4" y1="3" x2="20" y2="3"></line>
+        </svg>
+    ),
+    settings_input_component: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+    ),
+    tire_repair: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+            <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+            <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+            <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+        </svg>
+    ),
+    build: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+        </svg>
+    ),
+    car_crash: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a2 2 0 0 0-1.6-.8H10a2 2 0 0 0-1.6.8L5.7 11.23A2 2 0 0 0 5 12.83V16h3m6 0v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-2m-4 0v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-2"></path>
+            <circle cx="6.5" cy="16.5" r="1.5"></circle>
+            <circle cx="17.5" cy="16.5" r="1.5"></circle>
+        </svg>
+    )
+};
+
+export default function CategoryNav() {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getCategories()
+            .then(data => setCategories(data))
+            .catch(err => console.error("Error loading categories:", err));
+    }, []);
+
+    if (categories.length === 0) return null;
+
+    return (
+        <section className="bg-white border-b border-zinc-100 py-8">
+            <div className="max-w-screen-2xl mx-auto px-8 flex justify-between items-center overflow-x-auto no-scrollbar gap-12">
+                {categories.map((cat, idx) => (
+                    <GsapReveal key={cat.id} delay={idx * 0.1} direction="up" className="shrink-0 flex">
+                        <Link className="flex items-center gap-4 group" to={`/category/${cat.id}`}>
+                            <div className="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container group-hover:-translate-y-1 group-hover:shadow-lg transition-all duration-200 ease-out">
+                                <span className="text-zinc-500 group-hover:text-white transition-colors flex items-center justify-center">
+                                    {IconMap[cat.icon] || <span className="material-symbols-outlined">{cat.icon}</span>}
+                                </span>
+                            </div>
+                            <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-zinc-900 transition-colors">
+                                {cat.name}
+                            </span>
+                        </Link>
+                    </GsapReveal>
+                ))}
+            </div>
+        </section>
+    );
+}

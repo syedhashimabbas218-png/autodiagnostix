@@ -1,0 +1,42 @@
+[
+    {
+        "id": "maintenance-and-adas-equipment",
+        "name": "Maintenance and ADAS Equipment",
+        "tagline": "Professional Solutions",
+        "icon": "build",
+        "description": "High-quality Maintenance and ADAS Equipment for automotive workshops and service centers.",
+        "image": "https://images.unsplash.com/photo-1486006396193-471a9da59ca1?q=80&w=2692&auto=format&fit=crop"
+    },
+    {
+        "id": "wheel-equipment",
+        "name": "Wheel Equipment",
+        "tagline": "Professional Solutions",
+        "icon": "tire_repair",
+        "description": "High-quality Wheel Equipment for automotive workshops and service centers.",
+        "image": "https://images.unsplash.com/photo-1486006396193-471a9da59ca1?q=80&w=2692&auto=format&fit=crop"
+    },
+    {
+        "id": "scanners-tpms",
+        "name": "Scanners & TPMS",
+        "tagline": "Professional Diagnostics",
+        "icon": "qr_code_scanner",
+        "description": "High-quality Scanners and TPMS tools for automotive workshops and service centers.",
+        "image": "https://images.unsplash.com/photo-1486006396193-471a9da59ca1?q=80&w=2692&auto=format&fit=crop"
+    },
+    {
+        "id": "car-lifts",
+        "name": "Car Lifts",
+        "tagline": "Professional Solutions",
+        "icon": "vertical_align_top",
+        "description": "High-quality Car Lifts for automotive workshops and service centers.",
+        "image": "https://images.unsplash.com/photo-1486006396193-471a9da59ca1?q=80&w=2692&auto=format&fit=crop"
+    },
+    {
+        "id": "denting-and-painting-tools",
+        "name": "Denting and Painting Tools",
+        "tagline": "Professional Solutions",
+        "icon": "car_crash",
+        "description": "High-quality Denting and Painting Tools for automotive workshops and service centers.",
+        "image": "https://images.unsplash.com/photo-1486006396193-471a9da59ca1?q=80&w=2692&auto=format&fit=crop"
+    }
+]
