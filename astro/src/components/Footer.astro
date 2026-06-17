@@ -1,0 +1,38 @@
+---
+const { className } = Astro.props;
+---
+
+<footer class={`bg-zinc-50 border-t border-zinc-200 pt-16 pb-8 ${className || ''}`}>
+  <div class="max-w-[1536px] mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div>
+        <h3 class="font-headline font-extrabold text-2xl tracking-tighter mb-4">Autodiagnostix</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Your trusted partner for professional automotive diagnostic equipment in Pakistan.</p>
+      </div>
+      {[
+        { title: 'Solutions', links: ['Diagnostic Scanners', 'ADAS Equipment', 'Wheel Equipment', 'Vehicle Lifts', 'Maintenance Tools'] },
+        { title: 'Brands', links: ['LAUNCH', 'SMARTSAFE', 'UNITE', 'AUTOOL', 'GTI.TOOLS'] },
+        { title: 'Company', links: ['About Us', 'Contact', 'Become a Dealer', 'Technical Support', 'Warranty Info'] },
+      ].map(col => (
+        <div>
+          <h4 class="text-xs font-label font-bold uppercase tracking-[0.15em] text-slate-500 mb-6">{col.title}</h4>
+          <ul class="space-y-3">
+            {col.links.map(link => (
+              <li>
+                <a href="#" class="text-sm text-slate-600 hover:text-primary transition-colors">{link}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="border-t border-zinc-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-[10px] text-zinc-400 uppercase tracking-widest">&copy; 2024 Autodiagnostix. Authorized dealer in Pakistan. All rights reserved.</p>
+      <div class="flex gap-6">
+        {['Instagram', 'LinkedIn', 'YouTube'].map(social => (
+          <a href="#" class="text-[10px] text-zinc-400 uppercase tracking-widest hover:text-primary transition-colors">{social}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

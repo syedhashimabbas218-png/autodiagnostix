@@ -1,0 +1,34 @@
+---
+const {
+  ctaLabel = "Request a Quote",
+  ctaHref = "/contact",
+} = Astro.props;
+---
+
+<nav class="fixed top-0 w-full z-[100] h-20 flex items-center bg-white/70 backdrop-blur-2xl border-b border-white/20">
+  <div class="flex justify-between items-center w-full max-w-[1536px] mx-auto px-8">
+    <a href="/" class="font-headline font-extrabold text-2xl tracking-tighter text-on-surface">
+      Autodiagnostix
+    </a>
+    <div class="hidden lg:flex items-center gap-1">
+      {[
+        { label: 'Diagnostics', href: '/products' },
+        { label: 'Lifts', href: '/products' },
+        { label: 'Wheel Equipment', href: '/products' },
+        { label: 'Brands', href: '/brands' },
+      ].map(item => (
+        <a
+          href={item.href}
+          class="text-xs font-label font-bold uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors px-3 h-20 flex items-center"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+    <div class="flex items-center gap-4">
+      <a href={ctaHref} class="primary-gradient text-white px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] font-label hover:brightness-110 transition-all">
+        {ctaLabel}
+      </a>
+    </div>
+  </div>
+</nav>

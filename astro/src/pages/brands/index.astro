@@ -1,11 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 import { getBrands } from '../../lib/payload';
 import { breadcrumbListSchema } from '../../utils/schema';
 
 export const prerender = false;
 
-const brands = await getBrands();
+let brands: Awaited<ReturnType<typeof getBrands>> = [];
+try {
+  brands = await getBrands();
+} catch { /* CMS offline */ }
 
 const breadcrumbs = [
   { name: 'Home', url: 'https://autodiagnostix.com/' },
@@ -15,20 +20,11 @@ const breadcrumbs = [
 
 <BaseLayout
   title="Brands"
-  description="Browse industry-leading diagnostic tool manufacturers at Autodiagnostix. Explore Launch, Autel, and more."
+  description="Browse industry-leading diagnostic tool manufacturers at Autodiagnostix."
   canonical="https://autodiagnostix.com/brands"
   jsonLd={breadcrumbListSchema(breadcrumbs)}
 >
-  <nav class="fixed top-0 w-full z-50 h-16 flex items-center bg-white/70 backdrop-blur-xl border-b border-white/20">
-    <div class="flex justify-between items-center w-full px-8 max-w-screen-2xl mx-auto">
-      <a href="/">
-        <img src="/logo-full.png" alt="Autodiagnostix" class="h-14 w-auto object-contain" />
-      </a>
-      <a href="/contact" class="bg-primary text-white px-5 py-2 text-xs font-bold uppercase tracking-widest">
-        Request a Quote
-      </a>
-    </div>
-  </nav>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 
   <main class="min-h-screen pt-20">
     <header class="bg-surface pt-16 pb-12 px-8 border-b border-outline-variant/10">
@@ -46,10 +42,7 @@ const breadcrumbs = [
     <section class="py-16 px-8 bg-surface-container-low">
       <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {brands.map(brand => (
-          <a
-            href={`/brand/${brand.slug}`}
-            class="group block bg-surface-container-lowest rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1"
-          >
+          <a href={`/brand/${brand.slug}`} class="group block bg-surface-container-lowest rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1">
             <div class="aspect-[16/7] bg-white p-8 flex items-center justify-center overflow-hidden">
               {brand.image ? (
                 <img src={brand.image} alt={brand.name} class="max-h-24 max-w-full object-contain group-hover:scale-105 transition-transform mix-blend-multiply" />
@@ -70,9 +63,5 @@ const breadcrumbs = [
     </section>
   </main>
 
-  <footer class="bg-zinc-50 border-t border-zinc-200 pt-16 pb-8 px-8">
-    <div class="max-w-screen-2xl mx-auto text-center text-zinc-400 text-[10px] uppercase tracking-widest">
-      &copy; 2024 Autodiagnostix. All rights reserved.
-    </div>
-  </footer>
+  <Footer />
 </BaseLayout>

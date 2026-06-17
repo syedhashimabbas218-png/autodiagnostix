@@ -1,17 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 import { getBrands } from '../../lib/payload';
 import { breadcrumbListSchema } from '../../utils/schema';
 
 export const prerender = false;
 
 const { id } = Astro.params;
-const brands = await getBrands();
-const brand = brands.find(b => b.slug === id);
+let brand = null;
+let brandList: Awaited<ReturnType<typeof getBrands>> = [];
+try {
+  brandList = await getBrands();
+  brand = brandList.find(b => b.slug === id) || null;
+} catch { /* CMS offline */ }
 
-if (!brand) {
-  return Astro.redirect('/404');
-}
+if (!brand) return Astro.redirect('/404');
 
 const breadcrumbs = [
   { name: 'Home', url: 'https://autodiagnostix.com/' },
@@ -26,16 +30,7 @@ const breadcrumbs = [
   canonical={`https://autodiagnostix.com/brand/${id}`}
   jsonLd={breadcrumbListSchema(breadcrumbs)}
 >
-  <nav class="fixed top-0 w-full z-50 h-16 flex items-center bg-white/70 backdrop-blur-xl border-b border-white/20">
-    <div class="flex justify-between items-center w-full px-8 max-w-screen-2xl mx-auto">
-      <a href="/">
-        <img src="/logo-full.png" alt="Autodiagnostix" class="h-14 w-auto object-contain" />
-      </a>
-      <a href="/contact" class="bg-primary text-white px-5 py-2 text-xs font-bold uppercase tracking-widest">
-        Request a Quote
-      </a>
-    </div>
-  </nav>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 
   <main class="min-h-screen pt-20">
     <header class="bg-surface pt-16 pb-12 px-8 border-b border-outline-variant/10">
@@ -48,8 +43,15 @@ const breadcrumbs = [
           <span class="text-primary font-bold">{brand.name}</span>
         </nav>
         <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-4">{brand.name}</h1>
-        <p class="text-on-surface-variant text-xl max-w-xl">{brand.productCount} product{brand.productCount !== 1 ? 's' : ''}</p>
+        <p class="text-on-surface-variant text-xl max-w-xl">{brand.productCount} product{brand.productCount !== 1 ? 's' : ''} from {brand.name}</p>
       </div>
     </header>
+
+    <section class="py-16 px-8 bg-surface-container-low text-center">
+      <p class="text-on-surface-variant text-lg">Explore our complete range of {brand.name} products.</p>
+      <a href="/products" class="inline-block mt-6 bg-primary text-white px-8 py-4 text-sm font-headline font-medium hover:brightness-110 transition-all">Browse All Products</a>
+    </section>
   </main>
+
+  <Footer />
 </BaseLayout>
