@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { organizationSchema, websiteSchema } from '../utils/schema';
+---
+
+<BaseLayout
+  title="Home"
+  canonical="https://autodiagnostix.com/"
+  description="Precision engineering for automotive professionals. Browse professional diagnostic scanners, TPMS tools, ADAS calibration equipment, and workshop solutions."
+  jsonLd={[organizationSchema(), websiteSchema()]}
+>
+  <h1 class="text-4xl font-headline font-extrabold text-center mt-20">Autodiagnostix</h1>
+  <p class="text-center text-on-surface-variant mt-4">Astro migration in progress...</p>
+</BaseLayout>
