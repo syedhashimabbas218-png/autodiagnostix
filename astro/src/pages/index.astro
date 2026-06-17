@@ -1,14 +1,361 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProducts } from '../lib/payload';
 import { organizationSchema, websiteSchema } from '../utils/schema';
+
+export const prerender = true;
+
+import heroData from '../data/hero-section.json';
+import homeData from '../data/homepage-content.json';
+
+const hero = heroData;
+const home = homeData;
+
+let dynamicProducts: Awaited<ReturnType<typeof getProducts>> = [];
+try {
+  dynamicProducts = await getProducts();
+} catch {
+  // CMS not running — use static data
+}
+
+const seo = hero.seo;
+const seoContent = home.seo;
+const pageTitle = seo?.title || seoContent?.title;
+const pageDesc = seo?.description || seoContent?.description;
 ---
 
 <BaseLayout
-  title="Home"
-  canonical="https://autodiagnostix.com/"
-  description="Precision engineering for automotive professionals. Browse professional diagnostic scanners, TPMS tools, ADAS calibration equipment, and workshop solutions."
-  jsonLd={[organizationSchema(), websiteSchema()]}
+  title={pageTitle || "Professional Automotive Diagnostics"}
+  description={pageDesc || "Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE automotive diagnostic equipment."}
+  canonical="https://autodiagnostix.com"
+  jsonLd={[organizationSchema, websiteSchema]}
 >
-  <h1 class="text-4xl font-headline font-extrabold text-center mt-20">Autodiagnostix</h1>
-  <p class="text-center text-on-surface-variant mt-4">Astro migration in progress...</p>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-[100] h-20 flex items-center bg-white/70 backdrop-blur-2xl border-b border-white/20">
+    <div class="flex justify-between items-center w-full max-w-[1536px] mx-auto px-8">
+      <a href="/" class="font-headline font-extrabold text-2xl tracking-tighter text-on-surface">
+        Autodiagnostix
+      </a>
+      <div class="hidden lg:flex items-center gap-6">
+        {(home.navigation?.main_menu || []).slice(0, 5).map(item => (
+          <a href={item.href} class="text-xs font-label font-bold uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors relative group px-3 h-16 flex items-center">
+            {item.label}
+            {item.dropdown && item.dropdown.length > 0 && (
+              <span class="ml-1 text-[8px]">&#9662;</span>
+            )}
+          </a>
+        ))}
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/products" class="bg-primary-gradient text-white px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] font-label hover:brightness-110 transition-all">
+          {(home.navigation?.cta_button?.label) || "Request a Quote"}
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-surface-container-low">
+      {(hero.hero_slides || []).slice(0, 1).map(slide => {
+        const bg = slide.background?.image?.startsWith('/') ? slide.background.image : '/images/hero-slide-1.png';
+        return (
+          <div class="absolute inset-0">
+            <img src={bg} alt={slide.background?.alt || ''} class="w-full h-full object-cover" />
+            <div class={`absolute inset-0 bg-black/60`}></div>
+          </div>
+        );
+      })}
+      <div class="relative z-10 max-w-[1536px] mx-auto px-8 w-full">
+        <div class="max-w-[672px] text-left">
+          <span class="inline-block font-label text-sm font-bold tracking-[0.2em] uppercase mb-6 text-[#97000d]">
+            Authorized Dealer in Pakistan
+          </span>
+          <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[1.1] text-white mb-6">
+            Professional Automotive Diagnostics.<br />
+            <span class="text-[#97000d]">Redefined.</span>
+          </h1>
+          <p class="font-body text-lg md:text-xl leading-relaxed text-zinc-400 max-w-[512px] mb-10">
+            Your trusted partner for LAUNCH, SMARTSAFE, UNITE, and industry-leading automotive equipment. Serving Pakistan's professional service centers with authentic B2B solutions.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/products" class="bg-primary-gradient text-white px-8 py-4 font-headline font-medium text-sm hover:brightness-110 transition-all">
+              Browse Products
+            </a>
+            <a href="/contact" class="border border-white/20 text-white px-8 py-4 font-headline font-medium text-sm hover:bg-white/10 transition-all">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY NAVIGATION -->
+    <section id="category-nav" class="bg-white border-b border-zinc-100 py-10">
+      <div class="max-w-[1536px] mx-auto px-8">
+        <div class="flex overflow-x-auto no-scrollbar gap-12 justify-between">
+          {(home.category_navigation?.categories || []).map(cat => (
+            <a href={cat.href || `/category/${cat.id}`} class="flex flex-col items-center gap-4 min-w-[100px] group">
+              <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-[#97000d]/10 transition-colors">
+                <span class="material-symbols-outlined text-xl text-slate-600">{cat.icon || 'category'}</span>
+              </div>
+              <div class="text-center">
+                <p class="font-headline font-bold text-sm tracking-tight text-on-surface group-hover:text-[#97000d] transition-colors">{cat.name}</p>
+                <p class="text-[10px] text-slate-400 tracking-wider mt-0.5">{cat.product_count} products</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW ARRIVALS -->
+    {(home.new_arrivals?.products || []).length > 0 && (
+      <section id="new-arrivals" class="py-24 bg-surface">
+        <div class="max-w-[1536px] mx-auto px-8">
+          <div class="flex items-end justify-between mb-16">
+            <div>
+              <span class="uppercase-tracking text-xs font-bold tracking-[0.2em] text-slate-500 mb-4 block">Precision Engineering</span>
+              <h2 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter leading-[1.05] max-w-2xl">
+                The New Standard in Hardware.
+              </h2>
+            </div>
+            <a href="/products" class="hidden md:inline-flex text-sm font-label font-bold uppercase tracking-widest text-[#97000d] hover:underline underline-offset-4">
+              View All &rarr;
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {(home.new_arrivals?.products || []).map(p => (
+              <a href={`/product/${p.id}`} class="group bg-surface-container-lowest border border-zinc-100 hover:border-[#97000d]/20 p-8 flex flex-col transition-all hover:-translate-y-1 hover:shadow-2xl">
+                {p.badge && (
+                  <span class={`self-start mb-4 text-[9px] font-black uppercase tracking-widest px-3 py-1 ${p.badge.style === 'primary-bg-white-text' ? 'bg-[#97000d] text-white' : p.badge.style === 'secondary-bg' ? 'bg-zinc-100 text-zinc-800' : 'bg-zinc-50 text-zinc-600'} rounded-full`}>
+                    {p.badge.text}
+                  </span>
+                )}
+                <div class="aspect-[4/3] bg-white mb-6 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={p.image?.src}
+                    alt={p.image?.alt || p.name}
+                    class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{p.brand}</span>
+                <h3 class="font-headline font-bold text-lg tracking-tight leading-snug mb-3 group-hover:text-[#97000d] transition-colors">{p.name}</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">{p.short_description}</p>
+                <span class="text-sm font-bold mt-auto pt-6 text-[#97000d] tracking-tight">{p.price}</span>
+              </a>
+            ))}
+          </div>
+          <div class="mt-12 text-center md:hidden">
+            <a href="/products" class="inline-flex text-sm font-label font-bold uppercase tracking-widest text-[#97000d] border border-[#97000d] px-8 py-4 hover:bg-[#97000d] hover:text-white transition-all">
+              View All Products &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- STATS SECTION -->
+    <section class="bg-surface-container-low py-24">
+      <div class="max-w-[1536px] mx-auto px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24">
+          {(home.stats_section?.achievements || []).map(stat => (
+            <div class="text-center">
+              <div class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter mb-2 text-[#97000d]">{stat.value}</div>
+              <p class="font-label text-sm font-bold tracking-wider">{stat.label}</p>
+              <p class="text-xs text-slate-400 mt-1">{stat.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mb-16">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Global Partnerships</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-16 items-center">
+          {(home.stats_section?.partners?.brands || []).map(brand => (
+            <div class="text-2xl font-headline font-extrabold tracking-tight text-slate-300 opacity-40 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 cursor-default">
+              {brand.name}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- IMMERSIVE CATEGORIES -->
+    {(home.immersive_categories?.sections || []).map(section => {
+      const isEven = section.layout === 'content-right';
+      return (
+        <section id={section.id} class="relative h-[600px] flex items-center overflow-hidden bg-zinc-950">
+          <img
+            src={section.background?.image || ''}
+            alt=""
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class={`absolute inset-0 ${section.background?.overlay_opacity ? `bg-black/${Math.round((section.background?.overlay_opacity || 0.4) * 100)}` : 'bg-black/40'}`}></div>
+          <div class={`relative z-10 max-w-[1536px] mx-auto px-8 w-full ${isEven ? 'flex justify-end' : ''}`}>
+            <div class={`backdrop-blur-md border border-white/20 p-16 max-w-[576px] ${isEven ? '' : ''}`}
+              style={{ backgroundColor: section.content_card?.bg || 'rgba(255,255,255,0.1)' }}
+            >
+              <h2 class="font-headline text-5xl font-extrabold tracking-tighter leading-[1.05] text-white mb-6">{section.title}</h2>
+              <p class="text-zinc-300 text-lg leading-relaxed mb-8">{section.description}</p>
+              <div class="flex flex-col gap-3 mb-10">
+                {(section.highlights || []).map(h => (
+                  <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#97000d]"></div>
+                    <span class="text-sm text-zinc-300"><strong class="text-white">{h.name}</strong> — {h.feature}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={section.cta?.href || '/products'} class="inline-block bg-white text-zinc-900 px-8 py-4 font-headline font-medium text-sm hover:brightness-110 transition-all">
+                {section.cta?.label || 'Explore'}
+              </a>
+            </div>
+          </div>
+        </section>
+      );
+    })}
+
+    <!-- PROFESSIONAL EQUIPMENT -->
+    <section id="professional-equipment" class="py-24 bg-white">
+      <div class="max-w-[1536px] mx-auto px-8">
+        <h2 class="font-headline text-5xl font-extrabold tracking-tighter mb-16">Heavy Duty Workshop Solutions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {(home.professional_equipment?.categories || []).map(cat => (
+            <div class="group">
+              <div class="aspect-video bg-zinc-50 mb-8 overflow-hidden">
+                <img src={cat.image} alt={cat.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+              </div>
+              <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#97000d] mb-4 block">{cat.tagline}</span>
+              <h3 class="font-headline text-2xl font-extrabold tracking-tight mb-3">{cat.name}</h3>
+              <p class="text-slate-500 text-sm leading-relaxed mb-6">{cat.description}</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                {(cat.features || []).map(f => (
+                  <span class="text-[10px] font-label font-bold uppercase tracking-wider bg-zinc-100 px-3 py-1.5 rounded-full text-zinc-600">{f}</span>
+                ))}
+              </div>
+              <ul class="space-y-2">
+                {(cat.products || []).map(p => (
+                  <li class="text-sm text-slate-600 flex items-center gap-2">
+                    <span class="w-1 h-1 bg-[#97000d] rounded-full"></span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- LIFTS SECTION -->
+    <section id="lifts" class="py-24 bg-surface border-y border-zinc-100">
+      <div class="max-w-[1536px] mx-auto px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="relative h-[500px] overflow-hidden">
+            <img src="/images/lift-2post.webp" alt="Lift" class="w-full h-full object-cover" loading="lazy" />
+            <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur border border-zinc-100 px-6 py-4">
+              <span class="text-[10px] font-label font-bold uppercase tracking-wider text-slate-400">Model Spec</span>
+              <p class="font-headline font-bold text-lg">UNITE 4 Ton Series</p>
+            </div>
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-4 block">Product Focus</span>
+            <h2 class="font-headline text-5xl font-extrabold tracking-tighter leading-[1.05] mb-12">Hydraulic Precision. Absolute Safety.</h2>
+            <div class="space-y-8">
+              {[
+                { number: '01', name: '2-Post Lifts', desc: 'Asymmetric arm design with dual hydraulic cylinders and mechanical safety locks.', products: ['UNITE 4 Ton 2-Post Clearfloor', 'UNITE 4 Ton 2-Post Baseplate'], specs: { Capacity: '4 Tons', Design: 'Asymmetric arms', Safety: 'Mechanical locks' } },
+                { number: '02', name: '4-Post Lifts', desc: 'Integrated alignment kits and high-capacity runways for commercial fleet servicing.', products: ['UNITE 4-Post Lift'], specs: { Capacity: '4 Tons', Features: 'Alignment ready', Runways: 'High-capacity' } },
+              ].map(item => (
+                <div class="border-l-2 border-[#97000d] pl-6">
+                  <span class="text-xs font-black tracking-wide text-slate-300">{item.number}</span>
+                  <h3 class="font-headline text-xl font-bold tracking-tight mb-2">{item.name}</h3>
+                  <p class="text-sm text-slate-500 mb-3">{item.desc}</p>
+                  <div class="flex flex-wrap gap-4 text-xs text-slate-400">
+                    {Object.entries(item.specs).map(([k, v]) => (
+                      <span><strong class="text-slate-600">{k}:</strong> {v}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="relative py-32 overflow-hidden" style="background: linear-gradient(135deg, #97000d 0%, #bb2221 100%);">
+      <div class="max-w-[896px] mx-auto text-center relative z-10">
+        <h2 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter leading-[1.05] text-white mb-6">
+          Ready to elevate your diagnostic capabilities?
+        </h2>
+        <p class="text-zinc-200 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+          Join Pakistan's leading service centers using Autodiagnostix professional equipment. Authorized dealer of LAUNCH, SMARTSAFE, UNITE, and industry-leading brands.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact" class="bg-white text-[#97000d] px-10 py-5 font-headline font-medium text-sm hover:brightness-95 transition-all">
+            Get in Touch
+          </a>
+          <a href="/products" class="border border-white/40 text-white px-10 py-5 font-headline font-medium text-sm hover:bg-white/10 transition-all">
+            Download Catalog
+          </a>
+        </div>
+      </div>
+      <div class="absolute -top-20 -right-20 w-96 h-96 border border-white/5 rotate-45"></div>
+      <div class="absolute -bottom-20 -left-20 w-80 h-80 border border-white/5 rotate-45"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-zinc-50 border-t border-zinc-200 pt-16 pb-8">
+    <div class="max-w-[1536px] mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <h3 class="font-headline font-extrabold text-2xl tracking-tighter mb-4">Autodiagnostix</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">Your trusted partner for professional automotive diagnostic equipment in Pakistan. Authorized dealer of LAUNCH, SMARTSAFE, UNITE, and leading brands.</p>
+        </div>
+        {[
+          {
+            title: 'Solutions',
+            links: ['Diagnostic Scanners', 'ADAS Equipment', 'Wheel Equipment', 'Vehicle Lifts', 'Maintenance Tools']
+          },
+          {
+            title: 'Brands',
+            links: ['LAUNCH', 'SMARTSAFE', 'UNITE', 'AUTOOL', 'GTI.TOOLS']
+          },
+          {
+            title: 'Company',
+            links: ['About Us', 'Contact', 'Become a Dealer', 'Technical Support', 'Warranty Info']
+          }
+        ].map(col => (
+          <div>
+            <h4 class="text-xs font-label font-bold uppercase tracking-[0.15em] text-slate-500 mb-6">{col.title}</h4>
+            <ul class="space-y-3">
+              {col.links.map(link => (
+                <li>
+                  <a href="#" class="text-sm text-slate-600 hover:text-[#97000d] transition-colors">{link}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div class="border-t border-zinc-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-[10px] text-zinc-400 uppercase tracking-widest">&copy; 2024 Autodiagnostix. Authorized dealer in Pakistan. All rights reserved.</p>
+        <div class="flex gap-6">
+          {['Instagram', 'LinkedIn', 'YouTube'].map(social => (
+            <a href="#" class="text-[10px] text-zinc-400 uppercase tracking-widest hover:text-[#97000d] transition-colors">{social}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </footer>
 </BaseLayout>
+
+<style is:global>
+  .primary-gradient {
+    background: linear-gradient(135deg, #97000d 0%, #bb2221 100%);
+  }
+</style>

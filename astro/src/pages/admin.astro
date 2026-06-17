@@ -1,0 +1,15 @@
+---
+const CMS_URL = import.meta.env.PAYLOAD_URL || 'http://localhost:3000';
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content={`0; url=${CMS_URL}/admin`} />
+  <title>Redirecting to Admin...</title>
+</head>
+<body>
+  <p>Redirecting to <a href={`${CMS_URL}/admin`}>Admin Panel</a>...</p>
+</body>
+</html>

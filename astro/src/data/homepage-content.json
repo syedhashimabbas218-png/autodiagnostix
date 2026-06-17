@@ -1,0 +1,850 @@
+{
+  "page_info": {
+    "name": "Homepage",
+    "type": "landing_page",
+    "sections_count": 8,
+    "last_updated": "2024-12-29"
+  },
+  "navigation": {
+    "main_menu": [
+      {
+        "label": "Diagnostics",
+        "href": "#scanners",
+        "active": true,
+        "dropdown": [
+          {
+            "label": "OBD Scanners",
+            "href": "#scanners"
+          },
+          {
+            "label": "TPMS Tools",
+            "href": "#tpms"
+          },
+          {
+            "label": "Battery Testers",
+            "href": "#battery"
+          }
+        ]
+      },
+      {
+        "label": "ADAS",
+        "href": "#adas",
+        "dropdown": [
+          {
+            "label": "Calibration Tools",
+            "href": "#adas"
+          },
+          {
+            "label": "Videoscopes",
+            "href": "#videoscope"
+          }
+        ]
+      },
+      {
+        "label": "Maintenance",
+        "href": "#maintenance",
+        "dropdown": [
+          {
+            "label": "Injector Cleaners",
+            "href": "#injector"
+          },
+          {
+            "label": "AC Service",
+            "href": "#ac-service"
+          },
+          {
+            "label": "Brake Equipment",
+            "href": "#brake"
+          }
+        ]
+      },
+      {
+        "label": "Wheel Equipment",
+        "href": "#wheel",
+        "dropdown": [
+          {
+            "label": "Alignment",
+            "href": "#alignment"
+          },
+          {
+            "label": "Balancers",
+            "href": "#balancers"
+          },
+          {
+            "label": "Tire Changers",
+            "href": "#tire-changers"
+          }
+        ]
+      },
+      {
+        "label": "Lifts",
+        "href": "#lifts",
+        "dropdown": [
+          {
+            "label": "2-Post Lifts",
+            "href": "#lifts"
+          },
+          {
+            "label": "4-Post Lifts",
+            "href": "#lifts"
+          },
+          {
+            "label": "Scissor Lifts",
+            "href": "#lifts"
+          }
+        ]
+      },
+      {
+        "label": "Support",
+        "href": "#contact"
+      }
+    ],
+    "cta_button": {
+      "label": "Request a Quote",
+      "action": "open_contact_modal",
+      "style": "primary-solid"
+    },
+    "search_icon": true,
+    "logo": {
+      "text": "Autodiagnostix",
+      "font": "bold",
+      "tracking": "tighter"
+    }
+  },
+  "category_navigation": {
+    "section_id": "category-nav",
+    "background": "white",
+    "border": "bottom",
+    "categories": [
+      {
+        "id": "scanners",
+        "name": "Scanners",
+        "icon": "qr_code_scanner",
+        "description": "OBD-II, TPMS & Diagnostic Tools",
+        "product_count": 6,
+        "featured_products": [
+          "LAUNCH CRP 919 MAX",
+          "LAUNCH PRO SE 2026",
+          "LAUNCH PRO 3 LINK",
+          "LAUNCH I-TPMS"
+        ],
+        "href": "#scanners",
+        "color": "primary"
+      },
+      {
+        "id": "lifts",
+        "name": "Lifts",
+        "icon": "vertical_align_top",
+        "description": "Hydraulic & Scissor Lifts",
+        "product_count": 8,
+        "featured_products": [
+          "UNITE 4 Ton 2-Post Clearfloor",
+          "LIBERTY LIFT Full Rise Scissor",
+          "UNITE 4-Post Lift"
+        ],
+        "href": "#lifts",
+        "color": "primary"
+      },
+      {
+        "id": "alignment",
+        "name": "Alignment",
+        "icon": "settings_input_component",
+        "description": "Wheel Alignment Systems",
+        "product_count": 4,
+        "featured_products": [
+          "LAUNCH/SMARTSAFE X861L",
+          "LAUNCH/SMARTSAFE X861 PRO"
+        ],
+        "href": "#alignment",
+        "color": "primary"
+      },
+      {
+        "id": "wheel",
+        "name": "Wheel Equipment",
+        "icon": "tire_repair",
+        "description": "Balancers & Tire Changers",
+        "product_count": 8,
+        "featured_products": [
+          "UNITE G68",
+          "UNITE G55",
+          "GTI.TOOLS G-Extreme 24\""
+        ],
+        "href": "#wheel",
+        "color": "primary"
+      },
+      {
+        "id": "maintenance",
+        "name": "Maintenance",
+        "icon": "build",
+        "description": "ADAS & Service Equipment",
+        "product_count": 11,
+        "featured_products": [
+          "LAUNCHSMARTSAFE ADAS PRO+V2",
+          "LAUNCHSMARTSAFE CNC 605 PRO+",
+          "LAUNCH VIDEOSCOPE VSP 800"
+        ],
+        "href": "#maintenance",
+        "color": "primary"
+      },
+      {
+        "id": "brake",
+        "name": "Brake Equipment",
+        "icon": "car_crash",
+        "description": "Brake Lathes & Testing",
+        "product_count": 1,
+        "featured_products": [
+          "UNITE BL-202 ON CAR BRAKE DISC LATHE"
+        ],
+        "href": "#brake",
+        "color": "primary"
+      }
+    ],
+    "layout": {
+      "display": "flex",
+      "justify": "between",
+      "gap": "48px",
+      "scroll": "horizontal",
+      "scrollbar": "hidden"
+    },
+    "item_style": {
+      "icon_container": "rounded-full",
+      "icon_bg": "surface-container-low",
+      "icon_size": "48px",
+      "hover_effect": "color-transition"
+    }
+  },
+  "new_arrivals": {
+    "section_id": "new-arrivals",
+    "background": "surface",
+    "tagline": {
+      "text": "Precision Engineering",
+      "style": "uppercase-tracking"
+    },
+    "title": "The New Standard in Hardware.",
+    "description": "Discover our newest arrivals featuring cutting-edge diagnostic technology and workshop equipment from industry-leading manufacturers.",
+    "layout": {
+      "header_layout": "flex-between",
+      "grid_columns": 3,
+      "gap": "32px"
+    },
+    "products": [
+      {
+        "id": "adas-pro-v2",
+        "name": "LAUNCHSMARTSAFE ADAS PRO+V2",
+        "category": "ADAS Calibration",
+        "brand": "LAUNCH/SMARTSAFE",
+        "short_description": "Passenger Vehicle ADAS Calibration System",
+        "price": "Contact for Quote",
+        "badge": {
+          "text": "New Release",
+          "style": "primary-bg-white-text",
+          "position": "top-left"
+        },
+        "image": {
+          "src": "https://newsmartsafe.com/static/upload/image/20230207/1675740259196466.png",
+          "alt": "ADAS PRO+V2 Calibration System",
+          "effect": "grayscale-hover-color"
+        },
+        "card_style": {
+          "bg": "surface-container-lowest",
+          "border": "zinc-100",
+          "hover_border": "primary/20",
+          "padding": "32px"
+        }
+      },
+      {
+        "id": "crp-919-max",
+        "name": "LAUNCH CRP 919 MAX",
+        "category": "Diagnostic Scanner",
+        "brand": "LAUNCH",
+        "short_description": "Professional OBD-II Diagnostic Tool",
+        "price": "Contact for Quote",
+        "badge": {
+          "text": "Best Seller",
+          "style": "secondary-bg",
+          "position": "top-left"
+        },
+        "image": {
+          "src": "https://en.cnlaunch.com/u_file/fileUpload/2024-10/16/2024101670552.png",
+          "alt": "LAUNCH CRP 919 MAX Scanner",
+          "effect": "grayscale-hover-color"
+        },
+        "card_style": {
+          "bg": "surface-container-lowest",
+          "border": "zinc-100",
+          "hover_border": "primary/20",
+          "padding": "32px"
+        }
+      },
+      {
+        "id": "cnc-605-pro",
+        "name": "LAUNCHSMARTSAFE CNC 605 PRO+",
+        "category": "Injector Cleaner",
+        "brand": "LAUNCH/SMARTSAFE",
+        "short_description": "GDI Injector Cleaner & Tester",
+        "price": "Contact for Quote",
+        "badge": {
+          "text": "Professional Grade",
+          "style": "neutral-bg",
+          "position": "top-left"
+        },
+        "image": {
+          "src": "https://launchx431.com.pk/wp-content/uploads/2024/07/CNC-605-pro-plus.jpeg",
+          "alt": "CNC 605 PRO+ Injector Cleaner",
+          "effect": "grayscale-hover-color"
+        },
+        "card_style": {
+          "bg": "surface-container-lowest",
+          "border": "zinc-100",
+          "hover_border": "primary/20",
+          "padding": "32px"
+        }
+      }
+    ]
+  },
+  "stats_section": {
+    "section_id": "stats",
+    "background": "#FAFAFA",
+    "layout": {
+      "achievements_grid": "4-columns",
+      "partners_grid": "5-columns",
+      "certifications_grid": "3-columns"
+    },
+    "achievements": [
+      {
+        "value": "15+",
+        "label": "Years Experience",
+        "description": "Serving Pakistan's automotive industry",
+        "style": "primary-accent"
+      },
+      {
+        "value": "500+",
+        "label": "Service Centers",
+        "description": "Trusted partners nationwide",
+        "style": "default"
+      },
+      {
+        "value": "6",
+        "label": "Global Brands",
+        "description": "Authorized dealership partnerships",
+        "style": "primary-accent"
+      },
+      {
+        "value": "50+",
+        "label": "Product Range",
+        "description": "Professional equipment solutions",
+        "style": "default"
+      }
+    ],
+    "partners": {
+      "section_title": "Global Partnerships",
+      "brands": [
+        {
+          "name": "LAUNCH",
+          "tier": "platinum"
+        },
+        {
+          "name": "SMARTSAFE",
+          "tier": "platinum"
+        },
+        {
+          "name": "UNITE",
+          "tier": "gold"
+        },
+        {
+          "name": "AUTOOL",
+          "tier": "gold"
+        },
+        {
+          "name": "GTI.TOOLS",
+          "tier": "silver"
+        }
+      ],
+      "style": {
+        "opacity": 0.4,
+        "grayscale": true,
+        "hover": "full-color"
+      }
+    },
+    "certifications": {
+      "section_title": "Recognition & Awards",
+      "section_subtitle": "Industry Excellence",
+      "description": "Setting the benchmark for automotive diagnostic equipment in Pakistan.",
+      "items": [
+        {
+          "name": "Authorized Dealer",
+          "issuer": "LAUNCH Tech",
+          "icon": "verified",
+          "description": "Official Pakistan distributor"
+        },
+        {
+          "name": "Technical Support",
+          "issuer": "SMARTSAFE",
+          "icon": "support_agent",
+          "description": "Certified service center"
+        },
+        {
+          "name": "B2B Excellence",
+          "issuer": "Industry Standard",
+          "icon": "business",
+          "description": "Professional equipment supplier"
+        }
+      ]
+    }
+  },
+  "immersive_categories": {
+    "section_id": "immersive-categories",
+    "background": "surface",
+    "layout": "stacked-fullwidth",
+    "spacing": "32px",
+    "sections": [
+      {
+        "id": "diagnostic-intelligence",
+        "height": "600px",
+        "layout": "content-left",
+        "content_position": "left",
+        "content_offset": "64px",
+        "background": {
+          "image": "/images/diagnostics-dark.webp",
+          "overlay": "dark",
+          "overlay_opacity": 0.4
+        },
+        "title": "Diagnostic Intelligence.",
+        "description": "Complete OBD-II ecosystem featuring LAUNCH and SMARTSAFE diagnostic tools. From basic code readers to advanced professional scanners with bi-directional control.",
+        "cta": {
+          "label": "Explore Systems",
+          "href": "#scanners",
+          "style": "white-bg-dark-text"
+        },
+        "content_card": {
+          "bg": "white/10",
+          "backdrop_blur": "md",
+          "border": "white/20",
+          "padding": "64px",
+          "max_width": "576px"
+        },
+        "highlights": [
+          {
+            "name": "LAUNCH CRP 919 MAX",
+            "feature": "Full System Diagnostics"
+          },
+          {
+            "name": "LAUNCH PRO 3 LINK",
+            "feature": "Bi-directional Control"
+          },
+          {
+            "name": "LAUNCH I-TPMS",
+            "feature": "Tire Pressure Management"
+          }
+        ]
+      },
+      {
+        "id": "maintenance-optimized",
+        "height": "600px",
+        "layout": "content-right",
+        "content_position": "right",
+        "content_offset": "64px",
+        "background": {
+          "image": "/images/lift-2post.webp",
+          "overlay": "light",
+          "overlay_opacity": 0.3
+        },
+        "title": "Maintenance Optimized.",
+        "description": "Beyond diagnostics. Equip your facility with high-performance ADAS calibration systems, injector cleaners, videoscopes, and precision service equipment.",
+        "cta": {
+          "label": "View Catalog",
+          "href": "#maintenance",
+          "style": "primary-gradient"
+        },
+        "content_card": {
+          "bg": "zinc-950/80",
+          "backdrop_blur": "md",
+          "padding": "64px",
+          "max_width": "576px"
+        },
+        "highlights": [
+          {
+            "name": "ADAS PRO+V2",
+            "feature": "ADAS Calibration"
+          },
+          {
+            "name": "CNC 605 PRO+",
+            "feature": "Injector Cleaning"
+          },
+          {
+            "name": "VSP 800",
+            "feature": "Engine Inspection"
+          }
+        ]
+      }
+    ]
+  },
+  "professional_equipment": {
+    "section_id": "professional-equipment",
+    "background": "white",
+    "title": "Heavy Duty Workshop Solutions",
+    "layout": {
+      "grid_columns": 3,
+      "gap": "48px"
+    },
+    "categories": [
+      {
+        "id": "alignment-machines",
+        "tagline": "Calibration",
+        "tagline_style": "primary-uppercase",
+        "name": "3D Alignment Systems",
+        "description": "High-precision wheel alignment with advanced 3D camera technology. ±0.01° accuracy for professional results.",
+        "image": "/images/alignment-3d.webp",
+        "products": [
+          "LAUNCH/SMARTSAFE X861L",
+          "LAUNCH/SMARTSAFE X613"
+        ],
+        "features": [
+          "3D camera technology",
+          "±0.01° precision",
+          "Quick measurement cycle"
+        ],
+        "card_style": {
+          "image_aspect": "video",
+          "image_overflow": true,
+          "hover_scale": 1.1
+        }
+      },
+      {
+        "id": "wheel-balancers",
+        "tagline": "Precision",
+        "tagline_style": "primary-uppercase",
+        "name": "Wheel Balancers",
+        "description": "Digital wheel balancers with auto-positioning and quick cycle times. LCD displays and heavy-duty motors for commercial use.",
+        "image": "/images/wheel-balancer.webp",
+        "products": [
+          "UNITE G68",
+          "UNITE G55"
+        ],
+        "features": [
+          "Digital LCD display",
+          "Auto-positioning",
+          "Heavy-duty motor"
+        ],
+        "card_style": {
+          "image_aspect": "video",
+          "image_overflow": true,
+          "hover_scale": 1.1
+        }
+      },
+      {
+        "id": "tire-changers",
+        "tagline": "Efficiency",
+        "tagline_style": "primary-uppercase",
+        "name": "Tire Changers",
+        "description": "Professional tire changing equipment for run-flat, low-profile, and high-performance tires.",
+        "image": "/images/tire-changer.webp",
+        "products": [
+          "GTI.TOOLS G-Extreme 24\"",
+          "GTI.TOOLS RFT(PRO) Low Profile"
+        ],
+        "features": [
+          "Lever-less mounting",
+          "Run-flat compatible",
+          "High-performance ready"
+        ],
+        "card_style": {
+          "image_aspect": "video",
+          "image_overflow": true,
+          "hover_scale": 1.1
+        }
+      }
+    ]
+  },
+  "interactive_lifts": {
+    "section_id": "lifts",
+    "background": "surface",
+    "border": "y",
+    "border_color": "zinc-100",
+    "layout": {
+      "type": "two-column",
+      "image_column": "left",
+      "content_column": "right",
+      "vertical_align": "center",
+      "gap": "64px"
+    },
+    "image_section": {
+      "height": "500px",
+      "overflow": true,
+      "image": "/images/lift-2post.webp",
+      "spec_card": {
+        "position": "bottom-right",
+        "bg": "white/90",
+        "backdrop_blur": true,
+        "border": "zinc-100",
+        "padding": "16px"
+      },
+      "spec_text": {
+        "label": "Model Spec",
+        "value": "UNITE 4 Ton Series"
+      }
+    },
+    "content_section": {
+      "tagline": "Product Focus",
+      "tagline_style": "uppercase-tracking",
+      "title": "Hydraulic Precision. Absolute Safety.",
+      "title_style": "large-tracking-tight",
+      "lift_types": [
+        {
+          "id": "2-post",
+          "number": "01",
+          "name": "2-Post Lifts",
+          "description": "Asymmetric arm design with dual hydraulic cylinders and mechanical safety locks.",
+          "products": [
+            "UNITE 4 Ton 2-Post Clearfloor",
+            "UNITE 4 Ton 2-Post Baseplate"
+          ],
+          "specifications": {
+            "Capacity": "4 Tons",
+            "Design": "Asymmetric arms",
+            "Safety": "Mechanical locks"
+          },
+          "state": "active",
+          "tab_style": {
+            "active_border": "primary",
+            "active_bg": "white",
+            "inactive_opacity": 0.6,
+            "inactive_hover": "zinc-50"
+          }
+        },
+        {
+          "id": "4-post",
+          "number": "02",
+          "name": "4-Post Lifts",
+          "description": "Integrated alignment kits and high-capacity runways for commercial fleet servicing.",
+          "products": [
+            "UNITE 4-Post Lift"
+          ],
+          "specifications": {
+            "Capacity": "4 Tons",
+            "Features": "Alignment ready",
+            "Runways": "High-capacity"
+          },
+          "state": "inactive"
+        },
+        {
+          "id": "scissor",
+          "number": "03",
+          "name": "Scissor Lifts",
+          "description": "Space-saving flush-mount and mid-rise designs for express service and tire shops.",
+          "products": [
+            "UNITE Midrise Scissor",
+            "LIBERTY LIFT Full Rise",
+            "LIBERTY LIFT 6.8 Ton Heavy Duty"
+          ],
+          "specifications": {
+            "Capacity": "Up to 6.8 Tons",
+            "Types": "Mid-rise & Full-rise",
+            "Installation": "Flush-mount"
+          },
+          "state": "inactive"
+        }
+      ]
+    }
+  },
+  "cta_banner": {
+    "section_id": "cta-banner",
+    "background": "primary",
+    "overflow": "hidden",
+    "decoration": {
+      "type": "abstract-geometry",
+      "opacity": 0.1,
+      "element": "rotated-rectangle"
+    },
+    "content": {
+      "alignment": "center",
+      "max_width": "896px"
+    },
+    "title": "Ready to elevate your diagnostic capabilities?",
+    "title_style": "white-large-tracking-tight",
+    "description": "Join Pakistan's leading service centers using Autodiagnostix professional equipment. Authorized dealer of LAUNCH, SMARTSAFE, UNITE, and industry-leading brands.",
+    "description_style": "white-secondary-text",
+    "buttons": {
+      "layout": "flex-center",
+      "gap": "16px",
+      "responsive": "stack-mobile"
+    },
+    "cta_primary": {
+      "label": "Get in Touch",
+      "href": "#contact",
+      "style": "white-bg-primary-text",
+      "size": "large"
+    },
+    "cta_secondary": {
+      "label": "Download Catalog",
+      "href": "/downloads/catalog.pdf",
+      "style": "transparent-white-border",
+      "size": "large"
+    }
+  },
+  "footer": {
+    "section_id": "footer",
+    "background": "zinc-50",
+    "border": "top",
+    "border_color": "zinc-200",
+    "layout": {
+      "main_grid": "4-columns",
+      "company_span": "2-cols-mobile-1-col-desktop"
+    },
+    "company_info": {
+      "name": "Autodiagnostix",
+      "description": "Your trusted partner for professional automotive diagnostic equipment in Pakistan. Authorized dealer of LAUNCH, SMARTSAFE, UNITE, and leading brands.",
+      "social_icons": [
+        "share",
+        "mail",
+        "language"
+      ]
+    },
+    "menu_columns": [
+      {
+        "title": "Solutions",
+        "links": [
+          {
+            "label": "Diagnostic Scanners",
+            "href": "#scanners"
+          },
+          {
+            "label": "ADAS Equipment",
+            "href": "#adas"
+          },
+          {
+            "label": "Wheel Equipment",
+            "href": "#wheel"
+          },
+          {
+            "label": "Vehicle Lifts",
+            "href": "#lifts"
+          },
+          {
+            "label": "Maintenance Tools",
+            "href": "#maintenance"
+          }
+        ]
+      },
+      {
+        "title": "Brands",
+        "links": [
+          {
+            "label": "LAUNCH",
+            "href": "#launch"
+          },
+          {
+            "label": "SMARTSAFE",
+            "href": "#smartsafe"
+          },
+          {
+            "label": "UNITE",
+            "href": "#unite"
+          },
+          {
+            "label": "AUTOOL",
+            "href": "#autool"
+          },
+          {
+            "label": "GTI.TOOLS",
+            "href": "#gti"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About Us",
+            "href": "#about"
+          },
+          {
+            "label": "Contact",
+            "href": "#contact"
+          },
+          {
+            "label": "Become a Dealer",
+            "href": "#dealer"
+          },
+          {
+            "label": "Technical Support",
+            "href": "#support"
+          },
+          {
+            "label": "Warranty Info",
+            "href": "#warranty"
+          }
+        ]
+      }
+    ],
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Get the latest product updates and technical information.",
+      "input_placeholder": "Email address",
+      "button_text": "Join",
+      "button_style": "primary-text-underline"
+    },
+    "bottom_bar": {
+      "layout": "flex-between",
+      "copyright": "© 2024 Autodiagnostix. Authorized dealer in Pakistan. All rights reserved.",
+      "social_links": [
+        {
+          "label": "Instagram",
+          "href": "#"
+        },
+        {
+          "label": "LinkedIn",
+          "href": "#"
+        },
+        {
+          "label": "Youtube",
+          "href": "#"
+        }
+      ]
+    }
+  },
+  "seo": {
+    "title": "Autodiagnostix | Automotive Diagnostic Equipment Pakistan - LAUNCH & SMARTSAFE Dealer",
+    "description": "Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE automotive diagnostic equipment. Professional scanners, lifts, wheel alignment & workshop tools. B2B sales.",
+    "keywords": [
+      "automotive diagnostics Pakistan",
+      "LAUNCH dealer Pakistan",
+      "SMARTSAFE dealer",
+      "car diagnostic tools",
+      "workshop equipment",
+      "wheel alignment",
+      "vehicle lifts",
+      "OBD scanner Pakistan",
+      "B2B automotive equipment"
+    ]
+  },
+  "styles": {
+    "colors": {
+      "primary": "#97000d",
+      "primary_container": "#bb2221",
+      "surface": "#f9f9f9",
+      "surface_container": "#eeeeee",
+      "on_surface": "#1a1c1c",
+      "white": "#ffffff",
+      "zinc": {
+        "50": "#fafafa",
+        "100": "#f4f4f5",
+        "200": "#e4e4e7",
+        "400": "#a1a1aa",
+        "500": "#71717a",
+        "600": "#52525b",
+        "900": "#18181b",
+        "950": "#09090b"
+      }
+    },
+    "fonts": {
+      "headline": "Manrope",
+      "body": "Inter"
+    },
+    "spacing": {
+      "section_padding": "96px",
+      "container_max_width": "1536px",
+      "container_padding": "32px"
+    }
+  }
+}
