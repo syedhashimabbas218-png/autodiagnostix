@@ -1,4 +1,6 @@
 ---
+import SearchToggle from './SearchToggle';
+
 const {
   ctaLabel = "Request a Quote",
   ctaHref = "/contact",
@@ -26,6 +28,7 @@ const {
       ))}
     </div>
     <div class="flex items-center gap-4">
+      <SearchToggle client:load />
       <a href={ctaHref} class="primary-gradient text-white px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] font-label hover:brightness-110 transition-all">
         {ctaLabel}
       </a>

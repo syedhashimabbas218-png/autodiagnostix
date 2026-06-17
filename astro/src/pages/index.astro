@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroSlideshow from '../components/HeroSlideshow';
+import InteractiveLifts from '../components/InteractiveLifts';
 import { organizationSchema, websiteSchema } from '../utils/schema';
 
 export const prerender = true;
@@ -159,38 +160,13 @@ const pageDesc = seo?.description || seoContent?.description;
     </section>
 
     <!-- LIFTS -->
-    <section id="lifts" class="py-24 bg-surface border-y border-zinc-100">
-      <div class="max-w-[1536px] mx-auto px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="relative h-[500px] overflow-hidden">
-            <img src="/images/lift-2post.webp" alt="Lift" class="w-full h-full object-cover" loading="lazy" />
-            <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur border border-zinc-100 px-6 py-4">
-              <span class="text-[10px] font-label font-bold uppercase tracking-wider text-slate-400">Model Spec</span>
-              <p class="font-headline font-bold text-lg">UNITE 4 Ton Series</p>
-            </div>
-          </div>
-          <div>
-            <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-4 block">Product Focus</span>
-            <h2 class="font-headline text-5xl font-extrabold tracking-tighter leading-[1.05] mb-12">Hydraulic Precision. Absolute Safety.</h2>
-            <div class="space-y-8">
-              {[
-                { number: '01', name: '2-Post Lifts', desc: 'Asymmetric arm design with dual hydraulic cylinders and mechanical safety locks.', products: ['UNITE 4 Ton 2-Post Clearfloor', 'UNITE 4 Ton 2-Post Baseplate'], specs: { Capacity: '4 Tons', Design: 'Asymmetric arms', Safety: 'Mechanical locks' } },
-                { number: '02', name: '4-Post Lifts', desc: 'Integrated alignment kits and high-capacity runways for commercial fleet servicing.', products: ['UNITE 4-Post Lift'], specs: { Capacity: '4 Tons', Features: 'Alignment ready', Runways: 'High-capacity' } },
-              ].map(item => (
-                <div class="border-l-2 border-primary pl-6">
-                  <span class="text-xs font-black tracking-wide text-slate-300">{item.number}</span>
-                  <h3 class="font-headline text-xl font-bold tracking-tight mb-2">{item.name}</h3>
-                  <p class="text-sm text-slate-500 mb-3">{item.desc}</p>
-                  <div class="flex flex-wrap gap-4 text-xs text-slate-400">
-                    {Object.entries(item.specs).map(([k, v]) => (<span><strong class="text-slate-600">{k}:</strong> {v}</span>))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <InteractiveLifts
+      client:load
+      image={home.interactive_lifts?.image_section?.image || '/images/lift-2post.webp'}
+      title={home.interactive_lifts?.content_section?.title || 'Hydraulic Precision. Absolute Safety.'}
+      tagline={home.interactive_lifts?.content_section?.tagline || 'Product Focus'}
+      liftTypes={home.interactive_lifts?.content_section?.lift_types || []}
+    />
 
     <!-- CTA -->
     <section class="relative py-32 overflow-hidden" style="background: linear-gradient(135deg, #97000d 0%, #bb2221 100%);">
