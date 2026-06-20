@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_feature_items",
+  "info": {
+    "displayName": "FeatureItem",
+    "description": "A product feature with optional image"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

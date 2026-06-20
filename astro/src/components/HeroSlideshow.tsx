@@ -60,29 +60,29 @@ export default function HeroSlideshow({ slides, interval = 6000 }: Props) {
               <p className="hero-desc text-zinc-400 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
                 {slide.description}
               </p>
-              <div className="flex gap-4">
-                <a
-                  href={slide.cta_primary.href}
-                  className="hero-cta bg-[linear-gradient(135deg,#97000d_0%,#bb2221_100%)] text-white px-8 py-4 font-headline font-medium text-sm tracking-tight hover:scale-105 active:scale-95 transition-transform duration-200 ease-out shadow-xl shadow-[#97000d]/20"
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button
+                  onClick={() => window.location.href = slide.cta_primary.href}
+                  className="hero-cta bg-[linear-gradient(135deg,#97000d_0%,#bb2221_100%)] text-white px-6 sm:px-8 py-3 sm:py-4 font-headline font-medium text-xs sm:text-sm tracking-tight hover:scale-[1.05] active:scale-95 transition-transform duration-200 ease-out shadow-xl shadow-[#97000d]/20 cursor-pointer"
                 >
                   {slide.cta_primary.label}
-                </a>
-                <a
-                  href={slide.cta_secondary.href}
-                  className="hero-cta border border-white/40 text-white px-8 py-4 font-headline font-medium text-sm tracking-tight hover:bg-white/10 hover:scale-105 transition-all duration-200 ease-out"
+                </button>
+                <button
+                  onClick={() => window.location.href = slide.cta_secondary.href}
+                  className="hero-cta border border-white/40 text-white px-6 sm:px-8 py-3 sm:py-4 font-headline font-medium text-xs sm:text-sm tracking-tight hover:bg-white/10 hover:scale-[1.05] transition-all duration-200 ease-out cursor-pointer"
                 >
                   {slide.cta_secondary.label}
-                </a>
+                </button>
               </div>
             </div>
           </div>
         </div>
       ))}
-      <div className="absolute bottom-12 left-8 z-20 flex gap-2">
+      <div className="absolute bottom-8 md:bottom-12 left-4 md:left-8 z-20 flex gap-1.5 md:gap-2">
         {slides.map((_, idx) => (
           <div
             key={idx}
-            className={`h-1 w-12 cursor-pointer transition-colors ${idx === currentSlide ? 'bg-[#97000d]' : 'bg-white/20'}`}
+            className={`h-1 w-6 md:w-12 cursor-pointer transition-colors ${idx === currentSlide ? 'bg-[#97000d]' : 'bg-white/20'}`}
             onClick={() => setCurrentSlide(idx)}
           />
         ))}

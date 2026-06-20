@@ -3,7 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroSlideshow from '../components/HeroSlideshow';
+import CategoryNav from '../components/CategoryNav';
+import NewArrivals from '../components/NewArrivals';
 import InteractiveLifts from '../components/InteractiveLifts';
+import ClientsSection from '../components/ClientsSection.astro';
 import { organizationSchema, websiteSchema } from '../utils/schema';
 
 export const prerender = true;
@@ -17,6 +20,39 @@ const seo = hero.seo;
 const seoContent = home.seo;
 const pageTitle = seo?.title || seoContent?.title;
 const pageDesc = seo?.description || seoContent?.description;
+
+const icons: Record<string, string> = {
+  share: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`,
+  mail: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+  language: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+  verified: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>`,
+  support_agent: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>`,
+  business: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+};
+
+import { getProducts, getCategories, getBrands, sortByAvailability } from '../lib/strapi';
+
+const allCategories = await getCategories();
+const categoryIcons: Record<string, string> = {
+  'scanners': 'qr_code_scanner',
+  'lifts-jacks': 'vertical_align_top',
+  'maintenance': 'build',
+  'wheel-alignment': 'tire_repair',
+  'ev-equipment': 'car_crash',
+};
+const categories = allCategories
+  .map(c => ({ id: c.id, name: c.name, icon: categoryIcons[c.id] || c.icon || 'build' }));
+
+const allBrands = await getBrands();
+
+const allProducts = sortByAvailability(await getProducts());
+const products = allProducts.slice(0, 3).map(p => ({
+  id: p.id,
+  name: p.name,
+  summary: p.summary || '',
+  description: p.description || '',
+  heroImages: p.heroImages,
+}));
 ---
 
 <BaseLayout
@@ -25,136 +61,149 @@ const pageDesc = seo?.description || seoContent?.description;
   canonical="https://autodiagnostix.com"
   jsonLd={[organizationSchema, websiteSchema]}
 >
-  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" transparentOnScroll={true} />
 
   <main>
     <!-- HERO -->
     <HeroSlideshow client:load slides={hero.hero_slides} interval={heroData.slider_config.interval} />
 
     <!-- CATEGORY NAV -->
-    <section id="category-nav" class="bg-white border-b border-zinc-100 py-10">
-      <div class="max-w-[1536px] mx-auto px-8">
-        <div class="flex overflow-x-auto no-scrollbar gap-12 justify-between">
-          {(home.category_navigation?.categories || []).map(cat => (
-            <a href={cat.href || `/category/${cat.id}`} class="flex flex-col items-center gap-4 min-w-[100px] group">
-              <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                <span class="material-symbols-outlined text-xl text-slate-600">{cat.icon || 'category'}</span>
-              </div>
-              <div class="text-center">
-                <p class="font-headline font-bold text-sm tracking-tight text-on-surface group-hover:text-primary transition-colors">{cat.name}</p>
-                <p class="text-[10px] text-slate-400 tracking-wider mt-0.5">{cat.product_count} products</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CategoryNav client:load categories={categories} />
 
     <!-- NEW ARRIVALS -->
-    {(home.new_arrivals?.products || []).length > 0 && (
-      <section id="new-arrivals" class="py-24 bg-surface">
-        <div class="max-w-[1536px] mx-auto px-8">
-          <div class="flex items-end justify-between mb-16">
+    <NewArrivals client:load products={products} />
+
+    <!-- STATS + PARTNERS + CERTIFICATIONS -->
+    <section id="stats" class="py-20 overflow-hidden relative bg-[#FAFAFA] text-zinc-900">
+      <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-black/10 pt-16">
+          {(home.stats_section?.achievements || []).map(stat => (
             <div>
-              <span class="text-xs font-bold tracking-[0.2em] text-slate-500 mb-4 block uppercase">Precision Engineering</span>
-              <h2 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter leading-[1.05] max-w-2xl">The New Standard in Hardware.</h2>
+              <div class={`text-5xl font-headline font-extrabold mb-2 ${stat.style === 'primary-accent' ? 'text-primary' : ''}`}>
+                {stat.value}
+              </div>
+              <div class="text-[10px] uppercase tracking-widest text-zinc-500">{stat.label}</div>
             </div>
-            <a href="/products" class="hidden md:inline-flex text-sm font-label font-bold uppercase tracking-widest text-primary hover:underline underline-offset-4">View All &rarr;</a>
+          ))}
+        </div>
+
+        <div class="mt-24 mb-20">
+          <div class="flex items-center gap-4 mb-12">
+            <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">{home.stats_section?.partners?.section_title || 'Global Partnerships'}</span>
+            <div class="h-px flex-1 bg-black/[0.08]"></div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {(home.new_arrivals?.products || []).map(p => (
-              <a href={`/product/${p.id}`} class="group bg-surface-container-lowest border border-zinc-100 hover:border-primary/20 p-8 flex flex-col transition-all hover:-translate-y-1 hover:shadow-2xl">
-                {p.badge && (
-                  <span class={`self-start mb-4 text-[9px] font-black uppercase tracking-widest px-3 py-1 ${p.badge.style === 'primary-bg-white-text' ? 'bg-primary text-white' : p.badge.style === 'secondary-bg' ? 'bg-zinc-100 text-zinc-800' : 'bg-zinc-50 text-zinc-600'} rounded-full`}>{p.badge.text}</span>
-                )}
-                <div class="aspect-[4/3] bg-white mb-6 flex items-center justify-center overflow-hidden">
-                  <img src={p.image?.src} alt={p.image?.alt || p.name} class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                </div>
-                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{p.brand}</span>
-                <h3 class="font-headline font-bold text-lg tracking-tight leading-snug mb-3 group-hover:text-primary transition-colors">{p.name}</h3>
-                <p class="text-sm text-slate-500 leading-relaxed">{p.short_description}</p>
-                <span class="text-sm font-bold mt-auto pt-6 text-primary tracking-tight">{p.price}</span>
-              </a>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-12 items-center opacity-70 filter grayscale hover:grayscale-0 transition-all duration-200 ease-out">
+            {(allBrands || []).map(brand => (
+              <span class="text-xl font-black tracking-tighter text-center text-zinc-900">{brand.name}</span>
             ))}
           </div>
         </div>
-      </section>
-    )}
 
-    <!-- STATS -->
-    <section class="bg-surface-container-low py-24">
-      <div class="max-w-[1536px] mx-auto px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24">
-          {(home.stats_section?.achievements || []).map(stat => (
-            <div class="text-center">
-              <div class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter mb-2 text-primary">{stat.value}</div>
-              <p class="font-label text-sm font-bold tracking-wider">{stat.label}</p>
-              <p class="text-xs text-slate-400 mt-1">{stat.description}</p>
+        <div class="mt-24 border-t border-black/[0.08] pt-20">
+          <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="max-w-xs">
+              <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4 block">{home.stats_section?.certifications?.section_subtitle || 'Industry Excellence'}</span>
+              <h2 class="text-3xl font-headline font-extrabold tracking-tighter text-zinc-900">{home.stats_section?.certifications?.section_title || 'Recognition & Awards'}.</h2>
+              <p class="mt-4 text-zinc-500 text-sm leading-relaxed">{home.stats_section?.certifications?.description || ''}</p>
             </div>
-          ))}
-        </div>
-        <div class="text-center mb-16">
-          <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Global Partnerships</span>
-        </div>
-        <div class="flex flex-wrap justify-center gap-16 items-center">
-          {(home.stats_section?.partners?.brands || []).map(brand => (
-            <div class="text-2xl font-headline font-extrabold tracking-tight text-slate-300 opacity-40 hover:opacity-100 transition-opacity grayscale hover:grayscale-0 cursor-default">{brand.name}</div>
-          ))}
+            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+              {(home.stats_section?.certifications?.items || []).map(cert => (
+                <div class="p-6 bg-white border border-black/[0.08] hover:border-primary/20 transition-colors">
+                  <span class="text-primary mb-4 block w-6 h-6" set:html={icons[cert.icon] || ''}></span>
+                  <h4 class="text-sm font-headline font-bold text-zinc-900 mb-1">{cert.name}</h4>
+                  <p class="text-xs text-zinc-500">{cert.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- CLIENTS -->
+    <ClientsSection />
+
     <!-- IMMERSIVE CATEGORIES -->
-    {(home.immersive_categories?.sections || []).map(section => {
-      const isEven = section.layout === 'content-right';
-      return (
-        <section id={section.id} class="relative h-[600px] flex items-center overflow-hidden bg-zinc-950">
-          <img src={section.background?.image || ''} alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-black/40"></div>
-          <div class={`relative z-10 max-w-[1536px] mx-auto px-8 w-full ${isEven ? 'flex justify-end' : ''}`}>
-            <div class={`backdrop-blur-md border border-white/20 p-16 max-w-[576px]`} style={{ backgroundColor: section.content_card?.bg || 'rgba(255,255,255,0.1)' }}>
-              <h2 class="font-headline text-5xl font-extrabold tracking-tighter leading-[1.05] text-white mb-6">{section.title}</h2>
-              <p class="text-zinc-300 text-lg leading-relaxed mb-8">{section.description}</p>
-              <div class="flex flex-col gap-3 mb-10">
-                {(section.highlights || []).map(h => (
-                  <div class="flex items-center gap-3">
-                    <div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                    <span class="text-sm text-zinc-300"><strong class="text-white">{h.name}</strong> — {h.feature}</span>
-                  </div>
-                ))}
+    <section id="immersive-categories" class="py-12 bg-surface">
+      <div class="max-w-screen-2xl mx-auto px-8 space-y-8">
+        {(home.immersive_categories?.sections || []).map(section => {
+          const isRight = section.layout === 'content-right';
+          return (
+            <div class={`relative h-[500px] md:h-[600px] bg-zinc-100 overflow-hidden flex items-center ${isRight ? 'md:justify-end' : ''}`}>
+              <div class="absolute inset-0">
+                <img src={section.background?.image || ''} alt={section.background?.alt || section.title} class="w-full h-full object-cover object-center" loading="lazy" referrerpolicy="no-referrer" />
               </div>
-              <a href={section.cta?.href || '/products'} class="inline-block bg-white text-zinc-900 px-8 py-4 font-headline font-medium text-sm hover:brightness-110 transition-all">
-                {section.cta?.label || 'Explore'}
-              </a>
+              <div class={`relative z-10 p-6 md:p-16 max-w-xl ${isRight ? 'bg-zinc-950/80 backdrop-blur-md md:mr-16' : 'bg-white/10 backdrop-blur-md border border-white/20 md:ml-16'}`}>
+                <h2 class="text-2xl md:text-4xl font-headline font-extrabold text-white mb-4 md:mb-6">{section.title}</h2>
+                <p class={`mb-6 md:mb-8 leading-relaxed text-sm md:text-base ${isRight ? 'text-zinc-400' : 'text-white/80'}`}>{section.description}</p>
+                <button
+                  onClick={() => { window.location.href = section.cta?.href || '/products'; }}
+                  class={`px-6 md:px-8 py-3 font-headline font-medium text-[10px] md:text-xs uppercase tracking-widest transition-all cursor-pointer whitespace-nowrap ${
+                    isRight
+                      ? 'primary-gradient text-white hover:scale-[0.98]'
+                      : 'bg-white text-zinc-900 hover:bg-zinc-100'
+                  }`}
+                >
+                  {section.cta?.label || 'Explore'}
+                </button>
+              </div>
             </div>
-          </div>
-        </section>
-      );
-    })}
+          );
+        })}
+      </div>
+    </section>
 
     <!-- PROFESSIONAL EQUIPMENT -->
-    <section id="professional-equipment" class="py-24 bg-white">
-      <div class="max-w-[1536px] mx-auto px-8">
-        <h2 class="font-headline text-5xl font-extrabold tracking-tighter mb-16">Heavy Duty Workshop Solutions</h2>
+    <section id="professional-equipment" class="py-24 bg-white px-8">
+      <div class="max-w-screen-2xl mx-auto">
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-12">{home.professional_equipment?.title || 'Heavy Duty Workshop Solutions'}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {(home.professional_equipment?.categories || []).map(cat => (
-            <div class="group">
-              <div class="aspect-video bg-zinc-50 mb-8 overflow-hidden">
-                <img src={cat.image} alt={cat.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+          {(home.professional_equipment?.categories || []).map((cat, idx) => (
+            <div onclick="window.location.href='/products'" class="group cursor-pointer hover:-translate-y-1 hover:scale-[1.02] transition-all duration-200 ease-out">
+              <div class="aspect-video bg-surface-container-low mb-6 overflow-hidden">
+                <img src={cat.image} alt={cat.name} class="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-110" loading="lazy" referrerpolicy="no-referrer" />
               </div>
-              <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4 block">{cat.tagline}</span>
-              <h3 class="font-headline text-2xl font-extrabold tracking-tight mb-3">{cat.name}</h3>
-              <p class="text-slate-500 text-sm leading-relaxed mb-6">{cat.description}</p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                {(cat.features || []).map(f => <span class="text-[10px] font-label font-bold uppercase tracking-wider bg-zinc-100 px-3 py-1.5 rounded-full text-zinc-600">{f}</span>)}
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase text-primary tracking-widest">{cat.tagline}</span>
+                <div class="h-px flex-1 bg-zinc-100"></div>
               </div>
-              <ul class="space-y-2">
-                {(cat.products || []).map(p => (
-                  <li class="text-sm text-slate-600 flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span>{p}</li>
-                ))}
-              </ul>
+              <h3 class="text-xl font-headline font-extrabold mb-3 group-hover:text-primary transition-colors">{cat.name}</h3>
+              <p class="text-zinc-500 text-sm leading-relaxed mb-6">{cat.description}</p>
             </div>
           ))}
+        </div>
+
+        <div class="mt-16 pt-12 border-t border-zinc-100">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">Featured Heavy-Duty Equipment</span>
+            <div class="h-px flex-1 bg-zinc-100"></div>
+            <a href="/products" class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 hover:text-primary transition-colors">View All →</a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {allProducts
+              .filter(p => ['liberty-tpf-15c', 'gti-g-extreme', 'gti-lcd-premium'].includes(p.id))
+              .map(p => (
+                <a href={`/product/${p.id}`} class="group relative bg-surface-container-low overflow-hidden hover:shadow-[0_0_0_1px_rgba(151,0,13,0.15)] transition-all duration-200 ease-out">
+                  <div class="aspect-[4/3] bg-white flex items-center justify-center overflow-hidden">
+                    {p.heroImages && p.heroImages[0] ? (
+                      <img src={p.heroImages[0]} alt={p.name} class="w-full h-full object-contain p-6 transition-transform duration-200 ease-out group-hover:scale-105" loading="lazy" referrerpolicy="no-referrer" />
+                    ) : (
+                      <div class="text-zinc-300 text-4xl">📦</div>
+                    )}
+                  </div>
+                  <div class="p-5 bg-white">
+                    <div class="flex items-center gap-2 mb-2">
+                      {p.brands && p.brands[0] && (
+                        <span class="text-[9px] font-bold uppercase text-primary tracking-widest">{p.brands[0]}</span>
+                      )}
+                      <div class="h-px flex-1 bg-zinc-100"></div>
+                    </div>
+                    <h3 class="text-base font-headline font-extrabold mb-1 group-hover:text-primary transition-colors line-clamp-1">{p.name}</h3>
+                    <p class="text-zinc-500 text-xs leading-relaxed line-clamp-2">{p.summary}</p>
+                  </div>
+                </a>
+              ))}
+          </div>
         </div>
       </div>
     </section>
@@ -162,20 +211,30 @@ const pageDesc = seo?.description || seoContent?.description;
     <!-- LIFTS -->
     <InteractiveLifts
       client:load
-      image={home.interactive_lifts?.image_section?.image || '/images/lift-2post.webp'}
+      image="/images/2postlift.jpeg"
       title={home.interactive_lifts?.content_section?.title || 'Hydraulic Precision. Absolute Safety.'}
       tagline={home.interactive_lifts?.content_section?.tagline || 'Product Focus'}
       liftTypes={home.interactive_lifts?.content_section?.lift_types || []}
     />
 
     <!-- CTA -->
-    <section class="relative py-32 overflow-hidden" style="background: linear-gradient(135deg, #97000d 0%, #bb2221 100%);">
-      <div class="max-w-[896px] mx-auto text-center relative z-10">
-        <h2 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter leading-[1.05] text-white mb-6">Ready to elevate your diagnostic capabilities?</h2>
-        <p class="text-zinc-200 text-lg leading-relaxed max-w-2xl mx-auto mb-12">Join Pakistan's leading service centers using Autodiagnostix professional equipment.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="/contact" class="bg-white text-primary px-10 py-5 font-headline font-medium text-sm hover:brightness-95 transition-all">Get in Touch</a>
-          <a href="/products" class="border border-white/40 text-white px-10 py-5 font-headline font-medium text-sm hover:bg-white/10 transition-all">Download Catalog</a>
+    <section id="cta-banner" class="py-24 bg-primary overflow-hidden relative">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-white rotate-12 translate-x-1/2"></div>
+      </div>
+      <div class="max-w-screen-2xl mx-auto px-8 relative z-10 text-center">
+        <h2 class="text-4xl md:text-6xl font-headline font-extrabold text-white tracking-tighter mb-8 leading-tight">
+          {home.cta_banner?.title?.split(' ').slice(0, 4).join(' ') || 'Ready to elevate your'} <br />
+          {home.cta_banner?.title?.split(' ').slice(4).join(' ') || 'diagnostic capabilities?'}
+        </h2>
+        <p class="max-w-2xl mx-auto mb-12 text-lg text-white/80">{home.cta_banner?.description || "Join Pakistan's leading service centers using Autodiagnostix professional equipment."}</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button onclick={`window.location.href='${home.cta_banner?.cta_primary?.href || '/contact'}'`} class="bg-white text-primary px-10 py-5 font-headline font-bold text-sm uppercase tracking-widest hover:bg-zinc-100 transition-colors cursor-pointer">
+            {home.cta_banner?.cta_primary?.label || 'Get in Touch'}
+          </button>
+          <button onclick={`window.location.href='${home.cta_banner?.cta_secondary?.href || '/products'}'`} class="border border-white/40 text-white px-10 py-5 font-headline font-bold text-sm uppercase tracking-widest hover:bg-white/10 transition-colors cursor-pointer">
+            {home.cta_banner?.cta_secondary?.label || 'Download Catalog'}
+          </button>
         </div>
       </div>
     </section>
@@ -184,17 +243,7 @@ const pageDesc = seo?.description || seoContent?.description;
   <Footer />
 </BaseLayout>
 
-<script>
-  document.querySelectorAll('img').forEach(img => {
-    img.addEventListener('load', function() {
-      this.style.opacity = '1';
-    });
-    if (img.complete) img.style.opacity = '1';
-  });
-</script>
-
 <style>
-  img { opacity: 0; transition: opacity 0.3s; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   .primary-gradient { background: linear-gradient(135deg, #97000d 0%, #bb2221 100%); }

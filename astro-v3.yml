@@ -1,0 +1,260 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Autodiagnostix" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Autodiagnostix" [ref=e6]
+      - generic [ref=e7]:
+        - link "Diagnostics" [ref=e8] [cursor=pointer]:
+          - /url: "#scanners"
+        - link "Software" [ref=e9] [cursor=pointer]:
+          - /url: "#software"
+        - link "Hardware" [ref=e10] [cursor=pointer]:
+          - /url: "#hardware"
+        - link "OEM Specs" [ref=e11] [cursor=pointer]:
+          - /url: "#oem"
+        - link "Calibration" [ref=e12] [cursor=pointer]:
+          - /url: "#adas"
+        - link "Support" [ref=e13] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e14]:
+        - button "Search products" [ref=e16] [cursor=pointer]:
+          - img [ref=e17]
+        - link "Request a Quote" [ref=e20] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e21]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - img "Professional automotive diagnostic equipment" [ref=e26]
+        - generic [ref=e29]:
+          - generic [ref=e30]: Authorized Dealer in Pakistan
+          - heading "Professional Automotive Diagnostics. Redefined." [level=1] [ref=e31]:
+            - text: Professional Automotive Diagnostics.
+            - text: Redefined.
+          - paragraph [ref=e32]: Your trusted partner for LAUNCH, SMARTSAFE, UNITE, and industry-leading automotive equipment. Serving Pakistan's professional service centers with authentic B2B solutions.
+          - generic [ref=e33]:
+            - button "Browse Products" [ref=e34] [cursor=pointer]
+            - button "Contact Us" [ref=e35] [cursor=pointer]
+      - generic [ref=e36]:
+        - img "Modern automotive workshop with equipment" [ref=e38]
+        - generic [ref=e41]:
+          - generic [ref=e42]: Precision Engineering
+          - heading "Advanced Workshop Solutions. For Pros." [level=1] [ref=e43]:
+            - text: Advanced Workshop Solutions.
+            - text: For Pros.
+          - paragraph [ref=e44]: From wheel alignment systems to hydraulic lifts, discover equipment that transforms your service center's capabilities. Authorized dealer for Pakistan's automotive industry.
+          - generic [ref=e45]:
+            - button "View Equipment" [ref=e46] [cursor=pointer]
+            - button "Request Quote" [ref=e47] [cursor=pointer]
+      - generic [ref=e48]:
+        - img "LAUNCH and SMARTSAFE equipment showcase" [ref=e50]
+        - generic [ref=e53]:
+          - generic [ref=e54]: Official Partnership
+          - heading "LAUNCH & SMARTSAFE. Authorized." [level=1] [ref=e55]:
+            - text: LAUNCH & SMARTSAFE.
+            - text: Authorized.
+          - paragraph [ref=e56]: Genuine products, local support, and warranty services for Pakistan's automotive industry. Your official distributor for professional diagnostic equipment.
+          - generic [ref=e57]:
+            - button "Our Brands" [ref=e58] [cursor=pointer]
+            - button "Learn More" [ref=e59] [cursor=pointer]
+    - generic [ref=e290]:
+      - generic [ref=e291]: PREMIUM SELECTION
+      - heading "New Arrivals" [level=2] [ref=e292]
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e68]: 15+
+          - generic [ref=e69]: Years Experience
+        - generic [ref=e70]:
+          - generic [ref=e71]: 500+
+          - generic [ref=e72]: Service Centers
+        - generic [ref=e73]:
+          - generic [ref=e74]: "6"
+          - generic [ref=e75]: Global Brands
+        - generic [ref=e76]:
+          - generic [ref=e77]: 50+
+          - generic [ref=e78]: Product Range
+      - generic [ref=e79]:
+        - generic [ref=e81]: Global Partnerships
+        - generic [ref=e83]:
+          - generic [ref=e84]: LAUNCH
+          - generic [ref=e85]: SMARTSAFE
+          - generic [ref=e86]: UNITE
+          - generic [ref=e87]: AUTOOL
+          - generic [ref=e88]: GTI.TOOLS
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - generic [ref=e92]: Industry Excellence
+          - heading "Recognition & Awards." [level=2] [ref=e93]
+          - paragraph [ref=e94]: Setting the benchmark for automotive diagnostic equipment in Pakistan.
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - img [ref=e98]
+            - heading "Authorized Dealer" [level=4] [ref=e101]
+            - paragraph [ref=e102]: Official Pakistan distributor
+          - generic [ref=e103]:
+            - img [ref=e105]
+            - heading "Technical Support" [level=4] [ref=e108]
+            - paragraph [ref=e109]: Certified service center
+          - generic [ref=e110]:
+            - img [ref=e112]
+            - heading "B2B Excellence" [level=4] [ref=e115]
+            - paragraph [ref=e116]: Professional equipment supplier
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - img "Diagnostic Intelligence." [ref=e121]
+        - generic [ref=e122]:
+          - heading "Diagnostic Intelligence." [level=2] [ref=e123]
+          - paragraph [ref=e124]: Complete OBD-II ecosystem featuring LAUNCH and SMARTSAFE diagnostic tools. From basic code readers to advanced professional scanners with bi-directional control.
+          - button "Explore Systems" [ref=e125] [cursor=pointer]
+      - generic [ref=e126]:
+        - img "Maintenance Optimized." [ref=e128]
+        - generic [ref=e129]:
+          - heading "Maintenance Optimized." [level=2] [ref=e130]
+          - paragraph [ref=e131]: Beyond diagnostics. Equip your facility with high-performance ADAS calibration systems, injector cleaners, videoscopes, and precision service equipment.
+          - button "View Catalog" [ref=e132] [cursor=pointer]
+    - generic [ref=e134]:
+      - heading "Heavy Duty Workshop Solutions" [level=2] [ref=e135]
+      - generic [ref=e136]:
+        - generic [ref=e137] [cursor=pointer]:
+          - img "3D Alignment Systems" [ref=e139]
+          - generic [ref=e141]: Calibration
+          - heading "3D Alignment Systems" [level=3] [ref=e143]
+          - paragraph [ref=e144]: High-precision wheel alignment with advanced 3D camera technology. ±0.01° accuracy for professional results.
+        - generic [ref=e145] [cursor=pointer]:
+          - img "Wheel Balancers" [ref=e147]
+          - generic [ref=e149]: Precision
+          - heading "Wheel Balancers" [level=3] [ref=e151]
+          - paragraph [ref=e152]: Digital wheel balancers with auto-positioning and quick cycle times. LCD displays and heavy-duty motors for commercial use.
+        - generic [ref=e153] [cursor=pointer]:
+          - img "Tire Changers" [ref=e155]
+          - generic [ref=e157]: Efficiency
+          - heading "Tire Changers" [level=3] [ref=e159]
+          - paragraph [ref=e160]: Professional tire changing equipment for run-flat, low-profile, and high-performance tires.
+    - generic [ref=e163]:
+      - generic [ref=e164]:
+        - img "2-post lift" [ref=e165]
+        - generic [ref=e166]:
+          - generic [ref=e167]: Capacity
+          - text: UNITE 4 Ton 2-Post Series
+      - generic [ref=e168]:
+        - generic [ref=e169]: Product Focus
+        - heading "Hydraulic Precision. Absolute Safety." [level=2] [ref=e170]:
+          - text: Hydraulic Precision.
+          - text: Absolute Safety.
+        - generic [ref=e171]:
+          - generic [ref=e173] [cursor=pointer]:
+            - generic [ref=e174]: "01"
+            - generic [ref=e175]:
+              - heading "2-Post Lifts" [level=3] [ref=e176]
+              - paragraph [ref=e177]: Asymmetric arm design with dual hydraulic cylinders and mechanical safety locks.
+              - generic [ref=e178]:
+                - generic [ref=e179]: UNITE 4 Ton 2-Post Clearfloor
+                - generic [ref=e180]: UNITE 4 Ton 2-Post Baseplate
+            - img [ref=e182]
+          - generic [ref=e185] [cursor=pointer]:
+            - generic [ref=e186]: "02"
+            - generic [ref=e187]:
+              - heading "4-Post Lifts" [level=3] [ref=e188]
+              - paragraph [ref=e189]: Integrated alignment kits and high-capacity runways for commercial fleet servicing.
+            - img [ref=e191]
+          - generic [ref=e194] [cursor=pointer]:
+            - generic [ref=e195]: "03"
+            - generic [ref=e196]:
+              - heading "Scissor Lifts" [level=3] [ref=e197]
+              - paragraph [ref=e198]: Space-saving flush-mount and mid-rise designs for express service and tire shops.
+            - img [ref=e200]
+    - generic [ref=e203]:
+      - heading "Ready to elevate your diagnostic capabilities?" [level=2] [ref=e204]:
+        - text: Ready to elevate your
+        - text: diagnostic capabilities?
+      - paragraph [ref=e205]: Join Pakistan's leading service centers using Autodiagnostix professional equipment. Authorized dealer of LAUNCH, SMARTSAFE, UNITE, and industry-leading brands.
+      - generic [ref=e206]:
+        - button "Get in Touch" [ref=e207] [cursor=pointer]
+        - button "Download Catalog" [ref=e208] [cursor=pointer]
+  - contentinfo [ref=e209]:
+    - generic [ref=e210]:
+      - generic [ref=e211]:
+        - img "Autodiagnostix" [ref=e213]
+        - paragraph [ref=e214]: Your trusted partner for professional automotive diagnostic equipment in Pakistan. Authorized dealer of LAUNCH, SMARTSAFE, UNITE, and leading brands.
+        - generic [ref=e215]:
+          - link [ref=e216] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e218]
+          - link [ref=e224] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e226]
+          - link [ref=e229] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e231]
+      - generic [ref=e234]:
+        - generic [ref=e235]: Solutions
+        - list [ref=e236]:
+          - listitem [ref=e237]:
+            - link "Diagnostic Scanners" [ref=e238] [cursor=pointer]:
+              - /url: "#scanners"
+          - listitem [ref=e239]:
+            - link "ADAS Equipment" [ref=e240] [cursor=pointer]:
+              - /url: "#adas"
+          - listitem [ref=e241]:
+            - link "Wheel Equipment" [ref=e242] [cursor=pointer]:
+              - /url: "#wheel"
+          - listitem [ref=e243]:
+            - link "Vehicle Lifts" [ref=e244] [cursor=pointer]:
+              - /url: "#lifts"
+          - listitem [ref=e245]:
+            - link "Maintenance Tools" [ref=e246] [cursor=pointer]:
+              - /url: "#maintenance"
+      - generic [ref=e247]:
+        - generic [ref=e248]: Brands
+        - list [ref=e249]:
+          - listitem [ref=e250]:
+            - link "LAUNCH" [ref=e251] [cursor=pointer]:
+              - /url: "#launch"
+          - listitem [ref=e252]:
+            - link "SMARTSAFE" [ref=e253] [cursor=pointer]:
+              - /url: "#smartsafe"
+          - listitem [ref=e254]:
+            - link "UNITE" [ref=e255] [cursor=pointer]:
+              - /url: "#unite"
+          - listitem [ref=e256]:
+            - link "AUTOOL" [ref=e257] [cursor=pointer]:
+              - /url: "#autool"
+          - listitem [ref=e258]:
+            - link "GTI.TOOLS" [ref=e259] [cursor=pointer]:
+              - /url: "#gti"
+      - generic [ref=e260]:
+        - generic [ref=e261]: Company
+        - list [ref=e262]:
+          - listitem [ref=e263]:
+            - link "About Us" [ref=e264] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e265]:
+            - link "Contact" [ref=e266] [cursor=pointer]:
+              - /url: "#contact"
+          - listitem [ref=e267]:
+            - link "Become a Dealer" [ref=e268] [cursor=pointer]:
+              - /url: "#dealer"
+          - listitem [ref=e269]:
+            - link "Technical Support" [ref=e270] [cursor=pointer]:
+              - /url: "#support"
+          - listitem [ref=e271]:
+            - link "Warranty Info" [ref=e272] [cursor=pointer]:
+              - /url: "#warranty"
+      - generic [ref=e273]:
+        - generic [ref=e274]: Newsletter
+        - paragraph [ref=e275]: Get the latest product updates and technical information.
+        - generic [ref=e276]:
+          - textbox "Email address" [ref=e277]
+          - button "Join" [ref=e278] [cursor=pointer]
+    - generic [ref=e279]:
+      - generic [ref=e280]: © 2024 Autodiagnostix. Authorized dealer in Pakistan. All rights reserved.
+      - generic [ref=e281]:
+        - link "Instagram" [ref=e282] [cursor=pointer]:
+          - /url: "#"
+        - link "LinkedIn" [ref=e283] [cursor=pointer]:
+          - /url: "#"
+        - link "Youtube" [ref=e284] [cursor=pointer]:
+          - /url: "#"
+        - link "Admin" [ref=e285] [cursor=pointer]:
+          - /url: /admin

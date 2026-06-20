@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getProducts } from '../../lib/payload';
+import { getProducts, sortByAvailability } from '../../lib/strapi';
 
 export const prerender = false;
 
@@ -13,7 +13,7 @@ export const GET: APIRoute = async ({ url }) => {
   }
 
   try {
-    const products = await getProducts();
+    const products = sortByAvailability(await getProducts());
     const query = q.toLowerCase();
     const results = products
       .filter((p) =>

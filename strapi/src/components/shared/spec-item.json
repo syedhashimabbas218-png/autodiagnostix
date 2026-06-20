@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_spec_items",
+  "info": {
+    "displayName": "SpecItem",
+    "description": "A key-value spec pair or single spec value"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

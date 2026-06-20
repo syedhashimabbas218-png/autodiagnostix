@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": "Products"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "summary": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::brand.brand",
+      "inversedBy": "products"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products",
+      "required": true
+    },
+    "badge": {
+      "type": "enumeration",
+      "enum": ["NEW", "TRENDING", "DISCONTINUED"]
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "heroImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image-item"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-item"
+    },
+    "functions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-item"
+    },
+    "technicalTable": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.spec-item"
+    },
+    "specs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.spec-item"
+    }
+  }
+}

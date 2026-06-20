@@ -1,0 +1,3 @@
+Product #23: EVB648 EV Battery Pack Cell Equalizer
+URL: https://en.cnlaunch.com/products-detail/i-326.html
+Description: Based on the charge and discharge characteristics of lithium batteries, the EVB648 enables technicians to effectively address voltage inconsistencies among battery modules and cells. The EVB648 helps 

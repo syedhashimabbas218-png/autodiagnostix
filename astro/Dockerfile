@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
-ENV PAYLOAD_URL=http://cms:3000
+ENV STRAPI_URL=http://strapi:1337
 ENV SITE_URL=https://autodiagnostix.com
 RUN npm run build
 

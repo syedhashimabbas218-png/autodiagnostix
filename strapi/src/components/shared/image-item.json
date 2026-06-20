@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_image_items",
+  "info": {
+    "displayName": "ImageItem",
+    "description": "An image reference with alt text"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

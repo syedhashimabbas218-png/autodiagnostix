@@ -1,37 +1,115 @@
 ---
 import SearchToggle from './SearchToggle';
+import { getCategories } from '../lib/strapi';
 
 const {
   ctaLabel = "Request a Quote",
   ctaHref = "/contact",
+  transparentOnScroll = false,
 } = Astro.props;
+
+let navCategories: { id: string; name: string }[] = [];
+try {
+  const cats = await getCategories();
+  navCategories = cats.map(c => ({ id: c.id, name: c.name }));
+} catch {
+  navCategories = [];
+}
+
+const fallbackNav: { id: string; name: string }[] = [
+  { id: 'scanners', name: 'Scanners' },
+  { id: 'wheel-alignment', name: 'Wheel Alignment' },
+  { id: 'lifts-jacks', name: 'Lifts & Jacks' },
+  { id: 'maintenance', name: 'Maintenance' },
+  { id: 'ev-equipment', name: 'EV Equipment' },
+];
+const headerNav = navCategories.length > 0 ? navCategories : fallbackNav;
 ---
 
-<nav class="fixed top-0 w-full z-[100] h-20 flex items-center bg-white/70 backdrop-blur-2xl border-b border-white/20">
-  <div class="flex justify-between items-center w-full max-w-[1536px] mx-auto px-8">
-    <a href="/" class="font-headline font-extrabold text-2xl tracking-tighter text-on-surface">
-      Autodiagnostix
-    </a>
-    <div class="hidden lg:flex items-center gap-1">
-      {[
-        { label: 'Diagnostics', href: '/products' },
-        { label: 'Lifts', href: '/products' },
-        { label: 'Wheel Equipment', href: '/products' },
-        { label: 'Brands', href: '/brands' },
-      ].map(item => (
-        <a
-          href={item.href}
-          class="text-xs font-label font-bold uppercase tracking-[0.15em] text-on-surface-variant hover:text-primary transition-colors px-3 h-20 flex items-center"
-        >
-          {item.label}
-        </a>
-      ))}
-    </div>
-    <div class="flex items-center gap-4">
-      <SearchToggle client:load />
-      <a href={ctaHref} class="primary-gradient text-white px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] font-label hover:brightness-110 transition-all">
-        {ctaLabel}
+<nav id="site-header" class="fixed top-0 w-full z-50 h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20">
+  <div class="flex justify-between items-center w-full max-w-screen-2xl mx-auto px-8 h-16">
+    <div class="flex items-center h-full">
+      <a href="/">
+        <img id="header-logo" src="/logo-full.png" alt="Autodiagnostix" class="h-14 w-auto object-contain transition-all duration-300" />
       </a>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      {headerNav.map(cat => (
+        <a href={`/category/${cat.id}`} class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">{cat.name}</a>
+      ))}
+      <a href="/about" class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">About</a>
+    </div>
+    <div class="flex items-center gap-3 md:gap-6">
+      <SearchToggle client:load />
+      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-9 h-9 text-zinc-600 hover:text-primary transition-colors" aria-label="Toggle menu" type="button">
+        <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+        <svg id="menu-icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <a id="header-cta" href={ctaHref} class="primary-gradient text-white px-5 py-2 text-xs font-bold uppercase tracking-widest hover:scale-[0.98] transition-all cursor-pointer">{ctaLabel}</a>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-zinc-100 shadow-lg">
+    <div class="flex flex-col px-8 py-6 gap-1">
+      {headerNav.map(cat => (
+        <a href={`/category/${cat.id}`} class="py-3 text-zinc-700 font-medium text-sm hover:text-primary transition-colors border-b border-zinc-50">{cat.name}</a>
+      ))}
+      <a href="/about" class="py-3 text-zinc-700 font-medium text-sm hover:text-primary transition-colors">About</a>
     </div>
   </div>
 </nav>
+
+<script define:vars={{ transparentOnScroll }}>
+  const header = document.getElementById('site-header');
+  const logo = document.getElementById('header-logo');
+  const navLinks = header.querySelectorAll('.md\\:flex a');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menuOpen = document.getElementById('menu-icon-open');
+  const menuClose = document.getElementById('menu-icon-close');
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    menuOpen?.classList.toggle('hidden');
+    menuClose?.classList.toggle('hidden');
+  });
+
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuOpen?.classList.remove('hidden');
+      menuClose?.classList.add('hidden');
+    });
+  });
+
+  function updateHeader() {
+    const scrolled = window.scrollY > 10;
+    if (transparentOnScroll && !scrolled) {
+      header.className = 'fixed top-0 w-full z-50 h-16 flex items-center transition-all duration-300 bg-transparent border-b border-white/10';
+      logo.className = 'h-14 w-auto object-contain brightness-0 invert transition-all duration-300';
+      navLinks.forEach(a => {
+        a.className = 'text-white/80 font-medium hover:text-white transition-colors text-sm tracking-tight';
+      });
+    } else {
+      header.className = 'fixed top-0 w-full z-50 h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20';
+      logo.className = 'h-14 w-auto object-contain transition-all duration-300';
+      navLinks.forEach(a => {
+        a.className = 'text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight';
+      });
+    }
+  }
+
+  window.addEventListener('scroll', updateHeader);
+  updateHeader();
+</script>
+
+<style>
+  .primary-gradient { background: linear-gradient(135deg, #97000d 0%, #bb2221 100%); }
+</style>

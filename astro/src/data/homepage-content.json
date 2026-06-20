@@ -115,90 +115,7 @@
     "section_id": "category-nav",
     "background": "white",
     "border": "bottom",
-    "categories": [
-      {
-        "id": "scanners",
-        "name": "Scanners",
-        "icon": "qr_code_scanner",
-        "description": "OBD-II, TPMS & Diagnostic Tools",
-        "product_count": 6,
-        "featured_products": [
-          "LAUNCH CRP 919 MAX",
-          "LAUNCH PRO SE 2026",
-          "LAUNCH PRO 3 LINK",
-          "LAUNCH I-TPMS"
-        ],
-        "href": "#scanners",
-        "color": "primary"
-      },
-      {
-        "id": "lifts",
-        "name": "Lifts",
-        "icon": "vertical_align_top",
-        "description": "Hydraulic & Scissor Lifts",
-        "product_count": 8,
-        "featured_products": [
-          "UNITE 4 Ton 2-Post Clearfloor",
-          "LIBERTY LIFT Full Rise Scissor",
-          "UNITE 4-Post Lift"
-        ],
-        "href": "#lifts",
-        "color": "primary"
-      },
-      {
-        "id": "alignment",
-        "name": "Alignment",
-        "icon": "settings_input_component",
-        "description": "Wheel Alignment Systems",
-        "product_count": 4,
-        "featured_products": [
-          "LAUNCH/SMARTSAFE X861L",
-          "LAUNCH/SMARTSAFE X861 PRO"
-        ],
-        "href": "#alignment",
-        "color": "primary"
-      },
-      {
-        "id": "wheel",
-        "name": "Wheel Equipment",
-        "icon": "tire_repair",
-        "description": "Balancers & Tire Changers",
-        "product_count": 8,
-        "featured_products": [
-          "UNITE G68",
-          "UNITE G55",
-          "GTI.TOOLS G-Extreme 24\""
-        ],
-        "href": "#wheel",
-        "color": "primary"
-      },
-      {
-        "id": "maintenance",
-        "name": "Maintenance",
-        "icon": "build",
-        "description": "ADAS & Service Equipment",
-        "product_count": 11,
-        "featured_products": [
-          "LAUNCHSMARTSAFE ADAS PRO+V2",
-          "LAUNCHSMARTSAFE CNC 605 PRO+",
-          "LAUNCH VIDEOSCOPE VSP 800"
-        ],
-        "href": "#maintenance",
-        "color": "primary"
-      },
-      {
-        "id": "brake",
-        "name": "Brake Equipment",
-        "icon": "car_crash",
-        "description": "Brake Lathes & Testing",
-        "product_count": 1,
-        "featured_products": [
-          "UNITE BL-202 ON CAR BRAKE DISC LATHE"
-        ],
-        "href": "#brake",
-        "color": "primary"
-      }
-    ],
+    "categories": [],
     "layout": {
       "display": "flex",
       "justify": "between",
@@ -227,80 +144,7 @@
       "grid_columns": 3,
       "gap": "32px"
     },
-    "products": [
-      {
-        "id": "adas-pro-v2",
-        "name": "LAUNCHSMARTSAFE ADAS PRO+V2",
-        "category": "ADAS Calibration",
-        "brand": "LAUNCH/SMARTSAFE",
-        "short_description": "Passenger Vehicle ADAS Calibration System",
-        "price": "Contact for Quote",
-        "badge": {
-          "text": "New Release",
-          "style": "primary-bg-white-text",
-          "position": "top-left"
-        },
-        "image": {
-          "src": "https://newsmartsafe.com/static/upload/image/20230207/1675740259196466.png",
-          "alt": "ADAS PRO+V2 Calibration System",
-          "effect": "grayscale-hover-color"
-        },
-        "card_style": {
-          "bg": "surface-container-lowest",
-          "border": "zinc-100",
-          "hover_border": "primary/20",
-          "padding": "32px"
-        }
-      },
-      {
-        "id": "crp-919-max",
-        "name": "LAUNCH CRP 919 MAX",
-        "category": "Diagnostic Scanner",
-        "brand": "LAUNCH",
-        "short_description": "Professional OBD-II Diagnostic Tool",
-        "price": "Contact for Quote",
-        "badge": {
-          "text": "Best Seller",
-          "style": "secondary-bg",
-          "position": "top-left"
-        },
-        "image": {
-          "src": "https://en.cnlaunch.com/u_file/fileUpload/2024-10/16/2024101670552.png",
-          "alt": "LAUNCH CRP 919 MAX Scanner",
-          "effect": "grayscale-hover-color"
-        },
-        "card_style": {
-          "bg": "surface-container-lowest",
-          "border": "zinc-100",
-          "hover_border": "primary/20",
-          "padding": "32px"
-        }
-      },
-      {
-        "id": "cnc-605-pro",
-        "name": "LAUNCHSMARTSAFE CNC 605 PRO+",
-        "category": "Injector Cleaner",
-        "brand": "LAUNCH/SMARTSAFE",
-        "short_description": "GDI Injector Cleaner & Tester",
-        "price": "Contact for Quote",
-        "badge": {
-          "text": "Professional Grade",
-          "style": "neutral-bg",
-          "position": "top-left"
-        },
-        "image": {
-          "src": "https://launchx431.com.pk/wp-content/uploads/2024/07/CNC-605-pro-plus.jpeg",
-          "alt": "CNC 605 PRO+ Injector Cleaner",
-          "effect": "grayscale-hover-color"
-        },
-        "card_style": {
-          "bg": "surface-container-lowest",
-          "border": "zinc-100",
-          "hover_border": "primary/20",
-          "padding": "32px"
-        }
-      }
-    ]
+    "products": []
   },
   "stats_section": {
     "section_id": "stats",
@@ -324,13 +168,13 @@
         "style": "default"
       },
       {
-        "value": "6",
+        "value": "0",
         "label": "Global Brands",
         "description": "Authorized dealership partnerships",
         "style": "primary-accent"
       },
       {
-        "value": "50+",
+        "value": "0",
         "label": "Product Range",
         "description": "Professional equipment solutions",
         "style": "default"
@@ -338,28 +182,7 @@
     ],
     "partners": {
       "section_title": "Global Partnerships",
-      "brands": [
-        {
-          "name": "LAUNCH",
-          "tier": "platinum"
-        },
-        {
-          "name": "SMARTSAFE",
-          "tier": "platinum"
-        },
-        {
-          "name": "UNITE",
-          "tier": "gold"
-        },
-        {
-          "name": "AUTOOL",
-          "tier": "gold"
-        },
-        {
-          "name": "GTI.TOOLS",
-          "tier": "silver"
-        }
-      ],
+      "brands": [],
       "style": {
         "opacity": 0.4,
         "grayscale": true,
@@ -405,7 +228,7 @@
         "content_position": "left",
         "content_offset": "64px",
         "background": {
-          "image": "/images/diagnostics-dark.webp",
+          "image": "/images/diagnostics-intelligence.png",
           "overlay": "dark",
           "overlay_opacity": 0.4
         },
@@ -423,29 +246,16 @@
           "padding": "64px",
           "max_width": "576px"
         },
-        "highlights": [
-          {
-            "name": "LAUNCH CRP 919 MAX",
-            "feature": "Full System Diagnostics"
-          },
-          {
-            "name": "LAUNCH PRO 3 LINK",
-            "feature": "Bi-directional Control"
-          },
-          {
-            "name": "LAUNCH I-TPMS",
-            "feature": "Tire Pressure Management"
-          }
-        ]
+        "highlights": []
       },
       {
-        "id": "maintenance-optimized",
+        "id":       "maintenance-optimized",
         "height": "600px",
         "layout": "content-right",
         "content_position": "right",
         "content_offset": "64px",
         "background": {
-          "image": "/images/lift-2post.webp",
+          "image": "/images/adas-pro.png",
           "overlay": "light",
           "overlay_opacity": 0.3
         },
@@ -462,20 +272,7 @@
           "padding": "64px",
           "max_width": "576px"
         },
-        "highlights": [
-          {
-            "name": "ADAS PRO+V2",
-            "feature": "ADAS Calibration"
-          },
-          {
-            "name": "CNC 605 PRO+",
-            "feature": "Injector Cleaning"
-          },
-          {
-            "name": "VSP 800",
-            "feature": "Engine Inspection"
-          }
-        ]
+        "highlights": []
       }
     ]
   },
@@ -487,74 +284,7 @@
       "grid_columns": 3,
       "gap": "48px"
     },
-    "categories": [
-      {
-        "id": "alignment-machines",
-        "tagline": "Calibration",
-        "tagline_style": "primary-uppercase",
-        "name": "3D Alignment Systems",
-        "description": "High-precision wheel alignment with advanced 3D camera technology. ±0.01° accuracy for professional results.",
-        "image": "/images/alignment-3d.webp",
-        "products": [
-          "LAUNCH/SMARTSAFE X861L",
-          "LAUNCH/SMARTSAFE X613"
-        ],
-        "features": [
-          "3D camera technology",
-          "±0.01° precision",
-          "Quick measurement cycle"
-        ],
-        "card_style": {
-          "image_aspect": "video",
-          "image_overflow": true,
-          "hover_scale": 1.1
-        }
-      },
-      {
-        "id": "wheel-balancers",
-        "tagline": "Precision",
-        "tagline_style": "primary-uppercase",
-        "name": "Wheel Balancers",
-        "description": "Digital wheel balancers with auto-positioning and quick cycle times. LCD displays and heavy-duty motors for commercial use.",
-        "image": "/images/wheel-balancer.webp",
-        "products": [
-          "UNITE G68",
-          "UNITE G55"
-        ],
-        "features": [
-          "Digital LCD display",
-          "Auto-positioning",
-          "Heavy-duty motor"
-        ],
-        "card_style": {
-          "image_aspect": "video",
-          "image_overflow": true,
-          "hover_scale": 1.1
-        }
-      },
-      {
-        "id": "tire-changers",
-        "tagline": "Efficiency",
-        "tagline_style": "primary-uppercase",
-        "name": "Tire Changers",
-        "description": "Professional tire changing equipment for run-flat, low-profile, and high-performance tires.",
-        "image": "/images/tire-changer.webp",
-        "products": [
-          "GTI.TOOLS G-Extreme 24\"",
-          "GTI.TOOLS RFT(PRO) Low Profile"
-        ],
-        "features": [
-          "Lever-less mounting",
-          "Run-flat compatible",
-          "High-performance ready"
-        ],
-        "card_style": {
-          "image_aspect": "video",
-          "image_overflow": true,
-          "hover_scale": 1.1
-        }
-      }
-    ]
+    "categories": []
   },
   "interactive_lifts": {
     "section_id": "lifts",
@@ -571,7 +301,7 @@
     "image_section": {
       "height": "500px",
       "overflow": true,
-      "image": "/images/lift-2post.webp",
+          "image": "/images/2postlift.jpeg",
       "spec_card": {
         "position": "bottom-right",
         "bg": "white/90",
@@ -581,7 +311,7 @@
       },
       "spec_text": {
         "label": "Model Spec",
-        "value": "UNITE 4 Ton Series"
+        "value": "TPF-15C 6.8 TON BULLETPROOF"
       }
     },
     "content_section": {
@@ -595,13 +325,10 @@
           "number": "01",
           "name": "2-Post Lifts",
           "description": "Asymmetric arm design with dual hydraulic cylinders and mechanical safety locks.",
-          "products": [
-            "UNITE 4 Ton 2-Post Clearfloor",
-            "UNITE 4 Ton 2-Post Baseplate"
-          ],
+          "products": [],
           "specifications": {
-            "Capacity": "4 Tons",
-            "Design": "Asymmetric arms",
+            "Capacity": "6.8 Tons",
+            "Design": "TPF-15C Bulletproof",
             "Safety": "Mechanical locks"
           },
           "state": "active",
@@ -617,9 +344,7 @@
           "number": "02",
           "name": "4-Post Lifts",
           "description": "Integrated alignment kits and high-capacity runways for commercial fleet servicing.",
-          "products": [
-            "UNITE 4-Post Lift"
-          ],
+          "products": [],
           "specifications": {
             "Capacity": "4 Tons",
             "Features": "Alignment ready",
@@ -632,11 +357,7 @@
           "number": "03",
           "name": "Scissor Lifts",
           "description": "Space-saving flush-mount and mid-rise designs for express service and tire shops.",
-          "products": [
-            "UNITE Midrise Scissor",
-            "LIBERTY LIFT Full Rise",
-            "LIBERTY LIFT 6.8 Ton Heavy Duty"
-          ],
+          "products": [],
           "specifications": {
             "Capacity": "Up to 6.8 Tons",
             "Types": "Mid-rise & Full-rise",
@@ -786,7 +507,7 @@
     },
     "bottom_bar": {
       "layout": "flex-between",
-      "copyright": "© 2024 Autodiagnostix. Authorized dealer in Pakistan. All rights reserved.",
+      "copyright": "\u00a9 2024 Autodiagnostix. Authorized dealer in Pakistan. All rights reserved.",
       "social_links": [
         {
           "label": "Instagram",

@@ -1,24 +1,59 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Dependencies
+node_modules/
 
-node_modules
-dist
-dist-ssr
+# Build outputs
+dist/
+dist-ssr/
+.astro/
+.cache/
+build/
 *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Strapi
+strapi/.tmp/
+strapi/database/*.db
+strapi/public/uploads/
+!strapi/public/uploads/.gitkeep
+
+# Env files (NEVER commit real .env)
+.env
+.env.local
+.env.production
+.env.development
+.env.*.local
+
+# OS
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Local artifacts
+.playwright-mcp/
+.tmp/
+*.tmp
+*.bak
+
+# Local source PDFs (kept locally only)
+astro/*.pdf
+"astro/PRODUCTS AND DESCRIPTIONS*.docx"
+"astro/HP-2690A*.pdf"
+"astro/HJ 937*.pdf"
+"astro/PL-FS40*.pdf"
+"astro/U-VA2023*.pdf"
+"astro/U-Z30C*.pdf"
+"astro/PL-4.0-2D*.pdf"
+"astro/3ff.pdf"
+
+# Local backups
+astro/backups/
+astro/output/
+astro/.agents/

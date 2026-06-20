@@ -1,0 +1,926 @@
+{
+  "total_products": 30,
+  "scraped_count": 22,
+  "skipped_count": 1,
+  "playwright_needed": 6,
+  "failed_count": 1,
+  "skipped_products": [
+    {
+      "num": 20,
+      "name": "Tool Trolley",
+      "reason": "Generic domain, no specific product page"
+    }
+  ],
+  "products": [
+    {
+      "num": 1,
+      "brand": "Launch",
+      "name": "Leader Professional 919 MAX",
+      "url": "https://launchx431.com.pk/scanners/919-max/",
+      "title": "Creader Professional 919 MAX (CRP 919 MAX)",
+      "description": "SMART DIAGNOSIS IN THE SMALL BODYThe CRP 919 MAX is one of the best choices for entry-level technicians, featuring all system full functionality for comprehensive and professional diagnostic business and services. It is currently compatible with four add-on modules: VSP-600, X-431 TSGUN, BST 360 Bluetooth Battery Tester. and O2-2 Scopebox.",
+      "features": [
+        "Android 7.1 customized system, Qualcomm 8-core processor, 10.1 inch capacitive touch screen, support QC3.0 fast charging.",
+        "4GHz&5GHz Dual-Frequency Wi-Fi, the transmission rate is faster than the previous generation.",
+        "Support commercial vehicle and passenger car diagnose, Support J2534, CAN FD, DoIP.",
+        "Wide mode coverage, powerful and a large number，of diagnostic functions, and accurate test data.",
+        "Brand new industrial design, with soft rubber sheath on the four corners of the product, to effectively prevent collision; damping shaft, free adjustment of nearly 180 degrees; support three modes of hanging, support and normal."
+      ],
+      "functions": [
+        "Comprehensive diagnosis:Support full-make, full-system, full-function rapid diagnosis, read DTC, clear DTC, read data stream, actuation test, etc.",
+        "Intelligent diagnose:Support intelligent VIN identification and cloud-based diagnostic record query, making the diagnostics more intelligent and efficient.",
+        "Local diagnose:When the intelligent diagnosis is not available in an environment without network, choose traditional diagnosis. Select the vehicle make and model manually to perform the vehicle detection.",
+        "Remote diagnose:Support online real-time communication and remote diagnostic service through text, picture, and file between device and device, and between device and remote desktop, with low network bandwidth and system resources occupancy.",
+        "Special function:Support total 16 special functions, including service lamp reset, throttle adaptation, steering angle reset, brake pad reset, tire pressure reset, anti-theft matching, ABS bleeding, battery matching, gear learning, injector coding, DPF regeneration, sunroof initialization, headlamp matching, suspension matching and AT matching, EGR Adaption.",
+        "Software upgrade:Support one-click upgrade of operation system, client side, car model software and firmware.",
+        "Diagnostic feedback:For model software and function errors met during the use, please submit the feedback immediately. LAUNCH will response as soon as possible.",
+        "My report:View comprehensive diagnostic report, remote diagnostic report, and data stream playback.",
+        "Settings:Contains my connector, diagnostic connector connection management, connector activation, firmware repair, etc.",
+        "Extended module:Support oscillograph, sensor, battery test, endoscope, Wi-Fi printer, etc."
+      ],
+      "specifications": [
+        "Processor: 8 core Cortex-A53 2.0GHz",
+        "Cache: 4GB",
+        "Hard Disk: 64GB, 128G extended",
+        "System: Android 7.1",
+        "Screen: 10.1 inch full-fitting, sunlight readable screen (Gorilla Glass)",
+        "Resolution: 1920*1200",
+        "Wi-Fi: Support 2.4GHz&5GHz dual frequency",
+        "Camera: Rear13 Megapixels, front 8 Megapixels",
+        "Diagnostic Mode: Wi-Fi",
+        "Work Temperature: -10 ~ 50℃",
+        "Dimension: 320×211×46mm",
+        "Main parameters: Main structure",
+        "System: Linux",
+        "Memory: 256M",
+        "Storage: 8GB",
+        "Power supply: DC 9 ～36V",
+        "External interface: USB",
+        "Bluetooth: BLE 4.0 + EDR",
+        "WIFI: Support 2.4G/5GHZ dual-band",
+        "Indicator lamp: 5 multifunction indicator lamps",
+        "Vehicle connection: J1962  16PIN",
+        "Product parameter: CPU",
+        "Operating System: Android™ 7.1",
+        "Memory: 4GB",
+        "Storage: 64GB",
+        "Display: 10.1′",
+        "Resolution: 1920*1200",
+        "Front camera: 8MB Front",
+        "Rear camera: 13MP Rear",
+        "Battery: 35568mWh",
+        "Operating temperature: 0~50℃",
+        "Storage temperature: -20~70℃",
+        "VCI Connection: Wi-Fi/BT/USB",
+        "VCI Connector: SmartBox3.0",
+        "Product Features: Full System Diagnosis",
+        "Auto VIN Identification: ●",
+        "Reset Functions: 27",
+        "Actuation Test: ●",
+        "VW & AUDI Guided Function: ●",
+        "Coding: ●",
+        "Programming: ●",
+        "Maintenance information: ●",
+        "Remote diagnosis: ●",
+        "FCA: ●",
+        "J2534: ●",
+        "D-PDU: –",
+        "DoIP: ●",
+        "CAN FD: ●",
+        "Topology: ●",
+        "ADAS Calibration: ●",
+        "Osciloscope: ●",
+        "Videoscope: ●",
+        "BST360 Battery Tester: ●",
+        "X-431 TSGUN TPMS device: ●",
+        "X-431 S2-2 Sensorbox: ●",
+        "X-PROG 3  Immobilizer: ●",
+        "Mall: ●",
+        "Product advantages: 1. Support J2534/RP1210 diagnostic standard, CAN/CAN FD/DOIP protocol.2. Dual Wi-Fi, support 5G Wi-Fi diagnostic communication."
+      ],
+      "images": [
+        "data/images/01/01_Creader-Professional-919-MAX-CRP-919-MAX-Img.webp",
+        "data/images/01/02_Creader-Professional-919-MAX-CRP-919-MAX-Img2.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 2,
+      "brand": "Launch",
+      "name": "X-431 PRO SE 2026",
+      "url": "https://launchx431.com.pk/scanners/launch-x-431-pro-se-2025-edition/",
+      "title": "",
+      "description": "",
+      "features": [],
+      "functions": [],
+      "specifications": [],
+      "images": [],
+      "status": "fetch_failed"
+    },
+    {
+      "num": 3,
+      "brand": "Launch",
+      "name": "X-431 PRO3 LINK V2.0",
+      "url": "https://launchx431.com.pk/scanners/x-431-pro3-link/",
+      "title": "Launch X-431 PRO3 LINK (DUAL DIAGNOSTIC MODE SCANNER)",
+      "description": "DUAL DIAGNOSTIC MODE SCANNERWith the innovative revolution of intelligent diagnosis, the X-431 PRO3 LINK takes dual diagnostic modes (local diagnosis and Smartlink remote diagnosis). It not only inherits the powerful diagnostic strength of the PRO series, but also supports Smartlink remote diagnosis which expands diagnostic functions with high-end X-431 scanners, third-party scanners, and OE software.",
+      "features": [
+        "Upgraded Android 10.0 operation system, 4GB memory and 64GB storage ensure faster and smooth diagnosis.",
+        "Brand new designed VCI supports even more communication protocols, e.g. CAN, CAN FD, DoIP*, etc. (*Need an extra DoIP cable)",
+        "Wireless communication offers flexible and easy connections for diagnostics, while a cabled connection offers a fast and stable connection for advanced work like coding.",
+        "Full system OE-Level diagnostics on 1996 and newer U.S., European and Asian vehicles",
+        "Full diagnostic functionality includes comprehensive OBD II diagnostics, read/clear DTCs, bi-directional control, remote diagnosis, live data streaming, coding, etc.",
+        "Optional ADAS calibration capability for calibrating LDW, RCW, AVM, NV, BSD and ACC system with the X-431 ADAS calibration tools.",
+        "Expand diagnostic coverage via “Mall”.",
+        "One-stop Info Center includes vehicle repair information and latest updates.",
+        "Review the previous diagnostic report via the Diagnostic History.",
+        "Enables you to diagnose light, medium & heavy duty (optional) vehicles with Smartlink C.",
+        "Full system vehicle coverage for U.S., Asian and European markets over 110 manufacturers, which is continually updated.",
+        "Real-time voltage display is supported, which helps you monitor the voltage condition of the vehicle during the diagnosis.",
+        "Intelligent diagnostic enables automatic VIN identity to automatically access systems quickly.",
+        "Intelligent and local diagnostic, which include full diagnostic functions, such as read/clear DTC, live data streaming, bi-directional control, coding, etc.",
+        "Guided functions for VW and AUDI. (Support a total of over 30,000 functions for VW and AUDI)",
+        "Optional ADAS calibration function increases more revenue.",
+        "Advanced coding and programming functions.",
+        "An extended solution to support TPMS service.",
+        "The software is available to purchase separately on the MALL at any time.",
+        "Built-in repair information and training videos help to track and fix issues fast."
+      ],
+      "functions": [],
+      "specifications": [
+        "Operation System: Android 10.0",
+        "Display: 8″, 1280*800",
+        "CPU: 2.0GHz, Quad-Core",
+        "RAM: 4GB",
+        "Storage: 64GB",
+        "Battery: 47.88Wh (7.6V, 6300mAh)",
+        "Camera: Rear 8MP",
+        "WiFi: Bluetooth/USB",
+        "Dimension: 234*166*39.5 mm",
+        "Interface: TYPE A*1 & TYPE C*1",
+        "Display: 3.95”  320*480",
+        "Memory: 256M",
+        "Storage: 8GB",
+        "Remote Communication: Local Diagnosis: WiFi/BT/USBSmartLink Remote Diagnosis: WiFi/Ethernet",
+        "Working Voltage: 9V DC ~ 36V DC",
+        "Dimension: 200*110*47 mm"
+      ],
+      "images": [
+        "data/images/03/01_X-431-PAD9-LINK-img1.webp",
+        "data/images/03/02_X-431-PAD9-LINK-img3.webp",
+        "data/images/03/03_X-431-PAD9-LINK-img4.webp",
+        "data/images/03/04_Launch-X-431-PRO3-LINK-Img3.webp",
+        "data/images/03/05_Launch-X-431-PRO3-LINK-Img2.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 4,
+      "brand": "Launch",
+      "name": "X-431 PAD9 LINK",
+      "url": "https://launchx431.com.pk/scanners/x-431-pad-9-link/",
+      "title": "X-431 PAD9 LINK (Flagship high-end diagnostic tool)",
+      "description": "ELEVATING EXCELLENCE, REDEFINING TOMORROW.The X-431 PAD 9 LINK is a new flagship high-end diagnostic tool from LAUNCH, coming with a new smart VCI-SmartLink C V3.0, which takes more enhanced WIFI communication and more secure connection. The X-431 PAD9 LINK scan tool with multi-channel system scanning speeds up by about 10 times. The auto repair shops can use it to diagnose passenger cars, commercial vehicles, and new energy vehicles on the market.",
+      "features": [
+        "1. Full system vehicle coverage for US, Asian and European markets: 150+ passenger cars, 110+ commercial vehicles(optional), and 140+ new energy vehicles(optional), which is continuously getting updated.2. The diagnostic software is available for purchase separately on the ‘MALL’ as demanded at any time.3. Topology mapping gives a visual checking on DTCs and all systems communication status.4. X-431 FIX diagnostic database providing detailed interactive wiring diagrams and illustrations enables technicians to complete every repairing job.5. Support automotive communication protocols CAN/CANFD/DoIP and automotive communication standards J2534.6. Guided function for VW and AUDI.7. The basic functions include reading & clearing DTC, remote diagnosis, Bi-directional control, live data graph, wireless software update etc.8. Advanced coding and programming function.9. Multi-channel high-speed scan about 10 times faster.NEW10. Supports SGW (security gateway) access.11. Read multi-system data streams.NEW12. The LAUNCH AI software is now available on the X-431 PAD9 LINK.NEW13. Optional ADAS calibration function increases more revenue.14. An extended solution to support TPMS service.15. Build-in repair information and training video modules help track and fix issues fast.16. Sunlight-readable screen and IP65 waterproof & dustproof."
+      ],
+      "functions": [],
+      "specifications": [
+        "OS: Android 13.0",
+        "CPU: 2.0GHz Octa-core",
+        "Display: 13.6 inch touch screen 2560*1600",
+        "Memory: 12GB",
+        "Storage: 512GB",
+        "Camera: Rear 20MP, Front 8MP",
+        "Battery: 9360mAh @7.6V/71.1Wh",
+        "VCI Communication: 2.4 & 5GHz Dual WIFI",
+        "Interface: Type C, Type A, DC IN, Micro SD, Mini HDMI",
+        "Working Temperature: 0℃~50℃",
+        "Dimensions: 377*246*35 mm"
+      ],
+      "images": [
+        "data/images/04/01_X-431-PAD9-LINK-img.webp",
+        "data/images/04/02_X-431-PAD9-LINK-img3.webp",
+        "data/images/04/03_X-431-PAD9-LINK-img1.webp",
+        "data/images/04/04_X-431-PAD9-LINK-img2.webp",
+        "data/images/04/05_X-431-PAD9-LINK-img4.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 5,
+      "brand": "Launch",
+      "name": "i-TPMS Handheld TPMS Service Tool",
+      "url": "https://en.cnlaunch.com/products-detail/i-271.html",
+      "title": "i-TPMS",
+      "description": "The i-TPMS provides professional and comprehensive TPMS services for repair shops to develop their TPMS business. It can program LAUNCH LTR RF sensors for unlimited times to replace OE sensors. The sensor data can be read instantly and accurately, including sensor ID, tire pressure, tire temperature, battery status, etc.",
+      "features": [
+        "The i-TPMS serves over 99% of mainstream vehicles with a TPMS-equipped system available on the market.",
+        "Experience TPMS service by binding it with an X-431 scanner or using it standalone with the i-TPMS APP.",
+        "Supports all 315/433MHz sensors.",
+        "Binding it with an X-431 scanner: Activation, Programming, Relearn and Diagnosing for sensors.The standalone mode working with the i-TPMS app: Activation and Programming for sensors.",
+        "Supports unlimited programming for LAUNCH sensors to replace OE sensors.Scan above code to install the \"i-TPMS\" APP"
+      ],
+      "functions": [],
+      "specifications": [
+        "Display: 1.77’’, 168*128",
+        "Battery: 2000mAh",
+        "OBDII Input Voltage: 9V ~ 18V",
+        "DC Input Voltage: DC 5V",
+        "Working Current: ≤1A",
+        "Working Temperature: -10℃~50℃",
+        "Storage Temperature: -20℃~60℃",
+        "Dimension: 252*54*30 (mm)"
+      ],
+      "images": [
+        "data/images/05/17_202411206719.png",
+        "data/images/05/18_2024112047895.png",
+        "data/images/05/19_2022032395242.png"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 6,
+      "brand": "Launch",
+      "name": "BST360 Battery Tester",
+      "url": "https://en.cnlaunch.com/products-detail/i-77.html",
+      "title": "BST360 Bluetooth Battery Tester",
+      "description": "BST360, suitable for technicians and on the go consumers, is safe to use with its anti-heat characteristics and prevention against backfire electrical sparks that can occur during electrical system diagnosis.",
+      "features": [
+        "1. Real-time monitor the battery health status included.",
+        "2. Generate the health report within 3 seconds and intuitively display all data on the color screen.",
+        "3. Starting and charing system analysis to determine related faults/issues.",
+        "4. Portable and lightweight with compact and practical usability.",
+        "5. Safety always comes first. No heating, no discharge, no spark and no operating risks.",
+        "6. Works with the LAUNCH X-431 scan tools.",
+        "6 kinds of tests",
+        "Ripple DetectionBattery TestElectric Current Test",
+        "Starter TestCharging System TestVoltage Test",
+        "Applicable battery types12V",
+        "·Lead-acid battery",
+        "Supported battery standards",
+        "CCABCICAMCAJISDINIECENSAEGB"
+      ],
+      "functions": [],
+      "specifications": [],
+      "images": [
+        "data/images/06/17_2024070487737.png",
+        "data/images/06/18_2024070439694.png",
+        "data/images/06/19_2024070497378.jpg"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 7,
+      "brand": "Launch",
+      "name": "BST-560/860 Battery Tester",
+      "url": "https://launchx431.com.pk/maintenance/bst-560-bst-860-battery-tester/",
+      "title": "BST-560/BST-860 Battery Tester",
+      "description": "Built-in thermal printer (BST-860)The USB port can export service recordsA variety of applicable vehicle types, battery types and calibration systemsLarge screen with backlight and user-friendly interface (BST-860)The potential problem of vehicles can be detected in advanceThe battery and circuit system can be detected simultaneouslyThe battery test results are quick and accurate (within 3 Sec.)No heating, no discharge, no spark, no operating risksSupport Automatic temperature compensation functionAvailable to the batch inspection of battery by testing continuously and repeatedlySupport multiple languages menuResults of the battery test: ‘Good’ or ‘To replace’Applicable VehicleCar, motorcycles, lawn mowers and other gardening machines, Group 31, commercial vehicles 4D/8DApplicable Battery Types6V, 12 V and 24V batteries (Lead-acid battery, gel battery and AGM battery)Optional accessoriesStorage caseThermal paper (sold in most office supply stores)LanguageEuropean Configuration A: English, German, Italian, French, Polish, RussianEuropean Configuration B: Netherlands, Sweden, Finland, Turkey, Denmark, NorwayAmerican Configuration: English, Spanish, Portuguese, FrenchAsia Configuration A: English, Traditional Chinese, Simplified ChineseAsia Configuration B: English, Japanese, Korean",
+      "features": [
+        "Built-in thermal printer (BST-860)",
+        "The USB port can export service records",
+        "A variety of applicable vehicle types, battery types and calibration systems",
+        "Large screen with backlight and user-friendly interface (BST-860)",
+        "The potential problem of vehicles can be detected in advance",
+        "The battery and circuit system can be detected simultaneously",
+        "The battery test results are quick and accurate (within 3 Sec.)",
+        "No heating, no discharge, no spark, no operating risks",
+        "Support Automatic temperature compensation function",
+        "Available to the batch inspection of battery by testing continuously and repeatedly",
+        "Support multiple languages menu",
+        "Results of the battery test: ‘Good’ or ‘To replace’",
+        "Car, motorcycles, lawn mowers and other gardening machines, Group 31, commercial vehicles 4D/8D",
+        "6V, 12 V and 24V batteries (Lead-acid battery, gel battery and AGM battery)",
+        "Storage case",
+        "Thermal paper (sold in most office supply stores)",
+        "European Configuration A: English, German, Italian, French, Polish, Russian",
+        "European Configuration B: Netherlands, Sweden, Finland, Turkey, Denmark, Norway",
+        "American Configuration: English, Spanish, Portuguese, French",
+        "Asia Configuration A: English, Traditional Chinese, Simplified Chinese",
+        "Asia Configuration B: English, Japanese, Korean"
+      ],
+      "functions": [],
+      "specifications": [
+        "CCA: 100~2000",
+        "DIN: 100~1400",
+        "EN: 100~2000",
+        "IEC: 100~1400",
+        "SAE: 100~2000",
+        "JIS: 26A17~245H52",
+        "CA: 100~2000",
+        "MCA: 100~2000",
+        "BCI: 100~2000",
+        "GB: 30Ah~200Ah",
+        "Display: 4-line graphic LCD display with backlight",
+        "Working Temperature: -18~50℃",
+        "Dimension: 188x95x41mm",
+        "Case Material: ABS acid-proof plastic, industrial case design, suitable for repair workshops",
+        "Test Cable: 80 mm standard cable",
+        "Weight: 450g"
+      ],
+      "images": [
+        "data/images/07/01_BST-560-BST-860-Battery-Tester-Img4.webp",
+        "data/images/07/02_BST-560-BST-860-Battery-Tester-Img3.webp",
+        "data/images/07/03_BST-560-BST-860-Battery-Tester-Img2.webp",
+        "data/images/07/04_BST-560-BST-860-Battery-Tester-Img.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 8,
+      "brand": "Launch",
+      "name": "VSP-600 Video Scope",
+      "url": "https://launchx431.com.pk/maintenance/vsp-600-video-scope/",
+      "title": "VSP-600 Video Scope",
+      "description": "View, record and save images and videosTake images easily with one-click snap shot buttonEasy to adjust the strength of light (6 levels)View & save images/videos on Launch X-431 scannerViewable angle: 60℃-65℃Cable length: 2M",
+      "features": [
+        "View, record and save images and videos",
+        "Take images easily with one-click snap shot button",
+        "Easy to adjust the strength of light (6 levels)",
+        "View & save images/videos on Launch X-431 scanner",
+        "Viewable angle: 60℃-65℃",
+        "Cable length: 2M"
+      ],
+      "functions": [],
+      "specifications": [
+        "Items: VSP-600",
+        "Len O.D. (mm): 5.5mm",
+        "Tube O.D. (mm): 4.8mm",
+        "Tube Length: 800mm",
+        "Sensor Size: 1/9”",
+        "Resolution: 1280×720",
+        "Operating Temperature: 0℃~65℃",
+        "Power Supply: 5V",
+        "USB Port: USB2.0/Type C/Micro USB"
+      ],
+      "images": [
+        "data/images/08/01_VSP-600-Video-Scope-Img.webp",
+        "data/images/08/02_VSP-600-Video-Scope-Img2.webp",
+        "data/images/08/03_VSP-600-Video-Scope-Img3.webp",
+        "data/images/08/04_VSP-600-Video-Scope-Img4.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 9,
+      "brand": "Launch",
+      "name": "VSP-800 Video Scope",
+      "url": "https://launchx431.com.pk/maintenance/vsp-800-video-scope/",
+      "title": "VSP-800 Video Scope",
+      "description": "7”TFT display for convenient for real-time viewingView, record and save images and videosStandard lens tube: φ5.5mm, length: 1MCamera focal distance: 30-80mmOperating Temperature: -20-60℃(-4-140℉)",
+      "features": [
+        "7”TFT display for convenient for real-time viewing",
+        "View, record and save images and videos",
+        "Standard lens tube: φ5.5mm, length: 1M",
+        "Camera focal distance: 30-80mm",
+        "Operating Temperature: -20-60℃(-4-140℉)"
+      ],
+      "functions": [],
+      "specifications": [
+        "Items: VSP-800",
+        "Len O.D. (mm): 5.5mm",
+        "Display screen: 2.7”TFT",
+        "Tube Length: 1000mm",
+        "Resolution: 1280×720",
+        "Operating Temperature: -20℃ to 60℃ （-4° to 140℉）",
+        "Power Supply: 4×1.5V (AA) Battery",
+        "ROM: 8M"
+      ],
+      "images": [
+        "data/images/09/01_VSP-800-Video-Scope-Img.webp",
+        "data/images/09/02_VSP-800-Video-Scope-Img2.webp",
+        "data/images/09/03_VSP-800-Video-Scope-Img3.webp",
+        "data/images/09/04_VSP-800-Video-Scope-Img4.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 10,
+      "brand": "Launch",
+      "name": "Key Programmer 9008",
+      "url": "https://en.cnlaunch.com/products-detail/i-252.html",
+      "title": "X-431 Key Programmer",
+      "description": "Launch newly released a universal smart key that can be programmed to replace smart keys for different makes & models. Easy to read and write KEY information with Launch X-431 Key Programmer.",
+      "features": [
+        "Universal Smart Keys",
+        "1. Supports simulation of multiple immobilizer transponders including 8A/4D/4A/46/47/48/49/MQB48/MQB49",
+        "2. Reprogrammable proxy-key",
+        "3. Supports over 1000+ vehicle models",
+        "4. Supports smart key replacement",
+        "5. Supports wireless programming",
+        "Universal Normal Remote",
+        "1. Programming cable required",
+        "2. Supports over 2000 vehicle models",
+        "3. Reprogrammable normal remote",
+        "4. No built-in transponder",
+        "Universal Transponder Key",
+        "1. Built-in cloneable transponder",
+        "2. Support simulation of multiple immobilizer transponders including11/12/13/7936/7937/7946/7947, etc",
+        "3. Original NXP immobilizer transponder",
+        "4. Supports wireless programming"
+      ],
+      "functions": [],
+      "specifications": [
+        "307110096:",
+        "307110149: Includes X-431 Key Programmer + 1 Super Chip + 4 Sets of Smart Keys and"
+      ],
+      "images": [
+        "data/images/10/17_202308319637.png",
+        "data/images/10/18_2023092724206.jpg",
+        "data/images/10/19_2023092779483.jpg"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 11,
+      "brand": "Autool",
+      "name": "SP1360 Spark Plug Tester",
+      "url": "https://shop.autooltech.com/product/autool-spt360-car-spark-plug-tester-ignition-testers-automotive-diagnostic-tool-five-hole-spark-plug-flashover-analyzer-110-220v/",
+      "title": "AUTOOL SPT360 Spark Plug Tester Automotive Diagnostic",
+      "description": "The AUTOOL SPT360 is a digital spark plug high-frequency tester with a maximum speed of 9000 rpm. It is compatible with all crankshaft engines and motorbikes and can test up to five spark plugs simultaneously.How To Use AUTOOL SPT360 Spark Plug Tester?Step 1: Insert the new spark plug into the hole ①, and insert the old spark plug into the hole ②③④⑤;Step 2: Insert the power adapter into the 10 power port on the back of the host, and the indicator light will light up;Step 3: Turn on the power switch and press the up and down buttons to adjust the working frequency. The higher the frequency, the higher the intensity of the spark plug.AUTOOL SPT360 ManualDownloadWhat is the difference betwenn all AUTOOL Car Spark Plug Tester?AUTOOL Automotive Spark Plug Tester Quick SearchAUTOOL SPT101 Spark Plug Tester Spark Plug Checker$39.90AUTOOL SPT105 Spark Plug Tester Tool Adjustable Spark Tester$32.90AUTOOL SPT301 Car Spark Tester Automotive Diagnostic$59.00NEWAUTOOL SPT360 Spark Plug Tester Automotive Diagnostic$59.00AUTOOL SPT360 Spark Plug Tester Function5 test holes:5 spark plugs can be tested at the same time (1 standard spark plug, 4 test plugs).Adjustable test hole height:for long spark plug ends. Compatible with crankshaft engines and motorbikes.Digital Colour Display:High definition display with real time RPM adjustment to ensure accurate test results.Support 0-9999 rpm:the higher the frequency the stronger the spark plug.Easy to operate:insert the spark plug, switch on the powe",
+      "features": [],
+      "functions": [],
+      "specifications": [
+        "SOrigin: CN(Origin)Electrode Material:Normal"
+      ],
+      "images": [
+        "data/images/11/01_SPT360.jpg",
+        "data/images/11/02_SPT360-spark-plug-tester-800x800.jpg",
+        "data/images/11/03_d1af5d1d-5147-4c8e-8e49-a7a84fdc1fbf-800x800.png",
+        "data/images/11/04_d16750f8-0176-875e-7a13-6ac9b26b2151-800x800.jpg",
+        "data/images/11/05_ca94cb2d-e39b-39a2-236a-f90ee48b3ffc-800x800.jpg",
+        "data/images/11/06_29ab2c88-69db-587e-39c8-21696c70ab4b-800x800.jpg",
+        "data/images/11/07_21a4c2de-f05c-70d4-7612-313c44fd1484-800x800.jpg",
+        "data/images/11/08_7cee983b-a086-5130-9bcf-97b3742c48f5-800x800.jpg",
+        "data/images/11/09_a6102c04-4ace-07e6-9a08-439e3aada3c1-800x800.jpg",
+        "data/images/11/10_89e0705c-4297-c8a3-d5fd-afc50e502b67-800x800.jpg"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 12,
+      "brand": "Launch / SmartSafe",
+      "name": "CNC 605A Injector Cleaner & Tester",
+      "url": "https://launchx431.com.pk/maintenance/launch-x-431-cnc-605a/",
+      "title": "Launch X-431 CNC 605A",
+      "description": "Supports cleaning and testing of GDI, EFI, and SFI fuel injectorsPowerful ultrasonic cleaning to completely remove the carbon deposit on the fuel injection nozzle.Uniformity and spray ability test.Utilizes microcomputer automatic control technology for automatic control of the cleaning and testing process, and real-time monitoring of the key performance of the fuel injectorsInjection volume test ensures the nozzle continually spray for a certain time and test the injection volume of the nozzle.Realize EFI & SFI cleaning without disassembling the nozzle.Automatic mode can automatically test the fuel injection nozzle through the preset program.Sealing test has tested the sealing and leakage of the fuel injection nozzle under a certain pressure.",
+      "features": [
+        "Supports cleaning and testing of GDI, EFI, and SFI fuel injectors",
+        "Powerful ultrasonic cleaning to completely remove the carbon deposit on the fuel injection nozzle.",
+        "Uniformity and spray ability test.",
+        "Utilizes microcomputer automatic control technology for automatic control of the cleaning and testing process, and real-time monitoring of the key performance of the fuel injectors",
+        "Injection volume test ensures the nozzle continually spray for a certain time and test the injection volume of the nozzle.",
+        "Realize EFI & SFI cleaning without disassembling the nozzle.",
+        "Automatic mode can automatically test the fuel injection nozzle through the preset program.",
+        "Sealing test has tested the sealing and leakage of the fuel injection nozzle under a certain pressure."
+      ],
+      "functions": [
+        "FunctionsDescription√Working Mode SelectionCan select GDI or EFI working mode based on the injector type√Ultrasonic CleaningCapable of simultaneously ultrasonic cleaning multiple injectors, effectively removing carbon buildup√Uniformity/Spray TestingDetects the uniformity of fuel injection quantity for each injector and allows comprehensiveobservation of the injector spray pattern using background lighting√Sealing TestTests the sealing and leakage of injectors under system pressure√Fuel Injection Quantity DetectionMeasures the fuel injection quantity of injectors under a constant 15-second injection condition√Automatic Cleaning and TestingUnder specific working parameters, realistically simulates injector testing under various conditions√Reverse FlushFor the uniformity/spray testing item, performs a reverse flush using a reverse flush adapter to removeinternal injector contaminants and residues attached to the filter screen√Non-Dismantle CleaningEquipped with various non-dismantle cleaning adapters, allowing non-dismantle cleaningand maintenance for multiple vehicle models√"
+      ],
+      "specifications": [
+        "Power Supply: AC110V-127V, 50Hz/60Hz, 3Amax; AC220V-230V, 50Hz/60Hz, 1.5Amax",
+        "Input Power: 300W",
+        "Cleaning Power: 100W",
+        "Range of Rotation: 10~9990rpm (step length: 10rpm)",
+        "Time limit: 1~9999s",
+        "Pulse Width Range: 0.5~25ms (step length: 0.1ms)",
+        "Environment Temperature: 0℃~45℃",
+        "Relative Humidity: 85%",
+        "Strength of External Magnetic Field: 400A/m",
+        "Operating Volume: 3000ml",
+        "Main Unit Dimensions: 396*380*446mm",
+        "Packing Dimensions: 458*433*537mm",
+        "Net Weight: 16.5kg"
+      ],
+      "images": [
+        "data/images/12/01_Launch-X-431-CNC-605A-Img.webp",
+        "data/images/12/02_Launch-X-431-CNC-605A-Img2.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 13,
+      "brand": "Launch / SmartSafe",
+      "name": "CNC 605 PRO PLUS",
+      "url": "https://launchx431.com.pk/maintenance/launch-x-431-cnc-605a/",
+      "title": "Launch X-431 CNC 605A",
+      "description": "Supports cleaning and testing of GDI, EFI, and SFI fuel injectorsPowerful ultrasonic cleaning to completely remove the carbon deposit on the fuel injection nozzle.Uniformity and spray ability test.Utilizes microcomputer automatic control technology for automatic control of the cleaning and testing process, and real-time monitoring of the key performance of the fuel injectorsInjection volume test ensures the nozzle continually spray for a certain time and test the injection volume of the nozzle.Realize EFI & SFI cleaning without disassembling the nozzle.Automatic mode can automatically test the fuel injection nozzle through the preset program.Sealing test has tested the sealing and leakage of the fuel injection nozzle under a certain pressure.",
+      "features": [
+        "Supports cleaning and testing of GDI, EFI, and SFI fuel injectors",
+        "Powerful ultrasonic cleaning to completely remove the carbon deposit on the fuel injection nozzle.",
+        "Uniformity and spray ability test.",
+        "Utilizes microcomputer automatic control technology for automatic control of the cleaning and testing process, and real-time monitoring of the key performance of the fuel injectors",
+        "Injection volume test ensures the nozzle continually spray for a certain time and test the injection volume of the nozzle.",
+        "Realize EFI & SFI cleaning without disassembling the nozzle.",
+        "Automatic mode can automatically test the fuel injection nozzle through the preset program.",
+        "Sealing test has tested the sealing and leakage of the fuel injection nozzle under a certain pressure."
+      ],
+      "functions": [
+        "FunctionsDescription√Working Mode SelectionCan select GDI or EFI working mode based on the injector type√Ultrasonic CleaningCapable of simultaneously ultrasonic cleaning multiple injectors, effectively removing carbon buildup√Uniformity/Spray TestingDetects the uniformity of fuel injection quantity for each injector and allows comprehensiveobservation of the injector spray pattern using background lighting√Sealing TestTests the sealing and leakage of injectors under system pressure√Fuel Injection Quantity DetectionMeasures the fuel injection quantity of injectors under a constant 15-second injection condition√Automatic Cleaning and TestingUnder specific working parameters, realistically simulates injector testing under various conditions√Reverse FlushFor the uniformity/spray testing item, performs a reverse flush using a reverse flush adapter to removeinternal injector contaminants and residues attached to the filter screen√Non-Dismantle CleaningEquipped with various non-dismantle cleaning adapters, allowing non-dismantle cleaningand maintenance for multiple vehicle models√"
+      ],
+      "specifications": [
+        "Power Supply: AC110V-127V, 50Hz/60Hz, 3Amax; AC220V-230V, 50Hz/60Hz, 1.5Amax",
+        "Input Power: 300W",
+        "Cleaning Power: 100W",
+        "Range of Rotation: 10~9990rpm (step length: 10rpm)",
+        "Time limit: 1~9999s",
+        "Pulse Width Range: 0.5~25ms (step length: 0.1ms)",
+        "Environment Temperature: 0℃~45℃",
+        "Relative Humidity: 85%",
+        "Strength of External Magnetic Field: 400A/m",
+        "Operating Volume: 3000ml",
+        "Main Unit Dimensions: 396*380*446mm",
+        "Packing Dimensions: 458*433*537mm",
+        "Net Weight: 16.5kg"
+      ],
+      "images": [
+        "data/images/13/01_Launch-X-431-CNC-605A-Img.webp",
+        "data/images/13/02_Launch-X-431-CNC-605A-Img2.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 14,
+      "brand": "Launch / SmartSafe",
+      "name": "AC519 A/C Service Station",
+      "url": "https://launchx431.com.pk/maintenance/value-ac519-a-c-service-station/",
+      "title": "AC519 A/C Service Station",
+      "description": "AC519 A/C Service Station is a fully automatic intelligent automobile air conditioning maintenance equipment that integrates functions such as disassembly-free cleaning, refrigerant recovery, filling, and vacuuming. AC519 A/C Service Station can effectively improve the problems of poor air conditioning cooling effect, large compressor load, high noise, and high fuel consumption.FunctionsDescription√Air-conditioning pipeline cleaningClean the air-conditioning pipelines, remove sludge, powder and other impurities inside the pipelines, replace the refrigeration oil more thoroughly, improve compressor lubrication, and improve the refrigeration performance of the air-conditioning system.√Refrigerant recoveryThe refrigerant in the automobile air conditioning system is purified and regenerated and then recycled into the working tank to meet the standards for reuse.√VacuumingAchieve vacuuming of air conditioning pipelines and equipment pipelines.√Refrigeration oil fillingSupports manual/automatic filling, and realizes intelligent and precise filling through the built-in electronic scale.√Refrigerant fillingAdd refrigerant to the vehicle according to the set filling amount.√Automatic modeAccording to the set parameters, automatically perform cleaning, recovery, vacuuming, filling of refrigeration oil, and lnject refrigerant and other operations.√DatabaseEquipped with automobile refrigerant model database, supports database calling, no manual setting is required.√PrintSupports printing of device execution results.√",
+      "features": [
+        "Non-disassembly maintenance that save time and effort, and reduce accessories loss",
+        "Refrigerant recycling",
+        "Improve car power and refrigeration effect",
+        "Effectively filter the impurities of the refrigerant to reduce compressor wear",
+        "Automatic full service without manual intervention",
+        "Accurate recharging with built-in automotive A/C database that covers mainstream models",
+        "Running silently",
+        "Visible operation steps with built-in LCD display",
+        "Compatible with both R134A and R1234YF refrigerant blends",
+        "Large-size glass tube with LED backlighting, can effectively observe the entire cleaning process",
+        "Forward and reverse flushing functions, which greatly improve the cleaning effect",
+        "Operation result print automatically"
+      ],
+      "functions": [],
+      "specifications": [
+        "Power Supply: AC 220V/50Hz",
+        "Power: 1000W",
+        "Working Temperature: 10~50°C",
+        "Relative humidity: <85%",
+        "Vacuum Pump: 7.3m3/h",
+        "Tank: 12L",
+        "HP/TP Gauge: 1bar~35bar",
+        "LG Gauge: 1bar~20bar"
+      ],
+      "images": [
+        "data/images/14/01_AC519-AC-Service-Station-1.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 15,
+      "brand": "Launch / SmartSafe",
+      "name": "X-861 Lite Wheel Alignment",
+      "url": "https://launchx431.com.pk/wheel-alignment/X861-lite-wheelalignment-Machine/",
+      "title": "X861 LITE 3D Wheel Alignment Machine",
+      "description": "Launch/SmartSafe X861 LITE uses 3D imaging principle to collect ultra-high-speed and high-precision tire data of vehicles. The four-wheel alignment angles mainly include: camber, toe-in, caster and steering axle inclination. It is a classic stationary 3D wheel aligner, ideal for professional repair shops and tire service centers!Make Your Products Last LongerDo not place the computer host and/or monitor in a place with a radioactive source and heat source, or in other environments where it is exposed to direct sunlight, heat, cold and humidity.Do not insert anything into the host and monitor through the gap.Do not move or violently shake the computer while it is working.Avoid frequent boot.Do not modify the BIOS settings.Do not delete the files you do not understand on the hard disk, to prevent the computer from abnormal operation or breakdown.The host computer is dedicated to the 3D wheel aligner. Do not use extraneous software on this equipment, to avoid virus infection. The warranty expires automatically for any system problem due to virus infection.",
+      "features": [
+        "Special camera system",
+        "Targets without electronic elements and battery to save maintenance cost",
+        "No need calibrate onsite as it has been calibrated in factory",
+        "User-friend software interface",
+        "Accurate and stable with 30 measurement technology",
+        "Smart measurement with fully automatic tracking and moving function according to height of the lift",
+        "Scan QR code and get access to LAUNCH platform, check equipment information and send product feedback"
+      ],
+      "functions": [
+        "FunctionsDescription√Four-wheel alignment measurementSupports standard measurement and quick measurement, can measure key parameterssuch as toe-in, camber, caster angle, kingpin inclination, thrust angle, etc., supports wheelbase, wheelspan, and axle deviation,additional measurements such as shift, wheel offset, diagonal, center offset, etc√DatabaseSupports positioning data of 50,000+ global vehicle models, and supports user-defined database√Test reportSupport measurement report saving and printing√Compatible with multiple platformsSuitable for four-post lifts, large scissors lifts and trenches√Dual-screen displaySupport dual-screen display at the same time, an optional secondary screen is required√"
+      ],
+      "specifications": [
+        "No.: Name",
+        "1: Lateral beam assembly",
+        "2: Post assembly",
+        "3: Cabinet assembly",
+        "4: Clamp & Target  assembly",
+        "5: Computer (Optional)",
+        "6: Printer (Optional)",
+        "7: Turn tables",
+        "8: Steering wheel holder",
+        "9: Brake pedal depressor",
+        "Alignment Parameters: Measurement Range",
+        "Total Toe-in: ±20︒",
+        "Individual  Toe-in: ±20︒",
+        "Camber: ±12︒",
+        "Caster: ±25︒",
+        "Kingpin inclination: ±25︒",
+        "Flinch Angle: ±10︒",
+        "Thrust Angle: ±10︒",
+        "Technical Index: Description",
+        "Input Voltage: 220V AC (10A)",
+        "Input Frequency: 50～60Hz",
+        "Power: 0.5KW",
+        "Others: Computer (including host, LCD display, keyboard & mouse)(Optional);Measurement software;Printer (Optional), etc."
+      ],
+      "images": [
+        "data/images/15/01_Untitled-design-14-1-scaled.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 16,
+      "brand": "Launch / SmartSafe",
+      "name": "X-861 PRO Wheel Alignment",
+      "url": "https://launchx431.com.pk/wheel-alignment/X861-PRO-wheel-alignment-Machine",
+      "title": "",
+      "description": "FunctionsDescription√Four-wheel alignment measurementSupports standard measurement and quick measurement, can measure key parameterssuch as toe-in, camber, caster angle, kingpin inclination, thrust angle, etc, supports wheelbase, wheelspan, and axle deviation.additional measurements such as shift, wheel offset, diagonal, center offset, etc√Intelligent self-adaptive tracking systemAutomatically track the target, and adjust the height of the beam adaptively accord.ing to the height of the target√DatabaseSupports positioning data of 50,000+ global vehicle models, and supports user-defined database;√Test reportSupport measurement report saving and printing√Compatible with multiple platformsSuitable for four-post lifts, large scissors lifts, small scissors lifts, two-post ifts and trenches√Multi-station sharingThe whole machine is moveable, which is convenient for multi-station sharing√Dua-screen displaySupport dual-screen display at the same time, an optional secondary screen is required√",
+      "features": [
+        "FunctionsDescription√Four-wheel alignment measurementSupports standard measurement and quick measurement, can measure key parameterssuch as toe-in, camber, caster angle, kingpin inclination, thrust angle, etc, supports wheelbase, wheelspan, and axle deviation.additional measurements such as shift, wheel offset, diagonal, center offset, etc√Intelligent self-adaptive tracking systemAutomatically track the target, and adjust the height of the beam adaptively accord.ing to the height of the target√DatabaseSupports positioning data of 50,000+ global vehicle models, and supports user-defined database;√Test reportSupport measurement report saving and printing√Compatible with multiple platformsSuitable for four-post lifts, large scissors lifts, small scissors lifts, two-post ifts and trenches√Multi-station sharingThe whole machine is moveable, which is convenient for multi-station sharing√Dua-screen displaySupport dual-screen display at the same time, an optional secondary screen is required√"
+      ],
+      "functions": [],
+      "specifications": [
+        "Display Accuracy: 1’/0.01/0.1mm",
+        "Toe: ±2′",
+        "Camber: ±2′",
+        "Caster: ±4′"
+      ],
+      "images": [
+        "data/images/16/01_Untitled-design-15-1.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 17,
+      "brand": "Launch / SmartSafe",
+      "name": "X-613 Portable 3D Wheel Aligner",
+      "url": "https://launchx431.com.pk/wheel-alignment/wa613-wireless-3d-wheel-aligner/",
+      "title": "WA613 Wireless 3D Wheel Aligner",
+      "description": "WA613 is a wireless 3D wheel aligner with a new industrial design.  It abandons the beam and cabinet design of traditional 3D wheel aligners. It consists of 2 magnetic measurement units + 4 wheel clamp targets. It performs four-wheel alignment detection on vehicles through wireless networking communication. This innovative design enhances mobility and convenience, positioning the WA613 as a top choice among portable alignment machines. Its streamlined setup allows for quick deployment in various workshop environments, making it ideal for both mobile and stationary applications.",
+      "features": [
+        "Toe-in±20°Wheel Base1940~4600mmCamber±10°Wheel Track1920~1900mmCaster±20°Wheel Diameter (4-point wheel hub clamp)275~640mmSAI±20°Maximum steering angle±35°"
+      ],
+      "functions": [
+        "In today’s competitive automotive landscape, having the right tools can make all the difference in your shop’s efficiency and customer satisfaction. With advanced equipment like the WA613 wireless 3D alignment machine, you can address a range of alignment-related challenges that affect vehicle performance. This innovative vehicle alignment machine streamlines the alignment process, reducing downtime and increasing productivity. Additionally, its portability allows you to offer on-the-go services, attracting more customers and expanding your service offerings. By integrating such solutions, you can enhance operational efficiency, improve service quality, and ultimately drive greater profitability for your shop.FunctionsDescription√Four-wheel alignment measurementIt supports standard measurement and quick measurement and can measure key parameters such as toe, camber, caster, kingpin inclination, and thrust angle. Supports additional measurements such as wheelbase, wheel track, axle offset, wheel offset, diagonal, center offset, etc.√DatabaseSupports positioning data of 50,000+ global vehicle models, and supports user-defined database.√Terminal wireless connectionWith the ST13 intelligent connection terminal. Measurement data is transmitted wirelessly, and the four-wheel alignment process is displayed with the ST13 intelligent connection terminal.√Test reportGenerate professional test reports, support data comparison before and after adjustment, and support report sharing.√Multi-platform compatibilityCompatible with large scissor lifts and four-post lifts.√"
+      ],
+      "specifications": [],
+      "images": [
+        "data/images/17/01_WA613-Wireless-3D-Wheel-Aligner-Img.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 18,
+      "brand": "Launch / SmartSafe",
+      "name": "X-431 ADAS PRO+ V2",
+      "url": "https://launchx431.com.pk/wheel-alignment/x-431-adas-pro-plus/",
+      "title": "LAUNCH X-431 ADAS PRO PLUS",
+      "description": "Ultra-high Precision ADAS Calibration ToolEquipped with a millimeter-level laser rangefinder, the X-431 ADAS PRO PLUS is a high-precision professional ADAS calibration tool for passenger cars when sensors or radars are removed or replaced for recalibration(s), supporting electrical and manual lifting/lowering of the beam. Targets are compatible with X-431 ADAS MOBILE PLUS. Before performing calibrations, technicians need to assemble first and start calibrations with a LAUNCH X-431 diagnostic tool.Multi-directional fine-tuning is supported without moving the calibration tool, including forward/backword, left/right and horizon directions, getting parallelized and centralized within 1 minute.Electric lifting and manual adjustment for fast and portable operation.Millimetre precision laser range-finder for accurate measurements. No need for mechanical measurement anymore.The professional diagnostic software on a LAUNCH scan tool provides step by step instruction to help users quickly perform calibrations correctly.New upgraded Aluminium Alloy material for durable use.The OE standard targets are compatible with the X-431 ADAS Mobile PLUS.Equipped with detachable tablet stand.Various ADAS calibration systems are supported, including LDW, ACC, RCW, AVM, BSD, NVS, etc.",
+      "features": [
+        "Rapidly Switch: Simple for installation, rapidly switch the calibration targets available to different vehicles.",
+        "Easy to Storage: With modular structure and components, it is best for the working environment of workshop.",
+        "Easy to Operate: With operation prompt and one-click calibration function.",
+        "Calibration with High Accuracy: Cantering with high accuracy, nearly achieves the OE level.",
+        "Comprehensive Function: Support various calibration function and wide range of calibration targets and calibration models."
+      ],
+      "functions": [],
+      "specifications": [],
+      "images": [
+        "data/images/18/01_LAUNCH-X-431-ADAS-PRO-PLUS-Img.webp",
+        "data/images/18/02_LAUNCH-X-431-ADAS-PRO-PLUS-Img3.webp",
+        "data/images/18/03_LAUNCH-X-431-ADAS-PRO-PLUS-Img2.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 19,
+      "brand": "Launch",
+      "name": "LH-330/LH-340 Dual Pump Floor Jack",
+      "url": "https://launchx431.com.pk/lifts-jacks/lh-330-lh-340-dual-pump-floor-jack/",
+      "title": "LH-330/LH-340 Dual Pump Floor Jack",
+      "description": "With the dual pump design and universal joint release mechanism, the LAUNCH LH-330/LH-340 Dual Pump Floor Jack provides Fast Lifting & Smooth Lowering service during your auto repair process.",
+      "features": [
+        "Dual pump design makes the lifting faster.",
+        "Universal joint release mechanism allows smoother and more controllable lowering of the jack.",
+        "Low-position design, 85mm (10mm for LH-340) low entry minimum jack pad height.",
+        "High-quality steel frame provides better durability.",
+        "Large jacking saddle equipped for increased load stability.",
+        "Magnetic wheel nut retention tray for convenient operation."
+      ],
+      "functions": [],
+      "specifications": [
+        "Rated Loading Capacity: 4 Ton/ 8800 LBS/ 4000 KG",
+        "Max Height: 533mm/ 21 inch",
+        "Min Height: 100mm/ 4 inch"
+      ],
+      "images": [
+        "data/images/19/01_LH-330-LH-340-Dual-Pump-Floor-Jack-Img.webp"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 21,
+      "brand": "Launch",
+      "name": "3-Ton and 6-Ton Jack Stand",
+      "url": "https://launchx431.com.pk/lifts-jacks/launch-jack-stand-3-ton-and-6-ton/",
+      "title": "Launch Jack Stand 3-Ton and 6-Ton",
+      "description": "Perfect For Holding Drive-Train Or Exhaust Components In PositionStabilizes Vehicles That Are Raised On LiftsHeavy-Steel Construction For Maximum DurabilityQuick Adjust Spin Handle With Thrust BearingHardened ACME Screw For Easy AdjustmentWide Base Provides Maximum StabilityThick, Rubber Adjustable Pad For Maximum Support",
+      "features": [
+        "Perfect For Holding Drive-Train Or Exhaust Components In Position",
+        "Stabilizes Vehicles That Are Raised On Lifts",
+        "Heavy-Steel Construction For Maximum Durability",
+        "Quick Adjust Spin Handle With Thrust Bearing",
+        "Hardened ACME Screw For Easy Adjustment",
+        "Wide Base Provides Maximum Stability",
+        "Thick, Rubber Adjustable Pad For Maximum Support"
+      ],
+      "functions": [],
+      "specifications": [
+        "TLT240SC ParametersRated load：4000kgLifting height：1850mmInitial height：110mmLifting time：≤50sLowering time：≥20s≤40sPassing width：2486mmOverall width： 3370mmOverall height：2860mmMotor power ： 2kWMotor voltage：3 phase/380v or Single phase/220VWorking noise：≤75dB（A）Working oil pressure： 16M Pa"
+      ],
+      "images": [
+        "data/images/21/01_Untitled-design-17.png"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 22,
+      "brand": "Launch",
+      "name": "EV Battery Pack Cell Wireless Equalizer (24 Channels)",
+      "url": "https://en.cnlaunch.com/products-detail/i-304.html",
+      "title": "EVB624",
+      "description": "",
+      "features": [
+        "1 Charging Unit + 6 Discharging Units",
+        "1. Separate charging and discharging design, with balancer channels freely combinable, supporting simultaneous balancing of up to 24 battery cells. (Each discharge unit supports 4 channels).",
+        "2. Wireless networking communication facilitates the expansion of balancer channel quantity.",
+        "3. Compatible with all common lithium battery types on the market.",
+        "4. Supports two modes: charge&discharge balance and discharge balance.",
+        "5. High-precision voltage acquisition module for safe and precise balancing control.",
+        "6. Each battery cell is wired separately and independently, effectively avoiding connection errors.",
+        "7. Safety Protections:",
+        "Overvoltage, undervoltage, overcurrent, output short circuit, reverse connection, overtemperature, etc."
+      ],
+      "functions": [],
+      "specifications": [],
+      "images": [
+        "data/images/22/17_2024062429435.png",
+        "data/images/22/18_2024062411317.png",
+        "data/images/22/19_2024062493027.png",
+        "data/images/22/20_2024062433324.png",
+        "data/images/22/21_2025021473457.png"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 23,
+      "brand": "Launch",
+      "name": "EV Battery Pack Module Charging and Discharging Device",
+      "url": "https://en.cnlaunch.com/products-detail/i-326.html",
+      "title": "EVB648 EV Battery Pack Cell Equalizer",
+      "description": "Based on the charge and discharge characteristics of lithium batteries, the EVB648 enables technicians to effectively address voltage inconsistencies among battery modules and cells. The EVB648 helps reduce battery pack repair costs and shortens maintenance time, making it an essential tool for EV detection and diagnostics.",
+      "features": [
+        "1. 48 Balancing Channels & Single Cell Balancing Design",
+        "· Provides an independent single cell balancing solution, supporting precise single-cell balancing, up to 48 battery cells simultaneously.",
+        "2. Intelligent Cell Balancing",
+        "· Supports multiple battery types, including ternary lithium(NCM/NCA), lithium iron phosphate(LiFePO4), lithium manganese oxide(LMO), and lithium titanate(LTO).",
+        "· Allows for the setting of balancing maintenance parameters, pre-selects voltage ranges based on the battery type, and automatically switches charging and discharging modes.",
+        "3. High Precision & Balancing Gain",
+        "· Supports high-precision voltage measurement for single cells, effectively improving vehicle power output and ensuring consistent battery pack performance.",
+        "4. Safety Protection & Worry-Free Process",
+        "· Provides comprehensive safety for both the device and battery.",
+        "Overcurrent Protection",
+        "Output Overcurrent Protection",
+        "Overvoltage Protection",
+        "Over-temperature Protection",
+        "5. Log Management & Data Visualization",
+        "· Supports comparison of \"pre-balancing\" and \"post-balancing\" differences, with the ability to export balancing data.",
+        "· Real-time monitoring of single cell voltages and balancing status, ensuring a clear and visualized process."
+      ],
+      "functions": [],
+      "specifications": [
+        "Power Input: AC 90~264V",
+        "Discharge & Charge Voltage Range: 1.8~4.5V",
+        "Voltage Measurement Accuracy: ±(0.1%FS±2mV)",
+        "Discharge & Charge Current Range: 0.1~5A",
+        "Current Measurement Accuracy: ±(1%FS±0.05A)",
+        "Discharge & Charge Power: 1200W Max",
+        "Voltage Port: 26Pin*2",
+        "Temp Port: 24Pin",
+        "Display: 10.1’’ TFT LCD, 1280*800",
+        "PC Data Communication: TCP/IP, USB-Device",
+        "Wireless Communication: Wi-Fi",
+        "Data Storage Mode: Internal storage of device or data transfer to USB flash drive",
+        "Charge Mode: Constant current charging + constant voltage charging",
+        "Discharge Mode: CC+CA",
+        "Working Temperature: -5℃~45℃",
+        "Dimension: 616.5 x 349.0 x 518.3 mm"
+      ],
+      "images": [
+        "data/images/23/17_2025021312534.png",
+        "data/images/23/18_2025021352539.png",
+        "data/images/23/19_2025021376704.png"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 24,
+      "brand": "Launch",
+      "name": "EV and Diagnosis Add-on Kit",
+      "url": "https://en.cnlaunch.com/products-detail/i-262.html",
+      "title": "EV Diagnosis Add-on Kit",
+      "description": "LAUNCH New Energy Battery Pack Diagnostic Upgrade Kit comes with battery pack testing cables for various vehicle brands. The battery pack diagnostic software and some diagnostic software for new energy vehicles can be activated and downloaded with the inc",
+      "features": [
+        "1. Supports various battery pack diagnostic methods including non-standard battery pack connector, jumper cables and 16 PIN OBD.",
+        "2. Quick reading for battery pack information, such as number of battery pack modules, SOC, SOH, temperature, single cell’s voltage and temperature of each module, etc., which will help technician to know about the battery status.",
+        "3. Battery pack data streaming helps to locate issues accurately and improve repairing efficiency.",
+        "4. Battery pack diagnostic report can be printed and shared via email."
+      ],
+      "functions": [],
+      "specifications": [
+        "Including Specialty Cables for Tesla:"
+      ],
+      "images": [
+        "data/images/24/17_2023022728602.png",
+        "data/images/24/20_2025021428750.jpg"
+      ],
+      "status": "scraped"
+    },
+    {
+      "num": 25,
+      "brand": "Unite",
+      "name": "G-68 Self-Calibrating Computer Wheel Balancer",
+      "url": "https://www.uniteautomotive.com/g-68-digital-wheel-balancer-with-lcd-display-precision-calibration-heavy-duty-motor-auto-positioning-quick-cycle-and-durable-design",
+      "title": "",
+      "description": "",
+      "features": [],
+      "functions": [],
+      "specifications": [],
+      "images": [],
+      "status": "needs_playwright"
+    },
+    {
+      "num": 26,
+      "brand": "Unite",
+      "name": "G-55 Self-Calibrating Computer Wheel Balancer",
+      "url": "https://www.uniteautomotive.com/pro-line-wheel-balancer-adbanner-g55-tire-balancer",
+      "title": "",
+      "description": "",
+      "features": [],
+      "functions": [],
+      "specifications": [],
+      "images": [],
+      "status": "needs_playwright"
+    },
+    {
+      "num": 27,
+      "brand": "Unite",
+      "name": "Z30-C Mid-Rise Scissor Lift",
+      "url": "https://uniteautomotive.com/2-post-car-lifts",
+      "title": "",
+      "description": "",
+      "features": [],
+      "functions": [],
+      "specifications": [],
+      "images": [],
+      "status": "needs_playwright"
+    },
+    {
+      "num": 28,
+      "brand": "Unite",
+      "name": "RAL3000/RAL7016 2-Post 4-Ton Base Plate Lift",
+      "url": "https://www.uniteautomotive.com/2-post-car-lifts",
+      "title": "",
+      "description": "",
+      "features": [],
+      "functions": [],
+      "specifications": [],
+      "images": [],
+      "status": "needs_playwright"
+    },
+    {
+      "num": 29,
+      "brand": "Unite",
+      "name": "RAL3000/RAL7016 2-Post 4-Ton Clear Floor Lift",
+      "url": "https://www.uniteautomotive.com/2-post-car-lifts",
+      "title": "",
+      "description": "",
+      "features": [],
+      "functions": [],
+      "specifications": [],
+      "images": [],
+      "status": "needs_playwright"
+    },
+    {
+      "num": 30,
+      "brand": "Unite",
+      "name": "4-Post Wheel Alignment Lift",
+      "url": "https://www.uniteautomotive.com/2-post-car-lifts",
+      "title": "",
+      "description": "",
+      "features": [],
+      "functions": [],
+      "specifications": [],
+      "images": [],
+      "status": "needs_playwright"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+############################
+# Strapi gitignore
+############################
+node_modules/
+.cache/
+build/
+dist/
+.strapi-updater.json
+
+# Test outputs
+coverage/
+
+# Misc
+.DS_Store
+*.log
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# Local configs
+database/*.db
+.tmp/
+tmp/
+
+# Public uploads (regenerated on first run)
+public/uploads/
+!public/uploads/.gitkeep

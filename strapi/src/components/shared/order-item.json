@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_order_items",
+  "info": {
+    "displayName": "OrderItem",
+    "description": "A single line item in an order"
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

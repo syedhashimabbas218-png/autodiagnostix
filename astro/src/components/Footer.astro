@@ -1,38 +1,81 @@
 ---
-const { className } = Astro.props;
+import homeData from '../data/homepage-content.json';
+const footer = homeData.footer;
+
+const socialIcons = {
+  share: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>',
+  mail: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+  language: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+};
 ---
 
-<footer class={`bg-zinc-50 border-t border-zinc-200 pt-16 pb-8 ${className || ''}`}>
-  <div class="max-w-[1536px] mx-auto px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-      <div>
-        <h3 class="font-headline font-extrabold text-2xl tracking-tighter mb-4">Autodiagnostix</h3>
-        <p class="text-sm text-slate-500 leading-relaxed">Your trusted partner for professional automotive diagnostic equipment in Pakistan.</p>
+<footer class="bg-zinc-50 border-t border-zinc-200">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-12 w-full px-8 py-16 max-w-[1536px] mx-auto">
+    <div class="col-span-2 md:col-span-1">
+      <div class="mb-6 h-16 flex items-center">
+        <img src="/logo-full.png" alt={footer?.company_info?.name || 'Autodiagnostix'} class="h-full w-auto object-contain" />
       </div>
-      {[
-        { title: 'Solutions', links: ['Diagnostic Scanners', 'ADAS Equipment', 'Wheel Equipment', 'Vehicle Lifts', 'Maintenance Tools'] },
-        { title: 'Brands', links: ['LAUNCH', 'SMARTSAFE', 'UNITE', 'AUTOOL', 'GTI.TOOLS'] },
-        { title: 'Company', links: ['About Us', 'Contact', 'Become a Dealer', 'Technical Support', 'Warranty Info'] },
-      ].map(col => (
-        <div>
-          <h4 class="text-xs font-label font-bold uppercase tracking-[0.15em] text-slate-500 mb-6">{col.title}</h4>
-          <ul class="space-y-3">
-            {col.links.map(link => (
-              <li>
-                <a href="#" class="text-sm text-slate-600 hover:text-primary transition-colors">{link}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-    <div class="border-t border-zinc-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-[10px] text-zinc-400 uppercase tracking-widest">&copy; 2024 Autodiagnostix. Authorized dealer in Pakistan. All rights reserved.</p>
-      <div class="flex gap-6">
-        {['Instagram', 'LinkedIn', 'YouTube'].map(social => (
-          <a href="#" class="text-[10px] text-zinc-400 uppercase tracking-widest hover:text-primary transition-colors">{social}</a>
+      <p class="text-zinc-500 text-xs leading-relaxed max-w-xs mb-8">
+        {footer?.company_info?.description || 'Your trusted partner for professional automotive diagnostic equipment in Pakistan.'}
+      </p>
+      <div class="flex gap-4">
+        {(footer?.company_info?.social_icons || []).map(icon => (
+          <a href="#" class="text-zinc-400 hover:text-primary cursor-pointer flex items-center justify-center w-5 h-5">
+            <span set:html={socialIcons[icon] || ''}></span>
+          </a>
         ))}
       </div>
     </div>
+
+    {(footer?.menu_columns || []).map(col => (
+      <div>
+        <span class="uppercase text-xs font-bold tracking-widest text-zinc-500 block mb-6">{col.title}</span>
+        <ul class="space-y-4">
+          {(col.links || []).map(link => (
+            <li>
+              <a href={link.href || '#'} class="text-sm text-zinc-500 hover:text-primary transition-all hover:translate-x-1 inline-block no-underline">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
+    <div>
+      <span class="uppercase text-xs font-bold tracking-widest text-zinc-500 block mb-6">{footer?.newsletter?.title || 'Newsletter'}</span>
+      <p class="text-zinc-500 text-[10px] mb-4">{footer?.newsletter?.description || 'Get the latest product updates.'}</p>
+      <div class="flex border-b border-zinc-200 py-2">
+        <input id="newsletter-email" class="bg-transparent border-none text-xs w-full focus:ring-0 px-0 outline-none" placeholder={footer?.newsletter?.input_placeholder || 'Email address'} type="email" />
+        <button
+          onclick="(() => { const input = document.getElementById('newsletter-email'); if (input?.value) { window.location.href = 'mailto:sales@autodiagnostix.com?subject=Newsletter%20Signup&body=' + encodeURIComponent(input.value); input.value = ''; } })()"
+          class="text-primary font-bold text-xs uppercase cursor-pointer"
+        >
+          {footer?.newsletter?.button_text || 'Join'}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full px-8 py-8 border-t border-zinc-200 max-w-[1536px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{footer?.bottom_bar?.copyright || '&copy; 2024 Autodiagnostix. All rights reserved.'}</span>
+    <div class="flex gap-8">
+      {(footer?.bottom_bar?.social_links || []).map(link => (
+        <a href={link.href || '#'} class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline">{link.label}</a>
+      ))}
+      <a href="/admin" class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline">Admin</a>
+    </div>
   </div>
 </footer>
+
+<script>
+  document.getElementById('newsletter-email')?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const input = e.target;
+      if (input.value) {
+        window.location.href = 'mailto:sales@autodiagnostix.com?subject=Newsletter%20Signup&body=' + encodeURIComponent(input.value);
+        input.value = '';
+      }
+    }
+  });
+</script>
