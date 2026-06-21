@@ -15,6 +15,11 @@ const LOGO_PATH = path.join(PUBLIC_DIR, 'logo-full.png');
 const LOGO_BASE64 = fs.readFileSync(LOGO_PATH).toString('base64');
 const LOGO_DATA_URL = `data:image/png;base64,${LOGO_BASE64}`;
 
+// Light logo (white "Autodiagnostix" text + red "AX" mark) used on dark backgrounds
+const LOGO_LIGHT_PATH = path.join(PUBLIC_DIR, 'logo-light.png');
+const LOGO_LIGHT_BASE64 = fs.readFileSync(LOGO_LIGHT_PATH).toString('base64');
+const LOGO_LIGHT_DATA_URL = `data:image/png;base64,${LOGO_LIGHT_BASE64}`;
+
 function escapeHtml(s) {
   return String(s || '')
     .replace(/&/g, '&amp;')
@@ -89,7 +94,7 @@ function renderCoverPage(totalProducts, categoryCount) {
     <section class="page cover">
       <div class="cover-bg"></div>
       <div class="cover-content">
-        <img src="${LOGO_DATA_URL}" alt="Autodiagnostix" class="cover-logo" />
+        <img src="${LOGO_LIGHT_DATA_URL}" alt="Autodiagnostix" class="cover-logo" />
         <div class="cover-eyebrow">Product Catalog</div>
         <h1 class="cover-title">The Complete<br/>Workshop<br/>Catalogue</h1>
         <div class="cover-stats">
@@ -227,9 +232,14 @@ function renderCategoryPages(groups) {
             ${chunk.map(renderProductCard).join('')}
           </div>
           <div class="products-foot">
-            <img src="${LOGO_DATA_URL}" alt="Autodiagnostix" />
-            <div>Contact our team for full technical sheets &amp; bulk pricing</div>
-            <div class="products-foot-right">sales@autodiagnostix.com</div>
+            <img src="${LOGO_DATA_URL}" alt="Autodiagnostix" class="products-foot-logo" />
+            <div class="products-foot-phones">
+              <span>+92 300 1234567</span>
+              <span class="dot">&middot;</span>
+              <span>+92 42 1234567</span>
+              <span class="dot">&middot;</span>
+              <span>WhatsApp +92 321 7654321</span>
+            </div>
           </div>
         </section>
       `);
@@ -243,7 +253,7 @@ function renderClosingPage() {
     <section class="page closing">
       <div class="closing-bg"></div>
       <div class="closing-content">
-        <img src="${LOGO_DATA_URL}" alt="Autodiagnostix" class="closing-logo" />
+        <img src="${LOGO_LIGHT_DATA_URL}" alt="Autodiagnostix" class="closing-logo" />
         <h2 class="closing-title">Let's equip your workshop.</h2>
         <p class="closing-sub">From single-bay service centers to multi-site dealer networks, we supply and support the diagnostic equipment Pakistan's professionals trust.</p>
         <div class="closing-grid">
@@ -297,16 +307,16 @@ function renderCatalogHtml(groups) {
         radial-gradient(circle at 90% 80%, rgba(151,0,13,0.25) 0%, transparent 40%),
         linear-gradient(135deg, #0a0a0a 0%, #1a0509 100%);
     }
-    .cover-content { position: absolute; inset: 0; padding: 24mm 28mm; display: flex; flex-direction: column; justify-content: space-between; }
-    .cover-logo { height: 18mm; width: auto; align-self: flex-start; }
-    .cover-eyebrow { font-size: 11pt; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 30mm; }
+    .cover-content { position: absolute; inset: 0; padding: 18mm 28mm 22mm; display: flex; flex-direction: column; justify-content: flex-start; }
+    .cover-logo { height: 16mm; width: auto; align-self: flex-start; }
+    .cover-eyebrow { font-size: 11pt; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 14mm; }
     .cover-title { font-size: 76pt; font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; margin: 4mm 0 0; }
-    .cover-stats { display: flex; align-items: center; gap: 14mm; margin-top: 12mm; }
+    .cover-stats { display: flex; align-items: center; gap: 14mm; margin-top: 10mm; }
     .stat-num { font-size: 36pt; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1; }
     .stat-label { font-size: 9pt; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 2mm; }
     .stat-divider { width: 1px; height: 24mm; background: rgba(255,255,255,0.15); }
-    .cover-brands { font-size: 11pt; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
-    .cover-foot { font-size: 9pt; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .cover-brands { font-size: 11pt; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: auto; }
+    .cover-foot { font-size: 9pt; color: rgba(255,255,255,0.55); line-height: 1.6; margin-top: 4mm; }
     .cover-link { color: #fff; }
 
     /* ========== TOC ========== */
@@ -345,24 +355,26 @@ function renderCatalogHtml(groups) {
     .products-header { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 4mm; border-bottom: 1px solid #e4e4e7; margin-bottom: 8mm; }
     .products-eyebrow { font-size: 9pt; letter-spacing: 0.3em; text-transform: uppercase; color: #97000d; font-weight: 700; }
     .products-count { font-size: 8pt; color: #71717a; letter-spacing: 0.1em; text-transform: uppercase; }
-    .products-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 6mm; flex: 1; }
-    .card { border: 1px solid #e4e4e7; border-radius: 6px; overflow: hidden; background: #fff; display: flex; flex-direction: column; break-inside: avoid; }
+    .products-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 6mm; flex: 1; align-items: stretch; }
+    .card { border: 1px solid #e4e4e7; border-radius: 6px; overflow: hidden; background: #fff; display: flex; flex-direction: column; break-inside: avoid; height: 100%; }
     .card-image { position: relative; aspect-ratio: 4/3; background: #fafafa; display: flex; align-items: center; justify-content: center; padding: 4mm; border-bottom: 1px solid #e4e4e7; }
     .card-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
     .card-image-placeholder { font-size: 32pt; font-weight: 800; color: #d4d4d8; }
     .card-brand { position: absolute; top: 3mm; left: 3mm; font-size: 7pt; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: #97000d; color: #fff; padding: 1mm 2.5mm; border-radius: 2px; }
     .card-badge { position: absolute; top: 3mm; right: 3mm; font-size: 7pt; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: #fef2f2; color: #b91c1c; border: 1px solid #b91c1c; padding: 1mm 2.5mm; border-radius: 2px; }
     .card-body { padding: 4mm 4mm 5mm; display: flex; flex-direction: column; gap: 2mm; flex: 1; }
-    .card-name { font-size: 10pt; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin: 0; color: #18181b; }
-    .card-summary { font-size: 8pt; line-height: 1.45; color: #52525b; margin: 1mm 0 2mm; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-name { font-size: 10pt; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin: 0; color: #18181b; min-height: 2.4em; }
+    .card-summary { font-size: 8pt; line-height: 1.45; color: #52525b; margin: 1mm 0 2mm; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.6em; }
     .card-specs { display: flex; flex-direction: column; gap: 1mm; margin-top: auto; padding-top: 2mm; border-top: 1px solid #f4f4f5; }
     .card-spec { display: flex; flex-direction: column; gap: 0.5mm; }
     .card-spec-label { font-size: 6.5pt; letter-spacing: 0.1em; text-transform: uppercase; color: #a1a1aa; font-weight: 600; }
     .card-spec-value { font-size: 8pt; color: #18181b; font-weight: 500; line-height: 1.3; }
     .card-cta { font-size: 8pt; color: #97000d; font-weight: 700; text-decoration: none; margin-top: 2mm; letter-spacing: 0.05em; }
     .products-foot { display: flex; align-items: center; gap: 5mm; padding-top: 5mm; border-top: 1px solid #e4e4e7; margin-top: 6mm; font-size: 8pt; color: #71717a; }
-    .products-foot img { height: 6mm; }
-    .products-foot-right { margin-left: auto; color: #97000d; font-weight: 600; }
+    .products-foot-logo { height: 6mm; width: auto; flex-shrink: 0; }
+    .products-foot-phones { display: flex; align-items: center; gap: 4mm; flex-wrap: wrap; }
+    .products-foot-phones .dot { color: #d4d4d8; }
+    .products-foot-phones span:not(.dot) { color: #97000d; font-weight: 600; }
 
     /* ========== CLOSING ========== */
     .closing { background: #0a0a0a; color: #fff; }
@@ -373,7 +385,9 @@ function renderCatalogHtml(groups) {
         linear-gradient(135deg, #0a0a0a 0%, #1a0509 100%);
     }
     .closing-content { position: absolute; inset: 0; padding: 24mm 28mm; display: flex; flex-direction: column; justify-content: space-between; }
-    .closing-logo { height: 18mm; }
+    /* Logo aspect ratio is 600:337 (≈1.78:1). Pin both dimensions to
+       prevent the browser from distorting it on the closing page. */
+    .closing-logo { height: 16mm; width: calc(16mm * 1.78); max-width: 100%; object-fit: contain; flex-shrink: 0; }
     .closing-title { font-size: 52pt; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 12mm 0 6mm; }
     .closing-sub { font-size: 13pt; color: rgba(255,255,255,0.7); max-width: 200mm; line-height: 1.5; }
     .closing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8mm; padding: 12mm 0; border-top: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); margin: 8mm 0; }
