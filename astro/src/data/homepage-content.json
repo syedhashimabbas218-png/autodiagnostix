@@ -163,18 +163,18 @@
       },
       {
         "value": "500+",
-        "label": "Service Centers",
+        "label": "Clients",
         "description": "Trusted partners nationwide",
         "style": "default"
       },
       {
-        "value": "0",
+        "value": "7+",
         "label": "Global Brands",
         "description": "Authorized dealership partnerships",
         "style": "primary-accent"
       },
       {
-        "value": "0",
+        "value": "30+",
         "label": "Product Range",
         "description": "Professional equipment solutions",
         "style": "default"
