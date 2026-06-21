@@ -2,6 +2,9 @@
 import homeData from '../data/homepage-content.json';
 const footer = homeData.footer;
 
+const currentYear = new Date().getFullYear();
+const copyrightText = (footer?.bottom_bar?.copyright || '© {{year}} Autodiagnostix. All rights reserved.').replace('{{year}}', String(currentYear));
+
 const socialIcons: Record<string, string> = {
   Facebook: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>',
   LinkedIn: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.02-1.68z"/></svg>',
@@ -55,7 +58,7 @@ const socialIcons: Record<string, string> = {
   </div>
 
   <div class="w-full px-8 py-8 border-t border-zinc-200 max-w-[1536px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-    <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{footer?.bottom_bar?.copyright || '&copy; 2024 Autodiagnostix. All rights reserved.'}</span>
+    <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{copyrightText}</span>
     <div class="flex gap-8">
       {(footer?.bottom_bar?.social_links || []).map(link => (
         <a
@@ -67,7 +70,6 @@ const socialIcons: Record<string, string> = {
           {link.label}
         </a>
       ))}
-      <a href="/admin" class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline">Admin</a>
     </div>
   </div>
 </footer>

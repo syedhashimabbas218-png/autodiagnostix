@@ -516,7 +516,7 @@
     },
     "bottom_bar": {
       "layout": "flex-between",
-      "copyright": "\u00a9 2024 Autodiagnostix. Authorized dealer in Pakistan. All rights reserved.",
+      "copyright": "© {{year}} Autodiagnostix. All rights reserved.",
       "social_links": [
         {
           "label": "Facebook",
