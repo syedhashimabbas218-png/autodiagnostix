@@ -15,7 +15,7 @@
   .glass-nav { backdrop-filter: blur(32px); }
   .primary-gradient { background: linear-gradient(135deg, #97000d 0%, #bb2221 100%); }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
-  
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -23,4 +23,23 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+/* ===== Category icon: outline-only treatment =====
+   The custom category SVGs in /public/images/category-icons/ have
+   dark strokes on a transparent background, but they also include
+   small filled regions inside shapes (e.g. scanner display screen).
+   The CategoryNav component renders each icon as a <span> with the
+   SVG used as a CSS mask, so only the alpha channel of the SVG shows,
+   painted with `currentColor` — letting the surrounding text color
+   tint the icon. This gives a clean outline-only look that adapts
+   to hover/active states automatically. */
+.cat-icon-img {
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
 }

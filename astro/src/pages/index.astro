@@ -34,11 +34,13 @@ import { getProducts, getCategories, getBrands, sortByAvailability } from '../li
 
 const allCategories = await getCategories();
 const categoryIcons: Record<string, string> = {
-  'scanners': 'qr_code_scanner',
-  'lifts-jacks': 'vertical_align_top',
-  'maintenance': 'build',
-  'wheel-alignment': 'tire_repair',
-  'ev-equipment': 'car_crash',
+  'scanners': 'scanners',
+  'lifts-jacks': 'lifts-jacks',
+  'maintenance': 'maintenance',
+  'wheel-alignment': 'wheel-alignment',
+  'wheel-balancers': 'wheel-balancers',
+  'tire-changers': 'tire-changers',
+  'ev-equipment': 'ev-equipment',
 };
 const categories = allCategories
   .map(c => ({ id: c.id, name: c.name, icon: categoryIcons[c.id] || c.icon || 'build' }));

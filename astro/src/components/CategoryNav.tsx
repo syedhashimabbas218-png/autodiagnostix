@@ -2,7 +2,40 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
+/**
+ * Custom category icons. The new SVG icons in /public/images/category-icons/
+ * are referenced by their slug so the homepage can simply pass the slug
+ * string as the `icon` value.
+ */
+const CUSTOM_ICONS: Record<string, string> = {
+  scanners: '/images/category-icons/scanners.svg',
+  'lifts-jacks': '/images/category-icons/lifts-jacks.svg',
+  maintenance: '/images/category-icons/maintenance.svg',
+  'wheel-alignment': '/images/category-icons/wheel-alignment.svg',
+  'wheel-balancers': '/images/category-icons/wheel-balancers.svg',
+  'tire-changers': '/images/category-icons/tire-changers.svg',
+  'ev-equipment': '/images/category-icons/ev-equipment.svg',
+};
+
 const IconMap: Record<string, JSX.Element> = {
+  // New image-based category icons. Rendered via mask so we get a
+  // clean outline-only look (the SVG's own dark stroke is masked
+  // out and replaced with `currentColor`). The mask source is the
+  // same SVG; only the alpha channel renders. Result: a single-color
+  // outline icon that takes the parent's text color.
+  ...Object.fromEntries(
+    Object.entries(CUSTOM_ICONS).map(([key, src]) => [
+      key,
+      <span
+        key={key}
+        role="img"
+        aria-hidden="true"
+        className="cat-icon-img w-6 h-6 inline-block"
+        style={{ WebkitMaskImage: `url(${src})`, maskImage: `url(${src})` } as React.CSSProperties}
+      />,
+    ])
+  ),
+  // Legacy Material Symbols names kept for backward compatibility
   qr_code_scanner: (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 7V5a2 2 0 0 1 2-2h2" />
@@ -72,12 +105,12 @@ export default function CategoryNav({ categories = [] }: { categories?: Category
   if (categories.length === 0) return null;
 
   return (
-    <section ref={sectionRef} className="bg-white border-b border-zinc-100 py-6 md:py-8">
+    <section ref={sectionRef} className="bg-white border-b border-zinc-100 py-6 md:py-8 relative z-10">
       <div className="max-w-screen-2xl mx-auto px-8 grid grid-cols-2 sm:grid-cols-3 md:flex md:items-center md:overflow-x-auto md:no-scrollbar gap-2 md:gap-6 lg:gap-12">
         {categories.map((cat, idx) => (
           <div key={cat.id} className="cat-nav-item flex">
             <a href={`/category/${cat.id}`} className="flex items-center gap-2 md:gap-4 group w-full">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container group-hover:-translate-y-1 group-hover:shadow-lg transition-all duration-200 ease-out shrink-0">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container group-hover:scale-105 group-hover:shadow-lg transition-all duration-200 ease-out shrink-0">
                 <span className="text-zinc-500 group-hover:text-white transition-colors flex items-center justify-center">
                   {IconMap[cat.icon] || <span className="material-symbols-outlined text-lg md:text-xl">{cat.icon}</span>}
                 </span>

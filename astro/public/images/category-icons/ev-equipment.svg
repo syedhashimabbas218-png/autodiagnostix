@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <title>EV Equipment (Battery + Plug)</title>
+  <!-- Battery body -->
+  <rect x="20" y="32" width="50" height="36" rx="4"/>
+  <!-- Battery terminal -->
+  <line x1="70" y1="42" x2="76" y2="42"/>
+  <line x1="70" y1="58" x2="76" y2="58"/>
+  <!-- Battery charge bars -->
+  <line x1="28" y1="50" x2="34" y2="50"/>
+  <line x1="40" y1="50" x2="46" y2="50"/>
+  <line x1="52" y1="50" x2="58" y2="50"/>
+  <!-- Lightning bolt (charging) -->
+  <polyline points="44,18 36,30 46,30 38,46"/>
+</svg>
