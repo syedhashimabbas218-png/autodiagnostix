@@ -112,7 +112,7 @@ function renderPdfHtml(p) {
     <div class="footer">
       <img src="${LOGO_DATA_URL}" alt="Autodiagnostix" />
       <div><span class="brand">Autodiagnostix</span> — Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE</div>
-      <div style="margin-top:1mm">autodiagnostix.com</div>
+      <div style="margin-top:1mm">autodiagnostix.com.pk</div>
     </div>
   </div>
 </body>

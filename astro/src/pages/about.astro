@@ -7,15 +7,15 @@ import { breadcrumbListSchema } from '../utils/schema';
 export const prerender = false;
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://autodiagnostix.com/' },
-  { name: 'About', url: 'https://autodiagnostix.com/about' },
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'About', url: 'https://autodiagnostix.com.pk/about' },
 ];
 ---
 
 <BaseLayout
   title="About Us"
   description="Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE automotive diagnostic equipment."
-  canonical="https://autodiagnostix.com/about"
+  canonical="https://autodiagnostix.com.pk/about"
   jsonLd={breadcrumbListSchema(breadcrumbs)}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />

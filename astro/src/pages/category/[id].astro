@@ -24,8 +24,8 @@ const filtered = products.filter(p => {
 });
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://autodiagnostix.com/' },
-  { name: category.name, url: `https://autodiagnostix.com/category/${id}` },
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: category.name, url: `https://autodiagnostix.com.pk/category/${id}` },
 ];
 
 async function getCategory(id: string) {
@@ -39,8 +39,8 @@ async function getCategory(id: string) {
 <BaseLayout
   title={category.name}
   description={`Browse ${filtered.length} professional ${category.name} products at Autodiagnostix.`}
-  canonical={`https://autodiagnostix.com/category/${id}`}
-  jsonLd={[breadcrumbListSchema(breadcrumbs), itemListSchema(filtered.map(p => ({ name: p.name, url: `https://autodiagnostix.com/product/${p.id}` })))]}
+  canonical={`https://autodiagnostix.com.pk/category/${id}`}
+  jsonLd={[breadcrumbListSchema(breadcrumbs), itemListSchema(filtered.map(p => ({ name: p.name, url: `https://autodiagnostix.com.pk/product/${p.id}` })))]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 

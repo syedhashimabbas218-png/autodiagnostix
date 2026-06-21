@@ -1,4 +1,4 @@
-const SITE_URL = 'https://autodiagnostix.com';
+const SITE_URL = 'https://autodiagnostix.com.pk';
 const CURRENCY = 'PKR';
 
 export function organizationSchema() {

@@ -22,19 +22,19 @@ if (!product) {
 }
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://autodiagnostix.com/' },
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
   {
     name: product.category || 'Products',
-    url: `https://autodiagnostix.com/category/${(product.category || '').toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`,
+    url: `https://autodiagnostix.com.pk/category/${(product.category || '').toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`,
   },
-  { name: product.name, url: `https://autodiagnostix.com/product/${id}` },
+  { name: product.name, url: `https://autodiagnostix.com.pk/product/${id}` },
 ];
 ---
 
 <BaseLayout
   title={product.name}
   description={product.summary || product.description?.substring(0, 160) || ''}
-  canonical={`https://autodiagnostix.com/product/${id}`}
+  canonical={`https://autodiagnostix.com.pk/product/${id}`}
   ogType="product"
   ogImage={product.heroImages?.[0] || undefined}
   jsonLd={[productSchema(product), breadcrumbListSchema(breadcrumbs)]}

@@ -16,16 +16,16 @@ try {
 }
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://autodiagnostix.com/' },
-  { name: 'Products', url: 'https://autodiagnostix.com/products' },
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Products', url: 'https://autodiagnostix.com.pk/products' },
 ];
 ---
 
 <BaseLayout
   title="All Products"
   description="Browse our complete range of professional automotive diagnostic equipment, scanners, lifts, and workshop tools."
-  canonical="https://autodiagnostix.com/products"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), itemListSchema(products.map(p => ({ name: p.name, url: `https://autodiagnostix.com/product/${p.id}` })), 'CollectionPage')]}
+  canonical="https://autodiagnostix.com.pk/products"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), itemListSchema(products.map(p => ({ name: p.name, url: `https://autodiagnostix.com.pk/product/${p.id}` })), 'CollectionPage')]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 

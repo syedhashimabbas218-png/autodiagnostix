@@ -4,7 +4,7 @@ import node from '@astrojs/node';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
-const SITE = 'https://autodiagnostix.com';
+const SITE = 'https://autodiagnostix.com.pk';
 
 /** @returns {Promise<string[]>} */
 async function getCmsSitemapPages() {

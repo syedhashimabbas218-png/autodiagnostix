@@ -18,17 +18,17 @@ try {
 if (!brand) return Astro.redirect('/404');
 
 const breadcrumbs = [
-  { name: 'Home', url: 'https://autodiagnostix.com/' },
-  { name: 'Brands', url: 'https://autodiagnostix.com/brands' },
-  { name: brand.name, url: `https://autodiagnostix.com/brand/${id}` },
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Brands', url: 'https://autodiagnostix.com.pk/brands' },
+  { name: brand.name, url: `https://autodiagnostix.com.pk/brand/${id}` },
 ];
 ---
 
 <BaseLayout
   title={brand.name}
   description={`Browse ${brand.productCount} ${brand.name} products at Autodiagnostix.`}
-  canonical={`https://autodiagnostix.com/brand/${id}`}
-  jsonLd={[breadcrumbListSchema(breadcrumbs), brandSchema({ name: brand.name, url: `https://autodiagnostix.com/brand/${id}`, description: brand.description, image: brand.image })]}
+  canonical={`https://autodiagnostix.com.pk/brand/${id}`}
+  jsonLd={[breadcrumbListSchema(breadcrumbs), brandSchema({ name: brand.name, url: `https://autodiagnostix.com.pk/brand/${id}`, description: brand.description, image: brand.image })]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 

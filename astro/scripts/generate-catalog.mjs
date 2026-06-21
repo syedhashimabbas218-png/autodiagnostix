@@ -40,7 +40,9 @@ const CATEGORY_ORDER = [
 ];
 
 async function fetchAllProducts() {
-  const POPULATE = 'populate[brand][fields][0]=name&populate[category][fields][0]=slug&populate[category][fields][1]=name&populate[heroImages][populate][image][populate]=*&populate[technicalTable][fields][0]=label&populate[technicalTable][fields][1]=value';
+  // Exclude discontinued products from the catalog (filters[badge][$null]=true
+  // matches products with no badge set — i.e. active products only)
+  const POPULATE = 'populate[brand][fields][0]=name&populate[category][fields][0]=slug&populate[category][fields][1]=name&populate[heroImages][populate][image][populate]=*&populate[technicalTable][fields][0]=label&populate[technicalTable][fields][1]=value&filters[badge][$null]=true';
   const res = await fetch(
     `${STRAPI_URL}/api/products?pagination[pageSize]=100&${POPULATE}`
   );
@@ -118,7 +120,7 @@ function renderCoverPage(totalProducts, categoryCount) {
         </div>
         <div class="cover-foot">
           Pakistan's authorized dealer of professional automotive diagnostic equipment.<br/>
-          <span class="cover-link">autodiagnostix.com</span> &middot; <span class="cover-link">sales@autodiagnostix.com</span>
+          <span class="cover-link">autodiagnostix.com.pk</span> &middot; <span class="cover-link">sales@autodiagnostix.com.pk</span>
         </div>
       </div>
     </section>
@@ -198,7 +200,7 @@ function renderProductCard(p) {
         <h3 class="card-name">${escapeHtml(p.name)}</h3>
         <p class="card-summary">${escapeHtml(p.summary)}</p>
         <div class="card-specs">${specs}</div>
-        <a class="card-cta" href="https://autodiagnostix.com/product/${escapeHtml(p.slug)}">View product &rarr;</a>
+        <a class="card-cta" href="https://autodiagnostix.com.pk/product/${escapeHtml(p.slug)}">View product &rarr;</a>
       </div>
     </div>
   `;
@@ -234,11 +236,11 @@ function renderCategoryPages(groups) {
           <div class="products-foot">
             <img src="${LOGO_DATA_URL}" alt="Autodiagnostix" class="products-foot-logo" />
             <div class="products-foot-phones">
-              <span>+92 300 1234567</span>
+              <span>+92 322 7041953</span>
               <span class="dot">&middot;</span>
-              <span>+92 42 1234567</span>
+              <span>+92 300 5399757</span>
               <span class="dot">&middot;</span>
-              <span>WhatsApp +92 321 7654321</span>
+              <span>+92 305 5851888</span>
             </div>
           </div>
         </section>
@@ -259,19 +261,19 @@ function renderClosingPage() {
         <div class="closing-grid">
           <div>
             <div class="closing-label">Sales</div>
-            <div class="closing-val">sales@autodiagnostix.com</div>
+            <div class="closing-val">sales@autodiagnostix.com.pk</div>
           </div>
           <div>
             <div class="closing-label">Support</div>
-            <div class="closing-val">support@autodiagnostix.com</div>
+            <div class="closing-val">support@autodiagnostix.com.pk</div>
           </div>
           <div>
             <div class="closing-label">Phone</div>
-            <div class="closing-val">+92 (300) 000-0000</div>
+            <div class="closing-val">+92 322 7041953 &middot; +92 300 5399757 &middot; +92 305 5851888</div>
           </div>
           <div>
             <div class="closing-label">Web</div>
-            <div class="closing-val">autodiagnostix.com</div>
+            <div class="closing-val">autodiagnostix.com.pk</div>
           </div>
         </div>
         <div class="closing-foot">Pakistan's authorized dealer of LAUNCH, SMARTSAFE, UNITE, Liberty Lifts, and GTI.tools</div>
