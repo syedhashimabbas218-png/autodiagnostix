@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { getBrands } from '../../lib/strapi';
+import { getBrands, getProducts, sortByAvailability } from '../../lib/strapi';
 import { breadcrumbListSchema, brandSchema } from '../../utils/schema';
 
 export const prerender = false;
@@ -10,9 +10,14 @@ export const prerender = false;
 const { id } = Astro.params;
 let brand = null;
 let brandList: Awaited<ReturnType<typeof getBrands>> = [];
+let brandProducts: any[] = [];
 try {
   brandList = await getBrands();
   brand = brandList.find(b => b.slug === id) || null;
+  if (brand) {
+    const all = sortByAvailability(await getProducts());
+    brandProducts = all.filter(p => p.brands.some(b => b.toLowerCase() === brand.name.toLowerCase()));
+  }
 } catch { /* CMS offline */ }
 
 if (!brand) return Astro.redirect('/404');
@@ -25,8 +30,8 @@ const breadcrumbs = [
 ---
 
 <BaseLayout
-  title={brand.name}
-  description={`Browse ${brand.productCount} ${brand.name} products at Autodiagnostix.`}
+  title={`${brand.name} Products | Autodiagnostix`}
+  description={`Browse ${brandProducts.length} ${brand.name} products at Autodiagnostix. Pakistan's authorized ${brand.name} dealer for diagnostic and workshop equipment.`}
   canonical={`https://autodiagnostix.com.pk/brand/${id}`}
   jsonLd={[breadcrumbListSchema(breadcrumbs), brandSchema({ name: brand.name, url: `https://autodiagnostix.com.pk/brand/${id}`, description: brand.description, image: brand.image })]}
 >
@@ -43,14 +48,45 @@ const breadcrumbs = [
           <span class="text-primary font-bold">{brand.name}</span>
         </nav>
         <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-4">{brand.name}</h1>
-        <p class="text-on-surface-variant text-xl max-w-xl">{brand.productCount} product{brand.productCount !== 1 ? 's' : ''} from {brand.name}</p>
+        <p class="text-on-surface-variant text-xl max-w-xl">{brandProducts.length} product{brandProducts.length !== 1 ? 's' : ''} from {brand.name}</p>
+        {brand.description && <p class="text-on-surface-variant text-sm max-w-2xl mt-4 leading-relaxed">{brand.description}</p>}
       </div>
     </header>
 
-    <section class="py-16 px-8 bg-surface-container-low text-center">
-      <p class="text-on-surface-variant text-lg">Explore our complete range of {brand.name} products.</p>
-      <a href="/products" class="inline-block mt-6 bg-primary text-white px-8 py-4 text-sm font-headline font-medium hover:brightness-110 transition-all">Browse All Products</a>
-    </section>
+    {brandProducts.length > 0 ? (
+      <section class="py-16 px-8 bg-white">
+        <div class="max-w-screen-2xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {brandProducts.map(p => (
+              <a href={`/product/${p.id}`} class="group relative bg-surface-container-low overflow-hidden hover:shadow-[0_0_0_1px_rgba(151,0,13,0.15)] transition-all duration-200 ease-out">
+                <div class="aspect-[4/3] bg-white flex items-center justify-center overflow-hidden">
+                  {p.heroImages && p.heroImages[0] ? (
+                    <img src={p.heroImages[0]} alt={p.name} class="w-full h-full object-contain p-6 transition-transform duration-200 ease-out group-hover:scale-105" loading="lazy" referrerpolicy="no-referrer" />
+                  ) : (
+                    <div class="text-zinc-300 text-4xl">📦</div>
+                  )}
+                </div>
+                <div class="p-5 bg-white">
+                  <div class="flex items-center gap-2 mb-2">
+                    {p.brands[0] && (
+                      <span class="text-[9px] font-bold uppercase text-primary tracking-widest">{p.brands[0]}</span>
+                    )}
+                    <div class="h-px flex-1 bg-zinc-100"></div>
+                  </div>
+                  <h3 class="text-base font-headline font-extrabold mb-1 group-hover:text-primary transition-colors line-clamp-1">{p.name}</h3>
+                  <p class="text-zinc-500 text-xs leading-relaxed line-clamp-2">{p.summary}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : (
+      <section class="py-16 px-8 bg-surface-container-low text-center">
+        <p class="text-on-surface-variant text-lg">No products available right now. Explore our complete range of {brand.name} products on the main catalog.</p>
+        <a href="/products" class="inline-block mt-6 bg-primary text-white px-8 py-4 text-sm font-headline font-medium hover:brightness-110 transition-all">Browse All Products</a>
+      </section>
+    )}
   </main>
 
   <Footer />

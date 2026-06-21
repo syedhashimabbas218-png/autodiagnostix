@@ -32,6 +32,8 @@ const icons: Record<string, string> = {
 
 import { getProducts, getCategories, getBrands, sortByAvailability } from '../lib/strapi';
 
+const STRAPI_URL = import.meta.env.PUBLIC_STRAPI_URL || 'http://localhost:1337';
+
 const allCategories = await getCategories();
 const categoryIcons: Record<string, string> = {
   'scanners': 'scanners',
@@ -45,7 +47,35 @@ const categoryIcons: Record<string, string> = {
 const categories = allCategories
   .map(c => ({ id: c.id, name: c.name, icon: categoryIcons[c.id] || c.icon || 'build' }));
 
-const allBrands = await getBrands();
+const allBrands = (await getBrands()).filter(b => b.slug !== 'gtitools');
+
+// Fetch brand logos + descriptions from Strapi directly (getBrands in strapi.ts doesn't include logo)
+const brandLogosRes = await fetch(`${STRAPI_URL}/api/brands?populate=*`);
+const brandLogosJson: any = brandLogosRes.ok ? await brandLogosRes.json() : { data: [] };
+const brandLogoMap: Record<string, string> = {};
+const brandDescMap: Record<string, string> = {};
+const strapiBrands: { slug: string; name: string }[] = [];
+for (const b of (brandLogosJson.data || [])) {
+  if (b.logo?.url) {
+    const url = b.logo.url.startsWith('/') ? `${STRAPI_URL}${b.logo.url}` : b.logo.url;
+    brandLogoMap[b.slug] = url;
+  }
+  if (b.description) brandDescMap[b.slug] = b.description;
+  strapiBrands.push({ slug: b.slug, name: b.name });
+}
+
+// Merge: prefer Strapi's authoritative brand list (so newly-added brands
+// like AUTOOL appear here even if no products reference them yet).
+// Fall back to product-derived list for any brand without a Strapi entry.
+const strapiList = strapiBrands.length > 0
+  ? strapiBrands
+  : (allBrands || []).map(b => ({ slug: b.slug, name: b.name }));
+
+// Force the display order: Launch, Smartsafe, Unite, Liberty Lifts, GTI.tools, Autool
+const ORDER = ['launch', 'smartsafe', 'unite', 'liberty-lifts', 'gti-tools', 'autool'];
+const mergedBrands = ORDER
+  .map(slug => strapiList.find(b => b.slug === slug))
+  .filter((b): b is { slug: string; name: string } => Boolean(b));
 
 const allProducts = sortByAvailability(await getProducts());
 const products = allProducts.slice(0, 3).map(p => ({
@@ -94,10 +124,32 @@ const products = allProducts.slice(0, 3).map(p => ({
             <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">{home.stats_section?.partners?.section_title || 'Global Partnerships'}</span>
             <div class="h-px flex-1 bg-black/[0.08]"></div>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-5 gap-12 items-center opacity-70 filter grayscale hover:grayscale-0 transition-all duration-200 ease-out">
-            {(allBrands || []).map(brand => (
-              <span class="text-xl font-black tracking-tighter text-center text-zinc-900">{brand.name}</span>
-            ))}
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 md:gap-10 items-center">
+            {mergedBrands.map(brand => {
+              const logoSrc = brandLogoMap[brand.slug] || '';
+              return (
+                <a
+                  href={`/brand/${brand.slug}`}
+                  class="group flex flex-col items-center justify-center gap-2 px-4 py-6 border border-transparent hover:border-zinc-200 transition-all duration-200 ease-out"
+                  title={brand.name}
+                  aria-label={brand.name}
+                >
+                  {logoSrc ? (
+                    <img
+                      src={logoSrc}
+                      alt={brand.name}
+                      class="brand-logo w-[100px] h-auto max-w-full max-h-16 object-contain transition-all duration-200 ease-out"
+                      loading="lazy"
+                      referrerpolicy="no-referrer"
+                    />
+                  ) : (
+                    <span class="brand-logo-fallback text-xl font-black tracking-tighter text-zinc-900 transition-colors duration-200 ease-out">
+                      {brand.name}
+                    </span>
+                  )}
+                </a>
+              );
+            })}
           </div>
         </div>
 

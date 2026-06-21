@@ -43,3 +43,21 @@
   -webkit-mask-position: center;
   mask-position: center;
 }
+
+/* ===== Global Partnerships brand logo: grey -> color on hover =====
+   By default the logo is rendered in greyscale (filter: grayscale + reduced
+   opacity) so it visually integrates with the muted section. On hover the
+   filter is removed and opacity goes to 100%, revealing the brand colors.
+   The same effect is also used in the Our Clients section. */
+.brand-logo,
+.brand-logo-fallback {
+  filter: grayscale(100%);
+  opacity: 0.55;
+  transition: filter 200ms ease-out, opacity 200ms ease-out;
+}
+.group:hover .brand-logo,
+.group:hover .brand-logo-fallback,
+.brand-logo-fallback:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
