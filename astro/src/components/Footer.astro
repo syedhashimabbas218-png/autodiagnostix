@@ -2,10 +2,10 @@
 import homeData from '../data/homepage-content.json';
 const footer = homeData.footer;
 
-const socialIcons = {
-  share: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>',
-  mail: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
-  language: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+const socialIcons: Record<string, string> = {
+  Facebook: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>',
+  LinkedIn: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.02-1.68z"/></svg>',
+  Instagram: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
 };
 ---
 
@@ -20,8 +20,14 @@ const socialIcons = {
       </p>
       <div class="flex gap-4">
         {(footer?.company_info?.social_icons || []).map(icon => (
-          <a href="#" class="text-zinc-400 hover:text-primary cursor-pointer flex items-center justify-center w-5 h-5">
-            <span set:html={socialIcons[icon] || ''}></span>
+          <a
+            href={icon.href || '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={icon.name}
+            class="text-zinc-400 hover:text-primary cursor-pointer flex items-center justify-center w-5 h-5"
+          >
+            <span set:html={socialIcons[icon.name] || ''}></span>
           </a>
         ))}
       </div>
@@ -33,7 +39,10 @@ const socialIcons = {
         <ul class="space-y-4">
           {(col.links || []).map(link => (
             <li>
-              <a href={link.href || '#'} class="text-sm text-zinc-500 hover:text-primary transition-all hover:translate-x-1 inline-block no-underline">
+              <a
+                href={link.href || '#'}
+                class="text-sm text-zinc-500 hover:text-primary transition-all hover:translate-x-1 inline-block no-underline"
+              >
                 {link.label}
               </a>
             </li>
@@ -42,40 +51,24 @@ const socialIcons = {
       </div>
     ))}
 
-    <div>
-      <span class="uppercase text-xs font-bold tracking-widest text-zinc-500 block mb-6">{footer?.newsletter?.title || 'Newsletter'}</span>
-      <p class="text-zinc-500 text-[10px] mb-4">{footer?.newsletter?.description || 'Get the latest product updates.'}</p>
-      <div class="flex border-b border-zinc-200 py-2">
-        <input id="newsletter-email" class="bg-transparent border-none text-xs w-full focus:ring-0 px-0 outline-none" placeholder={footer?.newsletter?.input_placeholder || 'Email address'} type="email" />
-        <button
-          onclick="(() => { const input = document.getElementById('newsletter-email'); if (input?.value) { window.location.href = 'mailto:sales@autodiagnostix.com?subject=Newsletter%20Signup&body=' + encodeURIComponent(input.value); input.value = ''; } })()"
-          class="text-primary font-bold text-xs uppercase cursor-pointer"
-        >
-          {footer?.newsletter?.button_text || 'Join'}
-        </button>
-      </div>
-    </div>
+    {/* Newsletter hidden per request */}
   </div>
 
   <div class="w-full px-8 py-8 border-t border-zinc-200 max-w-[1536px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
     <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{footer?.bottom_bar?.copyright || '&copy; 2024 Autodiagnostix. All rights reserved.'}</span>
     <div class="flex gap-8">
       {(footer?.bottom_bar?.social_links || []).map(link => (
-        <a href={link.href || '#'} class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline">{link.label}</a>
+        <a
+          href={link.href || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline"
+        >
+          {link.label}
+        </a>
       ))}
       <a href="/admin" class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline">Admin</a>
     </div>
   </div>
 </footer>
 
-<script>
-  document.getElementById('newsletter-email')?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const input = e.target;
-      if (input.value) {
-        window.location.href = 'mailto:sales@autodiagnostix.com?subject=Newsletter%20Signup&body=' + encodeURIComponent(input.value);
-        input.value = '';
-      }
-    }
-  });
-</script>
