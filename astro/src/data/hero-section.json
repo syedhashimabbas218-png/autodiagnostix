@@ -14,12 +14,12 @@
       "description": "Your trusted partner for LAUNCH, SMARTSAFE, UNITE, and industry-leading automotive equipment. Serving Pakistan's professional service centers with authentic B2B solutions.",
       "cta_primary": {
         "label": "Browse Products",
-        "href": "#products",
+        "href": "/products",
         "style": "primary-gradient"
       },
       "cta_secondary": {
         "label": "Contact Us",
-        "href": "#contact",
+        "href": "/contact",
         "style": "border-outline"
       },
       "background": {
@@ -41,12 +41,12 @@
       "description": "From wheel alignment systems to hydraulic lifts, discover equipment that transforms your service center's capabilities. Authorized dealer for Pakistan's automotive industry.",
       "cta_primary": {
         "label": "View Equipment",
-        "href": "#equipment",
+        "href": "/products",
         "style": "primary-gradient"
       },
       "cta_secondary": {
         "label": "Request Quote",
-        "href": "#quote",
+        "href": "/contact",
         "style": "border-outline"
       },
       "background": {
@@ -68,12 +68,12 @@
       "description": "Genuine products, local support, and warranty services for Pakistan's automotive industry. Your official distributor for professional diagnostic equipment.",
       "cta_primary": {
         "label": "Our Brands",
-        "href": "#brands",
+        "href": "/brands",
         "style": "primary-gradient"
       },
       "cta_secondary": {
         "label": "Learn More",
-        "href": "#about",
+        "href": "/about",
         "style": "border-outline"
       },
       "background": {

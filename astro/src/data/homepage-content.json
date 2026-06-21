@@ -343,39 +343,32 @@
     }
   },
   "cta_banner": {
-    "section_id": "cta-banner",
     "background": "primary",
-    "overflow": "hidden",
-    "decoration": {
-      "type": "abstract-geometry",
-      "opacity": 0.1,
-      "element": "rotated-rectangle"
+    "buttons": {
+      "gap": "16px",
+      "layout": "flex-center",
+      "responsive": "stack-mobile"
     },
     "content": {
       "alignment": "center",
       "max_width": "896px"
     },
+    "cta_primary": {
+      "href": "/contact",
+      "label": "Get in Touch",
+      "size": "large",
+      "style": "white-bg-primary-text"
+    },
+    "cta_secondary": {
+      "href": "/downloads/catalog.pdf",
+      "label": "Download Catalog",
+      "size": "large",
+      "style": "transparent-white-border"
+    },
     "title": "Ready to elevate your diagnostic capabilities?",
     "title_style": "white-large-tracking-tight",
     "description": "Join Pakistan's leading service centers using Autodiagnostix professional equipment. Authorized dealer of LAUNCH, SMARTSAFE, UNITE, and industry-leading brands.",
-    "description_style": "white-secondary-text",
-    "buttons": {
-      "layout": "flex-center",
-      "gap": "16px",
-      "responsive": "stack-mobile"
-    },
-    "cta_primary": {
-      "label": "Get in Touch",
-      "href": "#contact",
-      "style": "white-bg-primary-text",
-      "size": "large"
-    },
-    "cta_secondary": {
-      "label": "Download Catalog",
-      "href": "/downloads/catalog.pdf",
-      "style": "transparent-white-border",
-      "size": "large"
-    }
+    "description_style": "white-secondary-text"
   },
   "footer": {
     "section_id": "footer",
