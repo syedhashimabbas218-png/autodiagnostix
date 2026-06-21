@@ -8,15 +8,37 @@ import { breadcrumbListSchema, brandSchema } from '../../utils/schema';
 export const prerender = false;
 
 const { id } = Astro.params;
-let brand = null;
+let brand: any = null;
 let brandList: Awaited<ReturnType<typeof getBrands>> = [];
 let brandProducts: any[] = [];
+
+// Try to find the brand by both the URL slug and any legacy slug
+// (e.g. "gtitools" for "GTI.tools"). The new Strapi brands use
+// proper slugs (gti-tools), but getBrands() in strapi.ts still derives
+// the old product-based slug. Match both.
+function findBrand(list: Awaited<ReturnType<typeof getBrands>>, key: string) {
+  const normalized = key.toLowerCase();
+  return (
+    list.find(b => b.slug === key) ||
+    list.find(b => b.slug === normalized) ||
+    list.find(b => b.name.toLowerCase().replace(/[^a-z0-9]+/g, '') === normalized.replace(/[^a-z0-9]+/g, '')) ||
+    list.find(b => b.name.toLowerCase() === normalized)
+  );
+}
+
 try {
   brandList = await getBrands();
-  brand = brandList.find(b => b.slug === id) || null;
+  brand = findBrand(brandList, id || '');
   if (brand) {
     const all = sortByAvailability(await getProducts());
-    brandProducts = all.filter(p => p.brands.some(b => b.toLowerCase() === brand.name.toLowerCase()));
+    // Match by any of the brand's name forms
+    const brandName = brand.name.toLowerCase();
+    const brandKey = brand.slug.toLowerCase().replace(/-/g, '');
+    brandProducts = all.filter(p => p.brands.some(b => {
+      const bn = b.toLowerCase();
+      const bk = bn.replace(/[^a-z0-9]+/g, '');
+      return bn === brandName || bk === brandKey;
+    }));
   }
 } catch { /* CMS offline */ }
 
@@ -25,15 +47,15 @@ if (!brand) return Astro.redirect('/404');
 const breadcrumbs = [
   { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
   { name: 'Brands', url: 'https://autodiagnostix.com.pk/brands' },
-  { name: brand.name, url: `https://autodiagnostix.com.pk/brand/${id}` },
+  { name: brand.name, url: `https://autodiagnostix.com.pk/brand/${brand.slug}` },
 ];
 ---
 
 <BaseLayout
   title={`${brand.name} Products | Autodiagnostix`}
   description={`Browse ${brandProducts.length} ${brand.name} products at Autodiagnostix. Pakistan's authorized ${brand.name} dealer for diagnostic and workshop equipment.`}
-  canonical={`https://autodiagnostix.com.pk/brand/${id}`}
-  jsonLd={[breadcrumbListSchema(breadcrumbs), brandSchema({ name: brand.name, url: `https://autodiagnostix.com.pk/brand/${id}`, description: brand.description, image: brand.image })]}
+  canonical={`https://autodiagnostix.com.pk/brand/${brand.slug}`}
+  jsonLd={[breadcrumbListSchema(breadcrumbs), brandSchema({ name: brand.name, url: `https://autodiagnostix.com.pk/brand/${brand.slug}`, description: brand.description, image: brand.image })]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 

@@ -215,64 +215,38 @@
       ]
     }
   },
-  "immersive_categories": {
-    "section_id": "immersive-categories",
-    "background": "surface",
-    "layout": "stacked-fullwidth",
-    "spacing": "32px",
+    "immersive_categories": {
+    "layout": "full-width-cards",
+    "alignment": "center",
+    "cards": "1-per-row",
     "sections": [
       {
-        "id": "diagnostic-intelligence",
-        "height": "600px",
-        "layout": "content-left",
-        "content_position": "left",
-        "content_offset": "64px",
-        "background": {
-          "image": "/images/diagnostics-intelligence.png",
-          "overlay": "dark",
-          "overlay_opacity": 0.4
-        },
         "title": "Diagnostic Intelligence.",
         "description": "Complete OBD-II ecosystem featuring LAUNCH and SMARTSAFE diagnostic tools. From basic code readers to advanced professional scanners with bi-directional control.",
+        "background": {
+          "image": "/images/diagnostics-intelligence.png",
+          "alt": "Diagnostic intelligence"
+        },
+        "layout": "content-left",
         "cta": {
           "label": "Explore Systems",
-          "href": "#scanners",
+          "href": "/category/scanners",
           "style": "white-bg-dark-text"
-        },
-        "content_card": {
-          "bg": "white/10",
-          "backdrop_blur": "md",
-          "border": "white/20",
-          "padding": "64px",
-          "max_width": "576px"
-        },
-        "highlights": []
+        }
       },
       {
-        "id": "maintenance-optimized",
-        "height": "600px",
-        "layout": "content-right",
-        "content_position": "right",
-        "content_offset": "64px",
-        "background": {
-          "image": "/images/adas-pro.png",
-          "overlay": "light",
-          "overlay_opacity": 0.3
-        },
         "title": "Maintenance Optimized.",
         "description": "Beyond diagnostics. Equip your facility with high-performance ADAS calibration systems, injector cleaners, videoscopes, and precision service equipment.",
+        "background": {
+          "image": "/images/adas-pro.png",
+          "alt": "Maintenance"
+        },
+        "layout": "content-right",
         "cta": {
           "label": "View Catalog",
-          "href": "#maintenance",
+          "href": "/products",
           "style": "primary-gradient"
-        },
-        "content_card": {
-          "bg": "zinc-950/80",
-          "backdrop_blur": "md",
-          "padding": "64px",
-          "max_width": "576px"
-        },
-        "highlights": []
+        }
       }
     ]
   },

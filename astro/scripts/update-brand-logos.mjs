@@ -12,7 +12,7 @@ const BRANDS = [
   { slug: 'smartsafe', name: 'Smartsafe', file: 'smartsafe.png' },
   { slug: 'unite', name: 'Unite', file: 'unite.png' },
   { slug: 'liberty-lifts', name: 'Liberty Lifts', file: 'liberty-lifts.png' },
-  { slug: 'gti-tools', name: 'GTI.tools', file: null },
+  { slug: 'gti-tools', name: 'GTI.tools', file: 'gti-tools.png' },
 ];
 
 async function login() {
