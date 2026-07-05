@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getProducts, sortByAvailability } from '../lib/strapi';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+
+export const prerender = false;
+
+const allProducts = sortByAvailability(await getProducts());
+const balancers = allProducts.filter(p => /balancer|lcd premium|wheel balanc/i.test(p.name + ' ' + p.brand));
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Wheel Balancers in Pakistan', url: 'https://autodiagnostix.com.pk/wheel-balancers-pakistan' },
+];
+
+const faqs = [
+  { question: 'Which wheel balancer is best in Pakistan?', answer: 'The GTI.tools LCD Premium fully automatic wheel balancer with sonar system is the most advanced wheel balancer in Pakistan. It auto-measures wheel width, diameter, and offset using sonar, eliminating manual data entry and dramatically reducing balancing time.' },
+  { question: 'What is the price of a wheel balancer in Pakistan?', answer: 'Wheel balancers in Pakistan range from PKR 250,000 for a basic digital model to PKR 1,200,000+ for a fully-automatic GTI.tools LCD Premium with sonar system. GTI.tools offers the best value in the premium segment.' },
+];
+---
+
+<BaseLayout
+  title="Buy Wheel Balancers in Pakistan | GTI.tools LCD"
+  description="Buy wheel balancers in Pakistan from Autodiagnostix. GTI.tools LCD Premium with sonar system. Prices PKR 250,000–1,200,000+. Authorized dealer. Delivery across Pakistan including Karachi, Lahore &amp; Islamabad."
+  canonical="https://autodiagnostix.com.pk/wheel-balancers-pakistan"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+      headline: 'Wheel Balancers in Pakistan: GTI.tools LCD Premium',
+      description: 'Autodiagnostix is Pakistan\'s authorized dealer for Wheel Balancers in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
+      url: 'https://autodiagnostix.com.pk/wheel-balancers-pakistan',
+      keywords: ['wheel balancers Pakistan', 'GTI.tools LCD Premium Pakistan', 'automatic wheel balancer Pakistan'],
+    }), speakableSchema('https://autodiagnostix.com.pk/wheel-balancers-pakistan', ['h1', '.geo-answer']),
+      definitionBlock(
+        'Wheel Balancers',
+        'Wheel balancers measure the weight distribution of a tyre-and-wheel assembly to identify and correct imbalance, eliminating vibration at speed. Automatic wheel balancers like the GTI.tools LCD Premium use sonar systems to automatically measure wheel width, diameter, and offset, eliminating manual data entry and reducing balancing time. Autodiagnostix supplies GTI.tools wheel balancers in Pakistan with delivery, installation, and after-sales support.',
+        'https://autodiagnostix.com.pk/wheel-balancers-pakistan'
+      ),
+    ]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-16">
+    <section class="bg-surface pt-20 pb-12 px-8 border-b border-outline-variant/10">
+      <div class="max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]">/</span>
+          <span class="text-primary font-bold">Wheel Balancers</span>
+        </nav>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
+          Wheel Balancers in Pakistan
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+          Authorized dealer for <strong>wheel balancers in Pakistan</strong>. We supply the GTI.tools <a href="/product/gti-lcd-premium" class="text-primary hover:underline">LCD Premium fully automatic wheel balancer with sonar system</a> , auto-measures wheel width, diameter, and offset for fast, accurate balancing. German-engineered precision for tyre shops across Pakistan.
+</section>
+
+    <section class="py-16 px-8 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">Wheel Balancer Models</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {balancers.length > 0 ? balancers.map(p => (
+            <a href={`/product/${p.id}`} class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col border border-zinc-100">
+              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center">
+                {p.heroImages[0] ? (
+                  <img src={p.heroImages[0]} alt={`${p.name} , wheel balancer in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" />
+                ) : (
+                  <div class="text-zinc-300">No image</div>
+                )}
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Wheel Balancer · {p.brand || 'GTI.tools'}</p>
+                <h3 class="font-headline text-lg font-bold tracking-tight mb-2 group-hover:text-primary transition-colors leading-snug">{p.name}</h3>
+                <p class="text-on-surface-variant text-xs leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
+                <span class="text-primary font-bold text-sm">View Specs →</span>
+              </div>
+            </a>
+          )) : (
+            <p class="text-on-surface-variant col-span-3">Browse <a href="/brand/gti-tools" class="text-primary underline">all GTI.tools products</a>.</p>
+          )}
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Why GTI.tools Wheel Balancers?</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant">
+          <p>The <strong>GTI.tools LCD Premium</strong> is a fully automatic <strong>wheel balancer</strong> with sonar-based measurement , eliminating manual entry of wheel width, diameter, and offset. The result is faster balancing, fewer operator errors, and happier customers.</p>
+          <p class="mt-4">Sonar-based measurement is the gold standard for high-volume tyre shops, dealerships, and 4x4 specialists. We supply and install GTI.tools wheel balancers across Pakistan with full training and after-sales support.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About Wheel Balancers in Pakistan</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200">
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    <script>
+      (() => {
+        const group = document.querySelector('[data-accordion]');
+        if (!group) return;
+        const details = group.querySelectorAll('details');
+        details.forEach(d => {
+          const s = d.querySelector('summary');
+          if (!s) return;
+          s.addEventListener('click', (e) => {
+            e.preventDefault();
+            details.forEach(el => { if (el !== d) el.open = false; });
+            d.open = !d.open;
+          });
+        });
+      })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
+    </section>
+
+    <section class="py-20 px-8 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-6">Get a Wheel Balancer Quote</h2>
+        <p class="mb-8 text-white/80">Tell us your shop volume , we'll recommend the right wheel balancer for your needs.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-zinc-100 transition-colors">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

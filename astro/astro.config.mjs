@@ -35,16 +35,43 @@ async function getCmsSitemapPages() {
       }
     }
 
-    urls.push(`${SITE}/products`, `${SITE}/brands`);
+    // Core pages
+    urls.push(
+      `${SITE}/products`, `${SITE}/brands`, `${SITE}/about`, `${SITE}/contact`,
+      // SEO pillar pages
+      `${SITE}/car-lifts-in-pakistan`,
+      `${SITE}/2-post-car-lifts-pakistan`,
+      `${SITE}/4-post-car-lifts-pakistan`,
+      `${SITE}/scissor-lifts-pakistan`,
+      `${SITE}/bulletproof-car-lifts-pakistan`,
+      `${SITE}/alignment-lifts-pakistan`,
+      `${SITE}/launch-lifts-pakistan`,
+      `${SITE}/launch-x431-pakistan`,
+      `${SITE}/launch-injector-machines-pakistan`,
+      `${SITE}/wheel-alignment-in-pakistan`,
+      `${SITE}/tyre-changers-pakistan`,
+      `${SITE}/wheel-balancers-pakistan`,
+      `${SITE}/adas-calibration-pakistan`,
+      `${SITE}/ev-diagnostics-pakistan`,
+      `${SITE}/battery-testers-pakistan`,
+      `${SITE}/videoscope-pakistan`,
+      `${SITE}/workshop-equipment-pakistan`,
+      `${SITE}/tyre-inflators-pakistan`,
+    );
     return [...new Set(urls)];
   } catch {
-    return [`${SITE}/products`, `${SITE}/brands`];
+    return [
+      `${SITE}/products`, `${SITE}/brands`, `${SITE}/about`, `${SITE}/contact`,
+      `${SITE}/car-lifts-in-pakistan`, `${SITE}/launch-x431-pakistan`,
+      `${SITE}/workshop-equipment-pakistan`,
+    ];
   }
 }
 
 export default defineConfig({
-  output: 'static',
+  output: 'server',
   site: SITE,
+  trailingSlash: 'never',
   server: {
     host: true,
   },
@@ -55,6 +82,7 @@ export default defineConfig({
     react(),
     sitemap({
       customPages: await getCmsSitemapPages(),
+      filter: (page) => !page.includes('/admin') && !page.includes('/api/'),
     }),
   ],
   vite: {

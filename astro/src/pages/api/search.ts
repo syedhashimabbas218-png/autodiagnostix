@@ -8,7 +8,7 @@ export const GET: APIRoute = async ({ url }) => {
   if (q.length < 2) {
     return new Response(JSON.stringify({ results: [] }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Robots-Tag': 'noindex' },
     });
   }
 
@@ -34,12 +34,12 @@ export const GET: APIRoute = async ({ url }) => {
 
     return new Response(JSON.stringify({ results }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Robots-Tag': 'noindex' },
     });
   } catch {
     return new Response(JSON.stringify({ results: [], error: 'Search unavailable' }), {
       status: 503,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Robots-Tag': 'noindex' },
     });
   }
 };

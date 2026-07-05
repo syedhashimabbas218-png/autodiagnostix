@@ -42,6 +42,13 @@ logs/
 *.tmp
 *.bak
 
+# Browser test screenshots and captures
+astro/mobile-*.jpg
+astro/mobile-*.txt
+astro/locations-page.jpg
+astro/products-after-filter.md
+astro/page-*.yml
+
 # Local source PDFs (kept locally only)
 astro/*.pdf
 "astro/PRODUCTS AND DESCRIPTIONS*.docx"

@@ -17,7 +17,6 @@ interface Props {
 
 const badgeColor: Record<string, string> = {
   NEW: 'bg-green-600',
-  DISCONTINUED: 'bg-red-600',
   TRENDING: 'bg-amber-500',
 };
 
@@ -34,8 +33,6 @@ export default function ProductGrid({ products = [] }: Props) {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeBrand, setActiveBrand] = useState('All');
   const [activeBadge, setActiveBadge] = useState('All');
-  const [sortOrder, setSortOrder] = useState('default');
-
   const brands = useMemo(() => {
     const s = new Set(products.map(p => p.brand || p.tier || '').filter(Boolean));
     return ['All', ...Array.from(s).sort()];
@@ -43,7 +40,7 @@ export default function ProductGrid({ products = [] }: Props) {
 
   const badges = useMemo(() => {
     const s = new Set(products.map(p => p.badge).filter(Boolean));
-    return ['All', ...Array.from(s)];
+    return ['All', ...Array.from(s).filter(b => b !== 'DISCONTINUED')];
   }, [products]);
 
   const filtered = useMemo(() => {
@@ -58,10 +55,8 @@ export default function ProductGrid({ products = [] }: Props) {
         (p.brand || '').toLowerCase().includes(q)
       );
     }
-    if (sortOrder === 'az') list = [...list].sort((a, b) => a.name.localeCompare(b.name));
-    if (sortOrder === 'za') list = [...list].sort((a, b) => b.name.localeCompare(a.name));
     return list;
-  }, [products, activeBrand, activeBadge, searchTerm, sortOrder]);
+  }, [products, activeBrand, activeBadge, searchTerm]);
 
   return (
     <div>
@@ -92,18 +87,7 @@ export default function ProductGrid({ products = [] }: Props) {
               ))}
             </>
           )}
-          <div className="ml-auto flex items-center gap-2 text-xs font-medium text-[#6b6f72]">
-            <span>Sort:</span>
-            <select
-              value={sortOrder}
-              onChange={e => setSortOrder(e.target.value)}
-              className="bg-transparent border-none focus:ring-0 text-[#1a1c1c] font-bold cursor-pointer outline-none"
-            >
-              <option value="default">Default</option>
-              <option value="az">A → Z</option>
-              <option value="za">Z → A</option>
-            </select>
-          </div>
+
         </div>
       </div>
       <div className="bg-[#ececed] py-14 px-8">
@@ -121,7 +105,7 @@ export default function ProductGrid({ products = [] }: Props) {
                 <Reveal key={product.id} delay={Math.min(idx * 0.08, 0.4)} direction="up" className="group bg-[#f9f9f9] rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-200 ease-out flex flex-col hover:-translate-y-1">
                   <a href={`/product/${product.id}`} className="flex flex-col flex-grow">
                     <div className="aspect-[4/3] bg-white p-6 flex items-center justify-center relative overflow-hidden">
-                      <img alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 ease-out mix-blend-multiply" src={product.image} referrerPolicy="no-referrer" />
+                      <img alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 ease-out mix-blend-multiply" src={product.image} referrerPolicy="no-referrer" width="800" height="600" />
                       {product.badge && (
                         <div className="absolute top-3 right-3 z-10">
                           <span className={`${badgeColor[product.badge] || 'bg-zinc-700'} text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm`}>{product.badge}</span>

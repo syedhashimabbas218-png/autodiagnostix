@@ -32,4 +32,8 @@ RUN chown -R astro:nodejs /app
 USER astro
 EXPOSE 4321
 
+# OPTIMIZATION NOTE: For production, deploy behind nginx or Caddy as a reverse proxy
+# to enable gzip/brotli compression, Cache-Control headers for static assets,
+# security headers (CSP, HSTS, X-Frame-Options), and HTTP/2.
+# See https://docs.astro.build/en/guides/deploy/ for deployment guides.
 CMD ["node", "dist/server/entry.mjs"]

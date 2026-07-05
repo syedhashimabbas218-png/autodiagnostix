@@ -1,0 +1,35 @@
+name: Deploy to Coolify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Trigger Coolify Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install & verify Strapi build
+        run: |
+          npm ci
+          NODE_ENV=production APP_KEYS=dummy,dummy,dummy,dummy npm run build
+        working-directory: strapi
+
+      - name: Install & verify Astro build
+        run: |
+          npm ci
+          STRAPI_URL=http://localhost:1337 SITE_URL=https://autodiagnostix.com.pk npx astro build
+        working-directory: astro
+
+      - name: Trigger Coolify deployment
+        run: |
+          curl -sSf "${{ secrets.COOLIFY_DEPLOY_WEBHOOK }}" > /dev/null
+          echo "Coolify deployment triggered successfully"

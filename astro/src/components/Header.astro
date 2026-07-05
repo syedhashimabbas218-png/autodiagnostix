@@ -24,24 +24,33 @@ const fallbackNav: { id: string; name: string }[] = [
   { id: 'ev-equipment', name: 'EV Equipment' },
 ];
 const headerNav = navCategories.length > 0 ? navCategories : fallbackNav;
+
+// SEO pillar links
+const seoLinks = [
+  { name: 'Wheel Alignment', href: '/wheel-alignment-in-pakistan' },
+  { name: 'ADAS', href: '/adas-calibration-pakistan' },
+];
 ---
 
-<nav id="site-header" class="fixed top-0 w-full z-50 h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20">
-  <div class="flex justify-between items-center w-full max-w-screen-2xl mx-auto px-8 h-16">
+<nav id="site-header" class="fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20">
+  <div class="flex justify-between items-center w-full max-w-screen-2xl mx-auto px-4 md:px-8 h-14 md:h-16">
     <div class="flex items-center h-full">
       <a href="/">
         <img id="header-logo" src="/logo-full.png" alt="Autodiagnostix" class="h-14 w-auto object-contain transition-all duration-300" />
       </a>
     </div>
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center gap-6">
       {headerNav.map(cat => (
         <a href={`/category/${cat.id}`} class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">{cat.name}</a>
+      ))}
+      {seoLinks.map(l => (
+        <a href={l.href} class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">{l.name}</a>
       ))}
       <a href="/about" class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">About</a>
     </div>
     <div class="flex items-center gap-3 md:gap-6">
       <SearchToggle client:load />
-      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-9 h-9 text-zinc-600 hover:text-primary transition-colors" aria-label="Toggle menu" type="button">
+      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-11 h-11 text-zinc-600 hover:text-primary transition-colors" aria-label="Toggle menu" type="button">
         <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="3" y1="6" x2="21" y2="6" />
           <line x1="3" y1="12" x2="21" y2="12" />
@@ -55,12 +64,17 @@ const headerNav = navCategories.length > 0 ? navCategories : fallbackNav;
       <a id="header-cta" href={ctaHref} class="primary-gradient text-white px-5 py-2 text-xs font-bold uppercase tracking-widest hover:scale-[0.98] transition-all cursor-pointer">{ctaLabel}</a>
     </div>
   </div>
-  <div id="mobile-menu" class="md:hidden hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-zinc-100 shadow-lg">
+  <div id="mobile-menu" class="md:hidden hidden absolute top-14 md:top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-zinc-100 shadow-lg">
     <div class="flex flex-col px-8 py-6 gap-1">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 pt-2 pb-1">Categories</span>
       {headerNav.map(cat => (
-        <a href={`/category/${cat.id}`} class="py-3 text-zinc-700 font-medium text-sm hover:text-primary transition-colors border-b border-zinc-50">{cat.name}</a>
+        <a href={`/category/${cat.id}`} class="py-3.5 text-zinc-700 font-medium text-sm hover:text-primary transition-colors border-b border-zinc-50 min-h-[44px] flex items-center">{cat.name}</a>
       ))}
-      <a href="/about" class="py-3 text-zinc-700 font-medium text-sm hover:text-primary transition-colors">About</a>
+      <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 pt-4 pb-1">Popular Searches</span>
+      {seoLinks.map(l => (
+        <a href={l.href} class="py-3.5 text-zinc-700 font-medium text-sm hover:text-primary transition-colors border-b border-zinc-50 min-h-[44px] flex items-center">{l.name}</a>
+      ))}
+      <a href="/about" class="py-3.5 text-zinc-700 font-medium text-sm hover:text-primary transition-colors min-h-[44px] flex items-center">About</a>
     </div>
   </div>
 </nav>
@@ -92,13 +106,13 @@ const headerNav = navCategories.length > 0 ? navCategories : fallbackNav;
   function updateHeader() {
     const scrolled = window.scrollY > 10;
     if (transparentOnScroll && !scrolled) {
-      header.className = 'fixed top-0 w-full z-50 h-16 flex items-center transition-all duration-300 bg-transparent border-b border-white/10';
+      header.className = 'fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-transparent border-b border-white/10';
       logo.className = 'h-14 w-auto object-contain brightness-0 invert transition-all duration-300';
       navLinks.forEach(a => {
         a.className = 'text-white/80 font-medium hover:text-white transition-colors text-sm tracking-tight';
       });
     } else {
-      header.className = 'fixed top-0 w-full z-50 h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20';
+      header.className = 'fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20';
       logo.className = 'h-14 w-auto object-contain transition-all duration-300';
       navLinks.forEach(a => {
         a.className = 'text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight';

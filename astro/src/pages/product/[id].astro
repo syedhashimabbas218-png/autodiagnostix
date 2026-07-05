@@ -32,8 +32,8 @@ const breadcrumbs = [
 ---
 
 <BaseLayout
-  title={product.name}
-  description={product.summary || product.description?.substring(0, 160) || ''}
+  title={`${product.name} in Pakistan`}
+  description={product.summary || product.description?.substring(0, 160) || `${product.name} , buy in Pakistan from Autodiagnostix. Authorized dealer for ${product.brand || 'premium brands'}.`}
   canonical={`https://autodiagnostix.com.pk/product/${id}`}
   ogType="product"
   ogImage={product.heroImages?.[0] || undefined}
@@ -62,7 +62,7 @@ const breadcrumbs = [
 
       {product.heroImages.length > 0 && (
         <div class="w-full max-w-5xl aspect-video bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5">
-          <img class="w-full h-full object-contain p-8 mix-blend-multiply" src={product.heroImages[0]} alt={product.name} />
+          <img class="w-full h-full object-contain p-8 mix-blend-multiply" src={product.heroImages[0]} alt={product.name} width="800" height="600" />
         </div>
       )}
     </section>

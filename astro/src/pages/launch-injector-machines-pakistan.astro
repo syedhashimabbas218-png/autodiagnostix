@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+
+export const prerender = false;
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Launch Injector Machines in Pakistan', url: 'https://autodiagnostix.com.pk/launch-injector-machines-pakistan' },
+];
+
+const faqs = [
+  { question: 'Do you sell Launch injector machines in Pakistan?', answer: 'Yes , Autodiagnostix is the authorized Launch dealer in Pakistan. We supply Launch injector cleaning and testing machines for diesel and petrol injectors, including common-rail injectors used in modern Pakistani vehicles.' },
+  { question: 'What injector machines are used in Pakistan?', answer: 'Pakistani workshops typically use Launch injector cleaning machines (ultrasonic and mechanical) and Launch injector testing machines for common-rail and traditional injectors. Launch offers both standalone injector cleaners and integrated cleaning+testing units.' },
+];
+---
+
+<BaseLayout
+  title="Buy Launch Injector Machines Pakistan | Authorized Dealer"
+  description="Buy Launch injector machines in Pakistan from Autodiagnostix. Injector cleaners &amp; testers for diesel &amp; petrol, common-rail. Authorized dealer. Delivery &amp; training across Pakistan including Karachi, Lahore &amp; Islamabad."
+  canonical="https://autodiagnostix.com.pk/launch-injector-machines-pakistan"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+      headline: 'Launch Injector Machines in Pakistan',
+      description: 'Autodiagnostix is Pakistan\'s authorized dealer for Launch Injector Machines in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
+      url: 'https://autodiagnostix.com.pk/launch-injector-machines-pakistan',
+      keywords: ['Launch injector machine Pakistan', 'injector cleaner Pakistan', 'common rail injector tester Pakistan'],
+    }), speakableSchema('https://autodiagnostix.com.pk/launch-injector-machines-pakistan', ['h1', '.geo-answer']),
+      definitionBlock(
+        'Launch Injector Machines',
+        'Launch injector machines are ultrasonic and mechanical injector cleaning and testing equipment for diesel and petrol fuel injectors, including common-rail injectors used in modern vehicles. Supplied in Pakistan for workshops servicing all vehicle types.',
+        'https://autodiagnostix.com.pk/launch-injector-machines-pakistan'
+      ),
+    ]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-16">
+    <section class="bg-surface pt-20 pb-12 px-8 border-b border-outline-variant/10">
+      <div class="max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]">/</span>
+          <span class="text-primary font-bold">Launch Injector Machines</span>
+        </nav>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
+          Launch Injector Machines in Pakistan
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+          Authorized dealer for <strong>Launch injector machines in Pakistan</strong>. We supply Launch injector cleaners and testers for diesel and petrol injectors , including common-rail injectors used in modern Pakistani vehicles. With delivery, training and after-sales support across Pakistan.
+</section>
+
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Injector Service for Pakistani Workshops</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant">
+          <p>Modern direct-injection engines , both diesel common-rail and petrol direct-injection , require periodic injector cleaning and flow testing. A <strong>Launch injector machine</strong> cleans injectors ultrasonically and tests them under simulated engine load, returning flow-rate and spray-pattern reports.</p>
+          <p class="mt-4">As Pakistan's authorized Launch dealer, we supply the full Launch injector range. Contact us for current models, pricing, and workshop training options.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About Launch Injector Machines in Pakistan</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200">
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    <script>
+      (() => {
+        const group = document.querySelector('[data-accordion]');
+        if (!group) return;
+        const details = group.querySelectorAll('details');
+        details.forEach(d => {
+          const s = d.querySelector('summary');
+          if (!s) return;
+          s.addEventListener('click', (e) => {
+            e.preventDefault();
+            details.forEach(el => { if (el !== d) el.open = false; });
+            d.open = !d.open;
+          });
+        });
+      })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
+    </section>
+
+    <section class="py-20 px-8 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-6">Get an Injector Machine Quote</h2>
+        <p class="mb-8 text-white/80">Tell us your workshop's injector service volume , we'll recommend the right Launch injector machine.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-zinc-100 transition-colors">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

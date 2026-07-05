@@ -7,7 +7,34 @@ import CategoryNav from '../components/CategoryNav';
 import NewArrivals from '../components/NewArrivals';
 import InteractiveLifts from '../components/InteractiveLifts';
 import ClientsSection from '../components/ClientsSection.astro';
-import { organizationSchema, websiteSchema } from '../utils/schema';
+import { organizationSchema, websiteSchema, localBusinessSchema, faqSchema, speakableSchema, definitionBlock, articleSchema } from '../utils/schema';
+
+const faqs = [
+  {
+    question: 'Where can I buy Launch X431 in Pakistan?',
+    answer: 'Autodiagnostix is Pakistan\'s authorized dealer for Launch diagnostic tools, including the X431 PRO3 LINK, X431 PAD 9 LINK, X431 ADAS PRO PLUS, X431 CNC 605A, and the HD III heavy-duty module. We supply authentic products with warranty and after-sales support across Pakistan.',
+  },
+  {
+    question: 'Do you supply car lifts and workshop equipment across Pakistan?',
+    answer: 'Yes. We supply 2-post lifts, 4-post lifts, scissor lifts, wheel alignment lifts, and bulletproof vehicle lifts from Liberty Lifts and UNITE. We deliver to every city in Pakistan and provide installation guidelines with every order.',
+  },
+  {
+    question: 'Do you offer ADAS calibration equipment in Pakistan?',
+    answer: 'Yes. We supply the LAUNCH X-431 ADAS PRO PLUS and ADAS calibration tools from LAUNCH, with training and after-sales support. ADAS calibration is essential for workshops servicing modern vehicles with advanced driver-assistance systems.',
+  },
+  {
+    question: 'What brands of wheel service equipment do you sell?',
+    answer: 'We are the authorized dealer for GTI.tools in Pakistan, supplying precision tyre changers (G-Extreme, POWER X, RFT PRO) and automatic wheel balancers (LCD Premium with sonar). We also supply Launch 3D wheel aligners (WA613, X861 LITE, X861 PRO, U-VA2023) and Launch nitrogen tyre inflators.',
+  },
+  {
+    question: 'Do you sell EV diagnostic equipment in Pakistan?',
+    answer: 'Yes. We supply the LAUNCH EV Diagnosis Add-on Kit and the Launch EVM324 Battery Equalizer for EV service centers, plus UNITE EV workshop equipment.',
+  },
+  {
+    question: 'What is the difference between Launch, Smartsafe, Unite, and AUTOOL?',
+    answer: 'LAUNCH is the world\'s leading diagnostic brand for OBD2 scanners, ADAS, and EV tools. SMARTSAFE focuses on professional diagnostic and inspection tools. UNITE supplies workshop and tyre-service equipment like nitrogen inflators and lifts. AUTOOL specialises in affordable professional diagnostic and service tools. As Pakistan\'s authorized multi-brand dealer, we recommend the right tool for your workshop.',
+  },
+];
 
 export const prerender = true;
 
@@ -78,26 +105,62 @@ const mergedBrands = ORDER
   .filter((b): b is { slug: string; name: string } => Boolean(b));
 
 const allProducts = sortByAvailability(await getProducts());
-const products = allProducts.slice(0, 3).map(p => ({
-  id: p.id,
-  name: p.name,
-  summary: p.summary || '',
-  description: p.description || '',
-  heroImages: p.heroImages,
-}));
+const NEW_ARRIVAL_IDS = ['919-max', 'wa613-wireless-3d-wheel-aligner', 'launch-evm324'];
+const products = allProducts
+  .filter(p => NEW_ARRIVAL_IDS.includes(p.id))
+  .sort((a, b) => NEW_ARRIVAL_IDS.indexOf(a.id) - NEW_ARRIVAL_IDS.indexOf(b.id))
+  .map(p => ({
+    id: p.id,
+    name: p.name,
+    summary: p.summary || '',
+    description: p.description || '',
+    heroImages: p.heroImages,
+  }));
 ---
 
 <BaseLayout
-  title={pageTitle || "Professional Automotive Diagnostics"}
-  description={pageDesc || "Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE automotive diagnostic equipment."}
+  title={pageTitle || "Autodiagnostix"}
+  description={pageDesc || "Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts & AUTOOL. Buy car lifts, wheel aligners, ADAS calibration tools, EV diagnostics, tyre changers, wheel balancers, and videoscopes. Delivery across Pakistan."}
   canonical="https://autodiagnostix.com.pk"
-  jsonLd={[organizationSchema, websiteSchema]}
+  ogType="website"
+  jsonLd={[
+    organizationSchema,
+    websiteSchema,
+    localBusinessSchema(),
+    faqSchema(faqs),
+    speakableSchema('https://autodiagnostix.com.pk/', ['h1', '.geo-answer', 'summary']),
+    definitionBlock(
+      'Autodiagnostix',
+      "Autodiagnostix is Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts, and AUTOOL automotive diagnostic and workshop equipment, headquartered in Sahiwal, Punjab, and delivering across Pakistan.",
+      'https://autodiagnostix.com.pk/about'
+    ),
+    articleSchema({
+      headline: 'Autodiagnostix: Pakistan\'s Authorized Dealer for LAUNCH, Smartsafe, UNITE, GTI.tools, Liberty Lifts & AUTOOL',
+      description: 'Pakistan\'s authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts and AUTOOL. Car lifts, 3D wheel aligners, ADAS, EV diagnostics, tyre changers, wheel balancers, battery testers, videoscopes.',
+      url: 'https://autodiagnostix.com.pk/',
+      keywords: ['Launch X431 Pakistan', 'car lifts Pakistan', '3D wheel alignment Pakistan', 'ADAS calibration Pakistan', 'EV diagnostics Pakistan', 'GTI.tools Pakistan', 'Liberty Lifts Pakistan', 'workshop equipment Pakistan'],
+    }),
+  ]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" transparentOnScroll={true} />
 
   <main>
     <!-- HERO -->
     <HeroSlideshow client:load slides={hero.hero_slides} interval={heroData.slider_config.interval} />
+
+    <!-- SEO HEADLINE BLOCK -->
+    <section class="bg-white pt-20 pb-10 px-4 md:px-8 border-b border-zinc-100">
+      <div class="max-w-screen-2xl mx-auto">
+        <h1 class="text-fluid-4 font-headline font-extrabold tracking-tighter text-on-surface max-w-5xl leading-[1.1] mb-6">
+          Pakistan's Authorized Dealer for <span class="text-primary">Launch, Smartsafe, Unite, GTI.tools, Liberty Lifts &amp; AUTOOL</span>
+        </h1>
+        <p class="geo-quotable text-on-surface-variant text-fluid-2 max-w-4xl leading-relaxed">
+          Autodiagnostix supplies professional automotive diagnostic scanners, <strong>car lifts</strong>, <strong>2-post &amp; 4-post lifts</strong>, <strong>scissor lifts</strong>, <strong>3D wheel alignment</strong>, <strong>tyre changers</strong>, <strong>wheel balancers</strong>, <strong>ADAS calibration</strong>, <strong>EV diagnostics</strong>, <strong>battery testers</strong> and <strong>videoscopes</strong> to workshops, dealerships and service centers across Pakistan. With delivery and installation guidelines available for every city.
+        </p>
+
+
+      </div>
+    </section>
 
     <!-- CATEGORY NAV -->
     <CategoryNav client:load categories={categories} />
@@ -183,9 +246,9 @@ const products = allProducts.slice(0, 3).map(p => ({
         {(home.immersive_categories?.sections || []).map(section => {
           const isRight = section.layout === 'content-right';
           return (
-            <div class={`relative h-[500px] md:h-[600px] bg-zinc-100 overflow-hidden flex items-center ${isRight ? 'md:justify-end' : ''}`}>
+            <div class={`relative min-h-[320px] md:min-h-[500px] bg-zinc-100 overflow-hidden flex items-center ${isRight ? 'md:justify-end' : ''}`}>
               <div class="absolute inset-0">
-                <img src={section.background?.image || ''} alt={section.background?.alt || section.title} class="w-full h-full object-cover object-center" loading="lazy" referrerpolicy="no-referrer" />
+                <img src={section.background?.image || ''} alt={section.background?.alt || section.title} class="w-full h-full object-cover object-center" loading="lazy" referrerpolicy="no-referrer" width="800" height="600" />
               </div>
               <div class={`relative z-10 p-6 md:p-16 max-w-xl ${isRight ? 'bg-zinc-950/80 backdrop-blur-md md:mr-16' : 'bg-white/10 backdrop-blur-md border border-white/20 md:ml-16'}`}>
                 <h2 class="text-2xl md:text-4xl font-headline font-extrabold text-white mb-4 md:mb-6">{section.title}</h2>
@@ -215,7 +278,7 @@ const products = allProducts.slice(0, 3).map(p => ({
           {(home.professional_equipment?.categories || []).map((cat, idx) => (
             <div onclick="window.location.href='/products'" class="group cursor-pointer hover:-translate-y-1 hover:scale-[1.02] transition-all duration-200 ease-out">
               <div class="aspect-video bg-surface-container-low mb-6 overflow-hidden">
-                <img src={cat.image} alt={cat.name} class="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-110" loading="lazy" referrerpolicy="no-referrer" />
+                <img src={cat.image} alt={cat.name} class="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-110" loading="lazy" referrerpolicy="no-referrer" width="800" height="600" />
               </div>
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-[10px] font-bold uppercase text-primary tracking-widest">{cat.tagline}</span>
@@ -240,7 +303,7 @@ const products = allProducts.slice(0, 3).map(p => ({
                 <a href={`/product/${p.id}`} class="group relative bg-surface-container-low overflow-hidden hover:shadow-[0_0_0_1px_rgba(151,0,13,0.15)] transition-all duration-200 ease-out">
                   <div class="aspect-[4/3] bg-white flex items-center justify-center overflow-hidden">
                     {p.heroImages && p.heroImages[0] ? (
-                      <img src={p.heroImages[0]} alt={p.name} class="w-full h-full object-contain p-6 transition-transform duration-200 ease-out group-hover:scale-105" loading="lazy" referrerpolicy="no-referrer" />
+                      <img src={p.heroImages[0]} alt={p.name} class="w-full h-full object-contain p-6 transition-transform duration-200 ease-out group-hover:scale-105" loading="lazy" referrerpolicy="no-referrer" width="800" height="600" />
                     ) : (
                       <div class="text-zinc-300 text-4xl">📦</div>
                     )}
@@ -270,6 +333,105 @@ const products = allProducts.slice(0, 3).map(p => ({
       tagline={home.interactive_lifts?.content_section?.tagline || 'Product Focus'}
       liftTypes={home.interactive_lifts?.content_section?.lift_types || []}
     />
+
+    <!-- SEO PRODUCT CLUSTERS (keyword-dense internal links) -->
+    <section class="py-24 px-8 bg-surface-container-low">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="flex items-center gap-4 mb-12">
+          <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">Explore Our Range</span>
+          <div class="h-px flex-1 bg-black/[0.08]"></div>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-10 text-on-surface">Professional Workshop Equipment &amp; Diagnostic Tools in Pakistan</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="/car-lifts-in-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Car Lifts in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">2-post, 4-post and scissor car lifts from Liberty Lifts and UNITE. Heavy-duty and bulletproof vehicle lifts.</p>
+          </a>
+          <a href="/wheel-alignment-in-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">3D Wheel Alignment in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Launch X861 PRO, X861 LITE, U-VA2023 wireless 3D wheel aligners for modern workshops.</p>
+          </a>
+          <a href="/tyre-changers-in-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Tyre Changers in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">GTI.tools G-Extreme, POWER X and RFT PRO tyre changers with low-profile and run-flat capability.</p>
+          </a>
+          <a href="/wheel-balancers-in-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Wheel Balancers in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">GTI.tools LCD Premium automatic wheel balancer with sonar system, plus Launch balancers.</p>
+          </a>
+          <a href="/launch-x431-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Launch X431 in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Authorized dealer for Launch X431 PRO3 LINK, PAD 9 LINK, CNC 605A, ADAS PRO PLUS, EV toolkit & more.</p>
+          </a>
+          <a href="/adas-calibration-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">ADAS Calibration in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Launch X-431 ADAS PRO PLUS , dealer-level ADAS calibration for camera, radar and lidar.</p>
+          </a>
+          <a href="/ev-diagnostics-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">EV Car Diagnostics in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Launch EV Diagnosis Add-on Kit, EVM324 battery equalizer , purpose-built for EV service centers.</p>
+          </a>
+          <a href="/battery-testers-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Battery Testers in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">BST-560 / BST-860 professional battery testers from Smartsafe. Plus plug testers, SPT360 spark plug tester.</p>
+          </a>
+          <a href="/videoscope-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Videoscopes in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">VSP-600 and VSP-800 industrial videoscopes for engine, transmission and component inspection.</p>
+          </a>
+          <a href="/workshop-equipment-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Workshop Equipment in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Complete workshop setup: lifts, aligners, balancers, nitrogen inflators, AC service, jacks, stands.</p>
+          </a>
+          <a href="/launch-injector-machines-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Launch Injector Machines in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">Professional injector cleaning and testing equipment for diesel and petrol systems.</p>
+          </a>
+          <a href="/tyre-inflators-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+            <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Nitrogen Tyre Inflators in Pakistan</h3>
+            <p class="text-sm text-zinc-500 leading-relaxed">UNITE HP-2690A/4EN and HJ 937 wall-mounted nitrogen tyre inflators.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ BLOCK (visible + JSON-LD) -->
+    <section class="py-24 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-4 mb-12">
+          <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">Frequently Asked Questions</span>
+          <div class="h-px flex-1 bg-black/[0.08]"></div>
+        </div>
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10 text-on-surface">Common Questions About Autodiagnostix</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200" open={i === 0}>
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+      <script>
+        (() => {
+          const group = document.querySelector('[data-accordion]');
+          if (!group) return;
+          const details = group.querySelectorAll('details');
+          details.forEach(d => {
+            const s = d.querySelector('summary');
+            if (!s) return;
+            s.addEventListener('click', (e) => {
+              e.preventDefault();
+              details.forEach(el => { if (el !== d) el.open = false; });
+              d.open = !d.open;
+            });
+          });
+        })();
+      </script>
+    </section>
 
     <!-- CTA -->
     <section id="cta-banner" class="py-24 bg-primary overflow-hidden relative">

@@ -1,6 +1,20 @@
 # Coolify Deployment Guide
 
-This repo is configured to deploy on Coolify using the root `docker-compose.yml`.
+This repo deploys on Coolify via GitHub Actions.
+
+## CI/CD Pipeline
+
+On every push to `main`:
+1. **GitHub Actions** (`deploy.yml`) installs dependencies and verifies both services build
+2. **Coolify webhook** is triggered to redeploy the Docker Compose stack
+
+### Prerequisites
+
+Add this secret to your GitHub repo → **Settings → Secrets and variables → Actions**:
+
+| Secret | Value |
+|--------|-------|
+| `COOLIFY_DEPLOY_WEBHOOK` | Full webhook URL from Coolify resource → **Webhooks** tab |
 
 ## Recommended Coolify Setup (Single Docker Compose Resource)
 
@@ -8,8 +22,8 @@ This repo is configured to deploy on Coolify using the root `docker-compose.yml`
 
 - Go to your Coolify dashboard
 - Click **+ New Resource** → **Docker Compose**
-- **Source**: GitHub → `syedhashimabbas218-png/autodiagnostix-site`
-- **Branch**: `migrate/astro`
+- **Source**: GitHub → `syedhashimabbas218-png/autodiagnostix`
+- **Branch**: `main`
 - **Docker Compose Location**: `docker-compose.yml` (root)
 - **Name**: `autodiagnostix-prod`
 
@@ -43,8 +57,6 @@ In Coolify, configure two domain mappings:
 | astro | `autodiagnostix.com`, `www.autodiagnostix.com` | 4321 |
 | strapi | `strapi.autodiagnostix.com` | 1337 |
 
-(Or use Coolify's automatic Traefik labels — see below.)
-
 ### 4. Persistent storage
 
 Coolify automatically persists Docker named volumes:
@@ -55,7 +67,8 @@ Make sure these are set to **persistent** in the resource settings.
 
 ### 5. First deploy
 
-Click **Deploy**. Watch the logs:
+Push to `main` → GitHub Actions verifies both builds → triggers Coolify webhook.
+Or click **Deploy** manually in Coolify. Watch the logs:
 
 1. `postgres` becomes healthy first
 2. `strapi` builds (~2-3 min first time) and starts on port 1337
@@ -76,8 +89,6 @@ For production, update `strapi/config/middlewares.ts` to allow only your Astro d
 }
 ```
 
-(Already configured for local dev with `http://localhost:4321`.)
-
 ## Health checks
 
 - Frontend: `https://autodiagnostix.com/`
@@ -86,9 +97,9 @@ For production, update `strapi/config/middlewares.ts` to allow only your Astro d
 
 ## Updating
 
-1. Push changes to `migrate/astro` branch on GitHub
-2. In Coolify, click **Redeploy** on the resource
-3. Coolify pulls the latest code and rebuilds the affected services
+1. Push to `main` on GitHub
+2. GitHub Actions runs build verification + triggers Coolify webhook
+3. Coolify pulls the latest code and rebuilds
 
 ## Troubleshooting
 

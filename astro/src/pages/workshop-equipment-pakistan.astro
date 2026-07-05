@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+
+export const prerender = false;
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Workshop Equipment in Pakistan', url: 'https://autodiagnostix.com.pk/workshop-equipment-pakistan' },
+];
+
+const faqs = [
+  { question: 'What is the best workshop equipment package for a new garage in Pakistan?', answer: 'A complete workshop equipment package for a new garage in Pakistan typically includes: 2-post or 4-post car lift, 3D wheel aligner, wheel balancer, tyre changer, battery tester, diagnostic scanner (Launch X431 PRO3 or PAD 9), AC service station, floor jack, jack stands, and videoscope. Autodiagnostix can supply and install complete turnkey packages.' },
+  { question: 'Do you supply complete workshop setup packages in Pakistan?', answer: 'Yes , we supply turnkey workshop equipment packages tailored to your budget, floor plan, and service mix. We deliver, install, and provide on-site training across Pakistan , including car lifts, alignment, tyre service, diagnostics, and battery tools.' },
+  { question: 'Which brands of workshop equipment do you supply in Pakistan?', answer: 'We are Pakistan\'s authorized dealer for LAUNCH (diagnostics, ADAS, EV), SMARTSAFE (battery tools, videoscopes), UNITE (lifts, inflators, wheel alignment), Liberty Lifts (heavy-duty lifts), GTI.tools (German tyre changers and wheel balancers), and AUTOOL (specialty tools).' },
+];
+---
+
+<BaseLayout
+  title="Buy Workshop Equipment Pakistan | Complete Turnkey Setup"
+  description="Buy workshop equipment in Pakistan from Autodiagnostix. Turnkey packages: car lifts, 3D aligners, tyre changers, balancers, diagnostics, ADAS, EV tools. Authorized Launch, Smartsafe, UNITE, GTI.tools dealer. Delivery &amp; installation nationwide."
+  canonical="https://autodiagnostix.com.pk/workshop-equipment-pakistan"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+      headline: 'Workshop Equipment in Pakistan: Turnkey Setup',
+      description: 'Autodiagnostix is Pakistan\'s authorized dealer for Workshop Equipment in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
+      url: 'https://autodiagnostix.com.pk/workshop-equipment-pakistan',
+      keywords: ['workshop equipment Pakistan', 'turnkey workshop setup Pakistan', 'complete garage equipment Pakistan'],
+    }), speakableSchema('https://autodiagnostix.com.pk/workshop-equipment-pakistan', ['h1', '.geo-answer']),
+      definitionBlock(
+        'Workshop Equipment',
+        'Workshop equipment covers the full range of tools and machinery needed to operate an automotive service center, including car lifts (2-post, 4-post, scissor, alignment), 3D wheel aligners, tyre changers, wheel balancers, diagnostic scanners, ADAS calibration systems, battery testers, EV diagnostic tools, nitrogen tyre inflators, videoscopes, jacks and stands. Autodiagnostix supplies turnkey workshop packages in Pakistan as the authorized dealer for LAUNCH, SMARTSAFE, UNITE, Liberty Lifts, GTI.tools, and AUTOOL.',
+        'https://autodiagnostix.com.pk/workshop-equipment-pakistan'
+      ),
+    ]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-16">
+    <section class="bg-surface pt-20 pb-12 px-8 border-b border-outline-variant/10">
+      <div class="max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]">/</span>
+          <span class="text-primary font-bold">Workshop Equipment</span>
+        </nav>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
+          Workshop Equipment in Pakistan
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+          Complete <strong>workshop equipment in Pakistan</strong> from Autodiagnostix. Turnkey setup for new garages, service centers, and dealerships , including <a href="/car-lifts-in-pakistan" class="text-primary hover:underline">car lifts</a>, <a href="/wheel-alignment-in-pakistan" class="text-primary hover:underline">3D wheel alignment</a>, <a href="/tyre-changers-pakistan" class="text-primary hover:underline">tyre changers</a>, <a href="/wheel-balancers-pakistan" class="text-primary hover:underline">wheel balancers</a>, <a href="/launch-x431-pakistan" class="text-primary hover:underline">Launch X431 diagnostic scanners</a>, <a href="/adas-calibration-pakistan" class="text-primary hover:underline">ADAS</a>, <a href="/battery-testers-pakistan" class="text-primary hover:underline">battery testers</a>, and <a href="/videoscope-pakistan" class="text-primary hover:underline">videoscopes</a>. Authorized dealer for LAUNCH, SMARTSAFE, UNITE, Liberty Lifts, GTI.tools, and AUTOOL.
+</section>
+
+    <section class="py-16 px-8 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">Equipment Categories</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { name: 'Car Lifts', href: '/car-lifts-in-pakistan', desc: '2-post, 4-post, scissor & bulletproof lifts from Liberty Lifts and UNITE.' },
+            { name: 'Wheel Alignment', href: '/wheel-alignment-in-pakistan', desc: 'Launch X861 PRO, X861 LITE, WA613, UNITE U-VA2023 3D aligners.' },
+            { name: 'Tyre Changers', href: '/tyre-changers-pakistan', desc: 'GTI.tools G-Extreme, POWER X, RFT PRO German-engineered tyre changers.' },
+            { name: 'Wheel Balancers', href: '/wheel-balancers-pakistan', desc: 'GTI.tools LCD Premium with sonar system and other precision balancers.' },
+            { name: 'Launch X431 Diagnostics', href: '/launch-x431-pakistan', desc: 'X431 PRO3 LINK, PAD 9 LINK, CNC 605A, ADAS PRO PLUS, HD III.' },
+            { name: 'ADAS Calibration', href: '/adas-calibration-pakistan', desc: 'Launch X-431 ADAS PRO PLUS for camera, radar and lidar recalibration.' },
+            { name: 'EV Diagnostics', href: '/ev-diagnostics-pakistan', desc: 'Launch EV Diagnosis Add-on Kit, EVM324 battery equalizer.' },
+            { name: 'Battery Testers', href: '/battery-testers-pakistan', desc: 'Smartsafe BST-560 / BST-860, AUTOOL SPT360 plug tester.' },
+            { name: 'Videoscopes', href: '/videoscope-pakistan', desc: 'Launch VSP-600 HD and VSP-800 dual-lens car videoscopes.' },
+            { name: 'Nitrogen Tyre Inflators', href: '/tyre-inflators-pakistan', desc: 'UNITE HP-2690A/4EN and HJ 937 wall-mounted inflators.' },
+            { name: 'Launch Lifts & Jacks', href: '/launch-lifts-pakistan', desc: 'Launch TLT440W scissor jack, 3-ton and 6-ton jack stands.' },
+            { name: 'Launch Injector Machines', href: '/launch-injector-machines-pakistan', desc: 'Professional injector cleaning and testing equipment.' },
+          ].map(item => (
+            <a href={item.href} class="group bg-white p-6 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+              <h3 class="font-headline font-extrabold text-lg mb-2 group-hover:text-primary">{item.name}</h3>
+              <p class="text-sm text-zinc-500 leading-relaxed">{item.desc}</p>
+              <span class="text-primary text-sm font-bold mt-3 inline-block">Learn more →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Complete Turnkey Workshop Setup</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant">
+          <p>Whether you are opening a new garage, upgrading an existing workshop, or expanding to a multi-bay service center, Autodiagnostix supplies and installs the complete equipment range in Pakistan. We work with you on floor plan, equipment selection, installation, and on-site training for your technicians.</p>
+          <p class="mt-4">Our turnkey packages include: <strong>car lifts</strong> (2-post, 4-post, scissor, alignment), <strong>wheel alignment</strong> (3D, wireless), <strong>tyre service</strong> (tyre changers, wheel balancers, nitrogen inflators), <strong>diagnostics</strong> (Launch X431 PRO3 / PAD 9, ADAS, EV), <strong>battery and ignition</strong> (BST-560, SPT360), and <strong>inspection</strong> (VSP-600, VSP-800 videoscopes).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About Workshop Equipment in Pakistan</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200">
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    <script>
+      (() => {
+        const group = document.querySelector('[data-accordion]');
+        if (!group) return;
+        const details = group.querySelectorAll('details');
+        details.forEach(d => {
+          const s = d.querySelector('summary');
+          if (!s) return;
+          s.addEventListener('click', (e) => {
+            e.preventDefault();
+            details.forEach(el => { if (el !== d) el.open = false; });
+            d.open = !d.open;
+          });
+        });
+      })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
+    </section>
+
+    <section class="py-20 px-8 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-6">Get a Workshop Equipment Quote</h2>
+        <p class="mb-8 text-white/80">Tell us your workshop size, budget, and service mix , we'll design a turnkey equipment package for you.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-zinc-100 transition-colors">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

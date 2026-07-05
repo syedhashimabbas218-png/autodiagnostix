@@ -2,7 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { breadcrumbListSchema } from '../utils/schema';
+import { breadcrumbListSchema, organizationSchema, localBusinessSchema, faqSchema } from '../utils/schema';
+
+const aboutFaqs = [
+  { question: 'What is Autodiagnostix?', answer: 'Autodiagnostix is Pakistan\'s authorized dealer for LAUNCH, SMARTSAFE, UNITE, Liberty Lifts, GTI.tools and AUTOOL, supplying professional automotive diagnostic scanners, car lifts, 3D wheel aligners, tyre changers, wheel balancers, ADAS calibration, EV diagnostics, battery testers, and videoscopes to workshops across Pakistan.' },
+  { question: 'Where is Autodiagnostix based?', answer: 'Our head office is in Shalimar Town, Main Bypass Road, Sahiwal, Punjab, Pakistan. We deliver equipment across Pakistan and provide installation guidelines to every workshop we serve.' },
+  { question: 'Which brands does Autodiagnostix supply?', answer: 'We are Pakistan\'s authorized dealer for LAUNCH (diagnostics, ADAS, EV), SMARTSAFE (battery tools, videoscopes), UNITE (lifts, inflators, alignment), Liberty Lifts (heavy-duty lifts), GTI.tools (German-engineered tyre changers and wheel balancers), and AUTOOL (specialty tools).' },
+];
 
 export const prerender = false;
 
@@ -13,10 +19,10 @@ const breadcrumbs = [
 ---
 
 <BaseLayout
-  title="About Us"
-  description="Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE automotive diagnostic equipment."
+  title="About Autodiagnostix | Pakistan's Authorized Dealer"
+  description="Autodiagnostix is Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts and AUTOOL. We supply professional automotive diagnostic equipment, car lifts, wheel alignment, tyre changers, ADAS, EV tools and workshop equipment across Pakistan."
   canonical="https://autodiagnostix.com.pk/about"
-  jsonLd={breadcrumbListSchema(breadcrumbs)}
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), localBusinessSchema(), faqSchema(aboutFaqs)]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 
@@ -53,8 +59,8 @@ const breadcrumbs = [
           </div>
           <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <span class="material-symbols-outlined text-3xl text-primary mb-4">workspace_premium</span>
-            <div class="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-1">4</div>
-            <p class="text-sm text-on-surface-variant font-medium uppercase tracking-wider">Premium Brands</p>
+            <div class="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-1">6</div>
+            <p class="text-sm text-on-surface-variant font-medium uppercase tracking-wider">Authorized Brands</p>
           </div>
           <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <span class="material-symbols-outlined text-3xl text-primary mb-4">category</span>
@@ -75,7 +81,7 @@ const breadcrumbs = [
           </h2>
           <div class="space-y-4 text-on-surface-variant leading-relaxed">
             <p>Autodiagnostix is Pakistan's authorized dealer for LAUNCH, SMARTSAFE, and UNITE automotive diagnostic equipment. We bring globally trusted diagnostic technology to workshops and service centers across the country.</p>
-            <p>Our product range covers professional-grade diagnostic scanners, wheel alignment systems, lifting equipment, ADAS calibration tools, and EV battery service equipment — everything a modern workshop needs.</p>
+            <p>Our product range covers professional-grade diagnostic scanners, wheel alignment systems, lifting equipment, ADAS calibration tools, and EV battery service equipment , everything a modern workshop needs.</p>
           </div>
         </div>
         <div class="bg-surface-container-lowest rounded-xl p-10 border border-outline-variant/20">
@@ -90,7 +96,7 @@ const breadcrumbs = [
             <span class="material-symbols-outlined text-primary text-2xl mt-0.5">support_agent</span>
             <div>
               <h3 class="font-headline font-bold text-lg text-on-surface">Technical Support</h3>
-              <p class="text-sm text-on-surface-variant mt-1">Comprehensive after-sales support, training, and technical assistance.</p>
+              <p class="text-sm text-on-surface-variant mt-1">Comprehensive after-sales support and technical assistance.</p>
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -111,7 +117,7 @@ const breadcrumbs = [
           <div class="bg-surface-container-low rounded-xl p-10 border border-outline-variant/10 relative">
             <div class="absolute top-0 left-0 w-1 h-full bg-primary rounded-full" />
             <blockquote class="text-on-surface-variant text-lg italic leading-relaxed pl-6">
-              "Every tool we supply is backed by comprehensive technical support, training resources, and genuine after-sales service."
+              "Every tool we supply is backed by comprehensive technical support and genuine after-sales service."
             </blockquote>
           </div>
         </div>
@@ -121,7 +127,7 @@ const breadcrumbs = [
             Equipping Professionals with World-Class Technology
           </h2>
           <p class="text-on-surface-variant leading-relaxed text-lg">
-            We equip Pakistani automotive professionals with the same world-class diagnostic technology used by leading workshops globally. Every tool we supply is backed by comprehensive technical support, training resources, and after-sales service.
+            We equip Pakistani automotive professionals with the same world-class diagnostic technology used by leading workshops globally. Every tool we supply is backed by comprehensive technical support and after-sales service.
           </p>
         </div>
       </div>
@@ -139,43 +145,120 @@ const breadcrumbs = [
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="group bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-primary text-2xl">build</span>
-              </div>
-              <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">LAUNCH</h3>
+            <div class="h-12 mb-4 flex items-center">
+              <img src="/images/brands/launch.png" alt="LAUNCH automotive diagnostic equipment" class="max-h-12 max-w-full object-contain" width="200" height="48" loading="lazy" />
             </div>
-            <p class="text-on-surface-variant leading-relaxed">Global leader in automotive diagnostic technology, known for the X-431 series scanners, ADAS calibration systems, and comprehensive workshop solutions.</p>
+            <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">LAUNCH</h3>
+            <p class="text-on-surface-variant leading-relaxed mt-3">Global leader in automotive diagnostic technology, X-431 PRO3 LINK, PAD 9 LINK, CNC 605A, ADAS PRO PLUS, HD III heavy-duty, EV toolkit, 3D wheel aligners, videoscopes, and workshop lifting tools.</p>
           </div>
           <div class="group bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-primary text-2xl">settings</span>
-              </div>
-              <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">SMARTSAFE</h3>
+            <div class="h-12 mb-4 flex items-center">
+              <img src="/images/brands/liberty-lifts.png" alt="Liberty Lifts heavy-duty vehicle lifts" class="max-h-12 max-w-full object-contain" width="200" height="48" loading="lazy" />
             </div>
-            <p class="text-on-surface-variant leading-relaxed">Specialist in wheel alignment and lifting equipment, delivering precision 3D alignment systems and heavy-duty workshop lifts.</p>
+            <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">Liberty Lifts</h3>
+            <p class="text-on-surface-variant leading-relaxed mt-3">Heavy-duty workshop lifts, 2-post, 4-post, scissor, alignment, and bulletproof vehicle lifts. 3.5 to 6.8 ton capacities for Pakistani workshops.</p>
           </div>
           <div class="group bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-primary text-2xl">cleaning_services</span>
-              </div>
-              <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">UNITE</h3>
+            <div class="h-12 mb-4 flex items-center">
+              <img src="/images/brands/gti-tools.png" alt="GTI.tools German-engineered tyre changers and wheel balancers" class="max-h-12 max-w-full object-contain" width="200" height="48" loading="lazy" />
             </div>
-            <p class="text-on-surface-variant leading-relaxed">Manufacturer of fuel injector cleaners and A/C service stations, trusted by workshops for reliable maintenance equipment.</p>
+            <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">GTI.tools</h3>
+            <p class="text-on-surface-variant leading-relaxed mt-3">German-engineered tyre changers (G-Extreme, POWER X, RFT PRO) and automatic wheel balancers (LCD Premium with sonar system) for high-volume tyre shops.</p>
           </div>
           <div class="group bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <span class="material-symbols-outlined text-primary text-2xl">handyman</span>
-              </div>
-              <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">AUTOOL</h3>
+            <div class="h-12 mb-4 flex items-center">
+              <img src="/images/brands/smartsafe.png" alt="Smartsafe battery testers and videoscopes" class="max-h-12 max-w-full object-contain" width="200" height="48" loading="lazy" />
             </div>
-            <p class="text-on-surface-variant leading-relaxed">Provider of specialized diagnostic and testing tools including spark plug testers and injector testers for professional technicians.</p>
+            <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">SMARTSAFE</h3>
+            <p class="text-on-surface-variant leading-relaxed mt-3">Professional diagnostic and inspection tools, battery testers, videoscopes, and 3D wheel aligners trusted by workshops worldwide.</p>
+          </div>
+          <div class="group bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-12 mb-4 flex items-center">
+              <img src="/images/brands/unite.png" alt="UNITE workshop and tyre service equipment" class="max-h-12 max-w-full object-contain" width="200" height="48" loading="lazy" />
+            </div>
+            <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">UNITE</h3>
+            <p class="text-on-surface-variant leading-relaxed mt-3">Workshop and tyre-service equipment, 4-post lifts, scissor lifts, mobile lifts, 3D wheel aligners, and nitrogen tyre inflators.</p>
+          </div>
+          <div class="group bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="h-12 mb-4 flex items-center">
+              <img src="/images/brands/autool.png" alt="AUTOOL specialized diagnostic and service tools" class="max-h-12 max-w-full object-contain" width="200" height="48" loading="lazy" />
+            </div>
+            <h3 class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors">AUTOOL</h3>
+            <p class="text-on-surface-variant leading-relaxed mt-3">Provider of specialized diagnostic and testing tools including spark plug testers and injector testers for professional technicians.</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- SEO CONTENT -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <span class="text-xs font-label uppercase tracking-widest text-primary font-bold mb-3 block">Why Autodiagnostix</span>
+        <h2 class="font-headline text-3xl md:text-4xl font-extrabold tracking-tighter text-on-surface mb-6">Pakistan's Most Trusted Workshop Equipment Partner</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant space-y-4">
+          <p>Autodiagnostix is more than a dealer, we are a complete workshop solutions partner. From the moment you contact us, our team helps you select the right equipment for your workshop, arrange delivery, install on-site, and provide ongoing warranty and after-sales support.</p>
+          <h3 class="text-xl font-bold text-on-surface mt-8 mb-2">What We Supply</h3>
+          <p>Our product range covers every major category of professional automotive workshop equipment: <a href="/launch-x431-pakistan" class="text-primary underline">Launch X431 diagnostic scanners</a>, <a href="/car-lifts-in-pakistan" class="text-primary underline">car lifts</a> (2-post, 4-post, scissor, alignment, bulletproof), <a href="/wheel-alignment-in-pakistan" class="text-primary underline">3D wheel alignment</a>, <a href="/tyre-changers-pakistan" class="text-primary underline">tyre changers</a>, <a href="/wheel-balancers-pakistan" class="text-primary underline">wheel balancers</a>, <a href="/adas-calibration-pakistan" class="text-primary underline">ADAS calibration</a>, <a href="/ev-diagnostics-pakistan" class="text-primary underline">EV diagnostics</a>, <a href="/battery-testers-pakistan" class="text-primary underline">battery testers</a>, <a href="/videoscope-pakistan" class="text-primary underline">videoscopes</a>, <a href="/launch-injector-machines-pakistan" class="text-primary underline">injector machines</a>, and <a href="/tyre-inflators-pakistan" class="text-primary underline">nitrogen tyre inflators</a>.</p>
+          <h3 class="text-xl font-bold text-on-surface mt-8 mb-2">Our Service Promise</h3>
+          <p>Every product we sell is genuine, sourced direct from the manufacturer, and backed by a full warranty. Our team provides delivery and installation guidelines to workshops across Pakistan. We also maintain local inventory of consumables, accessories, and spare parts to keep your workshop running.</p>
+          <h3 class="text-xl font-bold text-on-surface mt-8 mb-2">Who We Serve</h3>
+          <p>Autodiagnostix supplies independent workshops, dealership service centers, tyre shops, body shops, fleet operators, government workshops, banks and security fleets, EV service centers, and OEMs. Whether you are setting up a single-bay garage or a multi-bay service center, we have the equipment range and expertise to help.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 px-8 bg-surface-container-low">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-10">About Autodiagnostix , FAQ</h2>
+        <div class="space-y-4" data-accordion>
+          {aboutFaqs.map(f => (
+            <details class="group border border-zinc-100 rounded-lg p-6 bg-white">
+              <summary class="cursor-pointer font-headline font-bold text-on-surface text-lg flex justify-between items-center list-none">
+                <span>{f.question}</span>
+                <span class="text-primary text-2xl group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <p class="mt-4 text-on-surface-variant leading-relaxed">{f.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+      <script>
+        (() => {
+          const group = document.querySelector('[data-accordion]');
+          if (!group) return;
+          const details = group.querySelectorAll('details');
+          details.forEach(d => {
+            const s = d.querySelector('summary');
+            if (!s) return;
+            s.addEventListener('click', (e) => {
+              e.preventDefault();
+              details.forEach(el => { if (el !== d) el.open = false; });
+              d.open = !d.open;
+            });
+          });
+        })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
     </section>
 
     <!-- CTA -->

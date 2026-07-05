@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getProducts, sortByAvailability } from '../lib/strapi';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+
+export const prerender = false;
+
+const allProducts = sortByAvailability(await getProducts());
+const ev = allProducts.filter(p => /evm324|ev diagn|ev add|electric|ev-/i.test(p.name + ' ' + p.summary));
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'EV Car Diagnostics in Pakistan', url: 'https://autodiagnostix.com.pk/ev-diagnostics-pakistan' },
+];
+
+const faqs = [
+  { question: 'Do you sell EV diagnostic tools in Pakistan?', answer: 'Yes , Autodiagnostix is Pakistan\'s authorized dealer for Launch EV diagnostic equipment. We supply the Launch EV Diagnosis Add-on Kit and the Launch EVM324 Battery Equalizer &amp; Charge-Discharge Device for EV service centers.' },
+  { question: 'What is the price of EV diagnostic equipment in Pakistan?', answer: 'Launch EV diagnostic tools in Pakistan range from PKR 400,000 to PKR 1,500,000 depending on the device. The EVM324 battery equalizer is the most popular for high-voltage battery service, while the EV Diagnosis Add-on Kit extends Launch X431 PRO3 / PAD 9 with full EV coverage.' },
+  { question: 'Can the Launch X431 diagnose EVs in Pakistan?', answer: 'Yes , the Launch X431 PAD 9 LINK and PRO3 LINK both support EV diagnostics with the Launch EV Diagnosis Add-on Kit. This enables high-voltage system diagnostics, battery health analysis, and OEM-level coding for popular EV brands sold in Pakistan.' },
+];
+---
+
+<BaseLayout
+  title="Buy EV Diagnostic Tools Pakistan | Launch EV Kit"
+  description="Buy EV diagnostic equipment in Pakistan from Autodiagnostix. Launch EV Diagnosis Add-on Kit &amp; EVM324 Battery Equalizer. Prices PKR 400,000–1,500,000. For MG, BYD, Hyundai, KIA EVs. Delivery &amp; training across Pakistan."
+  canonical="https://autodiagnostix.com.pk/ev-diagnostics-pakistan"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+      headline: 'EV Car Diagnostics in Pakistan: Launch EV Toolkit',
+      description: 'Autodiagnostix is Pakistan\'s authorized dealer for EV Car Diagnostics in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
+      url: 'https://autodiagnostix.com.pk/ev-diagnostics-pakistan',
+      keywords: ['EV diagnostics Pakistan', 'Launch EV Diagnosis', 'EVM324 battery equalizer Pakistan'],
+    }), speakableSchema('https://autodiagnostix.com.pk/ev-diagnostics-pakistan', ['h1', '.geo-answer']),
+      definitionBlock(
+        'EV Diagnostics',
+        'EV diagnostics refers to the specialized electronic tools and software used to diagnose, service, and maintain electric and hybrid vehicles. Unlike conventional OBD2 scanners, EV diagnostic equipment like the Launch EV Diagnosis Add-on Kit and Launch EVM324 Battery Equalizer can safely interface with high-voltage battery systems, motor controllers, and battery management systems. Autodiagnostix is Pakistan\'s authorized dealer for Launch EV diagnostic tools.',
+        'https://autodiagnostix.com.pk/ev-diagnostics-pakistan'
+      ),
+    ]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-16">
+    <section class="bg-surface pt-20 pb-12 px-8 border-b border-outline-variant/10">
+      <div class="max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]">/</span>
+          <span class="text-primary font-bold">EV Diagnostics</span>
+        </nav>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
+          EV Car Diagnostics in Pakistan
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+          Pakistan's authorized dealer for <strong>EV car diagnostics</strong> equipment. We supply the Launch <a href="/product/launch-ev-diagnosis-add-on-kit" class="text-primary hover:underline">EV Diagnosis Add-on Kit</a> and the Launch <a href="/product/launch-evm324" class="text-primary hover:underline">EVM324 Battery Equalizer</a> for EV service centers. Purpose-built for high-voltage battery diagnostics, charge-discharge balancing, and OEM-level coding for popular EV brands in Pakistan.
+</section>
+
+    <section class="py-16 px-8 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">EV Diagnostic Products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ev.length > 0 ? ev.map(p => (
+            <a href={`/product/${p.id}`} class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col border border-zinc-100">
+              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center">
+                {p.heroImages[0] ? (
+                  <img src={p.heroImages[0]} alt={`${p.name} , EV car diagnostics in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" />
+                ) : (
+                  <div class="text-zinc-300">No image</div>
+                )}
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">EV Diagnostic · {p.brand || 'Launch'}</p>
+                <h3 class="font-headline text-lg font-bold tracking-tight mb-2 group-hover:text-primary transition-colors leading-snug">{p.name}</h3>
+                <p class="text-on-surface-variant text-xs leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
+                <span class="text-primary font-bold text-sm">View Specs →</span>
+              </div>
+            </a>
+          )) : (
+            <p class="text-on-surface-variant col-span-3">Browse <a href="/brand/launch" class="text-primary underline">all Launch EV products</a>.</p>
+          )}
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">EV Diagnostics for Pakistani Workshops</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant">
+          <p>Electric vehicles in Pakistan , including MG ZS EV, BYD Atto 3, Changan Deepal, Hyundai Ioniq 5, and KIA EV6 , require specialized diagnostic tools that can safely work with high-voltage systems. Standard OBD2 scanners will not work on EVs.</p>
+          <p class="mt-4">The <strong>Launch EV Diagnosis Add-on Kit</strong> extends the Launch X431 PRO3 LINK and PAD 9 LINK with full EV coverage, including battery health analysis, motor controller diagnostics, and high-voltage system isolation testing. The <strong>Launch EVM324</strong> is a dedicated battery equalizer and charge-discharge device for high-voltage battery pack service.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About EV Diagnostics in Pakistan</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200">
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    <script>
+      (() => {
+        const group = document.querySelector('[data-accordion]');
+        if (!group) return;
+        const details = group.querySelectorAll('details');
+        details.forEach(d => {
+          const s = d.querySelector('summary');
+          if (!s) return;
+          s.addEventListener('click', (e) => {
+            e.preventDefault();
+            details.forEach(el => { if (el !== d) el.open = false; });
+            d.open = !d.open;
+          });
+        });
+      })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
+    </section>
+
+    <section class="py-20 px-8 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-6">Get an EV Diagnostic Quote</h2>
+        <p class="mb-8 text-white/80">Tell us about your EV service center , we'll spec the right Launch EV equipment.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-zinc-100 transition-colors">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

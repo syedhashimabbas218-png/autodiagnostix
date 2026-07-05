@@ -37,8 +37,8 @@ async function getCategory(id: string) {
 ---
 
 <BaseLayout
-  title={category.name}
-  description={`Browse ${filtered.length} professional ${category.name} products at Autodiagnostix.`}
+  title={`${category.name} in Pakistan , ${category.name} Products & Equipment | Autodiagnostix`}
+  description={`Browse ${filtered.length} professional ${category.name} products in Pakistan at Autodiagnostix. Authorized dealer for Launch, Smartsafe, UNITE, Liberty Lifts, GTI.tools, and AUTOOL. Delivery & installation across Pakistan.`}
   canonical={`https://autodiagnostix.com.pk/category/${id}`}
   jsonLd={[breadcrumbListSchema(breadcrumbs), itemListSchema(filtered.map(p => ({ name: p.name, url: `https://autodiagnostix.com.pk/product/${p.id}` })))]}
 >
@@ -52,8 +52,8 @@ async function getCategory(id: string) {
           <span class="text-[10px]">/</span>
           <span class="text-primary font-bold">{category.name}</span>
         </nav>
-        <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-4">{category.name}</h1>
-        <p class="text-on-surface-variant text-xl max-w-xl">{filtered.length} product{filtered.length !== 1 ? 's' : ''}</p>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-4">{category.name} in Pakistan</h1>
+        <p class="text-on-surface-variant text-xl max-w-3xl">{filtered.length} professional {category.name.toLowerCase()} product{filtered.length !== 1 ? 's' : ''} from Autodiagnostix , Pakistan's authorized dealer for Launch, Smartsafe, UNITE, Liberty Lifts, GTI.tools, and AUTOOL. With delivery, installation and on-site training across Pakistan.</p>
       </div>
     </header>
 

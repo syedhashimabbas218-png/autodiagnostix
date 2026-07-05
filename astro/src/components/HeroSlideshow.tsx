@@ -45,7 +45,7 @@ export default function HeroSlideshow({ slides, interval = 6000 }: Props) {
           className={`absolute inset-0 transition-opacity duration-[800ms] ease-out ${idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
         >
           <div className="absolute inset-0 z-0">
-            <img alt={slide.background.alt} className="w-full h-full object-cover" src={slide.background.image} />
+            <img alt={slide.background.alt} className="w-full h-full object-cover" src={slide.background.image} width="800" height="600" />
             <div className="absolute inset-0 bg-black/70"></div>
           </div>
           <div className="relative z-10 max-w-screen-2xl mx-auto px-8 w-full h-full flex items-center">
@@ -53,10 +53,10 @@ export default function HeroSlideshow({ slides, interval = 6000 }: Props) {
               <span className="hero-tagline text-sm uppercase tracking-[0.2em] text-[#97000d] font-bold mb-4 block">
                 {slide.tagline}
               </span>
-              <h1 className="hero-title text-6xl md:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter mb-6">
+              <h2 className="hero-title text-6xl md:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter mb-6">
                 {slide.headline.split('.')[0]}. <br />
                 <span className="text-[#97000d]">{slide.highlight_text}</span>
-              </h1>
+              </h2>
               <p className="hero-desc text-zinc-400 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
                 {slide.description}
               </p>

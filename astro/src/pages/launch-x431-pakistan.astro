@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getProducts, sortByAvailability } from '../lib/strapi';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+
+export const prerender = false;
+
+const allProducts = sortByAvailability(await getProducts());
+const launch = allProducts.filter(p => /launch/i.test(p.brand + ' ' + p.name) || /x-?431|x431|cnc|pad ?9|pro3|hd ?iii|creader|919|cnc-?605/i.test(p.name));
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Brands', url: 'https://autodiagnostix.com.pk/brands' },
+  { name: 'Launch X431 in Pakistan', url: 'https://autodiagnostix.com.pk/launch-x431-pakistan' },
+];
+
+const faqs = [
+  { question: 'Where can I buy a genuine Launch X431 in Pakistan?', answer: 'Autodiagnostix is Pakistan\'s authorized dealer for Launch X431 diagnostic tools. We supply 100% genuine Launch X431 PRO3 LINK, X431 PAD 9 LINK, X431 CNC 605A, X431 ADAS PRO PLUS, X431 HD III heavy-duty module, and 919 MAX Creader , with warranty and after-sales support.' },
+  { question: 'What is the price of Launch X431 PRO3 LINK in Pakistan?', answer: 'The Launch X431 PRO3 LINK is our mid-range professional diagnostic tool. Contact us for current pricing in Pakistan , we offer competitive B2B pricing for workshops, dealerships, and fleet operators.' },
+  { question: 'Which Launch X431 is best for a workshop in Pakistan?', answer: 'For general workshops: Launch X431 PRO3 LINK or X431 PAD 9 LINK. For luxury and ADAS-equipped vehicles: Launch X431 PAD 9 LINK or X431 ADAS PRO PLUS. For heavy-duty trucks and commercial vehicles: Launch X431 HD III module.' },
+  { question: 'Does Launch X431 support Pakistani vehicles?', answer: 'Yes , Launch X431 scanners support 100+ vehicle brands including Toyota, Honda, Suzuki, KIA, Hyundai, Changan, MG, Proton, DFSK, BAIC, Foton, JAC, and commercial vehicles. Local technical support and software updates are provided by Autodiagnostix.' },
+];
+---
+
+<BaseLayout
+  title="Launch X431 in Pakistan , Authorized Dealer | Autodiagnostix"
+  description="Buy Launch X431 in Pakistan from Autodiagnostix , Pakistan's authorized Launch dealer. X431 PRO3 LINK, PAD 9 LINK, CNC 605A, ADAS PRO PLUS, HD III heavy-duty module, 919 MAX Creader. Genuine products, warranty & local support across Pakistan."
+  canonical="https://autodiagnostix.com.pk/launch-x431-pakistan"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+      headline: 'Launch X431 in Pakistan: Authorized Dealer',
+      description: 'Autodiagnostix is Pakistan\'s authorized dealer for Launch X431 in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
+      url: 'https://autodiagnostix.com.pk/launch-x431-pakistan',
+      keywords: ['Launch X431 Pakistan', 'X431 PRO3 LINK', 'X431 PAD 9 LINK Pakistan', 'Launch diagnostics Pakistan'],
+    }), speakableSchema('https://autodiagnostix.com.pk/launch-x431-pakistan', ['h1', '.geo-answer']),
+      definitionBlock(
+        'Launch X431',
+        'Launch X431 is a professional-grade automotive diagnostic scanner series manufactured by LAUNCH Tech Co., Ltd. The X431 line includes handheld and tablet-based scanners covering 100+ vehicle brands with full-system diagnostics, bi-directional controls, online coding, and ADAS calibration support. Distributed in Pakistan by Autodiagnostix.',
+        'https://autodiagnostix.com.pk/launch-x431-pakistan'
+      ),
+    ]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-16">
+    <section class="bg-surface pt-20 pb-12 px-8 border-b border-outline-variant/10">
+      <div class="max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]">/</span>
+          <a href="/brand/launch" class="hover:text-primary transition-colors">Launch</a>
+          <span class="text-[10px]">/</span>
+          <span class="text-primary font-bold">Launch X431 in Pakistan</span>
+        </nav>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
+          Launch X431 in Pakistan, Authorized Dealer
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+          Pakistan's authorized dealer for <strong>Launch X431</strong> diagnostic scanners. We supply genuine Launch products including the <a href="/product/x-431-pro3-link" class="text-primary hover:underline">X431 PRO3 LINK</a>, <a href="/product/x-431-pad-9-link" class="text-primary hover:underline">X431 PAD 9 LINK</a>, <a href="/product/launch-x-431-cnc-605a" class="text-primary hover:underline">X431 CNC 605A</a>, <a href="/product/x-431-adas-pro-plus" class="text-primary hover:underline">X431 ADAS PRO PLUS</a>, <a href="/product/x-431-hd-iii-heavy-duty-module" class="text-primary hover:underline">X431 HD III heavy-duty module</a>, and the <a href="/product/919-max" class="text-primary hover:underline">919 MAX Creader</a>. Full warranty, local support and software updates in Pakistan.
+        </p>
+        <p class="text-xs text-on-surface-variant mt-3">Last updated: June 2026 by Autodiagnostix</p>
+</section>
+
+    <section class="py-16 px-8 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">Launch X431 Products in Pakistan</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {launch.length > 0 ? launch.map(p => (
+            <a href={`/product/${p.id}`} class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col border border-zinc-100">
+              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center">
+                {p.heroImages[0] ? (
+                  <img src={p.heroImages[0]} alt={`${p.name} , Launch X431 in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" width="800" height="600" />
+                ) : (
+                  <div class="text-zinc-300">No image</div>
+                )}
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Launch · {p.brand || 'Launch'}</p>
+                <h3 class="font-headline text-lg font-bold tracking-tight mb-2 group-hover:text-primary transition-colors leading-snug">{p.name}</h3>
+                <p class="text-on-surface-variant text-xs leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
+                <span class="text-primary font-bold text-sm">View Specs →</span>
+              </div>
+            </a>
+          )) : (
+            <p class="text-on-surface-variant col-span-3">Browse <a href="/brand/launch" class="text-primary underline">all Launch products</a>.</p>
+          )}
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Which Launch X431 Is Right for You?</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant">
+          <h3 class="text-xl font-bold text-on-surface mt-6 mb-3">Launch X431 PRO3 LINK</h3>
+          <p>The workhorse of Pakistani workshops. The PRO3 LINK is a professional-grade diagnostic tablet with a 10.1" display, full-system coverage for 100+ vehicle brands, online coding, bi-directional controls, and a 12 V battery test function. Pairs with the CNS-05 oscilloscope module and the HD III heavy-duty extension. Ideal for general automotive workshops servicing Asian, European, and American vehicles.</p>
+          <h3 class="text-xl font-bold text-on-surface mt-6 mb-3">Launch X431 PAD 9 LINK</h3>
+          <p>Our flagship diagnostic tablet for high-end workshops and dealerships. 9.7" Retina display with 2048×1536 resolution, advanced ADAS calibration support, topology mapping, and the largest vehicle coverage in the Launch X431 lineup. Supports 15+ special functions including diesel DPF regeneration, TPMS programming, steering angle calibration, electronic parking brake reset, and injector coding. Recommended for multi-brand dealerships and workshops servicing luxury vehicles.</p>
+          <h3 class="text-xl font-bold text-on-surface mt-6 mb-3">Launch X431 CNC 605A</h3>
+          <p>A compact 5" touchscreen diagnostic scanner with 2.4 GHz + 5 GHz Wi-Fi and Bluetooth VCI, ideal for mobile mechanics and roadside service. Full OBD2 functions, broad Asian/European vehicle coverage, and support for 11 special reset functions. Lightweight design for easy transport between job sites.</p>
+          <h3 class="text-xl font-bold text-on-surface mt-6 mb-3">Launch X431 ADAS PRO PLUS</h3>
+          <p>Dealer-level ADAS calibration tool supporting camera, radar, lidar, and night-vision system recalibration for 100+ vehicle brands. Includes the ADAS frame, cross-laser alignment tool, and modular target kit. Pairs with any X431 LINK-series diagnostic tablet. Covers Toyota, Honda, Suzuki, KIA, Hyundai, Honda, Mercedes-Benz, BMW, Audi, Volkswagen, Ford, and 90 more makes — see our <a href="/adas-calibration-pakistan" class="text-primary underline">ADAS calibration</a> page for the full model list.</p>
+          <h3 class="text-xl font-bold text-on-surface mt-6 mb-3">Launch X431 HD III Heavy Duty Module</h3>
+          <p>For commercial vehicles, trucks, buses, and construction equipment. Supports SAE J1939, J1708, and J1587 protocols. Covers Cummins, Detroit Diesel, Caterpillar, Volvo, Scania, MAN, Hino, Isuzu, Foton, and Dongfeng. Pairs with the PRO3 LINK and PAD 9 LINK tablets. Essential for Pakistani commercial vehicle workshops servicing logistics fleets and construction machinery.</p>
+          <h3 class="text-xl font-bold text-on-surface mt-6 mb-3">Launch 919 MAX Creader Professional</h3>
+          <p>An affordable, entry-level OBD2 scanner with a 5" touchscreen for small workshops and tyre shops. Full-system diagnostics for Asian and European vehicles, 11 reset functions, and free lifetime software updates. The most cost-effective entry point into the Launch ecosystem for new workshop setups in Pakistan.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SPECS / COMPARISON TABLE (GEO) -->
+    <section class="py-20 px-8 bg-surface-container-low">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-4 text-on-surface">Launch X431 Product Comparison</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-6">Compare Launch X431 diagnostic tools:</p>
+        <div class="overflow-x-auto bg-surface-container-lowest border border-outline-variant/20 rounded-xl">
+          <table class="w-full text-sm">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th class="px-4 py-3 text-left font-headline font-bold text-xs uppercase tracking-widest">Model</th>
+                <th class="px-4 py-3 text-left font-headline font-bold text-xs uppercase tracking-widest">Display</th>
+                <th class="px-4 py-3 text-left font-headline font-bold text-xs uppercase tracking-widest">Vehicle Coverage</th>
+                <th class="px-4 py-3 text-left font-headline font-bold text-xs uppercase tracking-widest">Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-outline-variant/20 bg-surface-container-low">
+                <td class="px-4 py-3 text-on-surface">X431 PRO3 LINK</td>
+                <td class="px-4 py-3 text-on-surface">10.1" tablet</td>
+                <td class="px-4 py-3 text-on-surface">100+ brands, full system</td>
+                <td class="px-4 py-3 text-on-surface">Mid-range professional workshops</td>
+              </tr>
+              <tr class="border-t border-outline-variant/20">
+                <td class="px-4 py-3 text-on-surface">X431 PAD 9 LINK</td>
+                <td class="px-4 py-3 text-on-surface">9.7" tablet</td>
+                <td class="px-4 py-3 text-on-surface">100+ brands, full system + ADAS</td>
+                <td class="px-4 py-3 text-on-surface">High-end workshops, dealerships</td>
+              </tr>
+              <tr class="border-t border-outline-variant/20">
+                <td class="px-4 py-3 text-on-surface">X431 CNC 605A</td>
+                <td class="px-4 py-3 text-on-surface">5" handheld</td>
+                <td class="px-4 py-3 text-on-surface">70+ brands, full system</td>
+                <td class="px-4 py-3 text-on-surface">Mobile mechanics, roadside service</td>
+              </tr>
+              <tr class="border-t border-outline-variant/20">
+                <td class="px-4 py-3 text-on-surface">X431 ADAS PRO PLUS</td>
+                <td class="px-4 py-3 text-on-surface">Calibration tablet</td>
+                <td class="px-4 py-3 text-on-surface">ADAS-equipped vehicles</td>
+                <td class="px-4 py-3 text-on-surface">ADAS calibration specialists</td>
+              </tr>
+              <tr class="border-t border-outline-variant/20">
+                <td class="px-4 py-3 text-on-surface">X431 HD III</td>
+                <td class="px-4 py-3 text-on-surface">Heavy-duty module</td>
+                <td class="px-4 py-3 text-on-surface">Trucks, buses, commercial</td>
+                <td class="px-4 py-3 text-on-surface">Commercial vehicle workshops</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About Launch X431 in Pakistan</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200">
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    <script>
+      (() => {
+        const group = document.querySelector('[data-accordion]');
+        if (!group) return;
+        const details = group.querySelectorAll('details');
+        details.forEach(d => {
+          const s = d.querySelector('summary');
+          if (!s) return;
+          s.addEventListener('click', (e) => {
+            e.preventDefault();
+            details.forEach(el => { if (el !== d) el.open = false; });
+            d.open = !d.open;
+          });
+        });
+      })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
+    </section>
+
+    <section class="py-20 px-8 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-6">Get a Launch X431 Quote</h2>
+        <p class="mb-8 text-white/80">Tell us about your workshop and the vehicles you service , we'll recommend the right Launch X431 tool.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-zinc-100 transition-colors">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

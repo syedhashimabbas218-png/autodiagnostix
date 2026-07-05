@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getProducts, sortByAvailability } from '../lib/strapi';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+
+export const prerender = false;
+
+const allProducts = sortByAvailability(await getProducts());
+const scopes = allProducts.filter(p => /videoscope|vsp-?600|vsp-?800|video scope/i.test(p.name + ' ' + p.summary));
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Videoscopes in Pakistan', url: 'https://autodiagnostix.com.pk/videoscope-pakistan' },
+];
+
+const faqs = [
+  { question: 'What is a car videoscope used for?', answer: 'A car videoscope (borescope) is a flexible inspection camera used to inspect hard-to-reach areas of an engine, transmission, cylinder, intake, and gearbox without disassembly. The Launch VSP-600 and VSP-800 are the most popular car videoscopes in Pakistan.' },
+  { question: 'What is the difference between VSP-600 and VSP-800?', answer: 'The VSP-600 is a 2-megapixel HD videoscope with a 5.5mm probe , ideal for general inspection. The VSP-800 is a 4-megapixel dual-lens videoscope with 8mm probe, larger display, and better low-light performance for professional workshops.' },
+];
+---
+
+<BaseLayout
+  title="Buy Videoscopes in Pakistan | Launch VSP-600/800"
+  description="Buy car videoscopes in Pakistan from Autodiagnostix. Launch VSP-600 HD &amp; VSP-800 dual-lens. Flexible inspection cameras for engine &amp; transmission diagnostics. Authorized dealer. Delivery across Pakistan."
+  canonical="https://autodiagnostix.com.pk/videoscope-pakistan"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+      headline: 'Videoscopes in Pakistan: Launch VSP-600 & VSP-800',
+      description: 'Autodiagnostix is Pakistan\'s authorized dealer for Videoscopes in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
+      url: 'https://autodiagnostix.com.pk/videoscope-pakistan',
+      keywords: ['videoscope Pakistan', 'Launch VSP-600', 'car videoscope Pakistan'],
+    }), speakableSchema('https://autodiagnostix.com.pk/videoscope-pakistan', ['h1', '.geo-answer']),
+      definitionBlock(
+        'Videoscopes',
+        'Car videoscopes (borescopes) are flexible inspection cameras used by mechanics to inspect engine cylinders, transmissions, intake systems, and gearboxes without disassembly. The Launch VSP-600 (HD, 2MP) and VSP-800 (dual-lens, 4MP) are popular automotive videoscopes in Pakistan.',
+        'https://autodiagnostix.com.pk/videoscope-pakistan'
+      ),
+    ]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-16">
+    <section class="bg-surface pt-20 pb-12 px-8 border-b border-outline-variant/10">
+      <div class="max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]">/</span>
+          <span class="text-primary font-bold">Videoscopes</span>
+        </nav>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
+          Car Videoscopes in Pakistan
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+          Authorized dealer for <strong>car videoscopes in Pakistan</strong>. We supply the Launch <a href="/product/vsp-600-video-scope" class="text-primary hover:underline">VSP-600</a> HD videoscope and the Launch <a href="/product/vsp-800-video-scope" class="text-primary hover:underline">VSP-800</a> dual-lens videoscope , flexible inspection cameras for engine cylinders, intake valves, transmissions, gearboxes, and body cavities without disassembly.
+</section>
+
+    <section class="py-16 px-8 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">Videoscope Models</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {scopes.length > 0 ? scopes.map(p => (
+            <a href={`/product/${p.id}`} class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col border border-zinc-100">
+              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center">
+                {p.heroImages[0] ? (
+                  <img src={p.heroImages[0]} alt={`${p.name} , car videoscope in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" />
+                ) : (
+                  <div class="text-zinc-300">No image</div>
+                )}
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Videoscope · {p.brand || 'Launch'}</p>
+                <h3 class="font-headline text-lg font-bold tracking-tight mb-2 group-hover:text-primary transition-colors leading-snug">{p.name}</h3>
+                <p class="text-on-surface-variant text-xs leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
+                <span class="text-primary font-bold text-sm">View Specs →</span>
+              </div>
+            </a>
+          )) : (
+            <p class="text-on-surface-variant col-span-3">Browse <a href="/brand/launch" class="text-primary underline">all Launch products</a>.</p>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Why a Car Videoscope?</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant">
+          <p>A <strong>car videoscope</strong> is a flexible inspection camera that lets technicians inspect hard-to-reach areas of an engine, transmission, cylinder head, intake manifold, and gearbox without disassembly. The Launch VSP-600 and VSP-800 are the preferred tools in Pakistani workshops for accurate, non-invasive diagnosis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About Videoscopes in Pakistan</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200">
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    <script>
+      (() => {
+        const group = document.querySelector('[data-accordion]');
+        if (!group) return;
+        const details = group.querySelectorAll('details');
+        details.forEach(d => {
+          const s = d.querySelector('summary');
+          if (!s) return;
+          s.addEventListener('click', (e) => {
+            e.preventDefault();
+            details.forEach(el => { if (el !== d) el.open = false; });
+            d.open = !d.open;
+          });
+        });
+      })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
+    </section>
+
+    <section class="py-20 px-8 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-6">Get a Videoscope Quote</h2>
+        <p class="mb-8 text-white/80">Tell us your inspection needs , we'll recommend the right Launch videoscope.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-zinc-100 transition-colors">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

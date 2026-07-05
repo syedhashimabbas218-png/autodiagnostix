@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { localBusinessSchema, breadcrumbListSchema } from '../utils/schema';
+
+export const prerender = true;
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Terms of Service', url: 'https://autodiagnostix.com.pk/terms-of-service' },
+];
+---
+
+<BaseLayout
+  title="Terms of Service | Autodiagnostix"
+  description="Autodiagnostix terms of service govern the use of our website, purchase of products, and related services for automotive diagnostic equipment."
+  canonical="https://autodiagnostix.com.pk/terms-of-service"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), localBusinessSchema()]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-24 pb-20">
+    <section class="max-w-4xl mx-auto px-8 py-12">
+      <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-zinc-400 mb-8">
+        <a href="/" class="hover:text-primary transition-colors">Home</a>
+        <span class="text-[10px]">/</span>
+        <span class="text-primary font-bold">Terms of Service</span>
+      </nav>
+
+      <h1 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter text-zinc-900 mb-8 leading-[1.08]">Terms of Service</h1>
+      <p class="text-xs text-zinc-400 mb-10">Effective: 1 January 2025</p>
+
+      <div class="prose prose-lg max-w-none text-zinc-600 space-y-6">
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">1. Acceptance of Terms</h2>
+        <p>By accessing or using autodiagnostix.com.pk (the "Website"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, you must not use our Website or services.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">2. Business Information</h2>
+        <p>Autodiagnostix is a Pakistan-based authorized dealer of automotive diagnostic and workshop equipment. Our registered address is Shalimar Town, Main Bypass Road, Sahiwal, Punjab, Pakistan.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">3. Products and Services</h2>
+        <p>We supply automotive diagnostic scanners, car lifts, wheel alignment machines, tyre changers, wheel balancers, ADAS calibration equipment, EV diagnostics, and related workshop equipment. All products are sourced from authorized manufacturers and distributors.</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Product images are for illustration purposes; actual products may vary slightly.</li>
+          <li>Specifications are provided by the manufacturer and may change without notice.</li>
+          <li>We reserve the right to discontinue any product at any time.</li>
+        </ul>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">4. Pricing and Payment</h2>
+        <p>All prices are listed in Pakistani Rupees (PKR) unless otherwise stated. Prices are subject to change without prior notice. Payment terms are agreed upon at the time of order confirmation.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">5. Shipping and Delivery</h2>
+        <p>We arrange delivery of equipment across Pakistan. Delivery timelines are estimated and not guaranteed. Risk of loss passes to the buyer upon delivery to the carrier. Installation guidelines are provided; on-site installation may be available at additional cost.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">6. Warranty</h2>
+        <p>Products are covered by manufacturer warranties. Warranty terms vary by brand and product. Autodiagnostix will facilitate warranty claims with the respective manufacturer but does not provide direct warranty coverage unless explicitly stated. Warranty does not cover misuse, unauthorized modification, or normal wear and tear.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">7. Returns and Refunds</h2>
+        <p>Returns are accepted within 14 days of delivery for defective or incorrectly shipped products. Products must be in original condition and packaging. Return shipping costs are borne by the buyer unless the return is due to our error. Refunds are processed within 10 business days of receiving the returned product.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">8. Intellectual Property</h2>
+        <p>All content on this Website, including text, images, logos, and design, is the property of Autodiagnostix or its licensors and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our prior written consent. Brand names and logos (LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts, AUTOOL) are trademarks of their respective owners.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">9. Limitation of Liability</h2>
+        <p>Autodiagnostix shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our products or website. Our total liability is limited to the amount paid for the product in question.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">10. User Conduct</h2>
+        <p>You agree not to:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Use the Website for any unlawful purpose or in violation of these terms.</li>
+          <li>Attempt to gain unauthorized access to our systems.</li>
+          <li>Interfere with the proper functioning of the Website.</li>
+          <li>Submit false or misleading information through our contact forms.</li>
+        </ul>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">11. Governing Law</h2>
+        <p>These terms are governed by the laws of the Islamic Republic of Pakistan. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of Sahiwal, Punjab, Pakistan.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">12. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms of Service at any time. Changes are effective immediately upon posting. Your continued use of the Website after changes constitutes acceptance of the new terms.</p>
+
+        <h2 class="text-xl font-bold text-zinc-900 mt-10 mb-3">13. Contact</h2>
+        <p>For questions about these Terms of Service, please contact us:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Email: <a href="mailto:info@autodiagnostix.com.pk" class="text-primary underline">info@autodiagnostix.com.pk</a></li>
+          <li>Phone: <a href="tel:+923227041953" class="text-primary underline">+92-322-7041953</a></li>
+          <li>Address: Shalimar Town, Main Bypass Road, Sahiwal, Punjab, Pakistan</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

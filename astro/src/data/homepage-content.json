@@ -215,7 +215,7 @@
       ]
     }
   },
-    "immersive_categories": {
+  "immersive_categories": {
     "layout": "full-width-cards",
     "alignment": "center",
     "cards": "1-per-row",
@@ -449,27 +449,55 @@
         ]
       },
       {
-        "title": "Company",
+        "title": "Popular",
         "links": [
           {
-            "label": "About Us",
-            "href": "/about"
+            "label": "Car Lifts in Pakistan",
+            "href": "/car-lifts-in-pakistan"
           },
           {
-            "label": "Contact",
-            "href": "/contact"
+            "label": "2-Post Lifts",
+            "href": "/2-post-car-lifts-pakistan"
           },
           {
-            "label": "All Products",
-            "href": "/products"
+            "label": "4-Post Lifts",
+            "href": "/4-post-car-lifts-pakistan"
           },
           {
-            "label": "Technical Support",
-            "href": "/contact"
+            "label": "Scissor Lifts",
+            "href": "/scissor-lifts-pakistan"
           },
           {
-            "label": "Warranty Info",
-            "href": "/contact"
+            "label": "Bulletproof Lifts",
+            "href": "/bulletproof-car-lifts-pakistan"
+          },
+          {
+            "label": "3D Wheel Alignment",
+            "href": "/wheel-alignment-in-pakistan"
+          },
+          {
+            "label": "Tyre Changers",
+            "href": "/tyre-changers-pakistan"
+          },
+          {
+            "label": "Wheel Balancers",
+            "href": "/wheel-balancers-pakistan"
+          },
+          {
+            "label": "Launch X431 in Pakistan",
+            "href": "/launch-x431-pakistan"
+          },
+          {
+            "label": "ADAS Calibration",
+            "href": "/adas-calibration-pakistan"
+          },
+          {
+            "label": "EV Diagnostics",
+            "href": "/ev-diagnostics-pakistan"
+          },
+          {
+            "label": "Workshop Equipment",
+            "href": "/workshop-equipment-pakistan"
           }
         ]
       }
@@ -483,7 +511,7 @@
     },
     "bottom_bar": {
       "layout": "flex-between",
-      "copyright": "© {{year}} Autodiagnostix. All rights reserved.",
+      "copyright": "\u00a9 {{year}} Autodiagnostix. All rights reserved.",
       "social_links": [
         {
           "label": "Facebook",

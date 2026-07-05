@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getProducts, sortByAvailability } from '../lib/strapi';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+
+export const prerender = false;
+
+const allProducts = sortByAvailability(await getProducts());
+const heavy = allProducts.filter(p => /bulletproof|heavy|armoured|armored|6\.8|6 ton|8 ton|heavy-duty/i.test(p.name + ' ' + p.summary));
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Car Lifts', url: 'https://autodiagnostix.com.pk/car-lifts-in-pakistan' },
+  { name: 'Bulletproof Lifts', url: 'https://autodiagnostix.com.pk/bulletproof-car-lifts-pakistan' },
+];
+
+const faqs = [
+  { question: 'What is a bulletproof car lift?', answer: 'A bulletproof (armoured) car lift is a heavy-duty vehicle lift designed to lift armoured SUVs, cash-transit vans and security fleet vehicles. These lifts have higher capacities (6 to 8 tons), reinforced columns, longer arms and higher lifting heights to safely handle the additional weight of armoured vehicles used by banks, security companies and government fleets in Pakistan.' },
+  { question: 'What capacity lift is needed for an armoured Land Cruiser in Pakistan?', answer: 'An armoured Toyota Land Cruiser typically weighs 4.5 to 5.5 tons. We recommend a 6.8-ton two-post lift or a heavy-duty scissor lift with extended arms. The Liberty TPF-15C 6.8-ton two-post lift is our most popular bulletproof lift in Pakistan.' },
+  { question: 'Do you supply bulletproof lifts for cash-transit vans?', answer: 'Yes. We supply heavy-duty bulletproof lifts for cash-in-transit vans, armoured SUVs and security fleet vehicles. These lifts come with reinforced columns, mechanical safety locks, and overload protection suitable for armoured vehicles up to 8 tons.' },
+];
+---
+
+<BaseLayout
+  title="Buy Bulletproof Car Lifts Pakistan | Armoured 6.8T–8T"
+  description="Buy bulletproof car lifts in Pakistan from Autodiagnostix. Heavy-duty 6.8T–8T lifts for armoured SUVs, cash-transit vans. Liberty TPF-15C. Delivery &amp; installation nationwide."
+  canonical="https://autodiagnostix.com.pk/bulletproof-car-lifts-pakistan"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+      headline: 'Bulletproof Car Lifts in Pakistan: Armoured Vehicle Lifts',
+      description: 'Autodiagnostix is Pakistan\'s authorized dealer for Bulletproof Car Lifts in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
+      url: 'https://autodiagnostix.com.pk/bulletproof-car-lifts-pakistan',
+      keywords: ['bulletproof car lifts Pakistan', 'armoured vehicle lift Pakistan', 'heavy duty lift Pakistan'],
+    }), speakableSchema('https://autodiagnostix.com.pk/bulletproof-car-lifts-pakistan', ['h1', '.geo-answer']),
+      definitionBlock(
+        'Bulletproof Car Lifts',
+        'Bulletproof (armoured) car lifts are heavy-duty vehicle lifts designed to safely lift armoured SUVs, cash-transit vans, and security fleet vehicles. Capacities from 6 to 8 tons with reinforced columns and extended arms. Used by banks, security companies, and government fleets in Pakistan.',
+        'https://autodiagnostix.com.pk/bulletproof-car-lifts-pakistan'
+      ),
+    ]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-16">
+    <section class="bg-surface pt-20 pb-12 px-8 border-b border-outline-variant/10">
+      <div class="max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]">/</span>
+          <a href="/car-lifts-in-pakistan" class="hover:text-primary transition-colors">Car Lifts</a>
+          <span class="text-[10px]">/</span>
+          <span class="text-primary font-bold">Bulletproof Lifts</span>
+        </nav>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
+          Bulletproof Car Lifts in Pakistan
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+          Heavy-duty <strong>bulletproof car lifts in Pakistan</strong> for armoured SUVs, cash-transit vans, bank security vehicles, and government fleets. We supply 6.8-ton to 8-ton two-post and scissor lifts from Liberty Lifts and UNITE , purpose-built for the additional weight of armoured vehicles. Delivery and installation across Pakistan.
+</section>
+
+    <section class="py-16 px-8 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">Heavy-Duty Lift Models</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {heavy.length > 0 ? heavy.map(p => (
+            <a href={`/product/${p.id}`} class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col border border-zinc-100">
+              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center">
+                {p.heroImages[0] ? (
+                  <img src={p.heroImages[0]} alt={`${p.name} , bulletproof car lift in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" />
+                ) : (
+                  <div class="text-zinc-300">No image</div>
+                )}
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Heavy-Duty · {p.brand || 'Workshop'}</p>
+                <h3 class="font-headline text-lg font-bold tracking-tight mb-2 group-hover:text-primary transition-colors leading-snug">{p.name}</h3>
+                <p class="text-on-surface-variant text-xs leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
+                <span class="text-primary font-bold text-sm">View Specs →</span>
+              </div>
+            </a>
+          )) : (
+            <p class="text-on-surface-variant col-span-3">Browse our <a href="/car-lifts-in-pakistan" class="text-primary underline">car lift catalog</a> for heavy-duty options.</p>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Lifts for Armoured Vehicles in Pakistan</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant">
+          <p>Armoured SUVs and cash-transit vans in Pakistan typically weigh 4.5 to 6 tons , well beyond the capacity of standard workshop lifts. <strong>Bulletproof car lifts</strong> are engineered with reinforced columns, longer lifting arms, and higher lifting heights to safely service these vehicles.</p>
+          <p class="mt-4">Our <strong>Liberty TPF-15C 6.8-ton two-post lift</strong> is the most popular bulletproof lift in Pakistan, trusted by banks, security companies and government fleets. For higher-capacity needs, we offer reinforced scissor lifts and 4-post lifts rated up to 8 tons.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About Bulletproof Car Lifts in Pakistan</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200">
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    <script>
+      (() => {
+        const group = document.querySelector('[data-accordion]');
+        if (!group) return;
+        const details = group.querySelectorAll('details');
+        details.forEach(d => {
+          const s = d.querySelector('summary');
+          if (!s) return;
+          s.addEventListener('click', (e) => {
+            e.preventDefault();
+            details.forEach(el => { if (el !== d) el.open = false; });
+            d.open = !d.open;
+          });
+        });
+      })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
+    </section>
+
+    <section class="py-20 px-8 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-6">Heavy-Duty Lift Quote</h2>
+        <p class="mb-8 text-white/80">Tell us the type and weight of armoured vehicles you service , we'll spec the right heavy-duty lift.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-zinc-100 transition-colors">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

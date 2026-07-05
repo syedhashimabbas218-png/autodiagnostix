@@ -11,7 +11,7 @@
       "tagline": "Authorized Dealer in Pakistan",
       "headline": "Professional Automotive Diagnostics.",
       "highlight_text": "Redefined.",
-      "description": "Your trusted partner for LAUNCH, SMARTSAFE, UNITE, and industry-leading automotive equipment. Serving Pakistan's professional service centers with authentic B2B solutions.",
+      "description": "Your trusted partner for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts and AUTOOL. Supplying genuine diagnostic scanners, car lifts, wheel aligners, tyre changers, ADAS, EV tools and workshop equipment to workshops and service centers across Pakistan.",
       "cta_primary": {
         "label": "Browse Products",
         "href": "/products",
@@ -38,7 +38,7 @@
       "tagline": "Precision Engineering",
       "headline": "Advanced Workshop Solutions.",
       "highlight_text": "For Pros.",
-      "description": "From wheel alignment systems to hydraulic lifts, discover equipment that transforms your service center's capabilities. Authorized dealer for Pakistan's automotive industry.",
+      "description": "From wheel alignment systems to hydraulic lifts, discover equipment that transforms your service center. Delivery and installation guidelines available for workshops across Pakistan.",
       "cta_primary": {
         "label": "View Equipment",
         "href": "/products",
@@ -51,40 +51,40 @@
       },
       "background": {
         "image": "/images/hero-slide-2.png",
-        "alt": "Modern automotive workshop with equipment",
+        "alt": "Advanced workshop equipment",
         "overlay": "dark-gradient-left",
-        "overlay_opacity": 0.5
+        "overlay_opacity": 0.6
       },
       "accent_color": "#97000d",
       "text_color": "white",
-      "animation": "fade-in-up",
+      "animation": "fade-in-left",
       "duration": 5000
     },
     {
       "id": 3,
-      "tagline": "Official Partnership",
-      "headline": "LAUNCH & SMARTSAFE.",
-      "highlight_text": "Authorized.",
-      "description": "Genuine products, local support, and warranty services for Pakistan's automotive industry. Your official distributor for professional diagnostic equipment.",
+      "tagline": "Pakistan-wide Delivery",
+      "headline": "Genuine Diagnostic Tools.",
+      "highlight_text": "Local Support.",
+      "description": "Genuine LAUNCH, SMARTSAFE, UNITE, Liberty Lifts, GTI.tools and AUTOOL products delivered across Pakistan. Installation guidelines and warranty support for every workshop we serve.",
       "cta_primary": {
-        "label": "Our Brands",
-        "href": "/brands",
+        "label": "Browse Products",
+        "href": "/products",
         "style": "primary-gradient"
       },
       "cta_secondary": {
-        "label": "Learn More",
-        "href": "/about",
+        "label": "Request Quote",
+        "href": "/contact",
         "style": "border-outline"
       },
       "background": {
         "image": "/images/hero-slide-3.png",
-        "alt": "LAUNCH and SMARTSAFE equipment showcase",
+        "alt": "Genuine LAUNCH diagnostic tools",
         "overlay": "dark-gradient-left",
-        "overlay_opacity": 0.55
+        "overlay_opacity": 0.6
       },
       "accent_color": "#97000d",
       "text_color": "white",
-      "animation": "fade-in-right",
+      "animation": "fade-in-left",
       "duration": 5000
     }
   ],
@@ -176,8 +176,8 @@
     }
   },
   "seo": {
-    "title": "Autodiagnostix | Professional Automotive Diagnostics - Authorized Dealer Pakistan",
-    "description": "Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE automotive diagnostic equipment. B2B sales for professional service centers.",
-    "keywords": ["automotive diagnostics", "LAUNCH Pakistan", "SMARTSAFE dealer", "car scanners", "workshop equipment", "B2B automotive"]
+    "title": "Launch, Smartsafe, UNITE & GTI.tools Dealer in Pakistan",
+    "description": "Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts and AUTOOL. Buy car lifts, 3D wheel aligners, ADAS, EV diagnostics, tyre changers, wheel balancers and videoscopes. Delivery across Pakistan.",
+    "keywords": ["Launch X431 Pakistan", "car lifts Pakistan", "3D wheel alignment Pakistan", "ADAS calibration Pakistan", "EV diagnostics Pakistan", "tyre changers Pakistan", "workshop equipment Pakistan", "GTI.tools Pakistan", "Liberty Lifts Pakistan"]
   }
 }

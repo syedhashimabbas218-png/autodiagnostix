@@ -7,6 +7,41 @@
     font-family: 'Inter', sans-serif;
     background-color: #f9f9f9;
   }
+  :root {
+    --fs-step-1: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+    --fs-step-2: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+    --fs-step-3: clamp(1.25rem, 1.1rem + 0.75vw, 1.875rem);
+    --fs-step-4: clamp(1.875rem, 1.5rem + 1.5vw, 3rem);
+    --fs-step-5: clamp(2.25rem, 1.75rem + 2.5vw, 3.75rem);
+    --space-fluid-xs: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+    --space-fluid-sm: clamp(1rem, 0.8rem + 1vw, 2rem);
+    --space-fluid-md: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
+    --space-fluid-lg: clamp(2rem, 1.5rem + 2.5vw, 6rem);
+  }
+}
+
+@layer utilities {
+  .geo-quotable {
+    position: relative;
+  }
+  .geo-highlight {
+    scroll-margin-top: 2rem;
+  }
+  .geo-faq-item {
+    scroll-margin-top: 5rem;
+  }
+  .geo-highlight strong {
+    color: #97000d;
+  }
+  .text-fluid-1 { font-size: var(--fs-step-1); }
+  .text-fluid-2 { font-size: var(--fs-step-2); }
+  .text-fluid-3 { font-size: var(--fs-step-3); }
+  .text-fluid-4 { font-size: var(--fs-step-4); }
+  .text-fluid-5 { font-size: var(--fs-step-5); }
+  .p-fluid-xs { padding: var(--space-fluid-xs); }
+  .p-fluid-sm { padding: var(--space-fluid-sm); }
+  .py-fluid-md { padding-top: var(--space-fluid-md); padding-bottom: var(--space-fluid-md); }
+  .py-fluid-lg { padding-top: var(--space-fluid-lg); padding-bottom: var(--space-fluid-lg); }
 }
 
 @layer utilities {

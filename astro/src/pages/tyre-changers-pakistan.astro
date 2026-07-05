@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getProducts, sortByAvailability } from '../lib/strapi';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+
+export const prerender = false;
+
+const allProducts = sortByAvailability(await getProducts());
+const tyChangers = allProducts.filter(p => /g-extreme|power x|rft pro|gti|tyre changer|tire changer/i.test(p.name + ' ' + p.brand));
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
+  { name: 'Tyre Changers in Pakistan', url: 'https://autodiagnostix.com.pk/tyre-changers-pakistan' },
+];
+
+const faqs = [
+  { question: 'Which tyre changer is best for run-flat tyres in Pakistan?', answer: 'The GTI.tools RFT PRO is purpose-built for low-profile and run-flat tyres. The GTI.tools POWER X with the right-arm assist is the choice for high-volume tyre shops. The G-Extreme is the workhorse for general passenger and SUV tyres.' },
+  { question: 'What is the price of a tyre changer in Pakistan?', answer: 'Tyre changers in Pakistan range from PKR 400,000 for a basic swing-arm model to PKR 1,500,000+ for a fully-automatic GTI.tools machine. GTI.tools German-engineered tyre changers start around PKR 850,000 and offer the best value in the premium segment.' },
+  { question: 'Do you supply GTI.tools tyre changers in Pakistan?', answer: 'Yes , Autodiagnostix is Pakistan\'s authorized GTI.tools dealer. We supply the GTI.tools G-Extreme 24-inch, POWER X 28-inch and RFT PRO tyre changers, plus the GTI.tools LCD Premium wheel balancer.' },
+];
+---
+
+<BaseLayout
+  title="Buy Tyre Changers in Pakistan | GTI.tools Dealer"
+  description="Buy GTI.tools tyre changers in Pakistan from Autodiagnostix. G-Extreme, POWER X, RFT PRO. Prices PKR 400,000–1,500,000+. German-engineered. For run-flat &amp; low-profile tyres. Delivery &amp; training across Pakistan."
+  canonical="https://autodiagnostix.com.pk/tyre-changers-pakistan"
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+      headline: 'Tyre Changers in Pakistan: GTI.tools Dealer',
+      description: 'Autodiagnostix is Pakistan\'s authorized dealer for Tyre Changers in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
+      url: 'https://autodiagnostix.com.pk/tyre-changers-pakistan',
+      keywords: ['tyre changers Pakistan', 'GTI.tools Pakistan', 'tire changer machine Pakistan'],
+    }), speakableSchema('https://autodiagnostix.com.pk/tyre-changers-pakistan', ['h1', '.geo-answer']),
+      definitionBlock(
+        'Tyre Changers',
+        'Tyre changers are workshop machines designed to mount and demount tyres from rims safely and efficiently. GTI.tools tyre changers — the G-Extreme 24-inch (swing-arm), POWER X 28-inch (right-arm assist for low-profile tyres), and RFT PRO (pneumatic bead assist for run-flat tyres) — are German-engineered for durability and precision. Autodiagnostix is Pakistan\'s authorized GTI.tools dealer, supplying, installing, and training across the country.',
+        'https://autodiagnostix.com.pk/tyre-changers-pakistan'
+      ),
+    ]}
+>
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" />
+
+  <main class="min-h-screen pt-16">
+    <section class="bg-surface pt-20 pb-12 px-8 border-b border-outline-variant/10">
+      <div class="max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]">/</span>
+          <span class="text-primary font-bold">Tyre Changers</span>
+        </nav>
+        <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
+          Tyre Changers in Pakistan
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+          Authorized dealer for <strong>GTI.tools tyre changers in Pakistan</strong>. We supply the GTI.tools <a href="/product/gti-g-extreme" class="text-primary hover:underline">G-Extreme 24"</a>, <a href="/product/gti-power-x" class="text-primary hover:underline">POWER X 28"</a> with right-arm assist, and the <a href="/product/gti-rft-pro" class="text-primary hover:underline">RFT PRO low-profile tyre changer</a>. German-engineered precision for run-flat, low-profile, and high-performance tyres.
+</section>
+
+    <section class="py-16 px-8 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">GTI.tools Tyre Changer Models</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tyChangers.length > 0 ? tyChangers.map(p => (
+            <a href={`/product/${p.id}`} class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col border border-zinc-100">
+              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center">
+                {p.heroImages[0] ? (
+                  <img src={p.heroImages[0]} alt={`${p.name} , tyre changer in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" />
+                ) : (
+                  <div class="text-zinc-300">No image</div>
+                )}
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Tyre Changer · {p.brand || 'GTI.tools'}</p>
+                <h3 class="font-headline text-lg font-bold tracking-tight mb-2 group-hover:text-primary transition-colors leading-snug">{p.name}</h3>
+                <p class="text-on-surface-variant text-xs leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
+                <span class="text-primary font-bold text-sm">View Specs →</span>
+              </div>
+            </a>
+          )) : (
+            <p class="text-on-surface-variant col-span-3">Browse <a href="/brand/gti-tools" class="text-primary underline">all GTI.tools products</a>.</p>
+          )}
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Choosing a Tyre Changer in Pakistan</h2>
+        <div class="prose prose-lg max-w-none text-on-surface-variant">
+          <p>Modern vehicles use run-flat, low-profile, and high-performance tyres that are difficult to change with basic equipment. A <strong>GTI.tools tyre changer</strong> is purpose-built for these demanding tyres , with plastic-mount/demount heads, bead-press assistance, and tire-lift helpers that protect both the rim and the tyre.</p>
+          <p class="mt-4">We supply three GTI.tools models for Pakistani workshops:</p>
+          <ul class="mt-2 space-y-2">
+            <li><strong>GTI.tools G-Extreme 24-inch</strong> , swing-arm tyre changer with digital handheld gauge, ideal for general passenger &amp; SUV tyres.</li>
+            <li><strong>GTI.tools POWER X 28-inch</strong> , premium tyre changer with right-arm assist and low-profile attachment for high-performance and low-profile tyres.</li>
+            <li><strong>GTI.tools RFT PRO</strong> , purpose-built for run-flat and ultra-low-profile tyres with digital gauge and pneumatic bead assist.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SPECS / COMPARISON TABLE (GEO) -->
+    <section class="py-20 px-8 bg-surface-container-low">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-4 text-on-surface">GTI.tools Tyre Changer Comparison</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-6">Compare the GTI.tools tyre changer range:</p>
+        <div class="overflow-x-auto bg-surface-container-lowest border border-outline-variant/20 rounded-xl">
+          <table class="w-full text-sm">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th class="px-4 py-3 text-left font-headline font-bold text-xs uppercase tracking-widest">Model</th>
+                <th class="px-4 py-3 text-left font-headline font-bold text-xs uppercase tracking-widest">Max Wheel</th>
+                <th class="px-4 py-3 text-left font-headline font-bold text-xs uppercase tracking-widest">Bead Assist</th>
+                <th class="px-4 py-3 text-left font-headline font-bold text-xs uppercase tracking-widest">Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t border-outline-variant/20 bg-surface-container-low">
+                <td class="px-4 py-3 text-on-surface">GTI.tools G-Extreme 24"</td>
+                <td class="px-4 py-3 text-on-surface">24 inch</td>
+                <td class="px-4 py-3 text-on-surface">Manual</td>
+                <td class="px-4 py-3 text-on-surface">Passenger and SUV tyres</td>
+              </tr>
+              <tr class="border-t border-outline-variant/20">
+                <td class="px-4 py-3 text-on-surface">GTI.tools POWER X 28"</td>
+                <td class="px-4 py-3 text-on-surface">28 inch</td>
+                <td class="px-4 py-3 text-on-surface">Pneumatic</td>
+                <td class="px-4 py-3 text-on-surface">Low-profile and high-performance tyres</td>
+              </tr>
+              <tr class="border-t border-outline-variant/20">
+                <td class="px-4 py-3 text-on-surface">GTI.tools RFT PRO</td>
+                <td class="px-4 py-3 text-on-surface">26 inch</td>
+                <td class="px-4 py-3 text-on-surface">Pneumatic + digital</td>
+                <td class="px-4 py-3 text-on-surface">Run-flat and ultra-low-profile tyres</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ SECTION -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About Tyre Changers in Pakistan</h2>
+        <div class="space-y-0 border-t border-zinc-200" data-accordion>
+          {faqs.map((faq, i) => (
+            <details class="group border-b border-zinc-200">
+              <summary class="flex items-center justify-between py-5 cursor-pointer text-on-surface font-headline font-bold text-base md:text-lg leading-snug hover:text-primary transition-colors list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-8">{faq.question}</span>
+                <svg class="w-5 h-5 shrink-0 text-zinc-400 group-open:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pb-6 text-on-surface-variant leading-relaxed text-sm md:text-base geo-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    <script>
+      (() => {
+        const group = document.querySelector('[data-accordion]');
+        if (!group) return;
+        const details = group.querySelectorAll('details');
+        details.forEach(d => {
+          const s = d.querySelector('summary');
+          if (!s) return;
+          s.addEventListener('click', (e) => {
+            e.preventDefault();
+            details.forEach(el => { if (el !== d) el.open = false; });
+            d.open = !d.open;
+          });
+        });
+      })();
+</script>
+
+    <style>
+
+      details[open] .geo-answer,
+
+      details[open] > p:last-of-type {
+
+        animation: faqFadeIn 0.2s ease-out;
+
+      }
+
+      @keyframes faqFadeIn {
+
+        from { opacity: 0; transform: translateY(-6px); }
+
+        to { opacity: 1; transform: translateY(0); }
+
+      }
+
+    </style>
+    </section>
+
+    <section class="py-20 px-8 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-headline font-extrabold mb-6">Get a Tyre Changer Quote</h2>
+        <p class="mb-8 text-white/80">Tell us your shop volume and tyre types , we'll recommend the right GTI.tools tyre changer.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-bold px-10 py-4 uppercase tracking-widest text-sm hover:bg-zinc-100 transition-colors">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

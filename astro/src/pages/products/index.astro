@@ -12,7 +12,7 @@ let products: Awaited<ReturnType<typeof getProducts>> = [];
 try {
   products = sortByAvailability(await getProducts());
 } catch {
-  // CMS offline — use empty set
+  // CMS offline , use empty set
 }
 
 const breadcrumbs = [
@@ -22,8 +22,8 @@ const breadcrumbs = [
 ---
 
 <BaseLayout
-  title="All Products"
-  description="Browse our complete range of professional automotive diagnostic equipment, scanners, lifts, and workshop tools."
+  title="All Products , Diagnostic Scanners, Lifts, Wheel Alignment & Workshop Equipment | Autodiagnostix"
+  description="Browse our complete range of professional automotive diagnostic equipment, car lifts, wheel aligners, tyre changers, ADAS, EV diagnostic tools, battery testers, and videoscopes. Authorized dealer for Launch, Smartsafe, UNITE, Liberty Lifts, GTI.tools, and AUTOOL in Pakistan."
   canonical="https://autodiagnostix.com.pk/products"
   jsonLd={[breadcrumbListSchema(breadcrumbs), itemListSchema(products.map(p => ({ name: p.name, url: `https://autodiagnostix.com.pk/product/${p.id}` })), 'CollectionPage')]}
 >
