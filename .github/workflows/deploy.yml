@@ -29,7 +29,4 @@ jobs:
           STRAPI_URL=http://localhost:1337 SITE_URL=https://autodiagnostix.com.pk npx astro build
         working-directory: astro
 
-      - name: Trigger Coolify deployment
-        run: |
-          curl -sSf "${{ secrets.COOLIFY_DEPLOY_WEBHOOK }}" > /dev/null
-          echo "Coolify deployment triggered successfully"
+
