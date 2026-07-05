@@ -77,8 +77,11 @@ const categories = allCategories
 const allBrands = (await getBrands()).filter(b => b.slug !== 'gtitools');
 
 // Fetch brand logos + descriptions from Strapi directly (getBrands in strapi.ts doesn't include logo)
-const brandLogosRes = await fetch(`${STRAPI_URL}/api/brands?populate=*`);
-const brandLogosJson: any = brandLogosRes.ok ? await brandLogosRes.json() : { data: [] };
+let brandLogosJson: any = { data: [] };
+try {
+  const brandLogosRes = await fetch(`${STRAPI_URL}/api/brands?populate=*`, { signal: AbortSignal.timeout(5000) });
+  if (brandLogosRes.ok) brandLogosJson = await brandLogosRes.json();
+} catch {};
 const brandLogoMap: Record<string, string> = {};
 const brandDescMap: Record<string, string> = {};
 const strapiBrands: { slug: string; name: string }[] = [];
