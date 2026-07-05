@@ -242,20 +242,16 @@ const breadcrumbs = [
 
     <style>
 
-      details[open] .geo-answer,
-
-      details[open] > p:last-of-type {
-
-        animation: faqFadeIn 0.2s ease-out;
-
+      .grid-answer {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s ease;
       }
-
-      @keyframes faqFadeIn {
-
-        from { opacity: 0; transform: translateY(-6px); }
-
-        to { opacity: 1; transform: translateY(0); }
-
+      details[open] .grid-answer {
+        grid-template-rows: 1fr;
+      }
+      .grid-answer > div {
+        overflow: hidden;
       }
 
     </style>
