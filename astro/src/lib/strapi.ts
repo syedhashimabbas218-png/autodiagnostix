@@ -72,9 +72,13 @@ function toSlug(str: string): string {
 const POPULATE = 'populate[heroImages][populate][image][populate]=*&populate[brand][fields][0]=name&populate[category][fields][0]=name&populate[features][fields][0]=title&populate[features][fields][1]=description&populate[features][populate][image][fields][0]=url&populate[functions][fields][0]=title&populate[functions][fields][1]=description&populate[technicalTable]=*&populate[specs]=*';
 
 async function fetchAPI<T>(endpoint: string): Promise<T> {
-  const res = await fetch(`${CMS_URL}/api${endpoint}`);
-  if (!res.ok) throw new Error(`Strapi API ${res.status}: ${res.statusText}`);
-  return res.json();
+  try {
+    const res = await fetch(`${CMS_URL}/api${endpoint}`, { signal: AbortSignal.timeout(5000) });
+    if (!res.ok) throw new Error(`Strapi API ${res.status}: ${res.statusText}`);
+    return res.json();
+  } catch {
+    return { data: [] } as unknown as T;
+  }
 }
 
 interface StrapiListResponse<T> {
