@@ -19,7 +19,7 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 strapi
 
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/build ./build
+COPY --from=builder /app/.strapi ./.strapi
 COPY --from=builder /app/node_modules ./node_modules
 COPY package.json ./
 
