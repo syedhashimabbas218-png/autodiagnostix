@@ -17,9 +17,7 @@ ENV PORT=1337
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 strapi
 
-COPY --chown=strapi:nodejs package.json package-lock.json ./
-RUN npm ci --omit=dev && rm -rf ~/.npm
-
+COPY --chown=strapi:nodejs --from=builder /app/node_modules ./node_modules
 COPY --chown=strapi:nodejs --from=builder /app/dist ./dist
 COPY --chown=strapi:nodejs --from=builder /app/.strapi ./.strapi
 COPY --chown=strapi:nodejs --from=builder /app/tsconfig.json ./tsconfig.json
