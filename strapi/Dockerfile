@@ -7,7 +7,6 @@ RUN npm ci
 COPY . .
 ENV NODE_ENV=production
 RUN npm run build
-RUN npm prune --production
 
 FROM base AS runner
 WORKDIR /app
@@ -15,17 +14,16 @@ ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=1337
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 strapi
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 strapi
 
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/.strapi ./.strapi
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/tsconfig.json ./tsconfig.json
-COPY --from=builder /app/public ./public
-COPY package.json ./
+COPY --chown=strapi:nodejs package.json package-lock.json ./
+RUN npm ci --omit=dev && rm -rf ~/.npm
 
-RUN chown -R strapi:nodejs /app
+COPY --chown=strapi:nodejs --from=builder /app/dist ./dist
+COPY --chown=strapi:nodejs --from=builder /app/.strapi ./.strapi
+COPY --chown=strapi:nodejs --from=builder /app/tsconfig.json ./tsconfig.json
+COPY --chown=strapi:nodejs --from=builder /app/public ./public
 
 USER strapi
 EXPOSE 1337
