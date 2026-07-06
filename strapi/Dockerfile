@@ -21,6 +21,8 @@ RUN adduser --system --uid 1001 strapi
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/.strapi ./.strapi
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/tsconfig.json ./tsconfig.json
+COPY --from=builder /app/public ./public
 COPY package.json ./
 
 RUN chown -R strapi:nodejs /app
