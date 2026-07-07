@@ -8,7 +8,7 @@ const SITE = 'https://autodiagnostix.com.pk';
 
 /** @returns {Promise<string[]>} */
 async function getCmsSitemapPages() {
-  const cmsUrl = process.env.STRAPI_URL || 'http://localhost:1337';
+  const cmsUrl = process.env.PUBLIC_STRAPI_URL || process.env.STRAPI_URL || 'http://localhost:1337';
   try {
     const [products, categories] = await Promise.all([
       fetch(`${cmsUrl}/api/products?populate[brand]=*&pagination[pageSize]=100`).then(r => r.ok ? r.json() : { data: [] }),

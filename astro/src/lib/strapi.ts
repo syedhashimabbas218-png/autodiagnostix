@@ -1,4 +1,4 @@
-const CMS_URL = import.meta.env.STRAPI_URL || 'http://localhost:1337';
+const CMS_URL = import.meta.env.PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
 const FALLBACK_IMAGES: Record<string, string[]> = {
   "lh-330-lh-340-dual-pump-floor-jack": ["/images/lh-330-lh-340-dual-pump-floor-jack_img1.webp"],

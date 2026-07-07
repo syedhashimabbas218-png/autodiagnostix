@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "npm run dev --prefix app",
-    "dev:cms": "npm run dev --prefix cms",
+    "dev:cms": "npm run dev --prefix strapi",
     "build": "npm run build --prefix app",
-    "build:cms": "npm run build --prefix cms",
-    "start:cms": "npm run start --prefix cms",
+    "build:cms": "npm run build --prefix strapi",
+    "start:cms": "npm run start --prefix strapi",
     "lint": "npm run lint --prefix app",
     "preview": "npm run preview --prefix app",
-    "seed": "npm run seed --prefix cms",
+    "seed": "npm run seed --prefix strapi",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down"
   },

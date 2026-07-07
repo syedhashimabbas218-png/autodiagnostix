@@ -26,7 +26,7 @@ jobs:
       - name: Install & verify Astro build
         run: |
           npm ci
-          STRAPI_URL=http://localhost:1337 SITE_URL=https://autodiagnostix.com.pk npx astro build
+          PUBLIC_STRAPI_URL=http://localhost:1337 SITE_URL=https://autodiagnostix.com.pk npx astro build
         working-directory: astro
 
 

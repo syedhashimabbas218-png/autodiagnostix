@@ -17,10 +17,8 @@ strapi/public/uploads/
 
 # Env files (NEVER commit real .env)
 .env
-.env.local
-.env.production
-.env.development
-.env.*.local
+.env.*
+!.env.example
 
 # OS
 .DS_Store

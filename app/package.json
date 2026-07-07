@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "concurrently -n api,app -c yellow,cyan \"node scripts/stub-api.mjs\" \"vite\"",
     "build": "vite build && node scripts/generate-sitemap.mjs && node scripts/prerender.mjs",
