@@ -11,6 +11,8 @@ COPY . .
 RUN npm run build
 
 # Prune dev dependencies — they are not needed at runtime
+RUN mkdir -p /app/public/uploads
+
 RUN npm prune --omit=dev
 
 ENV NODE_ENV=production
