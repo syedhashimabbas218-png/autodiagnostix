@@ -1,6 +1,10 @@
-# Deployment Guide (Coolify — Nixpacks / Build Packs)
+# Deployment Guide (Coolify — Dockerfiles)
 
 This monorepo contains three deployables. All deploy from the **`main`** branch.
+
+> **Why Dockerfiles?** The Coolify host uses Docker on fuse-overlayfs (inside a LXD
+> container). Nixpacks' Nix setup phase extracts hundreds of thousands of tiny files
+> and triggers OOM kills. Simple Dockerfiles avoid this entirely.
 
 ---
 
@@ -16,7 +20,7 @@ This monorepo contains three deployables. All deploy from the **`main`** branch.
 | **Port** | `4321` |
 | **Host** | `0.0.0.0` (set via `ASTRO_HOST` env or server config) |
 | **Type** | Node.js SSR (`@astrojs/node` adapter, `output: 'server'`) |
-| **Coolify build pack** | Nixpacks — Node.js (auto-detected) |
+| **Dockerfile** | `astro/Dockerfile` |
 | **Suggested watch paths** | `astro/**` |
 
 ### Required environment variables
@@ -34,18 +38,16 @@ Astro is SSR and fetches content from Strapi on every request. Published content
 
 **Puppeteer (Chromium)** is used for on-demand PDF generation at `GET /api/product-pdf/:slug`.
 
-Puppeteer v25 is configured with `--no-sandbox` and no `executablePath`, so it uses its **bundled Chromium** (downloaded at `npm ci` time via `node_modules/puppeteer`'s postinstall script).
+The `astro/Dockerfile` installs Debian's `chromium` package at build time and sets
+`PUPPETEER_SKIP_DOWNLOAD=true` (avoiding the bundled Chromium download) and
+`PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium` so Puppeteer uses the system binary.
+The Puppeteer launch code (`[slug].ts`) does not pass an explicit `executablePath`,
+so it automatically respects the env var; local development continues to use the
+bundled Chromium.
 
-> **Warning**: The `--no-sandbox` flag disables Chromium's security sandbox. This is acceptable only inside the isolated deployment container. Do **not** use `--no-sandbox` for local development or on untrusted networks.
-
-At runtime, the container needs:
-- Chromium system libraries: `libnss3`, `libnspr4`, `libatk1.0-0`, `libatk-bridge2.0-0`, `libcups2`, `libdrm2`, `libdbus-1-3`, `libxkbcommon0`, `libxcomposite1`, `libxdamage1`, `libxrandr2`, `libgbm1`, `libpango-1.0-0`, `libcairo2`, `libasound2`
-- The bundled Chromium at `node_modules/puppeteer/.local-chromium/` must be present
-
-**Proposed solutions (not implemented):**
-1. **Use `@sparticuz/chromium`** — serverless-friendly Chromium that ships trimmed system deps
-2. **Add a `PUPPETEER_SKIP_DOWNLOAD=true` during install + pre-install Chromium via apt** in a Coolify Dockerfile-level build step (`DOCKERFILE` field in Coolify)
-3. **Move PDF generation to a separate micro-service** with its own `Dockerfile` that installs Chromium deps explicitly
+> **Warning**: The `--no-sandbox` flag is set in the launch args. This is acceptable
+> only inside the isolated deployment container. Do **not** use `--no-sandbox` for
+> local development or on untrusted networks.
 
 ---
 
@@ -60,7 +62,7 @@ At runtime, the container needs:
 | **Port** | `1337` |
 | **Host** | `0.0.0.0` (reads `HOST` env var) |
 | **Type** | Node.js service |
-| **Coolify build pack** | Nixpacks — Node.js |
+| **Dockerfile** | `strapi/Dockerfile` |
 | **Suggested watch paths** | `strapi/**` |
 
 ### Required environment variables

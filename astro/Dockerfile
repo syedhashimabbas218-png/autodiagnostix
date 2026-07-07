@@ -1,39 +1,29 @@
-FROM node:22-alpine AS base
+FROM node:22-slim
 
-FROM base AS deps
+# Install system Chromium — Puppeteer uses its bundled download in local dev,
+# but in the container we use the Debian package to avoid downloading Chromium
+# at npm ci time and to get proper system library integration.
+RUN apt-get update && apt-get install -y \
+    chromium \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
+
+# Skip Puppeteer's bundled Chromium download — we use the system package above
+ENV PUPPETEER_SKIP_DOWNLOAD=true
 COPY package.json package-lock.json ./
 RUN npm ci
 
-FROM base AS builder
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+# Build the Astro SSR application
 COPY . .
-ENV STRAPI_URL=http://strapi:1337
-ENV SITE_URL=https://autodiagnostix.com
 RUN npm run build
 
-FROM base AS runner
-WORKDIR /app
-ENV NODE_ENV=production
 ENV HOST=0.0.0.0
-ENV PORT=4321
+ENV NODE_ENV=production
+# Point Puppeteer at the system-installed Chromium binary
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 astro
-
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/node_modules ./node_modules
-
-RUN chown -R astro:nodejs /app
-
-USER astro
 EXPOSE 4321
 
-# OPTIMIZATION NOTE: For production, deploy behind nginx or Caddy as a reverse proxy
-# to enable gzip/brotli compression, Cache-Control headers for static assets,
-# security headers (CSP, HSTS, X-Frame-Options), and HTTP/2.
-# See https://docs.astro.build/en/guides/deploy/ for deployment guides.
-CMD ["node", "dist/server/entry.mjs"]
+CMD ["node", "./dist/server/entry.mjs"]

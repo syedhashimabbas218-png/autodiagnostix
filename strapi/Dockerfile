@@ -1,29 +1,22 @@
-FROM node:22-alpine AS base
+FROM node:22-slim
 
-FROM base AS builder
 WORKDIR /app
+
+# Install dev dependencies needed for strapi build (admin panel compilation)
 COPY package.json package-lock.json ./
 RUN npm ci
+
+# Build the application (admin panel + TypeScript compilation)
 COPY . .
-ENV NODE_ENV=production
 RUN npm run build
 
-FROM base AS runner
-WORKDIR /app
+# Prune dev dependencies — they are not needed at runtime
+RUN npm prune --omit=dev
+
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=1337
 
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 strapi
-
-COPY --chown=strapi:nodejs --from=builder /app/node_modules ./node_modules
-COPY --chown=strapi:nodejs --from=builder /app/dist ./dist
-COPY --chown=strapi:nodejs --from=builder /app/.strapi ./.strapi
-COPY --chown=strapi:nodejs --from=builder /app/tsconfig.json ./tsconfig.json
-COPY --chown=strapi:nodejs --from=builder /app/public ./public
-
-USER strapi
 EXPOSE 1337
 
-CMD ["node", "node_modules/@strapi/strapi/bin/strapi.js", "start"]
+CMD ["npm", "run", "start"]
