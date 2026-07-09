@@ -4,7 +4,7 @@ import path from 'path';
 const STRAPI_URL = 'http://localhost:1337';
 const EMAIL = 'syedhashimabbas218@gmail.com';
 const PASSWORD = 'Admin123!';
-const ASTRO_DIR = '/home/syedhashimabbas/autodiagnostix-final/site-design-antigravity/astro';
+const ASTRO_DIR = process.env.IMG_DIR || '/home/syedhashimabbas/autodiagnostix-final/site-design-antigravity/astro';
 
 async function login() {
   const res = await fetch(`${STRAPI_URL}/admin/login`, {
@@ -250,6 +250,27 @@ async function main() {
 
   const categories = await getCategories(token);
 
+  // Ensure categories exist
+  const NEEDED_CATEGORIES = {
+    'tire-changers': { name: 'Tire Changers', slug: 'tire-changers', tagline: 'Professional tyre changing equipment' },
+    'wheel-balancers': { name: 'Wheel Balancers', slug: 'wheel-balancers', tagline: 'Precision wheel balancing systems' },
+  };
+  for (const [slug, catData] of Object.entries(NEEDED_CATEGORIES)) {
+    if (!categories.find(c => c.slug === slug)) {
+      console.log(`Creating category: ${slug}`);
+      const r = await api('/content-manager/collection-types/api::category.category', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(catData),
+      });
+      if (r.error) { console.log(`  ! Failed to create category ${slug}: ${r.error.message}`); return; }
+      await publish(token, 'api::category.category', r.data.documentId);
+      console.log(`  ✓ Created category ${slug} (id=${r.data.id})`);
+    }
+  }
+  // Re-fetch categories so IDs are available
+  const refreshedCategories = await getCategories(token);
+
   const existing = await getAllProducts(token);
   const slugToDoc = new Map();
   for (const p of existing) {
@@ -258,7 +279,7 @@ async function main() {
   }
 
   for (const p of PRODUCTS) {
-    const cat = categories.find(c => c.slug === p.category);
+    const cat = refreshedCategories.find(c => c.slug === p.category);
     if (!cat) { console.log(`  ! Category not found: ${p.category}`); continue; }
 
     const heroImages = p.images

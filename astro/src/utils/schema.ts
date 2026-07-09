@@ -134,7 +134,7 @@ export function localBusinessSchema() {
     parentOrganization: { '@type': 'Organization', '@id': `${SITE_URL}/#organization` },
     description: "Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts, and AUTOOL. Professional automotive diagnostic equipment, workshop tools, car lifts, wheel alignment, tyre changers, wheel balancers, ADAS calibration, and EV service equipment for B2B and professional service centers.",
     url: SITE_URL,
-    logo: `${SITE_URL}/logo-full.png`,
+    logo: `${SITE_URL}/logo-full.webp`,
     image: `${SITE_URL}/og-image.svg`,
     telephone: '+92-322-7041953',
     email: 'info@autodiagnostix.com.pk',
@@ -275,7 +275,7 @@ export function articleSchema(opts: {
       '@type': 'Organization',
       name: 'Autodiagnostix',
       url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-full.png` },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-full.webp` },
     },
   };
 }

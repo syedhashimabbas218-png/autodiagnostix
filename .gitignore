@@ -65,3 +65,6 @@ astro/.agents/
 
 # Catalog build artifacts (PDF is committed, HTML is build-only)
 astro/public/downloads/catalog.html
+secret.txt
+answer.txt
+import-steps.txt

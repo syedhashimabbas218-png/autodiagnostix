@@ -4,7 +4,7 @@ import path from 'path';
 const STRAPI_URL = 'http://localhost:1337';
 const EMAIL = 'syedhashimabbas218@gmail.com';
 const PASSWORD = 'Admin123!';
-const ASTRO_DIR = '/home/syedhashimabbas/autodiagnostix-final/site-design-antigravity/astro';
+const ASTRO_DIR = process.env.IMG_DIR || '/home/syedhashimabbas/autodiagnostix-final/site-design-antigravity/astro';
 
 async function login() {
   const res = await fetch(`${STRAPI_URL}/admin/login`, {
@@ -116,7 +116,7 @@ const PRODUCTS = [
       { label: 'Between Table Width', value: '850 mm' },
       { label: 'SUV Support (Optional)', value: '90-180 mm rubber pads / SUV support frame' },
     ],
-    images: ['liberty-fr-6105.webp'],
+    images: ['liberty-lift-full-rise-scissor-lift.webp', 'liberty-lift-full-rise-scissor-lift.jpg'],
   },
   {
     slug: 'liberty-fr-6108',
@@ -141,7 +141,7 @@ const PRODUCTS = [
       { label: 'Platform Width', value: '630 mm' },
       { label: 'Between Table Width', value: '900 mm' },
     ],
-    images: ['liberty-fr-6108.webp'],
+    images: ['liberty-lift-5-ton-wheel-alignment-scissor-lift.webp', 'liberty-lift-5-ton-wheel-alignment-scissor-lift_1.webp', 'liberty-lift-5-ton-wheel-alignment-scissor-lift.jpg', 'liberty-lift-5-ton-wheel-alignment-scissor-lift_1.jpg'],
   },
   {
     slug: 'liberty-tpf-15c',
@@ -168,7 +168,7 @@ const PRODUCTS = [
       { label: 'Straight Arm Size (3/3)', value: '880-1800 mm' },
       { label: 'Width Between Posts', value: '3000 mm' },
     ],
-    images: ['liberty-tpf-15c.webp'],
+    images: ['liberty-lift-6-8-ton-super-heavy-duty-car-lift.webp', 'liberty-lift-6-8-ton-super-heavy-duty-car-lift_1.webp', 'liberty-lift-6-8-ton-super-heavy-duty-car-lift.jpg', 'liberty-lift-6-8-ton-super-heavy-duty-car-lift_1.jpg'],
   },
 ];
 

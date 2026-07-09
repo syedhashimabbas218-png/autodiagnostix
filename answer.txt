@@ -1,0 +1,14 @@
+products_data.json is a hand-curated file assembled on the local dev machine — not auto-generated from scraped_products.json. The 21 products were manually structured with tabs.Description, tabs.Features, tabs.Specifications (newline-joined strings) and a category field.
+
+Two files serve different purposes:
+- scraped_products.json — raw scrape output (29 products, arrays for features/specs, no category/slug)
+- products_data.json — curated import input (21 products, structured tabs object, slug + category)
+
+Simplest fix: copy products_data.json to the Astro container, then run the import:
+
+  docker cp /home/syedhashimabbas/autodiagnostix-final/site-design-antigravity/astro/output/products_data.json ph7tksjud3nb64ii4w8y8ffz-164917028162:/app/products_data.json
+
+  docker exec ph7tksjud3nb64ii4w8y8ffz-164917028162 \
+    sh -c 'sed -i "s|DATA_FILE = .*|DATA_FILE = \"/app/products_data.json\";|" scripts/import-products-data.mjs && \
+           sed -i "s|STRAPI_URL = .*|STRAPI_URL = \"http://fagzrbz4om9vwo92whoktjdu-154857934170\";|" scripts/import-products-data.mjs && \
+           node scripts/import-products-data.mjs'

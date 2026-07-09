@@ -3,14 +3,14 @@ const CMS_URL = import.meta.env.PUBLIC_STRAPI_URL || 'http://localhost:1337';
 const FALLBACK_IMAGES: Record<string, string[]> = {
   "lh-330-lh-340-dual-pump-floor-jack": ["/images/lh-330-lh-340-dual-pump-floor-jack_img1.webp"],
   "launch-x-431-cnc-605a": ["/images/launch-x-431-cnc-605a_img1.webp", "/images/launch-x-431-cnc-605a_img2.webp"],
-  "tlt440w": ["/images/tlt440w_img1.png"],
+  "tlt440w": ["/images/tlt440w_img1.webp"],
   "wa613-wireless-3d-wheel-aligner": ["/images/wa613-wireless-3d-wheel-aligner_img1.webp"],
   "x-431-pad-9-link": ["/images/x-431-pad-9-link_img1.webp", "/images/x-431-pad-9-link_img2.webp", "/images/x-431-pad-9-link_img3.webp", "/images/x-431-pad-9-link_img4.webp", "/images/x-431-pad-9-link_img5.webp"],
   "x-431-adas-pro-plus": ["/images/x-431-adas-pro-plus_img1.webp", "/images/x-431-adas-pro-plus_img2.webp", "/images/x-431-adas-pro-plus_img3.webp"],
-  "launch-jack-stand-3-ton-and-6-ton": ["/images/launch-jack-stand-3-ton-and-6-ton_img1.png"],
+  "launch-jack-stand-3-ton-and-6-ton": ["/images/launch-jack-stand-3-ton-and-6-ton_img1.webp"],
   "vsp-800-video-scope": ["/images/vsp-800-video-scope_img1.webp", "/images/vsp-800-video-scope_img2.webp", "/images/vsp-800-video-scope_img3.webp", "/images/vsp-800-video-scope_img4.webp"],
   "cnc-605-pro-plus": ["/images/cnc-605-pro-plus_img1.webp"],
-  "tlt840waf": ["/images/tlt840waf_img1.png"],
+  "tlt840waf": ["/images/tlt840waf_img1.webp"],
   "x-431-pro3-link": ["/images/x-431-pro3-link_img1.webp", "/images/x-431-pro3-link_img2.webp", "/images/x-431-pro3-link_img3.webp", "/images/x-431-pro3-link_img4.webp", "/images/x-431-pro3-link_img5.webp"],
   "bst-560-bst-860-battery-tester": ["/images/bst-560-bst-860-battery-tester_img1.webp", "/images/bst-560-bst-860-battery-tester_img2.webp", "/images/bst-560-bst-860-battery-tester_img3.webp", "/images/bst-560-bst-860-battery-tester_img4.webp"],
   "x861-lite-wheelalignment-machine": ["/images/X861-lite-wheelalignment-Machine_img1.webp"],
@@ -20,7 +20,7 @@ const FALLBACK_IMAGES: Record<string, string[]> = {
   "x861-pro-wheel-alignment-machine": ["/images/X861-PRO-wheel-alignment-Machine_img1.webp"],
   "x-431-hd-iii-heavy-duty-module": ["/images/x-431-hd-iii-heavy-duty-module_img1.webp", "/images/x-431-hd-iii-heavy-duty-module_img2.webp"],
   "ismarttlt-242": ["/images/ismarttlt-242_img1.webp"],
-  "tlt630a": ["/images/tlt630a_img1.png"],
+  "tlt630a": ["/images/tlt630a_img1.webp"],
 };
 
 // Normalized types for the frontend (same shape as before)

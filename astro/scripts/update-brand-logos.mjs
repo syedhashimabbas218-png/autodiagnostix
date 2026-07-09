@@ -4,7 +4,7 @@ import path from 'path';
 const STRAPI_URL = 'http://localhost:1337';
 const EMAIL = 'syedhashimabbas218@gmail.com';
 const PASSWORD = 'Admin123!';
-const ASTRO_DIR = '/home/syedhashimabbas/autodiagnostix-final/site-design-antigravity/astro';
+const ASTRO_DIR = process.env.IMG_DIR || '/home/syedhashimabbas/autodiagnostix-final/site-design-antigravity/astro';
 const BRANDS_DIR = path.join(ASTRO_DIR, 'public', 'images', 'brands');
 
 const BRANDS = [

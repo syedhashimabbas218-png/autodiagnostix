@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const STRAPI_URL = 'http://localhost:1337';
+const STRAPI_URL = process.env.STRAPI_URL || 'http://localhost:1337';
 const EMAIL = 'syedhashimabbas218@gmail.com';
 const PASSWORD = 'Admin123!';
 const DATA_FILE = '/home/syedhashimabbas/autodiagnostix-final/site-design-antigravity/astro/output/products_data.json';

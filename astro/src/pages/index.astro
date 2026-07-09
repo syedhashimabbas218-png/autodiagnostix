@@ -108,7 +108,7 @@ const mergedBrands = ORDER
   .filter((b): b is { slug: string; name: string } => Boolean(b));
 
 const allProducts = sortByAvailability(await getProducts());
-const NEW_ARRIVAL_IDS = ['919-max', 'wa613-wireless-3d-wheel-aligner', 'launch-evm324'];
+const NEW_ARRIVAL_IDS = ['919-max', 'wa613-wireless-3d-wheel-aligner', 'x-431-pro3-link'];
 const products = allProducts
   .filter(p => NEW_ARRIVAL_IDS.includes(p.id))
   .sort((a, b) => NEW_ARRIVAL_IDS.indexOf(a.id) - NEW_ARRIVAL_IDS.indexOf(b.id))
@@ -331,7 +331,7 @@ const products = allProducts
     <!-- LIFTS -->
     <InteractiveLifts
       client:load
-      image="/images/2postlift.jpeg"
+      image="/images/2postlift.webp"
       title={home.interactive_lifts?.content_section?.title || 'Hydraulic Precision. Absolute Safety.'}
       tagline={home.interactive_lifts?.content_section?.tagline || 'Product Focus'}
       liftTypes={home.interactive_lifts?.content_section?.lift_types || []}

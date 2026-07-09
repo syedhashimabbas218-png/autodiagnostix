@@ -1,0 +1,9 @@
+=== STEPS TO IMPORT DATA INTO STRAPI ===
+
+1. Visit http://strapi.autodiagnostix.com.pk/admin in your browser
+   - Create admin account:
+     Email:    syedhashimabbas218@gmail.com
+     Password: Admin123!
+
+2. From the astro/ directory on your machine, run:
+   STRAPI_URL=http://strapi.autodiagnostix.com.pk node scripts/import-products-data.mjs

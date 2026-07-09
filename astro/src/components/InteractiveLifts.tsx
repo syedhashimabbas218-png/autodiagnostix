@@ -16,9 +16,9 @@ interface InteractiveLiftsProps {
 }
 
 const liftImages: Record<string, string> = {
-  '2-post': '/images/2postlift.jpeg',
-  '4-post': '/images/unite4post.png',
-  'scissor': '/images/scissor-lift.png',
+  '2-post': '/images/2postlift.webp',
+  '4-post': '/images/unite4post.webp',
+  'scissor': '/images/scissor-lift.webp',
 };
 
 const liftSpecs: Record<string, { label: string; value: string }> = {

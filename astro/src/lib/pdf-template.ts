@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-const LOGO_PATH = path.join(process.cwd(), 'public', 'logo-full.png');
+const LOGO_PATH = path.join(process.cwd(), 'public', 'logo-full.webp');
 const LOGO_BASE64 = fs.readFileSync(LOGO_PATH).toString('base64');
-const LOGO_DATA_URL = `data:image/png;base64,${LOGO_BASE64}`;
+const LOGO_DATA_URL = `data:image/webp;base64,${LOGO_BASE64}`;
 
 export interface PdfProduct {
   name: string;
