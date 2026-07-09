@@ -61,7 +61,7 @@ const seoLinks = [
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <a id="header-cta" href={ctaHref} class="primary-gradient text-white px-5 py-2 text-xs font-bold uppercase tracking-widest hover:scale-[0.98] transition-all cursor-pointer">{ctaLabel}</a>
+      <a id="header-cta" href={ctaHref} class="hidden md:inline-flex primary-gradient text-white px-5 py-2 text-xs font-bold uppercase tracking-widest hover:scale-[0.98] transition-all cursor-pointer">{ctaLabel}</a>
     </div>
   </div>
   <div id="mobile-menu" class="md:hidden hidden absolute top-14 md:top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-zinc-100 shadow-lg">
@@ -75,6 +75,7 @@ const seoLinks = [
         <a href={l.href} class="py-3.5 text-zinc-700 font-medium text-sm hover:text-primary transition-colors border-b border-zinc-50 min-h-[44px] flex items-center">{l.name}</a>
       ))}
       <a href="/about" class="py-3.5 text-zinc-700 font-medium text-sm hover:text-primary transition-colors min-h-[44px] flex items-center">About</a>
+      <a href={ctaHref} class="md:hidden mt-4 primary-gradient text-white px-5 py-3 text-xs font-bold uppercase tracking-widest text-center rounded">{ctaLabel}</a>
     </div>
   </div>
 </nav>
