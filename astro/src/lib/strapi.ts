@@ -1,4 +1,4 @@
-const CMS_URL = import.meta.env.PUBLIC_STRAPI_URL || 'http://localhost:1337';
+const CMS_URL = import.meta.env.PUBLIC_STRAPI_URL || import.meta.env.STRAPI_URL || 'http://localhost:1337';
 
 const FALLBACK_IMAGES: Record<string, string[]> = {
   "lh-330-lh-340-dual-pump-floor-jack": ["/images/lh-330-lh-340-dual-pump-floor-jack_img1.webp"],
@@ -59,9 +59,11 @@ export interface Brand {
   image: string;
 }
 
-function resolveImageUrl(url: string | null | undefined): string {
+export function resolveImageUrl(url: string | null | undefined): string {
   if (!url) return '';
-  if (url.startsWith('/uploads/')) return `${CMS_URL}${url}`;
+  if (url.startsWith('/uploads/')) url = `${CMS_URL}${url}`;
+  // The public CMS supports HTTPS; do not expose mixed-content media URLs.
+  if (url.startsWith('http://strapi.autodiagnostix.com.pk/')) return url.replace('http:', 'https:');
   return url;
 }
 
@@ -70,15 +72,27 @@ function toSlug(str: string): string {
 }
 
 const POPULATE = 'populate[heroImages][populate][image][populate]=*&populate[brand][fields][0]=name&populate[category][fields][0]=name&populate[features][fields][0]=title&populate[features][fields][1]=description&populate[features][populate][image][fields][0]=url&populate[functions][fields][0]=title&populate[functions][fields][1]=description&populate[technicalTable]=*&populate[specs]=*';
+const SUMMARY_POPULATE = 'populate[heroImages][populate][image][fields][0]=url&populate[brand][fields][0]=name&populate[category][fields][0]=name';
+
+const pendingRequests = new Map<string, Promise<unknown>>();
 
 async function fetchAPI<T>(endpoint: string): Promise<T> {
-  try {
-    const res = await fetch(`${CMS_URL}/api${endpoint}`, { signal: AbortSignal.timeout(5000) });
-    if (!res.ok) throw new Error(`Strapi API ${res.status}: ${res.statusText}`);
-    return res.json();
-  } catch {
-    return { data: [] } as unknown as T;
-  }
+  const pending = pendingRequests.get(endpoint);
+  if (pending) return pending as Promise<T>;
+  const request = (async () => {
+    try {
+      const res = await fetch(`${CMS_URL}/api${endpoint}`, { signal: AbortSignal.timeout(5000) });
+      if (!res.ok) throw new Error(`Strapi API ${res.status}: ${res.statusText}`);
+      // Await body parsing here so aborts/malformed JSON reach this catch too.
+      return await res.json() as T;
+    } catch {
+      return { data: [] } as unknown as T;
+    } finally {
+      pendingRequests.delete(endpoint);
+    }
+  })();
+  pendingRequests.set(endpoint, request);
+  return request;
 }
 
 interface StrapiListResponse<T> {
@@ -193,8 +207,10 @@ function normalizeCategory(c: StrapiCategory): Category {
   };
 }
 
-export async function getProducts(): Promise<Product[]> {
-  const data = await fetchAPI<StrapiListResponse<StrapiProduct>>(`/products?${POPULATE}&pagination[pageSize]=100`);
+export async function getProducts({ summaryOnly = false }: { summaryOnly?: boolean } = {}): Promise<Product[]> {
+  // Listing/search callers do not consume feature/specification relations.
+  // Full product and PDF requests retain the original population contract.
+  const data = await fetchAPI<StrapiListResponse<StrapiProduct>>(`/products?${summaryOnly ? SUMMARY_POPULATE : POPULATE}&pagination[pageSize]=100`);
   return (data.data || []).map(normalizeProduct);
 }
 
@@ -207,7 +223,7 @@ export function sortByAvailability(products: Product[]): Product[] {
 }
 
 export async function getProduct(slug: string): Promise<Product | null> {
-  const data = await fetchAPI<StrapiListResponse<StrapiProduct>>(`/products?filters[slug][$eq]=${slug}&${POPULATE}`);
+  const data = await fetchAPI<StrapiListResponse<StrapiProduct>>(`/products?filters[slug][$eq]=${encodeURIComponent(slug)}&${POPULATE}`);
   const items = data.data || [];
   return items.length > 0 ? normalizeProduct(items[0]) : null;
 }
@@ -222,8 +238,8 @@ export async function getCategory(slug: string): Promise<Category | null> {
   return cats.find(c => c.id === slug || c.name.toLowerCase() === slug.replace(/-/g, ' ')) || null;
 }
 
-export async function getBrands(): Promise<Brand[]> {
-  const products = await getProducts();
+export async function getBrands(existingProducts?: Product[]): Promise<Brand[]> {
+  const products = existingProducts ?? await getProducts();
   const brandMap = new Map<string, Product[]>();
   for (const p of products) {
     for (const name of (p.brands.length > 0 ? p.brands : [p.brand])) {
@@ -243,4 +259,17 @@ export async function getBrands(): Promise<Brand[]> {
       productCount: prods.length,
       image: prods[0]?.heroImages?.[0] || '',
     }));
+}
+
+// Brands without assigned products still have real, crawlable CMS pages.
+export async function getBrandDetails(slug: string): Promise<Brand | null> {
+  const response = await fetchAPI<StrapiListResponse<{ slug: string; name: string; description?: string; logo?: { url: string } }>>(
+    `/brands?filters[slug][$eq]=${encodeURIComponent(slug)}&populate[logo][fields][0]=url`,
+  );
+  const brand = response.data?.[0];
+  return brand ? {
+    id: brand.slug, slug: brand.slug, name: brand.name,
+    description: brand.description || '', productCount: 0,
+    image: resolveImageUrl(brand.logo?.url),
+  } : null;
 }

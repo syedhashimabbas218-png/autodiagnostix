@@ -18,7 +18,7 @@ try {
 }
 
 if (!product) {
-  return Astro.redirect('/404');
+  return Astro.rewrite('/404');
 }
 
 const breadcrumbs = [
@@ -109,7 +109,7 @@ const breadcrumbs = [
       </section>
     )}
 
-    <div class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-slate-100 z-50">
+    <div id="product-actions" class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-slate-100 z-50">
       <div class="max-w-7xl mx-auto h-24 px-8 flex items-center justify-between gap-4">
         <div class="hidden sm:block">
           <h3 class="font-headline font-bold text-lg text-on-surface">{product.name}</h3>
@@ -140,3 +140,12 @@ const breadcrumbs = [
 
   <Footer />
 </BaseLayout>
+
+<style>
+  :global(body:has(#product-actions)) { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+  #product-actions { padding-bottom: env(safe-area-inset-bottom); }
+  @media (max-width: 23.4375rem) {
+    #product-actions > div { padding-inline: 1rem; }
+    #product-actions a { padding-inline: 1rem; }
+  }
+</style>

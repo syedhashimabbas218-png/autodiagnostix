@@ -93,6 +93,7 @@ export default function CategoryNav({ categories = [] }: { categories?: Category
 
   useGSAP(() => {
     if (categories.length === 0) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     gsap.from('.cat-nav-item', {
       y: 20,
       opacity: 0,

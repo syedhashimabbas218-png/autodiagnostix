@@ -15,6 +15,7 @@ export default function NewArrivals({ products = [] }: { products?: Product[] })
 
   useGSAP(() => {
     if (products.length === 0) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     gsap.set('.new-arrival-card', { y: 40, opacity: 0 });
     gsap.to('.new-arrival-card', {
       y: 0,
@@ -48,7 +49,7 @@ export default function NewArrivals({ products = [] }: { products?: Product[] })
                   alt={product.name}
                   className="w-full h-full object-contain p-4 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-200 ease-out mix-blend-multiply"
                   src={product.heroImages?.[0] || ''}
-                  referrerPolicy="no-referrer" width="800" height="600" />
+                  referrerPolicy="no-referrer" loading="lazy" decoding="async" width="800" height="600" />
                 <span className="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 uppercase">
                   New
                 </span>

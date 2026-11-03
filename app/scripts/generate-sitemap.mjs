@@ -14,7 +14,7 @@ function getAllRoutes() {
   ];
 
   // Try to read products.json and categories.json for dynamic routes
-  const dataDir = path.resolve(__dirname, '../../api/data');
+  const dataDir = process.env.PRERENDER_DATA_DIR || path.resolve(__dirname, '../../api/data');
   const routes = [...staticRoutes];
 
   try {

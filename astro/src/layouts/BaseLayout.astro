@@ -100,9 +100,9 @@ const ogUrl = canonical || SITE_URL;
 
     {jsonLd && (
       Array.isArray(jsonLd) ? jsonLd.map((ld, i) => (
-        <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+        <script type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, '\\u003c')} />
       )) : (
-        <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+        <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
       )
     )}
 

@@ -10,7 +10,7 @@ const {
 
 let navCategories: { id: string; name: string }[] = [];
 try {
-  const cats = await getCategories();
+  const cats: Awaited<ReturnType<typeof getCategories>> = Astro.props.categories ?? await getCategories();
   navCategories = cats.map(c => ({ id: c.id, name: c.name }));
 } catch {
   navCategories = [];
@@ -32,7 +32,7 @@ const seoLinks = [
 ];
 ---
 
-<nav id="site-header" class="fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20">
+<nav id="site-header" aria-label="Main navigation" class="fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20">
   <div class="flex justify-between items-center w-full max-w-screen-2xl mx-auto px-4 md:px-8 h-14 md:h-16">
     <div class="flex items-center h-full">
       <a href="/">
@@ -50,7 +50,7 @@ const seoLinks = [
     </div>
     <div class="flex items-center gap-3 md:gap-6">
       <SearchToggle client:load />
-      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-11 h-11 text-zinc-600 hover:text-primary transition-colors" aria-label="Toggle menu" type="button">
+      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-11 h-11 text-zinc-600 hover:text-primary transition-colors" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
         <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="3" y1="6" x2="21" y2="6" />
           <line x1="3" y1="12" x2="21" y2="12" />
@@ -89,23 +89,36 @@ const seoLinks = [
   const menuOpen = document.getElementById('menu-icon-open');
   const menuClose = document.getElementById('menu-icon-close');
 
-  menuBtn?.addEventListener('click', () => {
-    const isOpen = !mobileMenu?.classList.contains('hidden');
-    mobileMenu?.classList.toggle('hidden');
-    menuOpen?.classList.toggle('hidden');
-    menuClose?.classList.toggle('hidden');
+  function setMenuOpen(open) {
+    mobileMenu?.classList.toggle('hidden', !open);
+    menuOpen?.classList.toggle('hidden', open);
+    menuClose?.classList.toggle('hidden', !open);
+    menuBtn?.setAttribute('aria-expanded', String(open));
+  }
+  menuBtn?.addEventListener('click', () => setMenuOpen(menuBtn.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuBtn?.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      menuBtn.focus();
+    }
   });
+  document.addEventListener('click', (event) => {
+    if (!header.contains(event.target)) setMenuOpen(false);
+  });
+  const desktop = window.matchMedia('(min-width: 1280px)');
+  desktop.addEventListener('change', () => setMenuOpen(false));
 
   mobileMenu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      menuOpen?.classList.remove('hidden');
-      menuClose?.classList.add('hidden');
+      setMenuOpen(false);
     });
   });
 
+  let previousScrolled;
   function updateHeader() {
     const scrolled = window.scrollY > 10;
+    if (scrolled === previousScrolled) return;
+    previousScrolled = scrolled;
     if (transparentOnScroll && !scrolled) {
       header.className = 'fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-transparent border-b border-white/10';
       logo.className = 'h-14 w-auto object-contain brightness-0 invert transition-all duration-300';
@@ -121,10 +134,21 @@ const seoLinks = [
     }
   }
 
-  window.addEventListener('scroll', updateHeader);
+  window.addEventListener('scroll', updateHeader, { passive: true });
   updateHeader();
+  header.querySelectorAll('a[href]').forEach(link => {
+    if (new URL(link.href).pathname === window.location.pathname) link.setAttribute('aria-current', 'page');
+  });
 </script>
 
 <style>
   .primary-gradient { background: linear-gradient(135deg, #97000d 0%, #bb2221 100%); }
+  #mobile-menu { max-height: calc(100dvh - 3.5rem); overflow-y: auto; overscroll-behavior: contain; }
+  @media (min-width: 48rem) and (max-width: 79.999rem) {
+    #site-header > div > .md\:flex, #header-cta { display: none; }
+    #mobile-menu-btn { display: flex; }
+    #mobile-menu:not(.hidden) { display: block; }
+    #mobile-menu { max-height: calc(100dvh - 4rem); }
+    #mobile-menu a.md\:hidden { display: block; }
+  }
 </style>

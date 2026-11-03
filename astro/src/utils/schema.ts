@@ -17,7 +17,7 @@ export function organizationSchema() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      url: `${SITE_URL}/#contact`,
+      url: `${SITE_URL}/contact`,
     },
     sameAs: [
       'https://www.wikidata.org/wiki/Q140443798',

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface LiftType {
   id: string;
@@ -31,15 +31,18 @@ export default function InteractiveLifts({ image, title, tagline, liftTypes }: I
   const [activeLift, setActiveLift] = useState('2-post');
   const [imgSrc, setImgSrc] = useState(liftImages['2-post']);
   const [fade, setFade] = useState(true);
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => () => clearTimeout(timer.current), []);
 
   const handleLiftClick = (id: string) => {
-    if (id === activeLift) return;
+    clearTimeout(timer.current);
+    if (id === activeLift) { setFade(true); return; }
     setFade(false);
-    setTimeout(() => {
+    timer.current = setTimeout(() => {
       setActiveLift(id);
       setImgSrc(liftImages[id] || image);
       setFade(true);
-    }, 200);
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 200);
   };
 
   const spec = liftSpecs[activeLift] || { label: 'Capacity', value: 'UNITE 4 Ton Series' };
@@ -51,6 +54,8 @@ export default function InteractiveLifts({ image, title, tagline, liftTypes }: I
           <img
             alt={activeLift + ' lift'}
             src={imgSrc}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-opacity duration-300"
             style={{ opacity: fade ? 1 : 0 }}
           />
@@ -72,6 +77,10 @@ export default function InteractiveLifts({ image, title, tagline, liftTypes }: I
                 <div
                   key={lift.id}
                   onClick={() => handleLiftClick(lift.id)}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isActive}
+                  onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); handleLiftClick(lift.id); } }}
                   className={`group p-6 bg-white border transition-all duration-200 cursor-pointer select-none ${
                     isActive ? 'border-primary shadow-sm' : 'border-transparent hover:bg-zinc-50 hover:border-zinc-200'
                   }`}

@@ -2,17 +2,16 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { spawn } from 'child_process';
+import { preview } from 'vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, '../dist');
 const DATA_DIR = path.resolve(__dirname, '../../api/data');
 const PORT = 4173;
-const BASE = `http://localhost:${PORT}`;
 
-function loadData() {
-  const productsPath = path.join(DATA_DIR, 'products.json');
-  const categoriesPath = path.join(DATA_DIR, 'categories.json');
+export function loadData(dataDir = DATA_DIR) {
+  const productsPath = path.join(dataDir, 'products.json');
+  const categoriesPath = path.join(dataDir, 'categories.json');
 
   if (!fs.existsSync(productsPath)) return null;
 
@@ -20,6 +19,9 @@ function loadData() {
   const categories = fs.existsSync(categoriesPath)
     ? JSON.parse(fs.readFileSync(categoriesPath, 'utf-8'))
     : [];
+  if (!Array.isArray(products) || !Array.isArray(categories)) {
+    throw new Error('Prerender products.json and categories.json must contain arrays');
+  }
 
   const brandMap = {};
   (products || []).forEach(p => {
@@ -59,7 +61,7 @@ function transformProduct(p) {
   };
 }
 
-function buildRouteTable(data) {
+export function buildRouteTable(data) {
   const routes = [
     { path: '/', file: 'index.html' },
     { path: '/products', file: 'products/index.html' },
@@ -73,7 +75,11 @@ function buildRouteTable(data) {
   const seenBrands = new Set();
 
   products.forEach(p => {
-    routes.push({ path: `/product/${p.id}`, file: `product/${p.id}/index.html` });
+    const id = String(p.id ?? '');
+    if (!id || id === '.' || id === '..' || /[/\\\u0000-\u001f]/.test(id)) {
+      throw new Error(`Invalid product route ID: ${JSON.stringify(p.id)}`);
+    }
+    routes.push({ path: `/product/${encodeURIComponent(id)}`, file: `product/${id}/index.html` });
     const catSlug = (p.category || '').toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-');
     if (catSlug && !seenCats.has(catSlug)) {
       seenCats.add(catSlug);
@@ -86,10 +92,16 @@ function buildRouteTable(data) {
     }
   });
 
-  return routes;
+  for (const route of routes) {
+    const relative = path.relative(DIST, path.resolve(DIST, route.file));
+    if (relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+      throw new Error(`Route escapes the output directory: ${route.path}`);
+    }
+  }
+  return [...new Map(routes.map(route => [route.path, route])).values()];
 }
 
-function makeAPIHandler(data) {
+export function makeAPIHandler(data) {
   if (!data) return null;
 
   const { products, categories, brands } = data;
@@ -100,131 +112,126 @@ function makeAPIHandler(data) {
     categories: JSON.stringify(toPayloadDocs(categories)),
     brands: JSON.stringify(toPayloadDocs(brands)),
   };
+  const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' };
 
   return function handleAPI(route) {
     const url = new URL(route.request().url());
     const pathname = url.pathname;
 
     if (pathname === '/api/products') {
-      const where = url.searchParams.get('where');
-      if (where) {
-        const m = where.match(/\[equals\]=([^&]+)/);
-        if (m) {
-          const product = allProducts.find(x => String(x.id) === m[1]) || null;
-          return route.fulfill({ body: JSON.stringify(toPayloadDocs(product ? [product] : [])) });
-        }
+      const id = url.searchParams.get('where[id][equals]');
+      if (id !== null) {
+        const product = allProducts.find(x => String(x.id) === id);
+        return route.fulfill({ headers, body: JSON.stringify(toPayloadDocs(product ? [product] : [])) });
       }
-      return route.fulfill({ body: cache.products });
+      return route.fulfill({ headers, body: cache.products });
     }
 
     if (pathname === '/api/categories') {
-      return route.fulfill({ body: cache.categories });
+      return route.fulfill({ headers, body: cache.categories });
     }
 
     if (pathname === '/api/brands') {
-      return route.fulfill({ body: cache.brands });
+      return route.fulfill({ headers, body: cache.brands });
     }
 
-    route.fulfill({ status: 404, body: '{}' });
+    return route.fulfill({ headers, status: 404, body: '{}' });
   };
 }
 
-function startServer(command, args, name) {
-  return new Promise((resolve, reject) => {
-    const proc = spawn(command, args, {
-      cwd: path.resolve(__dirname, '..'),
-      stdio: ['ignore', 'pipe', 'pipe'],
-    });
-    let started = false;
-    const timeout = setTimeout(() => {
-      if (!started) { proc.kill(); reject(new Error(`${name} did not start within 15s`)); }
-    }, 15000);
-    proc.stdout.on('data', onData);
-    proc.stderr.on('data', onData);
-    proc.on('exit', (code) => {
-      if (!started) { clearTimeout(timeout); reject(new Error(`${name} exited with code ${code}`)); }
-    });
-    setTimeout(() => {
-      if (!started) { started = true; clearTimeout(timeout); resolve(proc); }
-    }, 8000);
-
-    function onData(data) {
-      const text = data.toString();
-      if (!started && text.includes('Local:')) {
-        started = true;
-        clearTimeout(timeout);
-        resolve(proc);
-      }
-    }
-  });
-}
-
-async function prerender() {
+export async function prerender({
+  distDir = DIST,
+  dataDir = process.env.PRERENDER_DATA_DIR || DATA_DIR,
+  port = PORT,
+  launchBrowser = () => chromium.launch({ headless: true }),
+} = {}) {
   console.log('Prerendering...');
 
-  const data = loadData();
+  const data = loadData(dataDir);
+  if (!data) {
+    throw new Error(`Missing legacy catalogue: ${path.join(dataDir, 'products.json')}. Set PRERENDER_DATA_DIR to an exported legacy catalogue; Astro does not use this script.`);
+  }
   const routes = buildRouteTable(data);
   console.log(`Routes: ${routes.length}`);
 
-  if (!data) {
-    console.log('(static routes only -- no product data found)');
+  if (!fs.existsSync(path.join(distDir, 'index.html'))) {
+    throw new Error(`Missing build entry: ${path.join(distDir, 'index.html')}. Run vite build first.`);
   }
 
-  let serverProc;
-  try {
-    serverProc = await startServer('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], 'preview');
-  } catch (err) {
-    console.error('Failed to start preview:', err.message);
-    return;
-  }
-
+  let server;
+  let browser;
+  const captures = [];
   const handleAPI = makeAPIHandler(data);
-  const browser = await chromium.launch({ headless: true });
-  let success = 0;
   let failed = 0;
+  try {
+    // The existing Vite API works on Windows without npx.cmd, a shell,
+    // child-process trees, log matching or speculative startup delays.
+    server = await preview({
+      root: path.resolve(__dirname, '..'),
+      logLevel: 'error',
+      build: { outDir: distDir },
+      preview: { host: '127.0.0.1', port, strictPort: true, open: false },
+    });
+    const base = `http://127.0.0.1:${server.httpServer.address().port}`;
+    browser = await launchBrowser();
 
-  for (const route of routes) {
-    const url = `${BASE}${route.path}`;
-    const outputPath = path.join(DIST, route.file);
-
-    try {
-      const page = await browser.newPage();
-
-      if (handleAPI) {
+    for (const route of routes) {
+      let page;
+      try {
+        page = await browser.newPage();
+        const errors = [];
+        page.on('pageerror', error => errors.push(error.message));
+        page.on('response', response => {
+          if (/\/api\/(products|categories|brands)(?:\?|$)/.test(response.url()) && !response.ok()) {
+            errors.push(`Catalogue API ${response.status()}: ${response.url()}`);
+          }
+        });
+        page.on('requestfailed', request => {
+          if (/\/api\/(products|categories|brands)(?:\?|$)/.test(request.url())) {
+            errors.push(`Catalogue request failed: ${request.failure()?.errorText || request.url()}`);
+          }
+        });
         await page.route(/\/api\//, handleAPI);
+        const response = await page.goto(`${base}${route.path}`, { waitUntil: 'networkidle', timeout: 30000 });
+        if (!response?.ok()) throw new Error(`Navigation returned HTTP ${response?.status() ?? 'no response'}`);
+        await page.waitForFunction(expectedPath => {
+          const root = document.getElementById('root');
+          const canonical = document.querySelector('link[rel="canonical"]');
+          return root?.querySelector('nav') && root.querySelector('footer') &&
+            root.querySelector('h1')?.textContent.trim() && document.title.trim() &&
+            canonical && new URL(canonical.href).pathname === expectedPath;
+        }, route.path, { timeout: 10000 });
+        if (errors.length) throw new Error(errors.join('; '));
+        captures.push({ file: route.file, html: await page.content() });
+        console.log(`  \u2713 ${route.path}  ${await page.title()}`);
+      } catch (err) {
+        failed++;
+        console.error(`  x ${route.path}: ${err.message.slice(0, 200)}`);
+      } finally {
+        await page?.close();
       }
-
-      await page.goto(url, { waitUntil: 'networkidle', timeout: 15000 }).catch(() => {});
-      await page.waitForTimeout(500);
-      const html = await page.content();
-      await page.close();
-
-      fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-      fs.writeFileSync(outputPath, html, 'utf-8');
-
-      const hasTitle = html.includes('<title');
-      const hasContent = html.length > 2000;
-      if (hasTitle && hasContent) {
-        success++;
-        const titleMatch = html.match(/<title>([^<]+)<\/title>/);
-        console.log(`  \u2713 ${route.path}  ${titleMatch ? titleMatch[1] : ''}`);
-      } else {
-        success++;
-        console.log(`  ? ${route.path} (${html.length} bytes)`);
-      }
-    } catch (err) {
-      failed++;
-      console.error(`  x ${route.path}: ${err.message.slice(0, 80)}`);
     }
+
+    if (failed) throw new Error(`${failed} of ${routes.length} routes failed; no prerendered files were written`);
+    // Keep the original SPA entry while capturing all routes, rather than
+    // serving a partly prerendered homepage to later browser navigations.
+    for (const capture of captures) {
+      const outputPath = path.join(distDir, capture.file);
+      fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+      fs.writeFileSync(`${outputPath}.tmp`, capture.html, 'utf-8');
+      fs.renameSync(`${outputPath}.tmp`, outputPath);
+    }
+    console.log(`\nDone: ${captures.length} ok, 0 failed`);
+    return captures.length;
+  } finally {
+    try { await browser?.close(); }
+    finally { await server?.close(); }
   }
-
-  await browser.close().catch(() => {});
-  if (serverProc) serverProc.kill();
-
-  console.log(`\nDone: ${success} ok, ${failed} failed`);
 }
 
-prerender().catch(err => {
-  console.error('Prerender failed:', err.message);
-  process.exit(0);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  prerender().catch(err => {
+    console.error('Prerender failed:', err.message);
+    process.exitCode = 1;
+  });
+}

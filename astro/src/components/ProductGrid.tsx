@@ -13,6 +13,7 @@ interface GridProduct {
 
 interface Props {
   products: GridProduct[];
+  initialSearch?: string;
 }
 
 const badgeColor: Record<string, string> = {
@@ -23,14 +24,16 @@ const badgeColor: Record<string, string> = {
 const FilterChip = ({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) => (
   <button
     onClick={onClick}
+    type="button"
+    aria-pressed={active}
     className={`px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider transition-all whitespace-nowrap ${active ? 'bg-[#97000d] text-white shadow-md' : 'bg-[#eeeeee] text-[#6b6f72] hover:bg-[#e0e0e0]'}`}
   >
     {label}
   </button>
 );
 
-export default function ProductGrid({ products = [] }: Props) {
-  const [searchTerm, setSearchTerm] = useState('');
+export default function ProductGrid({ products = [], initialSearch = '' }: Props) {
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [activeBrand, setActiveBrand] = useState('All');
   const [activeBadge, setActiveBadge] = useState('All');
   const brands = useMemo(() => {
@@ -69,6 +72,7 @@ export default function ProductGrid({ products = [] }: Props) {
             </svg>
             <input
               type="text"
+              aria-label="Search products"
               placeholder="Search products..."
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
@@ -92,7 +96,7 @@ export default function ProductGrid({ products = [] }: Props) {
       </div>
       <div className="bg-[#ececed] py-14 px-8">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs text-[#6b6f72] font-bold uppercase tracking-widest mb-8">
+          <p role="status" className="text-xs text-[#6b6f72] font-bold uppercase tracking-widest mb-8">
             {filtered.length} product{filtered.length !== 1 ? 's' : ''}
             {activeBrand !== 'All' && ` · ${activeBrand}`}
             {activeBadge !== 'All' && ` · ${activeBadge}`}
@@ -105,7 +109,7 @@ export default function ProductGrid({ products = [] }: Props) {
                 <Reveal key={product.id} delay={Math.min(idx * 0.08, 0.4)} direction="up" className="group bg-[#f9f9f9] rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-200 ease-out flex flex-col hover:-translate-y-1">
                   <a href={`/product/${product.id}`} className="flex flex-col flex-grow">
                     <div className="aspect-[4/3] bg-white p-6 flex items-center justify-center relative overflow-hidden">
-                      <img alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 ease-out mix-blend-multiply" src={product.image} referrerPolicy="no-referrer" width="800" height="600" />
+                      <img alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 ease-out mix-blend-multiply" src={product.image} referrerPolicy="no-referrer" loading={idx < 4 ? 'eager' : 'lazy'} decoding="async" width="800" height="600" />
                       {product.badge && (
                         <div className="absolute top-3 right-3 z-10">
                           <span className={`${badgeColor[product.badge] || 'bg-zinc-700'} text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm`}>{product.badge}</span>

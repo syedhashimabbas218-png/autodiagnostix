@@ -4,7 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
 
-export const prerender = true;
+// Keep the existing error page available to SSR catalogue rewrites as well.
+export const prerender = false;
+Astro.response.status = 404;
 
 let popularProducts: { id: string; name: string; brand: string }[] = [];
 try {

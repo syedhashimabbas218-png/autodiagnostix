@@ -18,6 +18,7 @@ export default function Reveal({ children, delay = 0, direction = 'up', classNam
   useGSAP(() => {
     const el = container.current;
     if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const yOffset = direction === 'up' ? 80 : direction === 'down' ? -80 : 0;
     const xOffset = direction === 'left' ? 80 : direction === 'right' ? -80 : 0;

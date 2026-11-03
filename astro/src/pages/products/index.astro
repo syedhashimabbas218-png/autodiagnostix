@@ -10,7 +10,7 @@ export const prerender = false;
 
 let products: Awaited<ReturnType<typeof getProducts>> = [];
 try {
-  products = sortByAvailability(await getProducts());
+  products = sortByAvailability(await getProducts({ summaryOnly: true }));
 } catch {
   // CMS offline , use empty set
 }
@@ -42,7 +42,7 @@ const breadcrumbs = [
       </div>
     </header>
 
-    <ProductGrid client:load products={products.map(p => ({
+    <ProductGrid client:load initialSearch={Astro.url.searchParams.get('q') || ''} products={products.map(p => ({
       id: p.id,
       name: p.name,
       brand: p.brand,

@@ -96,3 +96,33 @@
   filter: grayscale(0%);
   opacity: 1;
 }
+
+/* Keep corrections scoped to intrinsic overflow, keyboard use and motion preferences. */
+:root { --header-clearance: 5rem; }
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  scroll-margin-block: var(--header-clearance);
+}
+@media (max-width: 47.999rem) {
+  .hero-slideshow { height: 100svh; min-height: 48rem; }
+}
+@media (max-height: 45rem) {
+  .hero-slideshow { min-height: 45rem; }
+}
+@media (max-width: 23.374rem) {
+  .hero-slideshow .hero-title { font-size: clamp(2.5rem, 14vw, 3.75rem); overflow-wrap: anywhere; }
+}
+.hero-slideshow .hero-cta { text-align: center; }
+.hero-slideshow > div:last-child > button { position: relative; }
+.hero-slideshow > div:last-child > button::after { content: ''; position: absolute; inset: -0.625rem 0; }
+.search-trigger { position: relative; }
+.search-trigger::after { content: ''; position: absolute; inset: -0.75rem; }
+dialog[aria-label="Search products"]::backdrop { background: transparent; }
+section[aria-label$="gallery"] button[aria-current] { position: relative; }
+section[aria-label$="gallery"] button[aria-current]::after { content: ''; position: absolute; inset: -0.5625rem 0; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-slideshow *, #site-header, #header-logo, #mobile-menu *,
+  #lifts *, #new-arrivals *, .cat-nav-item *,
+  section[aria-label$="gallery"] * { transition: none !important; }
+}

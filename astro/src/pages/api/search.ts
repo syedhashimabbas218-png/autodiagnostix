@@ -13,7 +13,7 @@ export const GET: APIRoute = async ({ url }) => {
   }
 
   try {
-    const products = sortByAvailability(await getProducts());
+    const products = sortByAvailability(await getProducts({ summaryOnly: true }));
     const query = q.toLowerCase();
     const results = products
       .filter((p) =>

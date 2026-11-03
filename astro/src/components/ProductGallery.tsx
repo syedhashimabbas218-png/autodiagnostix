@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import useReducedMotion from './useReducedMotion';
 
 interface GalleryImage {
   id: number;
@@ -14,17 +15,18 @@ interface Props {
 export default function ProductGallery({ images, productName }: Props) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const reducedMotion = useReducedMotion();
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    if (images.length <= 1 || paused) return;
+    if (images.length <= 1 || paused || reducedMotion) return;
     intervalRef.current = setInterval(() => {
       setActive(prev => (prev + 1) % images.length);
     }, 5000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [images.length, paused]);
+  }, [images.length, paused, reducedMotion]);
 
   if (images.length === 0) return null;
 
@@ -36,6 +38,8 @@ export default function ProductGallery({ images, productName }: Props) {
       aria-label={`${productName} gallery`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false); }}
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-8 md:mb-10">

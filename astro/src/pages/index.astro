@@ -57,11 +57,17 @@ const icons: Record<string, string> = {
   business: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
 };
 
-import { getProducts, getCategories, getBrands, sortByAvailability } from '../lib/strapi';
+import { getProducts, getCategories, getBrands, sortByAvailability, resolveImageUrl } from '../lib/strapi';
 
-const STRAPI_URL = import.meta.env.PUBLIC_STRAPI_URL || 'http://localhost:1337';
+const STRAPI_URL = import.meta.env.PUBLIC_STRAPI_URL || import.meta.env.STRAPI_URL || 'http://localhost:1337';
 
-const allCategories = await getCategories();
+const [allCategories, catalogue, brandLogosJson] = await Promise.all([
+  getCategories(),
+  getProducts({ summaryOnly: true }),
+  fetch(`${STRAPI_URL}/api/brands?populate=*`, { signal: AbortSignal.timeout(5000) })
+    .then(response => response.ok ? response.json() : { data: [] })
+    .catch(() => ({ data: [] })),
+]);
 const categoryIcons: Record<string, string> = {
   'scanners': 'scanners',
   'lifts-jacks': 'lifts-jacks',
@@ -74,21 +80,16 @@ const categoryIcons: Record<string, string> = {
 const categories = allCategories
   .map(c => ({ id: c.id, name: c.name, icon: categoryIcons[c.id] || c.icon || 'build' }));
 
-const allBrands = (await getBrands()).filter(b => b.slug !== 'gtitools');
+const allBrands = (await getBrands(catalogue)).filter(b => b.slug !== 'gtitools');
 
 // Fetch brand logos + descriptions from Strapi directly (getBrands in strapi.ts doesn't include logo)
-let brandLogosJson: any = { data: [] };
-try {
-  const brandLogosRes = await fetch(`${STRAPI_URL}/api/brands?populate=*`, { signal: AbortSignal.timeout(5000) });
-  if (brandLogosRes.ok) brandLogosJson = await brandLogosRes.json();
-} catch {};
 const brandLogoMap: Record<string, string> = {};
 const brandDescMap: Record<string, string> = {};
 const strapiBrands: { slug: string; name: string }[] = [];
 for (const b of (brandLogosJson.data || [])) {
   if (b.logo?.url) {
     const url = b.logo.url.startsWith('/') ? `${STRAPI_URL}${b.logo.url}` : b.logo.url;
-    brandLogoMap[b.slug] = url;
+    brandLogoMap[b.slug] = resolveImageUrl(url);
   }
   if (b.description) brandDescMap[b.slug] = b.description;
   strapiBrands.push({ slug: b.slug, name: b.name });
@@ -107,7 +108,7 @@ const mergedBrands = ORDER
   .map(slug => strapiList.find(b => b.slug === slug))
   .filter((b): b is { slug: string; name: string } => Boolean(b));
 
-const allProducts = sortByAvailability(await getProducts());
+const allProducts = sortByAvailability(catalogue);
 const NEW_ARRIVAL_IDS = ['919-max', 'wa613-wireless-3d-wheel-aligner', 'x-431-pro3-link'];
 const products = allProducts
   .filter(p => NEW_ARRIVAL_IDS.includes(p.id))
@@ -127,8 +128,8 @@ const products = allProducts
   canonical="https://autodiagnostix.com.pk"
   ogType="website"
   jsonLd={[
-    organizationSchema,
-    websiteSchema,
+    organizationSchema(),
+    websiteSchema(),
     localBusinessSchema(),
     faqSchema(faqs),
     speakableSchema('https://autodiagnostix.com.pk/', ['h1', '.geo-answer', 'summary']),
@@ -145,7 +146,7 @@ const products = allProducts
     }),
   ]}
 >
-  <Header ctaLabel="Request a Quote" ctaHref="/contact" transparentOnScroll={true} />
+  <Header ctaLabel="Request a Quote" ctaHref="/contact" transparentOnScroll={true} categories={allCategories} />
 
   <main>
     <!-- HERO -->
@@ -166,10 +167,10 @@ const products = allProducts
     </section>
 
     <!-- CATEGORY NAV -->
-    <CategoryNav client:load categories={categories} />
+    <CategoryNav client:visible={{rootMargin: '200px'}} categories={categories} />
 
     <!-- NEW ARRIVALS -->
-    <NewArrivals client:load products={products} />
+    <NewArrivals client:visible={{rootMargin: '200px'}} products={products} />
 
     <!-- STATS + PARTNERS + CERTIFICATIONS -->
     <section id="stats" class="py-20 overflow-hidden relative bg-[#FAFAFA] text-zinc-900">
@@ -256,16 +257,16 @@ const products = allProducts
               <div class={`relative z-10 p-6 md:p-16 max-w-xl ${isRight ? 'bg-zinc-950/80 backdrop-blur-md md:mr-16' : 'bg-white/10 backdrop-blur-md border border-white/20 md:ml-16'}`}>
                 <h2 class="text-2xl md:text-4xl font-headline font-extrabold text-white mb-4 md:mb-6">{section.title}</h2>
                 <p class={`mb-6 md:mb-8 leading-relaxed text-sm md:text-base ${isRight ? 'text-zinc-400' : 'text-white/80'}`}>{section.description}</p>
-                <button
-                  onClick={() => { window.location.href = section.cta?.href || '/products'; }}
-                  class={`px-6 md:px-8 py-3 font-headline font-medium text-[10px] md:text-xs uppercase tracking-widest transition-all cursor-pointer whitespace-nowrap ${
+                <a
+                  href={section.cta?.href || '/products'}
+                  class={`inline-block text-center px-6 md:px-8 py-3 font-headline font-medium text-[10px] md:text-xs uppercase tracking-widest transition-all cursor-pointer whitespace-nowrap ${
                     isRight
                       ? 'primary-gradient text-white hover:scale-[0.98]'
                       : 'bg-white text-zinc-900 hover:bg-zinc-100'
                   }`}
                 >
                   {section.cta?.label || 'Explore'}
-                </button>
+                </a>
               </div>
             </div>
           );
@@ -279,7 +280,7 @@ const products = allProducts
         <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-12">{home.professional_equipment?.title || 'Heavy Duty Workshop Solutions'}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
           {(home.professional_equipment?.categories || []).map((cat, idx) => (
-            <div onclick="window.location.href='/products'" class="group cursor-pointer hover:-translate-y-1 hover:scale-[1.02] transition-all duration-200 ease-out">
+            <a href="/products" class="block group cursor-pointer hover:-translate-y-1 hover:scale-[1.02] transition-all duration-200 ease-out">
               <div class="aspect-video bg-surface-container-low mb-6 overflow-hidden">
                 <img src={cat.image} alt={cat.name} class="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-110" loading="lazy" referrerpolicy="no-referrer" width="800" height="600" />
               </div>
@@ -289,7 +290,7 @@ const products = allProducts
               </div>
               <h3 class="text-xl font-headline font-extrabold mb-3 group-hover:text-primary transition-colors">{cat.name}</h3>
               <p class="text-zinc-500 text-sm leading-relaxed mb-6">{cat.description}</p>
-            </div>
+            </a>
           ))}
         </div>
 
@@ -330,7 +331,7 @@ const products = allProducts
 
     <!-- LIFTS -->
     <InteractiveLifts
-      client:load
+      client:visible={{rootMargin: '200px'}}
       image="/images/2postlift.webp"
       title={home.interactive_lifts?.content_section?.title || 'Hydraulic Precision. Absolute Safety.'}
       tagline={home.interactive_lifts?.content_section?.tagline || 'Product Focus'}
@@ -354,11 +355,11 @@ const products = allProducts
             <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">3D Wheel Alignment in Pakistan</h3>
             <p class="text-sm text-zinc-500 leading-relaxed">Launch X861 PRO, X861 LITE, U-VA2023 wireless 3D wheel aligners for modern workshops.</p>
           </a>
-          <a href="/tyre-changers-in-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+          <a href="/tyre-changers-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
             <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Tyre Changers in Pakistan</h3>
             <p class="text-sm text-zinc-500 leading-relaxed">GTI.tools G-Extreme, POWER X and RFT PRO tyre changers with low-profile and run-flat capability.</p>
           </a>
-          <a href="/wheel-balancers-in-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
+          <a href="/wheel-balancers-pakistan" class="group bg-white p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
             <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Wheel Balancers in Pakistan</h3>
             <p class="text-sm text-zinc-500 leading-relaxed">GTI.tools LCD Premium automatic wheel balancer with sonar system, plus Launch balancers.</p>
           </a>
@@ -463,12 +464,12 @@ const products = allProducts
         </h2>
         <p class="max-w-2xl mx-auto mb-12 text-lg text-white/80">{home.cta_banner?.description || "Join Pakistan's leading service centers using Autodiagnostix professional equipment."}</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <button onclick={`window.location.href='${home.cta_banner?.cta_primary?.href || '/contact'}'`} class="bg-white text-primary px-10 py-5 font-headline font-bold text-sm uppercase tracking-widest hover:bg-zinc-100 transition-colors cursor-pointer">
+          <a href={home.cta_banner?.cta_primary?.href || '/contact'} class="inline-block text-center bg-white text-primary px-10 py-5 font-headline font-bold text-sm uppercase tracking-widest hover:bg-zinc-100 transition-colors cursor-pointer">
             {home.cta_banner?.cta_primary?.label || 'Get in Touch'}
-          </button>
-          <button onclick={`window.location.href='${home.cta_banner?.cta_secondary?.href || '/products'}'`} class="border border-white/40 text-white px-10 py-5 font-headline font-bold text-sm uppercase tracking-widest hover:bg-white/10 transition-colors cursor-pointer">
+          </a>
+          <a href={home.cta_banner?.cta_secondary?.href || '/products'} class="inline-block text-center border border-white/40 text-white px-10 py-5 font-headline font-bold text-sm uppercase tracking-widest hover:bg-white/10 transition-colors cursor-pointer">
             {home.cta_banner?.cta_secondary?.label || 'Download Catalog'}
-          </button>
+          </a>
         </div>
       </div>
     </section>
