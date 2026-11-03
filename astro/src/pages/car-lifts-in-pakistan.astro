@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -27,7 +27,7 @@ const faqs = [
   title="Car Lifts in Pakistan , 2-Post, 4-Post, Scissor & Bulletproof Lifts"
   description="Buy car lifts in Pakistan from Autodiagnostix , Pakistan's authorized dealer for Liberty Lifts and UNITE. 2-post lifts, 4-post lifts, scissor lifts, alignment lifts and bulletproof vehicle lifts. Delivery & installation in Karachi, Lahore, Islamabad & all Pakistan."
   canonical="https://autodiagnostix.com.pk/car-lifts-in-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'Car Lifts in Pakistan: 2-Post, 4-Post, Scissor & Bulletproof Lifts',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for Car Lifts in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/car-lifts-in-pakistan',

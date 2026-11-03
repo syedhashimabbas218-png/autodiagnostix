@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -25,7 +25,7 @@ const faqs = [
   title="Buy Alignment Lifts in Pakistan | 4-Post &amp; Scissor"
   description="Buy wheel alignment lifts in Pakistan from Autodiagnostix. 4-post &amp; scissor alignment lifts with turnplates. UNITE PL-FS40, Liberty FR-6108, Launch iSmartTLT 242. Purpose-built for 3D wheel alignment. Delivery nationwide."
   canonical="https://autodiagnostix.com.pk/alignment-lifts-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'Alignment Lifts in Pakistan: 4-Post & Scissor',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for Alignment Lifts in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/alignment-lifts-pakistan',

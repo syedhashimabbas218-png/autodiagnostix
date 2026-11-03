@@ -99,13 +99,41 @@
 
 /* Keep corrections scoped to intrinsic overflow, keyboard use and motion preferences. */
 :root { --header-clearance: 5rem; }
+:root {
+  --spacing-hero-top: 6rem;
+  --spacing-hero-bottom: 5rem;
+  --size-hero-laptop-copy: 48rem;
+  --font-hero-laptop-min: 3.25rem;
+  --font-hero-desktop-max: 6rem;
+  --leading-hero-laptop: 1.08;
+  --spacing-hero-mobile-top: 5.5rem;
+  --spacing-hero-mobile-bottom: 6rem;
+}
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
   scroll-margin-block: var(--header-clearance);
 }
 @media (max-width: 47.999rem) {
-  .hero-slideshow { height: 100svh; min-height: 48rem; }
+  .hero-slideshow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+    min-height: 100svh;
+  }
+  .hero-slideshow > [aria-hidden] {
+    position: relative;
+    grid-area: 1 / 1;
+    align-self: stretch;
+    inset: auto;
+    min-width: 0;
+  }
+  .hero-slideshow .hero-content {
+    height: auto;
+    min-height: 100%;
+    padding-block-start: var(--spacing-hero-mobile-top);
+    padding-block-end: var(--spacing-hero-mobile-bottom);
+  }
 }
 @media (max-height: 45rem) {
   .hero-slideshow { min-height: 45rem; }
@@ -125,4 +153,23 @@ section[aria-label$="gallery"] button[aria-current]::after { content: ''; positi
   .hero-slideshow *, #site-header, #header-logo, #mobile-menu *,
   #lifts *, #new-arrivals *, .cat-nav-item *,
   section[aria-label$="gallery"] * { transition: none !important; }
+}
+
+/* Budget for the fixed header and slider controls, including short laptops.
+   The wider-desktop type, imagery, colors and content stay unchanged. */
+@media (min-width: 48rem) {
+  .hero-slideshow .hero-content {
+    padding-block-start: var(--spacing-hero-top);
+    padding-block-end: var(--spacing-hero-bottom);
+  }
+  .hero-slideshow .hero-title {
+    font-size: clamp(var(--font-hero-laptop-min), min(5vw, 10svh), var(--font-hero-desktop-max));
+  }
+}
+@media (min-width: 48rem) and (max-width: 89.999rem),
+       (min-width: 48rem) and (max-height: 56rem) {
+  .hero-slideshow .hero-copy { max-width: var(--size-hero-laptop-copy); }
+  .hero-slideshow .hero-title {
+    line-height: var(--leading-hero-laptop);
+  }
 }

@@ -10,12 +10,7 @@ import { productSchema, breadcrumbListSchema } from '../../utils/schema';
 export const prerender = false;
 
 const { id } = Astro.params;
-let product = null;
-try {
-  product = await getProduct(id!);
-} catch {
-  // CMS offline
-}
+const product = await getProduct(id!);
 
 if (!product) {
   return Astro.rewrite('/404');
@@ -25,7 +20,9 @@ const breadcrumbs = [
   { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
   {
     name: product.category || 'Products',
-    url: `https://autodiagnostix.com.pk/category/${(product.category || '').toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`,
+    url: product.category
+      ? `https://autodiagnostix.com.pk/category/${product.categorySlug || product.category.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`
+      : 'https://autodiagnostix.com.pk/products',
   },
   { name: product.name, url: `https://autodiagnostix.com.pk/product/${id}` },
 ];
@@ -97,14 +94,14 @@ const breadcrumbs = [
       <section class="py-24 bg-surface-container-lowest">
         <div class="max-w-7xl mx-auto px-8">
           <h2 class="text-4xl font-headline font-extrabold tracking-tighter mb-16">TECHNICAL SPECIFICATIONS</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-0.5 bg-outline-variant/20 border border-outline-variant/20 rounded-xl overflow-hidden">
+          <dl class="grid grid-cols-1 md:grid-cols-3 gap-0.5 bg-outline-variant/20 border border-outline-variant/20 rounded-xl overflow-hidden">
             {product.technicalTable.map(spec => (
               <div class="bg-surface-container-lowest p-10 flex flex-col gap-4">
-                <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase">{spec.label}</span>
-                <div class="text-2xl font-headline font-medium">{spec.value}</div>
+                <dt class="text-[10px] font-bold tracking-widest text-slate-400 uppercase">{spec.label}</dt>
+                <dd class="text-2xl font-headline font-medium">{spec.value}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
     )}

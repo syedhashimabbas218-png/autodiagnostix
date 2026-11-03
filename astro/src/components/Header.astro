@@ -39,7 +39,7 @@ const seoLinks = [
         <img id="header-logo" src="/logo-full.webp" alt="Autodiagnostix" class="h-14 w-auto object-contain transition-all duration-300" />
       </a>
     </div>
-    <div class="hidden md:flex items-center gap-6">
+    <div id="desktop-navigation" class="hidden md:flex items-center gap-6">
       {headerNav.map(cat => (
         <a href={`/category/${cat.id}`} class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">{cat.name}</a>
       ))}
@@ -83,7 +83,7 @@ const seoLinks = [
 <script define:vars={{ transparentOnScroll }}>
   const header = document.getElementById('site-header');
   const logo = document.getElementById('header-logo');
-  const navLinks = header.querySelectorAll('.md\\:flex a');
+  const navLinks = header.querySelectorAll('#desktop-navigation a');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuBtn = document.getElementById('mobile-menu-btn');
   const menuOpen = document.getElementById('menu-icon-open');
@@ -105,7 +105,7 @@ const seoLinks = [
   document.addEventListener('click', (event) => {
     if (!header.contains(event.target)) setMenuOpen(false);
   });
-  const desktop = window.matchMedia('(min-width: 1280px)');
+  const desktop = window.matchMedia('(min-width: 90rem)');
   desktop.addEventListener('change', () => setMenuOpen(false));
 
   mobileMenu?.querySelectorAll('a').forEach(link => {
@@ -144,11 +144,13 @@ const seoLinks = [
 <style>
   .primary-gradient { background: linear-gradient(135deg, #97000d 0%, #bb2221 100%); }
   #mobile-menu { max-height: calc(100dvh - 3.5rem); overflow-y: auto; overscroll-behavior: contain; }
-  @media (min-width: 48rem) and (max-width: 79.999rem) {
-    #site-header > div > .md\:flex, #header-cta { display: none; }
+  #site-header > div > :first-child,
+  #site-header > div > :last-child { flex-shrink: 0; }
+  #desktop-navigation a, #header-cta { white-space: nowrap; }
+  @media (min-width: 48rem) and (max-width: 89.999rem) {
+    #desktop-navigation { display: none; }
     #mobile-menu-btn { display: flex; }
     #mobile-menu:not(.hidden) { display: block; }
     #mobile-menu { max-height: calc(100dvh - 4rem); }
-    #mobile-menu a.md\:hidden { display: block; }
   }
 </style>

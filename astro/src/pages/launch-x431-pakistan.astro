@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -28,7 +28,7 @@ const faqs = [
   title="Launch X431 in Pakistan , Authorized Dealer | Autodiagnostix"
   description="Buy Launch X431 in Pakistan from Autodiagnostix , Pakistan's authorized Launch dealer. X431 PRO3 LINK, PAD 9 LINK, CNC 605A, ADAS PRO PLUS, HD III heavy-duty module, 919 MAX Creader. Genuine products, warranty & local support across Pakistan."
   canonical="https://autodiagnostix.com.pk/launch-x431-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'Launch X431 in Pakistan: Authorized Dealer',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for Launch X431 in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/launch-x431-pakistan',

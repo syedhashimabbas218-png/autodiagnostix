@@ -3,13 +3,12 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
+# Preserve the existing edge policy separating training from public search.
+# Search crawlers inherit the wildcard rules, including admin/API restrictions.
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: Claude-Web
-Allow: /
+Disallow: /
 
-User-agent: PerplexityBot
-Allow: /
-
-Sitemap: https://autodiagnostix.com.pk/sitemap-index.xml
+Sitemap: https://www.autodiagnostix.com.pk/sitemap-index.xml

@@ -7,7 +7,7 @@ import CategoryNav from '../components/CategoryNav';
 import NewArrivals from '../components/NewArrivals';
 import InteractiveLifts from '../components/InteractiveLifts';
 import ClientsSection from '../components/ClientsSection.astro';
-import { organizationSchema, websiteSchema, localBusinessSchema, faqSchema, speakableSchema, definitionBlock, articleSchema } from '../utils/schema';
+import { organizationSchema, websiteSchema, localBusinessSchema, faqSchema, speakableSchema, definitionBlock, webPageSchema } from '../utils/schema';
 
 const faqs = [
   {
@@ -57,9 +57,7 @@ const icons: Record<string, string> = {
   business: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
 };
 
-import { getProducts, getCategories, getBrands, sortByAvailability, resolveImageUrl } from '../lib/strapi';
-
-const STRAPI_URL = import.meta.env.PUBLIC_STRAPI_URL || import.meta.env.STRAPI_URL || 'http://localhost:1337';
+import { CMS_URL as STRAPI_URL, getProducts, getCategories, getBrands, sortByAvailability, resolveImageUrl } from '../lib/strapi';
 
 const [allCategories, catalogue, brandLogosJson] = await Promise.all([
   getCategories(),
@@ -138,7 +136,7 @@ const products = allProducts
       "Autodiagnostix is Pakistan's authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts, and AUTOOL automotive diagnostic and workshop equipment, headquartered in Sahiwal, Punjab, and delivering across Pakistan.",
       'https://autodiagnostix.com.pk/about'
     ),
-    articleSchema({
+    webPageSchema({
       headline: 'Autodiagnostix: Pakistan\'s Authorized Dealer for LAUNCH, Smartsafe, UNITE, GTI.tools, Liberty Lifts & AUTOOL',
       description: 'Pakistan\'s authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts and AUTOOL. Car lifts, 3D wheel aligners, ADAS, EV diagnostics, tyre changers, wheel balancers, battery testers, videoscopes.',
       url: 'https://autodiagnostix.com.pk/',

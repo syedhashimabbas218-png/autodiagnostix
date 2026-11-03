@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -25,7 +25,7 @@ const faqs = [
   title="Buy Wheel Balancers in Pakistan | GTI.tools LCD"
   description="Buy wheel balancers in Pakistan from Autodiagnostix. GTI.tools LCD Premium with sonar system. Prices PKR 250,000–1,200,000+. Authorized dealer. Delivery across Pakistan including Karachi, Lahore &amp; Islamabad."
   canonical="https://autodiagnostix.com.pk/wheel-balancers-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'Wheel Balancers in Pakistan: GTI.tools LCD Premium',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for Wheel Balancers in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/wheel-balancers-pakistan',

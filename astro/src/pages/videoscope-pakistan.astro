@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -25,7 +25,7 @@ const faqs = [
   title="Buy Videoscopes in Pakistan | Launch VSP-600/800"
   description="Buy car videoscopes in Pakistan from Autodiagnostix. Launch VSP-600 HD &amp; VSP-800 dual-lens. Flexible inspection cameras for engine &amp; transmission diagnostics. Authorized dealer. Delivery across Pakistan."
   canonical="https://autodiagnostix.com.pk/videoscope-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'Videoscopes in Pakistan: Launch VSP-600 & VSP-800',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for Videoscopes in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/videoscope-pakistan',

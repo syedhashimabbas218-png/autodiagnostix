@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -26,7 +26,7 @@ const faqs = [
   title="Buy Tyre Changers in Pakistan | GTI.tools Dealer"
   description="Buy GTI.tools tyre changers in Pakistan from Autodiagnostix. G-Extreme, POWER X, RFT PRO. Prices PKR 400,000–1,500,000+. German-engineered. For run-flat &amp; low-profile tyres. Delivery &amp; training across Pakistan."
   canonical="https://autodiagnostix.com.pk/tyre-changers-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'Tyre Changers in Pakistan: GTI.tools Dealer',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for Tyre Changers in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/tyre-changers-pakistan',

@@ -6,7 +6,8 @@ import { getProducts, sortByAvailability } from '../lib/strapi';
 
 // Keep the existing error page available to SSR catalogue rewrites as well.
 export const prerender = false;
-Astro.response.status = 404;
+const unavailable = Astro.locals.cmsUnavailable === true;
+Astro.response.status = unavailable ? 503 : 404;
 
 let popularProducts: { id: string; name: string; brand: string }[] = [];
 try {
@@ -27,9 +28,10 @@ const popularLinks = [
 ---
 
 <BaseLayout
-  title="Page Not Found | Autodiagnostix"
-  description="The page you are looking for could not be found. Browse our complete range of automotive diagnostic equipment, car lifts, and workshop tools."
-  noindex
+  title={unavailable ? 'Catalog Temporarily Unavailable | Autodiagnostix' : 'Page Not Found | Autodiagnostix'}
+  description={unavailable ? 'Our catalog is temporarily unavailable. Please try again shortly or contact Autodiagnostix for product assistance.' : 'The page you are looking for could not be found. Browse our complete range of automotive diagnostic equipment, car lifts, and workshop tools.'}
+  noindex={!unavailable}
+  omitCanonical={unavailable}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 
@@ -39,10 +41,10 @@ const popularLinks = [
         <div class="mb-6 flex justify-center">
           <img src="/logo-full.webp" alt="Autodiagnostix" class="h-16 w-auto object-contain" width="200" height="64" />
         </div>
-        <h1 class="font-headline text-8xl md:text-9xl font-extrabold tracking-tighter text-primary mb-4">404</h1>
-        <p class="text-2xl text-on-surface mb-2 font-headline font-bold">Page not found</p>
+        <h1 class="font-headline text-8xl md:text-9xl font-extrabold tracking-tighter text-primary mb-4">{unavailable ? '503' : '404'}</h1>
+        <p class="text-2xl text-on-surface mb-2 font-headline font-bold">{unavailable ? 'Catalog temporarily unavailable' : 'Page not found'}</p>
         <p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">
-          The page you are looking for does not exist or has been moved. Use the links below to find what you need, or head back to the homepage.
+          {unavailable ? 'Please try again shortly or contact us for product assistance. Our team can help with your equipment inquiry.' : 'The page you are looking for does not exist or has been moved. Use the links below to find what you need, or head back to the homepage.'}
         </p>
         <a
           href="/"

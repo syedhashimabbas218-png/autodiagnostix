@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -26,7 +26,7 @@ const faqs = [
   title="Buy 3D Wheel Alignment in Pakistan | Launch X861"
   description="Buy 3D wheel alignment machines in Pakistan from Autodiagnostix. Launch X861 PRO, X861 LITE, WA613, UNITE U-VA2023. Prices PKR 800,000–2,500,000. Installation &amp; training Karachi, Lahore, Islamabad &amp; all Pakistan."
   canonical="https://autodiagnostix.com.pk/wheel-alignment-in-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: '3D Wheel Alignment in Pakistan: Launch X861 & WA613',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for 3D Wheel Alignment in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/wheel-alignment-in-pakistan',

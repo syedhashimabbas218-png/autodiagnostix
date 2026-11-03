@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -27,7 +27,7 @@ const faqs = [
   title="Buy Scissor Lifts in Pakistan | Liberty &amp; UNITE"
   description="Buy scissor lifts in Pakistan from Autodiagnostix. Authorized Liberty Lifts &amp; UNITE dealer. 3.5T to 5T capacities. Prices PKR 350,000–1,800,000. For tyre shops &amp; alignment. Delivery Karachi, Lahore, Islamabad &amp; all Pakistan."
   canonical="https://autodiagnostix.com.pk/scissor-lifts-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'Scissor Lifts in Pakistan: Liberty & UNITE',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for Scissor Lifts in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/scissor-lifts-pakistan',

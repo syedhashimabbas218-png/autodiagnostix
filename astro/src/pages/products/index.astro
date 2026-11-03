@@ -8,12 +8,7 @@ import { breadcrumbListSchema, itemListSchema } from '../../utils/schema';
 
 export const prerender = false;
 
-let products: Awaited<ReturnType<typeof getProducts>> = [];
-try {
-  products = sortByAvailability(await getProducts({ summaryOnly: true }));
-} catch {
-  // CMS offline , use empty set
-}
+const products = sortByAvailability(await getProducts({ summaryOnly: true }));
 
 const breadcrumbs = [
   { name: 'Home', url: 'https://autodiagnostix.com.pk/' },

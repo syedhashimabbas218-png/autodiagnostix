@@ -39,7 +39,7 @@ export const GET: APIRoute = async ({ url }) => {
   } catch {
     return new Response(JSON.stringify({ results: [], error: 'Search unavailable' }), {
       status: 503,
-      headers: { 'Content-Type': 'application/json', 'X-Robots-Tag': 'noindex' },
+      headers: { 'Content-Type': 'application/json', 'X-Robots-Tag': 'noindex', 'Retry-After': '60', 'Cache-Control': 'no-store' },
     });
   }
 };

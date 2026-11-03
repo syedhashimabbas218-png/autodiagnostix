@@ -41,7 +41,7 @@ try {
       return bn === brandName || bk === brandKey;
     }));
   }
-} catch { /* CMS offline */ }
+} catch (error) { throw error; }
 
 if (!brand) return Astro.rewrite('/404');
 
@@ -96,7 +96,7 @@ const breadcrumbs = [
                     )}
                     <div class="h-px flex-1 bg-zinc-100"></div>
                   </div>
-                  <h3 class="text-base font-headline font-extrabold mb-1 group-hover:text-primary transition-colors line-clamp-1">{p.name}</h3>
+                  <h2 class="text-base font-headline font-extrabold mb-1 group-hover:text-primary transition-colors line-clamp-1">{p.name}</h2>
                   <p class="text-zinc-500 text-xs leading-relaxed line-clamp-2">{p.summary}</p>
                 </div>
               </a>

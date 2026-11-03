@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -27,7 +27,7 @@ const faqs = [
   title="Buy 2-Post Car Lifts in Pakistan | Liberty &amp; UNITE"
   description="Buy 2-post car lifts in Pakistan from Autodiagnostix. Prices PKR 450,000–1,200,000. Authorized dealer for Liberty Lifts &amp; UNITE. 3.5T to 6.8T capacities. Delivery &amp; installation Karachi, Lahore, Islamabad &amp; all Pakistan."
   canonical="https://autodiagnostix.com.pk/2-post-car-lifts-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: '2-Post Car Lifts in Pakistan: Liberty Lifts Dealer',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for 2-Post Car Lifts in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/2-post-car-lifts-pakistan',

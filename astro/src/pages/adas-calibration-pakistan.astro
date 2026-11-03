@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -22,7 +22,7 @@ const faqs = [
   title="Buy ADAS Calibration Equipment Pakistan | Launch PRO PLUS"
   description="Buy ADAS calibration equipment in Pakistan from Autodiagnostix. Launch X-431 ADAS PRO PLUS for camera, radar &amp; lidar. Prices PKR 1,500,000–4,000,000. Authorized dealer with installation &amp; training across Pakistan."
   canonical="https://autodiagnostix.com.pk/adas-calibration-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'ADAS Calibration in Pakistan: Launch ADAS PRO PLUS',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for ADAS Calibration in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/adas-calibration-pakistan',

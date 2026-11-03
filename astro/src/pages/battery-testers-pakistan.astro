@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -25,7 +25,7 @@ const faqs = [
   title="Buy Battery Testers in Pakistan | Smartsafe BST-560/860"
   description="Buy battery testers in Pakistan from Autodiagnostix. Smartsafe BST-560 &amp; BST-860 12V/24V testers, AUTOOL SPT360 plug tester. Dealer prices. Delivery across Pakistan including Karachi, Lahore &amp; Islamabad."
   canonical="https://autodiagnostix.com.pk/battery-testers-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: 'Battery Testers in Pakistan: Smartsafe BST-560/860',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for Battery Testers in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/battery-testers-pakistan',

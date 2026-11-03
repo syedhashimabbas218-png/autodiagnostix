@@ -1,6 +1,4 @@
-const SITE_URL = 'https://autodiagnostix.com.pk';
-const CURRENCY = 'PKR';
-const LAST_UPDATED = new Date().toISOString().slice(0, 10);
+import { SITE_URL, canonicalUrl } from './site.mjs';
 
 export function organizationSchema() {
   return {
@@ -10,7 +8,7 @@ export function organizationSchema() {
     name: 'Autodiagnostix',
     alternateName: 'Autodiagnostix Pakistan',
     url: SITE_URL,
-    logo: `${SITE_URL}/favicon.svg`,
+    logo: `${SITE_URL}/logo-full.webp`,
     description: 'Precision Engineering for Automotive Professionals. We provide diagnostic tools, scanners, and workshop equipment.',
     disambiguatingDescription: 'Authorized dealer for LAUNCH, SMARTSAFE, UNITE, GTI.tools, Liberty Lifts and AUTOOL automotive diagnostic and workshop equipment based in Sahiwal, Punjab, Pakistan. Distinct from AUTODIAGNOSTIK LTD (UK) and AUTO DIAGNOSTIX SRL (Romania).',
     foundingDate: '2020',
@@ -36,7 +34,7 @@ export function breadcrumbListSchema(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: item.url,
+      item: canonicalUrl(item.url),
     })),
   };
 }
@@ -48,35 +46,23 @@ export function productSchema(product: {
   description?: string;
   heroImages?: string[];
   brand?: string;
+  brands?: string[];
   category?: string;
   price?: number | null;
 }) {
+  const brands = [...new Set(product.brands?.length ? product.brands : (product.brand ? [product.brand] : []))];
+  const url = canonicalUrl(`/product/${product.id}`);
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    '@id': `${url}#product`,
+    url,
     name: product.name,
-    description: product.summary || product.description?.substring(0, 200) || '',
-    image: product.heroImages || [],
-    sku: product.id,
-    dateModified: LAST_UPDATED,
-    brand: product.brand ? {
-      '@type': 'Brand',
-      name: product.brand,
-    } : undefined,
-    offers: {
-      '@type': 'Offer',
-      url: `${SITE_URL}/product/${product.id}`,
-      availability: 'https://schema.org/InStock',
-      priceCurrency: CURRENCY,
-      priceValidUntil: '2027-12-31',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: {
-        '@type': 'Organization',
-        name: 'Autodiagnostix',
-        url: SITE_URL,
-      },
-      ...(product.price ? { price: product.price } : {}),
-    },
+    description: product.summary || undefined,
+    image: (product.heroImages || []).filter(Boolean).map(image => new URL(image, `${SITE_URL}/`).href),
+    brand: brands.length ? brands.map(name => ({ '@type': 'Brand', name })) : undefined,
+    // These pages display a quote request, not a public price or inventory.
+    // Do not turn a CMS-only price or URL slug into an Offer or SKU.
     category: product.category,
   };
 }
@@ -85,6 +71,7 @@ export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
     name: 'Autodiagnostix',
     url: SITE_URL,
     potentialAction: {
@@ -99,17 +86,19 @@ export function websiteSchema() {
 }
 
 export function itemListSchema(items: { name: string; url: string }[], type: 'ItemList' | 'CollectionPage' = 'ItemList') {
-  return {
+  const list = {
     '@context': 'https://schema.org',
-    '@type': type,
-    dateModified: LAST_UPDATED,
+    '@type': 'ItemList',
     itemListElement: items.map((item, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      url: item.url,
+      url: canonicalUrl(item.url),
       name: item.name,
     })),
   };
+  return type === 'CollectionPage'
+    ? { '@context': 'https://schema.org', '@type': 'CollectionPage', mainEntity: list }
+    : list;
 }
 
 export function brandSchema(brand: { name: string; url: string; description?: string; image?: string }) {
@@ -120,7 +109,6 @@ export function brandSchema(brand: { name: string; url: string; description?: st
     url: brand.url,
     ...(brand.description ? { description: brand.description } : {}),
     ...(brand.image ? { image: brand.image } : {}),
-    sameAs: [`${SITE_URL}/brand/${brand.url.split('/').pop()}`],
   };
 }
 
@@ -245,7 +233,7 @@ export function definitionBlock(term: string, definition: string, url?: string) 
   };
 }
 
-export function articleSchema(opts: {
+export function webPageSchema(opts: {
   headline: string;
   description: string;
   url: string;
@@ -256,14 +244,15 @@ export function articleSchema(opts: {
 }) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: opts.headline,
+    '@type': 'WebPage',
+    '@id': canonicalUrl(opts.url),
+    name: opts.headline,
     description: opts.description,
-    url: opts.url,
-    mainEntityOfPage: { '@type': 'WebPage', '@id': opts.url },
+    url: canonicalUrl(opts.url),
+    isPartOf: { '@id': `${SITE_URL}/#website` },
     image: opts.image ? [opts.image] : [`${SITE_URL}/og-image.svg`],
-    datePublished: opts.datePublished || '2024-01-01',
-    dateModified: opts.dateModified || LAST_UPDATED,
+    ...(opts.datePublished ? { datePublished: opts.datePublished } : {}),
+    ...(opts.dateModified ? { dateModified: opts.dateModified } : {}),
     keywords: opts.keywords?.join(', '),
     inLanguage: 'en-PK',
     author: {

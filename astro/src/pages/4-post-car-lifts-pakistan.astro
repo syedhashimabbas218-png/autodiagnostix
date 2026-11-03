@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getProducts, sortByAvailability } from '../lib/strapi';
-import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, articleSchema, speakableSchema, definitionBlock } from '../utils/schema';
+import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
 export const prerender = false;
 
@@ -27,7 +27,7 @@ const faqs = [
   title="Buy 4-Post Car Lifts in Pakistan | UNITE PL-FS40"
   description="Buy 4-post car lifts in Pakistan from Autodiagnostix. Authorized UNITE dealer. 4 to 6 ton capacities for wheel alignment &amp; storage. Prices from PKR 800,000. Delivery &amp; installation Karachi, Lahore, Islamabad &amp; all Pakistan."
   canonical="https://autodiagnostix.com.pk/4-post-car-lifts-pakistan"
-  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       articleSchema({
+  jsonLd={[breadcrumbListSchema(breadcrumbs), organizationSchema(), faqSchema(faqs), localBusinessSchema(),       webPageSchema({
       headline: '4-Post Car Lifts in Pakistan: UNITE Dealer',
       description: 'Autodiagnostix is Pakistan\'s authorized dealer for 4-Post Car Lifts in Pakistan. Buy genuine products with delivery and installation guidelines across Pakistan.',
       url: 'https://autodiagnostix.com.pk/4-post-car-lifts-pakistan',

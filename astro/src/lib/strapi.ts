@@ -1,4 +1,7 @@
-const CMS_URL = import.meta.env.PUBLIC_STRAPI_URL || import.meta.env.STRAPI_URL || 'http://localhost:1337';
+import { brandSlug as toSlug } from '../utils/site.mjs';
+import { createCmsClient } from './cms-client.mjs';
+
+export const CMS_URL = (process.env.PUBLIC_STRAPI_URL || process.env.STRAPI_URL || import.meta.env.PUBLIC_STRAPI_URL || import.meta.env.STRAPI_URL || 'http://localhost:1337').replace(/\/$/, '');
 
 const FALLBACK_IMAGES: Record<string, string[]> = {
   "lh-330-lh-340-dual-pump-floor-jack": ["/images/lh-330-lh-340-dual-pump-floor-jack_img1.webp"],
@@ -32,6 +35,7 @@ export interface Product {
   brand: string;
   brands: string[];
   category: string;
+  categorySlug: string;
   heroImages: string[];
   features: { title: string; description: string; image: string }[];
   functions: { title: string; description: string; image: string }[];
@@ -67,32 +71,13 @@ export function resolveImageUrl(url: string | null | undefined): string {
   return url;
 }
 
-function toSlug(str: string): string {
-  return str.toLowerCase().replace(/[\s/]+/g, '-').replace(/[^a-z0-9-]/g, '');
-}
+const POPULATE = 'populate[heroImages][populate][image][populate]=*&populate[brand][fields][0]=name&populate[category][fields][0]=name&populate[category][fields][1]=slug&populate[features][fields][0]=title&populate[features][fields][1]=description&populate[features][populate][image][fields][0]=url&populate[functions][fields][0]=title&populate[functions][fields][1]=description&populate[technicalTable]=*&populate[specs]=*';
+const SUMMARY_POPULATE = 'populate[heroImages][populate][image][fields][0]=url&populate[brand][fields][0]=name&populate[category][fields][0]=name&populate[category][fields][1]=slug';
 
-const POPULATE = 'populate[heroImages][populate][image][populate]=*&populate[brand][fields][0]=name&populate[category][fields][0]=name&populate[features][fields][0]=title&populate[features][fields][1]=description&populate[features][populate][image][fields][0]=url&populate[functions][fields][0]=title&populate[functions][fields][1]=description&populate[technicalTable]=*&populate[specs]=*';
-const SUMMARY_POPULATE = 'populate[heroImages][populate][image][fields][0]=url&populate[brand][fields][0]=name&populate[category][fields][0]=name';
-
-const pendingRequests = new Map<string, Promise<unknown>>();
+const cmsClient = createCmsClient(CMS_URL);
 
 async function fetchAPI<T>(endpoint: string): Promise<T> {
-  const pending = pendingRequests.get(endpoint);
-  if (pending) return pending as Promise<T>;
-  const request = (async () => {
-    try {
-      const res = await fetch(`${CMS_URL}/api${endpoint}`, { signal: AbortSignal.timeout(5000) });
-      if (!res.ok) throw new Error(`Strapi API ${res.status}: ${res.statusText}`);
-      // Await body parsing here so aborts/malformed JSON reach this catch too.
-      return await res.json() as T;
-    } catch {
-      return { data: [] } as unknown as T;
-    } finally {
-      pendingRequests.delete(endpoint);
-    }
-  })();
-  pendingRequests.set(endpoint, request);
-  return request;
+  return await cmsClient.read(endpoint) as T;
 }
 
 interface StrapiListResponse<T> {
@@ -134,7 +119,7 @@ interface StrapiProduct {
   badge: string | null;
   price: number | null;
   brand: { id: number; name: string }[] | { id: number; name: string } | null;
-  category: { id: number; name: string } | null;
+  category: { id: number; name: string; slug?: string } | null;
   heroImages: StrapiHeroImage[];
   features: StrapiFeature[];
   functions: StrapiFeature[];
@@ -175,6 +160,7 @@ function normalizeProduct(p: StrapiProduct): Product {
     brand: brands.join(' / '),
     brands,
     category: p.category?.name || '',
+    categorySlug: p.category?.slug || '',
     heroImages,
     features: (p.features || []).map(f => ({
       title: f.title,
@@ -210,8 +196,8 @@ function normalizeCategory(c: StrapiCategory): Category {
 export async function getProducts({ summaryOnly = false }: { summaryOnly?: boolean } = {}): Promise<Product[]> {
   // Listing/search callers do not consume feature/specification relations.
   // Full product and PDF requests retain the original population contract.
-  const data = await fetchAPI<StrapiListResponse<StrapiProduct>>(`/products?${summaryOnly ? SUMMARY_POPULATE : POPULATE}&pagination[pageSize]=100`);
-  return (data.data || []).map(normalizeProduct);
+  const products = await cmsClient.list(`/products?${summaryOnly ? SUMMARY_POPULATE : POPULATE}`) as StrapiProduct[];
+  return products.map(normalizeProduct);
 }
 
 export function sortByAvailability(products: Product[]): Product[] {
@@ -229,8 +215,8 @@ export async function getProduct(slug: string): Promise<Product | null> {
 }
 
 export async function getCategories(): Promise<Category[]> {
-  const data = await fetchAPI<StrapiListResponse<StrapiCategory>>('/categories?populate=*&pagination[pageSize]=50');
-  return (data.data || []).map(normalizeCategory);
+  const categories = await cmsClient.list('/categories?populate=*', 50) as StrapiCategory[];
+  return categories.map(normalizeCategory);
 }
 
 export async function getCategory(slug: string): Promise<Category | null> {
