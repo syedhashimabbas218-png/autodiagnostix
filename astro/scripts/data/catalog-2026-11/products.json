@@ -6,8 +6,8 @@
   "brands": [
    "launch"
   ],
-  "summary": "The X-431 PRO SE is a LAUNCH 8-inch Android diagnostic tablet with a brand-new design and DoIP/CAN FD functions, positioned by LAUNCH as the best choice for entry-level technicians. It provides full-system OE-level diagnostics on 1996 and newer U.S., European and Asian vehicles.",
-  "description": "The X-431 PRO SE is a LAUNCH 8-inch Android diagnostic tablet with a brand-new design and DoIP/CAN FD functions, positioned by LAUNCH as the best choice for entry-level technicians. It provides full-system OE-level diagnostics on 1996 and newer U.S., European and Asian vehicles.",
+  "summary": "The X-431 PRO SE is a LAUNCH PRO-series 8-inch Android diagnostic tablet with a brand-new design and DoIP/CAN FD functions, which LAUNCH positions as the best choice for entry-level technicians. It provides full-system OE-level diagnostics on 1996 and newer U.S., European and Asian vehicles.",
+  "description": "The X-431 PRO SE is a LAUNCH PRO-series 8-inch Android diagnostic tablet with a brand-new design and DoIP/CAN FD functions, which LAUNCH positions as the best choice for entry-level technicians. It provides full-system OE-level diagnostics on 1996 and newer U.S., European and Asian vehicles.",
   "features": [
    "Android 10.0 operating system with 4GB memory and 64GB storage for faster, smoother diagnosis",
    "Newly designed VCI supports more communication protocols, e.g. CAN, CAN FD and DoIP (DoIP needs an extra DoIP cable)",
@@ -72,22 +72,22 @@
   "brands": [
    "launch"
   ],
-  "summary": "The TLT245SC(S) is a LAUNCH gantry-type (overhead, clear-floor) two-post lift with a 4,500 kg lifting capacity. It uses a dual hydraulic cylinder drive and a wire-rope balancing system for smooth, level lifting, and is designed to national standards for garage and workshop use.",
-  "description": "The TLT245SC(S) is a LAUNCH gantry-type (overhead, clear-floor) two-post lift with a 4,500 kg lifting capacity. It uses a dual hydraulic cylinder drive and a wire-rope balancing system for smooth, level lifting, and is designed to national standards for garage and workshop use.",
+  "summary": "The TLT245SC(S) is a LAUNCH gantry-type (overhead beam, clear-floor) two-post lift with a 4,500 kg lifting capacity. It uses a dual hydraulic cylinder drive and a wire-rope balancing system for smooth, level lifting, and is designed to national standards to meet garage and workshop requirements.",
+  "description": "The TLT245SC(S) is a LAUNCH gantry-type (overhead beam, clear-floor) two-post lift with a 4,500 kg lifting capacity. It uses a dual hydraulic cylinder drive and a wire-rope balancing system for smooth, level lifting, and is designed to national standards to meet garage and workshop requirements.",
   "features": [
    "Cables and oil pipes fully concealed for a neat, attractive appearance",
    "Designed to national (GB) standards, meeting garage and workshop requirements",
-   "Top limit switch prevents vehicle collision",
+   "Top limit switch to prevent vehicle collision",
    "Dual hydraulic cylinder drive system for smooth lifting and lowering",
-   "Wire-rope balancing system forces both carriages to move in sync, preventing the vehicle from tilting",
-   "Lowest lifting pad height of 110 mm, suitable for low-chassis vehicles",
+   "Wire-rope balancing system forces both carriages to move in sync, effectively preventing the vehicle from tilting",
+   "Minimum lifting pad height of 110 mm, suitable for low-chassis vehicles",
    "Manual lowering control for safe, convenient operation",
-   "Built from Q235 national-standard 5 mm thick steel plate, with a 16 mm thick base plate",
-   "Single-side unlocking mechanism for easier use",
-   "Solid arm-locking mechanism for safer lifting",
+   "Single-side unlocking mechanism for more convenient use",
+   "Solidly built arm-locking mechanism for safer lifting",
    "Patented slider bracket design for easy replacement",
-   "Pulleys fitted with side plates to stop the wire rope from slipping off",
-   "Large anti-collision (door protection) area prevents vehicle scratches"
+   "Pulleys fitted with side retaining plates to stop the wire rope from slipping off",
+   "Large anti-collision area to prevent vehicle scratches",
+   "Made of Q235 national-standard 5 mm thick steel plate, with a 16 mm thick base plate"
   ],
   "functions": [],
   "technicalTable": [
@@ -138,7 +138,8 @@
   ],
   "images": [
    "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/1.webp",
-   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/2.webp"
+   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/2.webp",
+   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/3.webp"
   ],
   "source": "https://www.cnlaunch.com/products-detail/i-209.html",
   "portfolio_title": "TLT 245 SC(S) 4.5 Ton 2-Post Clear Floor Lift"
@@ -150,19 +151,21 @@
   "brands": [
    "launch"
   ],
-  "summary": "The X-613 is a wireless, ready-to-use portable 3D four-wheel aligner made up of two magnetic measurement units and four wheel clamp targets. It needs no beams or cabinets and pairs with a LAUNCH X-431 PAD9/7/5 LINK diagnostic tool to do precise four-wheel alignment, which makes it a good fit for repair shops with limited space.",
-  "description": "The X-613 is a wireless, ready-to-use portable 3D four-wheel aligner made up of two magnetic measurement units and four wheel clamp targets. It needs no beams or cabinets and pairs with a LAUNCH X-431 PAD9/7/5 LINK diagnostic tool to do precise four-wheel alignment, which makes it a good fit for repair shops with limited space.",
+  "summary": "The X-613 is a wireless, ready-to-use portable 3D four-wheel aligner made up of two magnetic measurement units and four wheel clamp targets. It needs no beams or cabinets and pairs with a LAUNCH X-431 PAD9/7/5 LINK diagnostic tool to perform precise four-wheel alignment, making it suited to repair shops, including those with limited space.",
+  "description": "The X-613 is a wireless, ready-to-use portable 3D four-wheel aligner made up of two magnetic measurement units and four wheel clamp targets. It needs no beams or cabinets and pairs with a LAUNCH X-431 PAD9/7/5 LINK diagnostic tool to perform precise four-wheel alignment, making it suited to repair shops, including those with limited space.",
   "features": [
    "2 magnetic measurement units + 4 wheel clamp targets, connected via a wireless network",
    "No wiring: ready to use by simply screwing the targets onto the wheel clamps",
    "No beams or cabinets to preinstall, ideal for repair shops with limited space",
-   "Pairs with the LAUNCH X-431 PAD9/7/5 LINK (which includes the app), saving on tablet and app costs",
+   "If you already have an X-431 PAD9/7/5 LINK (which includes the app), you save on both tablet and app costs",
    "Alignment data for 50,000+ vehicle models worldwide, with user customization",
    "Generates wheel alignment measurement results within 30 seconds",
-   "Can be used on both big scissor lift platforms and four-post lift platforms",
-   "Supports both standard measurement and quick measurement"
+   "Works with X-431 PAD9/7/5 LINK scan tools",
+   "Can be used on both big scissor lift platforms and four-post lift platforms"
   ],
   "functions": [
+   "Standard measurement",
+   "Quick measurement",
    "Toe",
    "Camber",
    "Caster",
@@ -220,15 +223,15 @@
   "brands": [
    "launch"
   ],
-  "summary": "The TTH-60 is a LAUNCH 60-piece modular tool cart kit built around four-wheel aligner work. It contains universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration, carried in a professional 4-wheel aligner tool box.",
-  "description": "The TTH-60 is a LAUNCH 60-piece modular tool cart kit built around four-wheel aligner work. It contains universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration, carried in a professional 4-wheel aligner tool box.",
+  "summary": "The TTH-60 is a LAUNCH 60-piece four-wheel aligner tools cart kit: a modular tool solution built around four-wheel aligner work. It contains universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration, carried in a professional 4-wheel aligner tool cart.",
+  "description": "The TTH-60 is a LAUNCH 60-piece four-wheel aligner tools cart kit: a modular tool solution built around four-wheel aligner work. It contains universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration, carried in a professional 4-wheel aligner tool cart.",
   "features": [
    "60pcs 4-wheel aligner tools cart kit",
    "Modular tool solution based on 4-wheel aligner operation",
-   "Adds special 4-wheel alignment tools, such as a 4-wheel aligner level gauge and tire balance plier",
+   "Includes special 4-wheel alignment tools, such as a 4-wheel aligner level gauge and tire balance plier",
    "Universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration",
-   "Complete, practical tools with the overall quantity minimized",
-   "Professional 4-wheel aligner tool box as the carrier, for easy operation and better efficiency and comfort"
+   "Complete and practical tools, with the overall quantity minimized",
+   "Professional 4-wheel aligner tool box as the carrier, for easy operation and improved efficiency and comfort"
   ],
   "functions": [],
   "technicalTable": [
@@ -247,7 +250,9 @@
   ],
   "images": [
    "images/launch-wheel-alignment-tool-trolley/1.webp",
-   "images/launch-wheel-alignment-tool-trolley/2.webp"
+   "images/launch-wheel-alignment-tool-trolley/2.webp",
+   "images/launch-wheel-alignment-tool-trolley/3.webp",
+   "images/launch-wheel-alignment-tool-trolley/4.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-92.html",
   "portfolio_title": "LAUNCH Wheel Alignment Tool Trolley"
@@ -259,20 +264,20 @@
   "brands": [
    "launch"
   ],
-  "summary": "The Creader TPMS 511S V2 is a standalone Android 8.1 TPMS service and programming tool. It can activate, read and relearn all known sensors on the market and program LAUNCH sensors an unlimited number of times to replace OE sensors, which suits repair shops expanding their tire business as well as tire shops.",
-  "description": "The Creader TPMS 511S V2 is a standalone Android 8.1 TPMS service and programming tool. It can activate, read and relearn all known sensors on the market and program LAUNCH sensors an unlimited number of times to replace OE sensors, which suits repair shops expanding their tire business as well as tire shops.",
+  "summary": "The Creader TPMS 511S V2 is a standalone Android 8.1 TPMS service and programming tool. It can activate, read and relearn all known sensors on the market and program LAUNCH sensors an unlimited number of times to replace OE sensors, suiting repair shops expanding their tire business as well as tire shops.",
+  "description": "The Creader TPMS 511S V2 is a standalone Android 8.1 TPMS service and programming tool. It can activate, read and relearn all known sensors on the market and program LAUNCH sensors an unlimited number of times to replace OE sensors, suiting repair shops expanding their tire business as well as tire shops.",
   "features": [
    "Supports 99% vehicle coverage with TPMS-equipped systems",
    "All 315/433 MHz sensors 100% activated",
    "OE inquiry: input the OE sensor part number for TPMS sensor activation and programming",
    "Unlimited programming of LAUNCH sensors to replace OE sensors",
-   "Sensor relearn via OBD connection with step-by-step instructions in the app",
+   "Sensor relearn: matching and learning via OBD connection with step-by-step instructions in the app",
    "TPMS system diagnosis: read/clear TPMS fault codes",
-   "OBDII/EOBD scan functions included",
+   "OBDII scan: OBDII/EOBD functions included",
    "Software update via WiFi, lifetime free",
    "Real-time display of tire pressure, temperature, battery status, etc.",
    "Instant sharing and playback of diagnostic reports, feedback and screenshots",
-   "LAUNCH ACADEMY to learn how to use the tool quickly"
+   "LAUNCH ACADEMY: learn how to use the tool quickly"
   ],
   "functions": [],
   "technicalTable": [
@@ -337,13 +342,13 @@
   "brands": [
    "launch"
   ],
-  "summary": "The i-TPMS is a new-generation handheld TPMS service tool that gives repair shops professional, comprehensive TPMS service to grow their TPMS business. It programs LAUNCH LTR RF sensors an unlimited number of times to replace OE sensors and reads sensor data such as sensor ID, tire pressure, tire temperature and battery status.",
-  "description": "The i-TPMS is a new-generation handheld TPMS service tool that gives repair shops professional, comprehensive TPMS service to grow their TPMS business. It programs LAUNCH LTR RF sensors an unlimited number of times to replace OE sensors and reads sensor data such as sensor ID, tire pressure, tire temperature and battery status.",
+  "summary": "The i-TPMS is a new-generation handheld TPMS service tool that gives repair shops professional, comprehensive TPMS service to grow their TPMS business. It programs LAUNCH LTR RF sensors an unlimited number of times to replace OE sensors and reads sensor data such as sensor ID, tire pressure, tire temperature and battery status, either paired with an X-431 scanner or standalone with the i-TPMS app.",
+  "description": "The i-TPMS is a new-generation handheld TPMS service tool that gives repair shops professional, comprehensive TPMS service to grow their TPMS business. It programs LAUNCH LTR RF sensors an unlimited number of times to replace OE sensors and reads sensor data such as sensor ID, tire pressure, tire temperature and battery status, either paired with an X-431 scanner or standalone with the i-TPMS app.",
   "features": [
    "Serves over 99% of mainstream vehicles with a TPMS-equipped system on the market",
    "Use it bound to an X-431 scanner, or standalone with the i-TPMS app",
    "Supports all 315/433MHz sensors",
-   "With an X-431 scanner: sensor activation, programming, relearn and diagnosis",
+   "Bound to an X-431 scanner: sensor activation, programming, relearn and diagnosis",
    "Standalone with the i-TPMS app: sensor activation and programming",
    "Unlimited programming of LAUNCH sensors to replace OE sensors",
    "Reads sensor ID, tire pressure, tire temperature, battery status, etc."
@@ -389,7 +394,9 @@
    }
   ],
   "images": [
-   "images/launch-i-tpms/1.webp"
+   "images/launch-i-tpms/1.webp",
+   "images/launch-i-tpms/2.webp",
+   "images/launch-i-tpms/3.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-271.html",
   "portfolio_title": "LAUNCH i-TPMS"
@@ -401,17 +408,17 @@
   "brands": [
    "launch"
   ],
-  "summary": "The BST360 is a LAUNCH Bluetooth battery tester for technicians and on-the-go consumers. It works with LAUNCH X-431 scan tools to monitor battery health and analyse the starting and charging systems, and is safe to use thanks to its anti-heat design and protection against sparks during electrical system diagnosis.",
-  "description": "The BST360 is a LAUNCH Bluetooth battery tester for technicians and on-the-go consumers. It works with LAUNCH X-431 scan tools to monitor battery health and analyse the starting and charging systems, and is safe to use thanks to its anti-heat design and protection against sparks during electrical system diagnosis.",
+  "summary": "The BST360 is a LAUNCH Bluetooth battery tester for technicians and on-the-go consumers. It works with LAUNCH X-431 scan tools to monitor 12V battery health and analyse the starting and charging systems, and is safe to use thanks to its anti-heat characteristics and protection against sparks during electrical system diagnosis.",
+  "description": "The BST360 is a LAUNCH Bluetooth battery tester for technicians and on-the-go consumers. It works with LAUNCH X-431 scan tools to monitor 12V battery health and analyse the starting and charging systems, and is safe to use thanks to its anti-heat characteristics and protection against sparks during electrical system diagnosis.",
   "features": [
    "Real-time monitoring of battery health status",
-   "Generates a health report within 3 seconds, with all data shown on the colour screen of the connected tool",
-   "Starting and charging system analysis to find related faults",
+   "Generates a health report within 3 seconds and displays all data on the colour screen (of the connected scan tool)",
+   "Starting and charging system analysis to determine related faults",
    "Portable, lightweight and compact",
-   "Safety first: no heating, no discharge, no sparks, no operating risks",
+   "Safety first: no heating, no discharge, no sparks and no operating risks",
    "Works with LAUNCH X-431 scan tools",
    "Bluetooth wireless automatic connection",
-   "Polarity reverse-connection protection: the tester is not damaged if the clamps are connected in reverse",
+   "Reverse-polarity protection: the tester is not damaged if the clamps are connected in reverse",
    "Applicable 12V battery types: lead-acid, GEL and AGM",
    "Supported battery standards: CCA, BCI, CA, MCA, JIS, DIN, IEC, EN, SAE, GB"
   ],
@@ -455,7 +462,8 @@
   ],
   "images": [
    "images/launch-bst360-battery-tester/1.webp",
-   "images/launch-bst360-battery-tester/2.webp"
+   "images/launch-bst360-battery-tester/2.webp",
+   "images/launch-bst360-battery-tester/3.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-77.html",
   "portfolio_title": "LAUNCH BST360 Battery Tester"
@@ -467,15 +475,15 @@
   "brands": [
    "launch"
   ],
-  "summary": "The X-431 Key Programmer is a LAUNCH accessory that works with X-431 diagnostic scan tools to read and write key information. Together with LAUNCH universal smart keys, normal remotes and transponder keys, it can program replacement keys for different makes and models.",
-  "description": "The X-431 Key Programmer is a LAUNCH accessory that works with X-431 diagnostic scan tools to read and write key information. Together with LAUNCH universal smart keys, normal remotes and transponder keys, it can program replacement keys for different makes and models.",
+  "summary": "The X-431 Key Programmer is a LAUNCH accessory that works with X-431 diagnostic scan tools to read and write key information. Used with LAUNCH universal smart keys, normal remotes and transponder keys, it programs replacement keys for different makes and models.",
+  "description": "The X-431 Key Programmer is a LAUNCH accessory that works with X-431 diagnostic scan tools to read and write key information. Used with LAUNCH universal smart keys, normal remotes and transponder keys, it programs replacement keys for different makes and models.",
   "features": [
    "Works with LAUNCH X-431 diagnostic scan tools",
    "Easily reads and writes key information",
    "Identifies vehicle chip keys and the remote control frequency, and helps generate various chip types",
    "Universal smart keys: simulate 8A/4D/4A/46/47/48/49/MQB48/MQB49 immobilizer transponders",
-   "Universal smart keys: reprogrammable proxy key, supports 1000+ vehicle models, smart key replacement and wireless programming",
-   "Universal normal remote: reprogrammable, supports over 2000 vehicle models (programming cable required, no built-in transponder)",
+   "Universal smart keys: reprogrammable proxy key, 1000+ vehicle models, smart key replacement and wireless programming",
+   "Universal normal remote: reprogrammable, over 2000 vehicle models (programming cable required, no built-in transponder)",
    "Universal transponder key: built-in cloneable original NXP immobilizer transponder",
    "Universal transponder key: simulates 11/12/13/7936/7937/7946/7947 and other transponders, supports wireless programming",
    "Super Chip supports 8A, 8C, 8E, 4C, 4D, 4E, 48, 7935, 7936, 7938, 7939 and 11/12/13 chip types",
@@ -495,24 +503,452 @@
   "images": [
    "images/launch-x-431-key-programmer/1.webp",
    "images/launch-x-431-key-programmer/2.webp",
-   "images/launch-x-431-key-programmer/3.webp"
+   "images/launch-x-431-key-programmer/3.webp",
+   "images/launch-x-431-key-programmer/4.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-252.html",
   "portfolio_title": "LAUNCH X-431 Key Programmer"
  },
  {
-  "slug": "unite-metal-sheet-repair-machine",
-  "name": "UNITE Metal Sheet Repair Machine",
+  "slug": "unite-pl-42dbs-4-ton-2-post-clear-floor-lift",
+  "name": "UNITE PL-4-2DBS 4-Ton 2-Post Clear Floor Lift",
+  "category": "lifts-jacks",
+  "brands": [
+   "unite"
+  ],
+  "summary": "Two-post clear-floor car lift with a 4-ton lifting capacity. The overhead crossbeam keeps the floor between the columns clear, giving unobstructed access for general servicing and repair work.",
+  "images": [
+   "images/unite-pl-42dbs-4-ton-2-post-clear-floor-lift/1.webp"
+  ],
+  "source": "portfolio PDF p15",
+  "portfolio_title": "UNITE PL-4-2DBS 4-Ton 2-Post Clear Floor Lift"
+ },
+ {
+  "slug": "unite-pl-4-2d-4-ton-2-post-base-plate-lift",
+  "name": "UNITE PL-4-2D 4-Ton 2-Post Base Plate Lift",
+  "category": "lifts-jacks",
+  "brands": [
+   "unite"
+  ],
+  "summary": "Two-post base-plate car lift with a 4-ton lifting capacity. The floor plate between the columns replaces an overhead beam, which suits workshops with limited ceiling height.",
+  "images": [
+   "images/unite-pl-4-2d-4-ton-2-post-base-plate-lift/1.webp"
+  ],
+  "source": "portfolio PDF p16",
+  "portfolio_title": "UNITE PL-4-2D 4-Ton 2-Post Base Plate Lift"
+ },
+ {
+  "slug": "unite-pl-fs45-4-5-ton-4-post-wheel-alignment-lift",
+  "name": "UNITE U-FS45 (PL-FS45) 4.5-Ton 4-Post Alignment Lift",
+  "category": "lifts-jacks",
+  "brands": [
+   "unite"
+  ],
+  "summary": "The U-FS45 is a four-post alignment-rack lift with 4500 kg capacity and single-sided manual lock release, using a cable-drive lifting mechanism with the hydraulic cylinder stored under the runway. Its frame is heavy-gauge C-channel steel, and the capacity accommodates most trucks as well as standard automobiles and passenger cars.",
+  "description": "The U-FS45 is a four-post alignment-rack lift with 4500 kg capacity and single-sided manual lock release, using a cable-drive lifting mechanism with the hydraulic cylinder stored under the runway. Its frame is heavy-gauge C-channel steel, and the capacity accommodates most trucks as well as standard automobiles and passenger cars.",
+  "features": [
+   "4500 kg lifting capacity",
+   "Single-sided manual lock release",
+   "Hydraulic cylinder stored under the runway - no power cylinder beam overhead",
+   "Cable drive lifting mechanism: hydraulic cylinder with big pulley and steel rope",
+   "Frame fabricated from heavy gauge C-channel steel",
+   "Abrasion resistant slip plates for 4-wheel alignment",
+   "Standard equipped with electric rolling jack",
+   "Height limit switch",
+   "Safety valve for anti-explosion of hydraulic system",
+   "Main insurance and rope break insurance on each column"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "Product Code",
+    "value": "U-FS45"
+   },
+   {
+    "label": "Capacity",
+    "value": "4.5T"
+   },
+   {
+    "label": "Lifting height",
+    "value": "1750 mm (69\")"
+   },
+   {
+    "label": "Platform length",
+    "value": "4650 mm (183\")"
+   },
+   {
+    "label": "Min height",
+    "value": "250 mm (9.8\")"
+   },
+   {
+    "label": "Power supply",
+    "value": "220V 1PH 50/60Hz 2.2KW; 220/380V 3PH 50/60Hz 2.2KW"
+   },
+   {
+    "label": "Release",
+    "value": "Manual Lock Release"
+   }
+  ],
+  "images": [
+   "images/unite-pl-fs45-4-5-ton-4-post-wheel-alignment-lift/1.webp",
+   "images/unite-pl-fs45-4-5-ton-4-post-wheel-alignment-lift/2.webp"
+  ],
+  "source": "https://www.uniteautomotive.com/4-post-car-lifts/4-5t-capacity-u-fs45-alignment-rack-four-post-vehicle-lift",
+  "portfolio_title": "UNITE 4-Post 4.5-Ton Wheel Alignment Lift PL-FS45"
+ },
+ {
+  "slug": "unite-ultra-premium-wheel-balancer",
+  "name": "UNITE U-659 Ultra Premium Wheel Balancer",
+  "category": "wheel-balancers",
+  "brands": [
+   "unite"
+  ],
+  "summary": "The U-659 is a wheel balancer with a monitor-style large LED display, electromagnetic brake, laser pointer, automatic measurement and a 3D animation interface. Inner and outer measuring arms enter offset, diameter and rim width automatically, and the split-weight function lets weights be hidden behind the spokes.",
+  "description": "The U-659 is a wheel balancer with a monitor-style large LED display, electromagnetic brake, laser pointer, automatic measurement and a 3D animation interface. Inner and outer measuring arms enter offset, diameter and rim width automatically, and the split-weight function lets weights be hidden behind the spokes.",
+  "features": [
+   "Electromagnetic brake - automatically positions the inner and outer unbalance positions",
+   "Automatic positioning of unbalance points - no manual hand-spinning of the tire",
+   "Laser pointer marks the unbalance position automatically",
+   "LED light illuminates the operating area / inside of the rim",
+   "Automatic distance and diameter measurement via inner measuring arm",
+   "Outer measuring arm / automatic width measuring scale for rim width entry",
+   "Tracking stick-on balancing mode for high-class wheels using stick-on weights only",
+   "Split-weight function for hiding weights behind the spokes",
+   "Monitor-style large LED display",
+   "3D animation interface (patented software) with dynamic indicator light",
+   "Easy-to-use buttons with quick, understandable symbols",
+   "Multi-language support: 20 languages, customization of other languages accepted"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "Product Code",
+    "value": "U-659"
+   },
+   {
+    "label": "Balancing modes",
+    "value": "6 Balancing Modes"
+   },
+   {
+    "label": "Balancing speed",
+    "value": "200 r.p.m"
+   },
+   {
+    "label": "Rim diameter",
+    "value": "252-610 mm (10\"-24\")"
+   },
+   {
+    "label": "Rim width",
+    "value": "40-510 mm (1.5\"-20\")"
+   },
+   {
+    "label": "Split and hidden weight solution",
+    "value": "Yes"
+   },
+   {
+    "label": "Measuring time",
+    "value": "8s"
+   },
+   {
+    "label": "Balancing accuracy",
+    "value": "±1g (±0.04 oz)"
+   },
+   {
+    "label": "Max. wheel weight",
+    "value": "65 kg (143 lbs)"
+   },
+   {
+    "label": "Power supply voltage options",
+    "value": "220V 1Ph"
+   },
+   {
+    "label": "Option motor power",
+    "value": "0.2kW/0.25kW"
+   },
+   {
+    "label": "Noise level",
+    "value": "< 70dB"
+   },
+   {
+    "label": "N/G weight",
+    "value": "105/126kg"
+   },
+   {
+    "label": "Package dimension",
+    "value": "960*760*1250mm"
+   }
+  ],
+  "images": [
+   "images/unite-ultra-premium-wheel-balancer/1.webp",
+   "images/unite-ultra-premium-wheel-balancer/2.webp"
+  ],
+  "source": "https://www.uniteautomotive.com/u-659-led-display-wheel-balancer-with-opt-function-split-and-hidden-weight-solution",
+  "portfolio_title": "UNITE Ultra Premium Wheel Balancer"
+ },
+ {
+  "slug": "unite-g-68-wheel-balancer",
+  "name": "UNITE G-68 Digital Wheel Balancer",
+  "category": "wheel-balancers",
+  "brands": [
+   "unite"
+  ],
+  "summary": "The G-68 digital wheel balancer is designed for automotive workshops, tire service centers and repair garages, balancing car, SUV and light-truck wheels up to 24 inches. It offers precision calibration, 9 balancing programs, automatic wheel positioning and quick measurement cycles in a reinforced steel housing.",
+  "description": "The G-68 digital wheel balancer is designed for automotive workshops, tire service centers and repair garages, balancing car, SUV and light-truck wheels up to 24 inches. It offers precision calibration, 9 balancing programs, automatic wheel positioning and quick measurement cycles in a reinforced steel housing.",
+  "features": [
+   "Precision calibration with high measuring accuracy",
+   "Supports wheels up to 24 inches",
+   "9 dynamic and static balancing programs",
+   "Digital display with user-friendly touch controls",
+   "Reinforced steel housing for stability and vibration-free operation",
+   "Automatic positioning: automatic stop at the unbalanced point",
+   "Quick cycle time: fast measurement and calibration",
+   "Suitable for cars, SUVs and light trucks"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "Product Code",
+    "value": "G68"
+   },
+   {
+    "label": "Balancing modes",
+    "value": "9"
+   },
+   {
+    "label": "Balancing speed",
+    "value": "200 r.p.m"
+   },
+   {
+    "label": "Rim diameter",
+    "value": "252-610 mm (10\"-24\")"
+   },
+   {
+    "label": "Rim width",
+    "value": "40-510 mm (1.5\"-20\")"
+   },
+   {
+    "label": "Measuring time",
+    "value": "8s"
+   },
+   {
+    "label": "Balancing accuracy",
+    "value": "±1g (±0.04 oz)"
+   },
+   {
+    "label": "Max. wheel weight",
+    "value": "65 kg (143 lbs)"
+   },
+   {
+    "label": "Power supply voltage options",
+    "value": "110v (1ph) / 220v (1ph)"
+   },
+   {
+    "label": "Option motor power",
+    "value": "0.20kw"
+   },
+   {
+    "label": "Noise level",
+    "value": "< 70dB"
+   },
+   {
+    "label": "N/G weight",
+    "value": "102/126kg (225/278 lbs)"
+   }
+  ],
+  "images": [
+   "images/unite-g-68-wheel-balancer/1.webp"
+  ],
+  "source": "https://www.uniteautomotive.com/g-68-digital-wheel-balancer-with-lcd-display-precision-calibration-heavy-duty-motor-auto-positioning-quick-cycle-and-durable-design",
+  "portfolio_title": "UNITE G-68 Self-Calibrating Computer Wheel Balancer"
+ },
+ {
+  "slug": "unite-g-55-wheel-balancer",
+  "name": "UNITE G-55 Self-Calibrating Computer Wheel Balancer",
+  "category": "wheel-balancers",
+  "brands": [
+   "unite"
+  ],
+  "summary": "The G-55 is a self-calibrating computer wheel balancer with an LED segment display, automatic distance/diameter/width measuring scale and 5 balancing modes. It handles rims from 10\" to 24\" and wheels up to 65 kg, with an automatic disc brake, laser pointer and LED lighting available as options.",
+  "description": "The G-55 is a self-calibrating computer wheel balancer with an LED segment display, automatic distance/diameter/width measuring scale and 5 balancing modes. It handles rims from 10\" to 24\" and wheels up to 65 kg, with an automatic disc brake, laser pointer and LED lighting available as options.",
+  "features": [
+   "LED segment display showing the operation interface for choosing balancing modes",
+   "Tool handle for holding cones, also used as handles for lifting the machine",
+   "Tool box for placing tools while operating",
+   "Automatic distance, diameter and width measuring scale for automatic rim data input",
+   "Optional: automatic disc brake (STOP&LOCK shaft locks the tire to find the imbalance position)",
+   "Optional: laser pointer marks the imbalance position automatically",
+   "Optional: LED lighting"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "Product Code",
+    "value": "G55"
+   },
+   {
+    "label": "Balancing modes",
+    "value": "5"
+   },
+   {
+    "label": "Balancing speed",
+    "value": "200 r.p.m"
+   },
+   {
+    "label": "Rim diameter",
+    "value": "252-610 mm (10\"-24\")"
+   },
+   {
+    "label": "Rim width",
+    "value": "40-510 mm (1.5\"-20\")"
+   },
+   {
+    "label": "Measuring time",
+    "value": "8s"
+   },
+   {
+    "label": "Balancing accuracy",
+    "value": "±1g (±0.04 oz)"
+   },
+   {
+    "label": "Max. wheel weight",
+    "value": "65 kg (143 lbs)"
+   },
+   {
+    "label": "Power supply voltage options",
+    "value": "110v (1ph) / 220v (1/3ph) / 380v (3ph)"
+   },
+   {
+    "label": "Option motor power",
+    "value": "0.20/0.37kw"
+   },
+   {
+    "label": "Noise level",
+    "value": "< 70dB"
+   },
+   {
+    "label": "N/G weight",
+    "value": "102/126kg (225/278 lbs)"
+   }
+  ],
+  "images": [
+   "images/unite-g-55-wheel-balancer/1.webp"
+  ],
+  "source": "https://www.uniteautomotive.com/pro-line-wheel-balancer-ad-banner-g55-tire-balancer",
+  "portfolio_title": "UNITE G-55 Self-Calibrating Computer Wheel Balancer"
+ },
+ {
+  "slug": "unite-hj827-sj-voice-controlled-tire-inflator",
+  "name": "UNITE HJ827S-J Voice-Controlled Tyre Inflator",
   "category": "maintenance",
   "brands": [
    "unite"
   ],
+  "summary": "The HJ827S-J is a fully automatic smart voice-control tyre inflator: the target pressure can be set hands-free by voice in English or Chinese, it inflates automatically with a high-precision sensor (accuracy within 0.02 bar) and announces 'inflation complete' when done. This version is the floor-standing unit with hose reel and air pressure gauge.",
+  "description": "The HJ827S-J is a fully automatic smart voice-control tyre inflator: the target pressure can be set hands-free by voice in English or Chinese, it inflates automatically with a high-precision sensor (accuracy within 0.02 bar) and announces 'inflation complete' when done. This version is the floor-standing unit with hose reel and air pressure gauge.",
+  "features": [
+   "Voice input in Chinese and English for hands-free pressure setting without unit conversion",
+   "Voice control of overpressure settings and vehicle mode switching",
+   "Announces 'inflation complete' followed by an alarm when inflation finishes",
+   "Fully automatic inflation with fast speed and high precision",
+   "High-precision pressure sensor - inflation accuracy within 0.02 bar",
+   "Manual over-inflation release function",
+   "Electronic pressure preset display",
+   "Electronic atomized LCD film: transparent when powered, opaque when off, preventing unauthorized operation",
+   "Aluminum front cover with waterproof design",
+   "Hose reel",
+   "Water/oil filter & separator",
+   "Air pressure gauge"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "Model",
+    "value": "HJ827S-J"
+   },
+   {
+    "label": "Mode",
+    "value": "Fully-automatic"
+   },
+   {
+    "label": "Screen",
+    "value": "LED"
+   },
+   {
+    "label": "Hose reel",
+    "value": "Yes"
+   },
+   {
+    "label": "Voice control",
+    "value": "Yes"
+   },
+   {
+    "label": "Water/oil filter & separator",
+    "value": "Yes"
+   },
+   {
+    "label": "Air inlet pressure",
+    "value": "4-8 bar / 58-116 psi"
+   },
+   {
+    "label": "Air outlet pressure",
+    "value": "1-5 bar / 15-72 psi; 1-7 bar / 15-100 psi"
+   },
+   {
+    "label": "Hose size & QTY",
+    "value": "Ф13mm*10m*1"
+   },
+   {
+    "label": "Dimension",
+    "value": "L330*W230*H105mm"
+   }
+  ],
+  "images": [
+   "images/unite-hj827-sj-voice-controlled-tire-inflator/1.webp",
+   "images/unite-hj827-sj-voice-controlled-tire-inflator/2.webp",
+   "images/unite-hj827-sj-voice-controlled-tire-inflator/3.webp"
+  ],
+  "source": "https://www.uniteautomotive.com/tire-inflator/hj827s-j-classic-standing-smart-voice-control-tyre-inflator-with-air-pressure-gauge",
+  "portfolio_title": "UNITE HJ827-SJ Voice-Controlled Tyre Inflator"
+ },
+ {
+  "slug": "unite-engine-crane-2-ton",
+  "name": "UNITE 2-Ton Engine Crane",
+  "category": "lifts-jacks",
+  "brands": [
+   "unite"
+  ],
+  "summary": "Hydraulic engine crane (workshop hoist) with an adjustable boom marked for loads up to 2 tons, used to lift engines and gearboxes in and out of vehicles.",
+  "images": [
+   "images/unite-engine-crane-2-ton/1.webp"
+  ],
+  "source": "portfolio PDF p50",
+  "portfolio_title": "UNITE 2-Ton Engine Crane"
+ },
+ {
+  "slug": "unite-brake-disc-lathe",
+  "name": "UNITE Brake Disc Lathe",
+  "category": "maintenance",
+  "brands": [
+   "unite"
+  ],
+  "summary": "Brake disc lathe on an adjustable mobile stand, for resurfacing brake discs to restore a smooth, true braking surface during brake servicing.",
+  "images": [
+   "images/unite-brake-disc-lathe/1.webp"
+  ],
+  "source": "portfolio PDF p53",
+  "portfolio_title": "UNITE Brake Disc Lathe"
+ },
+ {
+  "slug": "metal-sheet-repair-machine",
+  "name": "Metal Sheet Repair Machine",
+  "category": "maintenance",
+  "brands": [],
   "summary": "Trolley-mounted body repair station (dent puller / stud welder) with a digital control panel, cable and slide-hammer pulling tools, for repairing dents in vehicle sheet-metal panels.",
   "images": [
-   "images/unite-metal-sheet-repair-machine/1.webp"
+   "images/metal-sheet-repair-machine/1.webp"
   ],
   "source": "portfolio PDF p62",
-  "portfolio_title": "UNITE Metal Sheet Repair Machine"
+  "portfolio_title": "Metal Sheet Repair Machine"
  },
  {
   "slug": "gti-tools-wheel-balancer-digital-plus",

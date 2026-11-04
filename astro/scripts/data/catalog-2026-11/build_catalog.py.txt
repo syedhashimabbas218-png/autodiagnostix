@@ -1,0 +1,154 @@
+"""Merge research results + portfolio-only entries into astro/scripts/data/catalog-2026-11.
+Usage: python3 -I build_catalog.py"""
+import json, os, shutil
+from PIL import Image
+
+SP = '/tmp/claude-0/-home-user-autodiagnostix/48b90d47-223f-5b25-8cf1-9e71d6afe3da/scratchpad'
+OUT = '/home/user/autodiagnostix/astro/scripts/data/catalog-2026-11'
+PDF_IMG = f'{SP}/pdf/products/p{{}}.png'
+
+# key -> (final slug, category, brands, pdf page, portfolio title)
+CATALOG = {
+    # LAUNCH (cnlaunch research)
+    'launch-x-431-pro-se-2026': ('launch-x-431-pro-se', 'scanners', ['launch'], None, 'X-431 PRO SE 2026'),
+    'launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift': ('launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift', 'lifts-jacks', ['launch'], 14, 'TLT 245 SC(S) 4.5 Ton 2-Post Clear Floor Lift'),
+    'launch-x-613-portable-3d-wheel-aligner': ('launch-x-613-portable-3d-wheel-aligner', 'wheel-alignment', ['launch'], 23, 'X-613 Portable 3D Wheel Aligner'),
+    'launch-wheel-alignment-tool-trolley': ('launch-wheel-alignment-tool-trolley', 'wheel-alignment', ['launch'], 27, 'LAUNCH Wheel Alignment Tool Trolley'),
+    'launch-creader-tpms-511s-v2': ('launch-creader-tpms-511s-v2', 'maintenance', ['launch'], 55, 'CRT TPMS 511S V2.0'),
+    'launch-i-tpms': ('launch-i-tpms', 'maintenance', ['launch'], 56, 'LAUNCH i-TPMS'),
+    'launch-bst360-battery-tester': ('launch-bst360-battery-tester', 'maintenance', ['launch'], 57, 'LAUNCH BST360 Battery Tester'),
+    'launch-ismart-video400-videoscope': ('launch-ismart-video400-videoscope', 'maintenance', ['launch'], 59, 'LAUNCH iSmartVideo400 Videoscope'),
+    'launch-x-431-key-programmer': ('launch-x-431-key-programmer', 'scanners', ['launch'], 60, 'LAUNCH X-431 Key Programmer'),
+    # UNITE (uniteautomotive research)
+    'unite-pl-42dbs-4-ton-2-post-clear-floor-lift': ('unite-pl-42dbs-4-ton-2-post-clear-floor-lift', 'lifts-jacks', ['unite'], 15, 'UNITE PL-4-2DBS 4-Ton 2-Post Clear Floor Lift'),
+    'unite-pl-4-2d-4-ton-2-post-base-plate-lift': ('unite-pl-4-2d-4-ton-2-post-base-plate-lift', 'lifts-jacks', ['unite'], 16, 'UNITE PL-4-2D 4-Ton 2-Post Base Plate Lift'),
+    'unite-pl-fs45-4-5-ton-4-post-wheel-alignment-lift': ('unite-pl-fs45-4-5-ton-4-post-wheel-alignment-lift', 'lifts-jacks', ['unite'], 21, 'UNITE 4-Post 4.5-Ton Wheel Alignment Lift PL-FS45'),
+    'unite-ultra-premium-wheel-balancer': ('unite-ultra-premium-wheel-balancer', 'wheel-balancers', ['unite'], 29, 'UNITE Ultra Premium Wheel Balancer'),
+    'unite-g-68-wheel-balancer': ('unite-g-68-wheel-balancer', 'wheel-balancers', ['unite'], 30, 'UNITE G-68 Self-Calibrating Computer Wheel Balancer'),
+    'unite-g-55-wheel-balancer': ('unite-g-55-wheel-balancer', 'wheel-balancers', ['unite'], 31, 'UNITE G-55 Self-Calibrating Computer Wheel Balancer'),
+    'unite-hj827-sj-voice-controlled-tire-inflator': ('unite-hj827-sj-voice-controlled-tire-inflator', 'maintenance', ['unite'], 43, 'UNITE HJ827-SJ Voice-Controlled Tyre Inflator'),
+    'unite-engine-crane-2-ton': ('unite-engine-crane-2-ton', 'lifts-jacks', ['unite'], 50, 'UNITE 2-Ton Engine Crane'),
+    'unite-brake-disc-lathe': ('unite-brake-disc-lathe', 'maintenance', ['unite'], 53, 'UNITE Brake Disc Lathe'),
+    'unite-metal-sheet-repair-machine': ('metal-sheet-repair-machine', 'maintenance', ['unite'], 62, 'Metal Sheet Repair Machine'),
+}
+
+# Portfolio-only products (no reachable manufacturer site). Text states only the
+# product type and what the portfolio photo shows; no specifications invented.
+PDF_ONLY = [
+    dict(slug='gti-tools-wheel-balancer-digital-plus', name='GTI.tools Wheel Balancer Digital Plus', category='wheel-balancers', brands=['gti-tools'], page=32,
+         summary='Computerised wheel balancer with a digital LCD display, wheel guard hood and accessory tray, for balancing passenger car and light commercial vehicle wheels in tyre shops and service workshops.'),
+    dict(slug='gti-tools-sticker-weight', name='GTI.tools Sticker Weight', category='wheel-balancers', brands=['gti-tools'], page=33,
+         summary='Self-adhesive wheel balancing weights supplied in segmented strips, for alloy wheels where clip-on weights cannot be fitted. Segments are separated to match the correction the wheel balancer calls for.'),
+    dict(slug='gti-tools-clip-weight', name='GTI.tools Clip Weight', category='wheel-balancers', brands=['gti-tools'], page=34,
+         summary='Clip-on (hammer-on) wheel balancing weights in a range of sizes, fitted to the rim flange of steel and compatible alloy wheels during wheel balancing.'),
+    dict(slug='gti-tools-catalytic-dpf-cleaner-c2025-ai', name='GTI.tools Catalytic & DPF Cleaner (C2025 AI)', category='maintenance', brands=['gti-tools'], page=48,
+         summary='Catalytic converter and diesel particulate filter (DPF) cleaning and regeneration machine with a touch-screen control panel on a mobile cabinet, for workshops servicing exhaust after-treatment systems.'),
+    dict(slug='gti-tools-catalytic-dpf-cleaner-hho-power-x', name='GTI.tools Catalytic & DPF Cleaner (HHO Power X)', category='maintenance', brands=['gti-tools'], page=49,
+         summary='HHO (oxyhydrogen) carbon-cleaning machine for catalytic converter and DPF cleaning, with a front control panel and a mobile cabinet on castors.'),
+    dict(slug='gti-tools-frame-aligner', name='GTI.tools Frame Aligner', category='maintenance', brands=['gti-tools'], page=63,
+         summary='Collision-repair frame straightening bench with pulling towers, chains, vehicle clamps, drive-on ramps and hydraulic pump units, for correcting chassis and body damage after an accident.'),
+]
+
+# Review decisions applied on top of the research (see docs/cms-backup README).
+OVERRIDES = {
+    'launch-x-431-pro-se-2026': dict(name='LAUNCH X-431 PRO SE', drop_specs={'WiFi'}),
+    'launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift': dict(name='LAUNCH TLT245SC(S) 4.5-Ton Clear Floor 2-Post Lift', pdf_image_first=True),
+    'launch-x-613-portable-3d-wheel-aligner': dict(name='LAUNCH X-613 Portable 3D Wheel Aligner'),
+    'launch-wheel-alignment-tool-trolley': dict(name='LAUNCH TTH-60 Wheel Aligner Tool Cart Kit', pdf_image_first=True),
+    'launch-creader-tpms-511s-v2': dict(name='LAUNCH Creader TPMS 511S V2'),
+    'launch-i-tpms': dict(name='LAUNCH i-TPMS Handheld TPMS Service Tool'),
+    'launch-bst360-battery-tester': dict(name='LAUNCH BST360 Bluetooth Battery Tester'),
+    'launch-x-431-key-programmer': dict(name='LAUNCH X-431 Key Programmer'),
+    # Portfolio photo is the VSP-600, which the catalog already has (vsp-600-video-scope).
+    'launch-ismart-video400-videoscope': dict(skip='duplicate of existing vsp-600-video-scope'),
+    # UNITE: exact matches use official data; nearest-model matches are not used.
+    'unite-pl-fs45-4-5-ton-4-post-wheel-alignment-lift': dict(name='UNITE U-FS45 (PL-FS45) 4.5-Ton 4-Post Alignment Lift', pdf_image_first=True),
+    'unite-ultra-premium-wheel-balancer': dict(name='UNITE U-659 Ultra Premium Wheel Balancer', pdf_image_first=True),
+    'unite-g-68-wheel-balancer': dict(name='UNITE G-68 Digital Wheel Balancer'),
+    'unite-g-55-wheel-balancer': dict(name='UNITE G-55 Self-Calibrating Computer Wheel Balancer'),
+    'unite-hj827-sj-voice-controlled-tire-inflator': dict(name='UNITE HJ827S-J Voice-Controlled Tyre Inflator', pdf_image_second=True),
+    'unite-pl-42dbs-4-ton-2-post-clear-floor-lift': dict(portfolio_only=True),
+    'unite-pl-4-2d-4-ton-2-post-base-plate-lift': dict(portfolio_only=True),
+    # Not sold by UNITE online; the photo shows a MAXLAND unit, so no brand is assigned.
+    'unite-metal-sheet-repair-machine': dict(portfolio_only=True, brands=[]),
+}
+
+# Fallback text for researched products that turn out not to be online.
+PDF_FALLBACK_SUMMARY = {
+    'unite-pl-42dbs-4-ton-2-post-clear-floor-lift': 'Two-post clear-floor car lift with a 4-ton lifting capacity. The overhead crossbeam keeps the floor between the columns clear, giving unobstructed access for general servicing and repair work.',
+    'unite-pl-4-2d-4-ton-2-post-base-plate-lift': 'Two-post base-plate car lift with a 4-ton lifting capacity. The floor plate between the columns replaces an overhead beam, which suits workshops with limited ceiling height.',
+    'unite-engine-crane-2-ton': 'Hydraulic engine crane (workshop hoist) with an adjustable boom marked for loads up to 2 tons, used to lift engines and gearboxes in and out of vehicles.',
+    'unite-brake-disc-lathe': 'Brake disc lathe on an adjustable mobile stand, for resurfacing brake discs to restore a smooth, true braking surface during brake servicing.',
+    'launch-wheel-alignment-tool-trolley': 'Mobile LAUNCH workshop tool trolley with three drawers and a worktop, used to keep wheel alignment clamps, accessories and hand tools organised beside the alignment bay.',
+    'unite-metal-sheet-repair-machine': 'Trolley-mounted body repair station (dent puller / stud welder) with a digital control panel, cable and slide-hammer pulling tools, for repairing dents in vehicle sheet-metal panels.',
+}
+
+
+def save_image(src, slug, index):
+    os.makedirs(f'{OUT}/images/{slug}', exist_ok=True)
+    rel = f'images/{slug}/{index}.webp'
+    im = Image.open(src)
+    if im.mode in ('P', 'LA', 'RGBA'):
+        bg = Image.new('RGB', im.size, 'white')
+        im = im.convert('RGBA')
+        bg.paste(im, mask=im.split()[3])
+        im = bg
+    else:
+        im = im.convert('RGB')
+    im.thumbnail((1200, 1200))
+    im.save(f'{OUT}/{rel}', 'WEBP', quality=85, method=6)
+    return rel
+
+
+def main():
+    if os.path.isdir(f'{OUT}/images'):
+        shutil.rmtree(f'{OUT}/images')
+    os.makedirs(OUT, exist_ok=True)
+    research = {}
+    for group in ('launch', 'unite'):
+        path = f'{SP}/research/{group}/results.json'
+        if os.path.exists(path):
+            for row in json.load(open(path)):
+                research[row['key']] = row
+    products, report = [], []
+    for key, (slug, category, brands, page, title) in CATALOG.items():
+        row = research.get(key)
+        o = OVERRIDES.get(key, {})
+        if o.get('skip'):
+            report.append((slug, 'SKIPPED', o['skip'], 0, None))
+            continue
+        if o.get('portfolio_only'):
+            row = None
+        if 'brands' in o:
+            brands = o['brands']
+        if row and row.get('found') and row.get('summary'):
+            sources = [i['file'] for i in row.get('images') or [] if os.path.exists(i['file'])]
+            if page and (o.get('pdf_image_first') or not sources):
+                sources = [PDF_IMG.format(page)] + sources
+            elif page and o.get('pdf_image_second'):
+                sources = sources[:1] + [PDF_IMG.format(page)] + sources[1:]
+            images = [save_image(f, slug, n + 1) for n, f in enumerate(sources[:4])]
+            specs = [t for t in row.get('technicalTable') or [] if t.get('label') not in o.get('drop_specs', set())]
+            products.append(dict(slug=slug, name=o.get('name', row['name']), category=category, brands=brands, summary=row['summary'],
+                                 description=row.get('description') or row['summary'], features=row.get('features') or [],
+                                 functions=row.get('functions') or [], technicalTable=specs,
+                                 images=images, source=row.get('source_url'), portfolio_title=title))
+            report.append((slug, 'official', row.get('source_url'), len(images), row.get('match_confidence')))
+        elif page and key in PDF_FALLBACK_SUMMARY:
+            products.append(dict(slug=slug, name=title, category=category, brands=brands, summary=PDF_FALLBACK_SUMMARY[key],
+                                 images=[save_image(PDF_IMG.format(page), slug, 1)], source=f'portfolio PDF p{page}', portfolio_title=title))
+            report.append((slug, 'portfolio', f'p{page}', 1, None))
+        else:
+            report.append((slug, 'MISSING', row.get('notes') if row else 'no research result', 0, None))
+    for p in PDF_ONLY:
+        products.append(dict(slug=p['slug'], name=p['name'], category=p['category'], brands=p['brands'], summary=p['summary'],
+                             images=[save_image(PDF_IMG.format(p['page']), p['slug'], 1)], source=f"portfolio PDF p{p['page']}",
+                             portfolio_title=p['name']))
+        report.append((p['slug'], 'portfolio', f"p{p['page']}", 1, None))
+    json.dump(products, open(f'{OUT}/products.json', 'w'), indent=1, ensure_ascii=False)
+    for r in report:
+        print(*r, sep=' | ')
+    print(len(products), 'products written')
+
+
+main()
