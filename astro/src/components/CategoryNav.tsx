@@ -17,7 +17,7 @@ const CUSTOM_ICONS: Record<string, string> = {
   'ev-equipment': '/images/category-icons/ev-equipment.svg',
 };
 
-const IconMap: Record<string, JSX.Element> = {
+const IconMap: Record<string, React.JSX.Element> = {
   // New image-based category icons. Rendered via mask so we get a
   // clean outline-only look (the SVG's own dark stroke is masked
   // out and replaced with `currentColor`). The mask source is the

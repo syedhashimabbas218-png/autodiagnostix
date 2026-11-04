@@ -43,7 +43,7 @@ export default function ProductGrid({ products = [], initialSearch = '' }: Props
   }, [products]);
 
   const badges = useMemo(() => {
-    const s = new Set(products.map(p => p.badge).filter(Boolean));
+    const s = new Set(products.map(p => p.badge).filter((badge): badge is string => Boolean(badge)));
     return ['All', ...Array.from(s).filter(b => b !== 'DISCONTINUED')];
   }, [products]);
 

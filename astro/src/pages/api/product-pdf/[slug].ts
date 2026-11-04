@@ -110,7 +110,7 @@ export const GET: APIRoute = async ({ params }) => {
     }
   }
 
-  return new Response(sheet.pdf, {
+  return new Response(sheet.pdf as unknown as BodyInit, {
     status: 200,
     headers: {
       'Content-Type': 'application/pdf',

@@ -10,6 +10,7 @@
     "build": "astro build",
     "test:seo": "node --experimental-strip-types --test tests/seo.test.mjs tests/cms-client.test.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit -p .",
     "verify:seo": "node scripts/verify-seo.mjs",
     "verify:responsive": "node scripts/verify-responsive.mjs",
     "verify:outage": "node scripts/verify-cms-outage.mjs",
