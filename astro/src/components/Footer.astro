@@ -13,64 +13,62 @@ const socialIcons: Record<string, string> = {
 ---
 
 <footer class="bg-zinc-50 border-t border-zinc-200">
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-12 w-full px-8 py-16 max-w-[1536px] mx-auto">
-    <div class="col-span-2 md:col-span-1">
-      <a href="/" class="mb-6 inline-flex items-center min-h-[44px]" aria-label="Autodiagnostix home">
+  <div class="footer-grid grid grid-cols-2 gap-x-8 gap-y-10 w-full px-8 py-12 md:py-16 max-w-site mx-auto">
+    <div class="col-span-2 lg:col-span-1">
+      <a href="/" class="mb-4 inline-flex items-center min-h-[44px]" aria-label="Autodiagnostix home">
         <picture>
           <source srcset="/logo-wordmark.avif" type="image/avif" />
           <img src="/logo-wordmark.webp" alt={footer?.company_info?.name || 'Autodiagnostix'} width="400" height="82" loading="lazy" decoding="async" class="h-8 w-auto" />
         </picture>
       </a>
-      <p class="text-zinc-500 text-xs leading-relaxed max-w-xs mb-8">
+      <p class="text-zinc-600 text-sm leading-relaxed max-w-sm mb-5">
         {footer?.company_info?.description || 'Your trusted partner for professional automotive diagnostic equipment in Pakistan.'}
       </p>
-      <div class="flex gap-4">
+      <div class="flex gap-1 -ml-3">
         {(footer?.company_info?.social_icons || []).map(icon => (
           <a
             href={icon.href || '#'}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={icon.name}
-            class="text-zinc-400 hover:text-primary cursor-pointer flex items-center justify-center w-5 h-5"
+            aria-label={`${icon.name} (opens in a new tab)`}
+            class="text-zinc-500 hover:text-primary flex items-center justify-center w-11 h-11 rounded-full hover:bg-zinc-100 transition-colors"
           >
-            <span set:html={socialIcons[icon.name] || ''}></span>
+            <span set:html={socialIcons[icon.name] || ''} aria-hidden="true" class="flex"></span>
           </a>
         ))}
       </div>
     </div>
 
-    {(footer?.menu_columns || []).map(col => (
-      <div>
-        <span class="uppercase text-xs font-bold tracking-widest text-zinc-500 block mb-6">{col.title}</span>
-        <ul class="space-y-4">
-          {(col.links || []).map(link => (
-            <li>
-              <a
-                href={link.href || '#'}
-                class="text-sm text-zinc-500 hover:text-primary transition-all hover:translate-x-1 inline-block no-underline"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))}
+    {(footer?.menu_columns || []).map(col => {
+      const wide = (col.links || []).length > 6;
+      return (
+        <div class={wide ? 'col-span-2 lg:col-span-1' : ''}>
+          <p class="uppercase text-xs font-bold tracking-widest text-zinc-600 mb-3 md:mb-4">{col.title}</p>
+          <ul class={wide ? 'sm:columns-2 md:columns-3 lg:columns-2 gap-x-8' : ''}>
+            {(col.links || []).map(link => (
+              <li class="break-inside-avoid">
+                <a href={link.href || '#'} class="footer-link">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    })}
 
     {/* Newsletter hidden per request */}
   </div>
 
-  <div class="w-full px-8 py-8 border-t border-zinc-200 max-w-[1536px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-    <span class="text-zinc-400 text-[10px] uppercase tracking-widest">{copyrightText}</span>
-    <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-      <a href="/privacy-policy" class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline">Privacy Policy</a>
-      <a href="/terms-of-service" class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline">Terms of Service</a>
+  <div class="w-full px-8 py-6 border-t border-zinc-200 max-w-site mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
+    <span class="text-zinc-600 text-[11px] uppercase tracking-widest text-center">{copyrightText}</span>
+    <div class="flex flex-wrap justify-center gap-x-6 gap-y-0">
+      <a href="/privacy-policy" class="footer-meta-link">Privacy Policy</a>
+      <a href="/terms-of-service" class="footer-meta-link">Terms of Service</a>
       {(footer?.bottom_bar?.social_links || []).map(link => (
         <a
           href={link.href || '#'}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-zinc-400 text-[10px] uppercase tracking-widest hover:text-zinc-900 transition-colors no-underline"
+          class="footer-meta-link"
         >
           {link.label}
         </a>
@@ -79,3 +77,21 @@ const socialIcons: Record<string, string> = {
   </div>
 </footer>
 
+<style>
+  /* Company blurb, two short link columns and a wider "Popular" column that
+     flows into sub-columns, so no column runs far longer than the others. */
+  @media (min-width: 64rem) {
+    .footer-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr); }
+  }
+  .footer-link {
+    display: inline-flex; align-items: center; min-height: 44px; min-width: 44px;
+    font-size: 0.875rem; color: #52525b; transition: color 150ms ease-out;
+  }
+  .footer-link:hover { color: #97000d; }
+  @media (min-width: 48rem) { .footer-link { min-height: 36px; } }
+  .footer-meta-link {
+    display: inline-flex; align-items: center; min-height: 44px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #52525b; transition: color 150ms ease-out;
+  }
+  .footer-meta-link:hover { color: #18181b; }
+</style>

@@ -39,9 +39,9 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
     <section class="relative overflow-hidden bg-surface pt-20 pb-24 px-8">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
       <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/8 via-transparent to-transparent" />
-      <div class="relative max-w-7xl mx-auto">
-        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-8" aria-label="Breadcrumb">
-          <a href="/" class="hover:text-primary transition-colors">Home</a>
+      <div class="relative max-w-screen-2xl mx-auto">
+        <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-x-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-8" aria-label="Breadcrumb">
+          <a href="/" class="inline-flex items-center min-h-[44px] min-w-[44px] hover:text-primary transition-colors">Home</a>
           <span class="text-[10px]" aria-hidden="true">/</span>
           <span class="text-primary font-bold" aria-current="page">Contact</span>
         </nav>
@@ -58,8 +58,8 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
 
     <!-- Contact Info -->
     <section class="relative -mt-12 px-8 pb-20" aria-label="Contact information">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="max-w-screen-2xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
           <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <span class="material-symbols-outlined text-3xl text-primary mb-4" aria-hidden="true">location_on</span>
             <h2 class="font-headline font-bold text-lg text-on-surface mb-2">Address</h2>
@@ -72,15 +72,15 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
           <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <span class="material-symbols-outlined text-3xl text-primary mb-4" aria-hidden="true">call</span>
             <h2 class="font-headline font-bold text-lg text-on-surface mb-2">Phone</h2>
-            <a href="tel:+923227041953" class="block text-sm text-on-surface-variant hover:text-primary transition-colors">+92 322 7041953</a>
-            <a href="tel:+923005399757" class="block text-sm text-on-surface-variant hover:text-primary transition-colors">+92 300 5399757</a>
-            <a href="tel:+923055851888" class="block text-sm text-on-surface-variant hover:text-primary transition-colors">+92 305 5851888</a>
+            <a href="tel:+923227041953" class="flex items-center min-h-[44px] text-sm text-on-surface-variant hover:text-primary transition-colors">+92 322 7041953</a>
+            <a href="tel:+923005399757" class="flex items-center min-h-[44px] text-sm text-on-surface-variant hover:text-primary transition-colors">+92 300 5399757</a>
+            <a href="tel:+923055851888" class="flex items-center min-h-[44px] text-sm text-on-surface-variant hover:text-primary transition-colors">+92 305 5851888</a>
           </div>
           <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <span class="material-symbols-outlined text-3xl text-primary mb-4" aria-hidden="true">mail</span>
             <h2 class="font-headline font-bold text-lg text-on-surface mb-2">Email</h2>
-            <a href="mailto:info@autodiagnostix.com.pk" class="block text-sm text-on-surface-variant hover:text-primary transition-colors">info@autodiagnostix.com.pk</a>
-            <a href="mailto:sales@autodiagnostix.com.pk" class="block text-sm text-on-surface-variant hover:text-primary transition-colors">sales@autodiagnostix.com.pk</a>
+            <a href="mailto:info@autodiagnostix.com.pk" class="flex items-center min-h-[44px] text-sm text-on-surface-variant hover:text-primary transition-colors">info@autodiagnostix.com.pk</a>
+            <a href="mailto:sales@autodiagnostix.com.pk" class="flex items-center min-h-[44px] text-sm text-on-surface-variant hover:text-primary transition-colors">sales@autodiagnostix.com.pk</a>
           </div>
           <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <span class="material-symbols-outlined text-3xl text-primary mb-4" aria-hidden="true">schedule</span>
@@ -96,7 +96,7 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
 
     <!-- Form + Map -->
     <section class="py-20 px-8 bg-surface-container-low">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-screen-2xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <!-- Form -->
           <div class="lg:col-span-3">
@@ -190,12 +190,12 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
     </section>
 
     <!-- CTA -->
-    <section class="relative overflow-hidden py-24 px-8">
+    <section class="on-dark relative overflow-hidden py-24 px-8">
       <div class="absolute inset-0 bg-gradient-to-br from-primary via-[#a50a18] to-[#7d000b]" />
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.12),transparent_50%)]" />
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.06),transparent_40%)]" />
       <div class="relative max-w-3xl mx-auto text-center">
-        <span class="text-xs font-label uppercase tracking-widest text-white/70 font-bold mb-4 block">Need Immediate Assistance?</span>
+        <span class="text-xs font-label uppercase tracking-widest text-white/85 font-bold mb-4 block">Need Immediate Assistance?</span>
         <h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-6 leading-[1.08]">
           Call Our Technical Desk
         </h2>

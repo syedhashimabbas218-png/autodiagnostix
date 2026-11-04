@@ -99,11 +99,11 @@ export default function SearchToggle() {
           const last = controls[controls.length - 1];
           if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
           else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
-        }} onCancel={(event) => { event.preventDefault(); setOpen(false); }} onClose={() => setOpen(false)} className="fixed inset-0 z-[200] m-0 w-full h-full max-w-none max-h-none border-0 bg-transparent p-0 flex items-start justify-center pt-[15vh] text-inherit">
+        }} onCancel={(event) => { event.preventDefault(); setOpen(false); }} onClose={() => setOpen(false)} className="fixed inset-0 z-[200] m-0 w-full h-full max-w-none max-h-none border-0 bg-transparent p-0 flex items-start justify-center pt-[8vh] md:pt-[15vh] text-inherit">
           <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setOpen(false)} />
           <div className="relative w-full max-w-2xl mx-4 bg-white border border-zinc-200 shadow-2xl overflow-hidden max-h-[80dvh] flex flex-col">
             <div className="flex items-center border-b border-zinc-100 px-6">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-500 shrink-0">
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
@@ -115,18 +115,20 @@ export default function SearchToggle() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search products, brands, categories..."
-                className="min-w-0 flex-1 py-5 px-4 text-sm outline-none bg-transparent font-body"
+                className="min-w-0 flex-1 py-5 px-4 text-base outline-none bg-transparent font-body"
               />
-              <button type="button" onClick={() => setOpen(false)} aria-label="Close search" className="text-[10px] text-slate-400 border border-zinc-200 px-2 py-0.5 rounded font-mono">ESC</button>
+              <button type="button" onClick={() => setOpen(false)} aria-label="Close search" className="shrink-0 -mr-3 w-11 h-11 flex items-center justify-center text-zinc-500 hover:text-primary transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+              </button>
             </div>
             <div className="max-h-[400px] overflow-y-auto" aria-busy={loading}>
               <p className="sr-only" role="status">{loading ? 'Searching...' : error ? 'Search unavailable. Please try again.' : `${results.length} results`}</p>
-              {error && <p role="alert" className="p-8 text-center text-sm text-slate-400">Search unavailable. Please try again.</p>}
+              {error && <p role="alert" className="p-8 text-center text-sm text-zinc-500">Search unavailable. Please try again.</p>}
               {loading && (
-                <div className="p-8 text-center text-sm text-slate-400">Searching...</div>
+                <div className="p-8 text-center text-sm text-zinc-500">Searching...</div>
               )}
               {!loading && !error && query.trim().length >= 2 && results.length === 0 && (
-                <div className="p-8 text-center text-sm text-slate-400">No products found</div>
+                <div className="p-8 text-center text-sm text-zinc-500">No products found</div>
               )}
               {results.map((p) => (
                 <a
@@ -140,7 +142,7 @@ export default function SearchToggle() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-slate-800 truncate">{p.name}</p>
-                    <p className="text-[11px] text-slate-400">{p.brand} · {p.category}</p>
+                    <p className="text-xs text-zinc-500">{p.brand} · {p.category}</p>
                   </div>
                   <span className="text-xs font-bold text-primary shrink-0">{p.price}</span>
                 </a>

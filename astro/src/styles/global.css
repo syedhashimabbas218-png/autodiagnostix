@@ -98,7 +98,10 @@
 }
 
 /* Keep corrections scoped to intrinsic overflow, keyboard use and motion preferences. */
-:root { --header-clearance: 5rem; }
+:root { --header-clearance: 5rem; --focus-ring: #97000d; }
+/* Light focus ring wherever the surface is dark or brand red. */
+.hero-slideshow, #site-header[data-transparent='true'], .bg-primary, .on-dark { --focus-ring: #fff; }
+#products-menu-panel, #mobile-menu { --focus-ring: #97000d; }
 :root {
   --spacing-hero-top: 6rem;
   --spacing-hero-bottom: 5rem;
@@ -110,7 +113,7 @@
   --spacing-hero-mobile-bottom: 6rem;
 }
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
   scroll-margin-block: var(--header-clearance);
 }

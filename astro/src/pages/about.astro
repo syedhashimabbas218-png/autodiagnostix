@@ -31,11 +31,11 @@ const breadcrumbs = [
     <section class="relative overflow-hidden bg-surface pt-20 pb-24 px-8">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
       <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/8 via-transparent to-transparent" />
-      <div class="relative max-w-7xl mx-auto">
-        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-8">
-          <a href="/" class="hover:text-primary transition-colors">Home</a>
-          <span class="text-[10px]">/</span>
-          <span class="text-primary font-bold">About</span>
+      <div class="relative max-w-screen-2xl mx-auto">
+        <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-x-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-5">
+          <a href="/" class="inline-flex items-center min-h-[44px] min-w-[44px] hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]" aria-hidden="true">/</span>
+          <span class="text-primary font-bold" aria-current="page">About</span>
         </nav>
         <div class="max-w-3xl">
           <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
@@ -50,7 +50,7 @@ const breadcrumbs = [
 
     <!-- Stats -->
     <section class="relative -mt-12 px-8 pb-20">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-screen-2xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <span class="material-symbols-outlined text-3xl text-primary mb-4" aria-hidden="true">precision_manufacturing</span>
@@ -73,13 +73,13 @@ const breadcrumbs = [
 
     <!-- Who We Are -->
     <section class="py-20 px-8 bg-surface-container-low">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
           <span class="text-xs font-label uppercase tracking-widest text-primary font-bold mb-3 block">Who We Are</span>
           <h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
             Pakistan's Authorized Dealer for World-Class Diagnostic Equipment
           </h2>
-          <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <div class="space-y-4 text-on-surface-variant leading-relaxed max-w-[65ch]">
             <p>Autodiagnostix is Pakistan's authorized dealer for LAUNCH, SMARTSAFE, and UNITE automotive diagnostic equipment. We bring globally trusted diagnostic technology to workshops and service centers across the country.</p>
             <p>Our product range covers professional-grade diagnostic scanners, wheel alignment systems, lifting equipment, ADAS calibration tools, and EV battery service equipment , everything a modern workshop needs.</p>
           </div>
@@ -112,7 +112,7 @@ const breadcrumbs = [
 
     <!-- Mission -->
     <section class="py-20 px-8 bg-surface">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="order-last lg:order-first">
           <div class="bg-surface-container-low rounded-xl p-10 border border-outline-variant/10 relative">
             <div class="absolute top-0 left-0 w-1 h-full bg-primary rounded-full" />
@@ -126,7 +126,7 @@ const breadcrumbs = [
           <h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
             Equipping Professionals with World-Class Technology
           </h2>
-          <p class="text-on-surface-variant leading-relaxed text-lg">
+          <p class="text-on-surface-variant leading-relaxed text-lg max-w-[65ch]">
             We equip Pakistani automotive professionals with the same world-class diagnostic technology used by leading workshops globally. Every tool we supply is backed by comprehensive technical support and after-sales service.
           </p>
         </div>
@@ -135,7 +135,7 @@ const breadcrumbs = [
 
     <!-- Brands -->
     <section class="py-20 px-8 bg-surface-container-low">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-screen-2xl mx-auto">
         <div class="text-center mb-14">
           <span class="text-xs font-label uppercase tracking-widest text-primary font-bold mb-3 block">Our Brands</span>
           <h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter text-on-surface mb-4">
@@ -213,12 +213,12 @@ const breadcrumbs = [
         <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-10">About Autodiagnostix , FAQ</h2>
         <div class="space-y-4" data-accordion>
           {aboutFaqs.map(f => (
-            <details class="group border border-zinc-100 rounded-lg p-6 bg-white">
-              <summary class="cursor-pointer font-headline font-bold text-on-surface text-lg flex justify-between items-center list-none">
+            <details class="group border border-zinc-200 rounded-lg px-6 py-2 bg-white">
+              <summary class="cursor-pointer font-headline font-bold text-on-surface text-lg flex justify-between items-center gap-4 min-h-[48px] py-2 list-none [&::-webkit-details-marker]:hidden">
                 <span>{f.question}</span>
-                <span class="text-primary text-2xl group-open:rotate-45 transition-transform">+</span>
+                <span class="text-primary text-2xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
               </summary>
-              <p class="mt-4 text-on-surface-variant leading-relaxed">{f.answer}</p>
+              <p class="mt-2 mb-4 text-on-surface-variant leading-relaxed max-w-[70ch]">{f.answer}</p>
             </details>
           ))}
         </div>
