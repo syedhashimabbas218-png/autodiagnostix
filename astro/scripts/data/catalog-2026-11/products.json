@@ -1,7 +1,7 @@
 [
  {
-  "slug": "launch-x-431-pro-se",
-  "name": "LAUNCH X-431 PRO SE",
+  "slug": "launch-x-431-pro-se-2026",
+  "name": "LAUNCH X-431 PRO SE 2026",
   "category": "scanners",
   "brands": [
    "launch"
@@ -59,11 +59,14 @@
    }
   ],
   "images": [
-   "images/launch-x-431-pro-se/1.webp",
-   "images/launch-x-431-pro-se/2.webp"
+   "images/launch-x-431-pro-se-2026/1.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-206.html",
-  "portfolio_title": "X-431 PRO SE 2026"
+  "portfolio_title": "X-431 PRO SE 2026",
+  "badge": "NEW",
+  "previousSlugs": [
+   "launch-x-431-pro-se"
+  ]
  },
  {
   "slug": "launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift",
@@ -137,12 +140,11 @@
    }
   ],
   "images": [
-   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/1.webp",
-   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/2.webp",
-   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/3.webp"
+   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/1.webp"
   ],
   "source": "https://www.cnlaunch.com/products-detail/i-209.html",
-  "portfolio_title": "TLT 245 SC(S) 4.5 Ton 2-Post Clear Floor Lift"
+  "portfolio_title": "TLT 245 SC(S) 4.5 Ton 2-Post Clear Floor Lift",
+  "badge": "NEW"
  },
  {
   "slug": "launch-x-613-portable-3d-wheel-aligner",
@@ -210,52 +212,26 @@
   ],
   "images": [
    "images/launch-x-613-portable-3d-wheel-aligner/1.webp",
-   "images/launch-x-613-portable-3d-wheel-aligner/2.webp",
-   "images/launch-x-613-portable-3d-wheel-aligner/3.webp"
+   "images/launch-x-613-portable-3d-wheel-aligner/2.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-318.html",
-  "portfolio_title": "X-613 Portable 3D Wheel Aligner"
+  "portfolio_title": "X-613 Portable 3D Wheel Aligner",
+  "badge": "NEW"
  },
  {
   "slug": "launch-wheel-alignment-tool-trolley",
-  "name": "LAUNCH TTH-60 Wheel Aligner Tool Cart Kit",
+  "name": "LAUNCH Wheel Alignment Tool Trolley",
   "category": "wheel-alignment",
   "brands": [
    "launch"
   ],
-  "summary": "The TTH-60 is a LAUNCH 60-piece four-wheel aligner tools cart kit: a modular tool solution built around four-wheel aligner work. It contains universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration, carried in a professional 4-wheel aligner tool cart.",
-  "description": "The TTH-60 is a LAUNCH 60-piece four-wheel aligner tools cart kit: a modular tool solution built around four-wheel aligner work. It contains universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration, carried in a professional 4-wheel aligner tool cart.",
-  "features": [
-   "60pcs 4-wheel aligner tools cart kit",
-   "Modular tool solution based on 4-wheel aligner operation",
-   "Includes special 4-wheel alignment tools, such as a 4-wheel aligner level gauge and tire balance plier",
-   "Universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration",
-   "Complete and practical tools, with the overall quantity minimized",
-   "Professional 4-wheel aligner tool box as the carrier, for easy operation and improved efficiency and comfort"
-  ],
-  "functions": [],
-  "technicalTable": [
-   {
-    "label": "TTH-60-1",
-    "value": "32pcs Socket Tool Set"
-   },
-   {
-    "label": "TTH-60-2",
-    "value": "14pcs Wrench Tool Set"
-   },
-   {
-    "label": "TTH-60-3",
-    "value": "13pcs Comprehensive Tool Set"
-   }
-  ],
+  "summary": "Mobile LAUNCH workshop tool trolley with three drawers and a worktop, used to keep wheel alignment clamps, accessories and hand tools organised beside the alignment bay.",
   "images": [
-   "images/launch-wheel-alignment-tool-trolley/1.webp",
-   "images/launch-wheel-alignment-tool-trolley/2.webp",
-   "images/launch-wheel-alignment-tool-trolley/3.webp",
-   "images/launch-wheel-alignment-tool-trolley/4.webp"
+   "images/launch-wheel-alignment-tool-trolley/1.webp"
   ],
-  "source": "https://en.cnlaunch.com/products-detail/i-92.html",
-  "portfolio_title": "LAUNCH Wheel Alignment Tool Trolley"
+  "source": "portfolio PDF p27",
+  "portfolio_title": "LAUNCH Wheel Alignment Tool Trolley",
+  "badge": "NEW"
  },
  {
   "slug": "launch-creader-tpms-511s-v2",
@@ -333,7 +309,8 @@
    "images/launch-creader-tpms-511s-v2/4.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-327.html",
-  "portfolio_title": "CRT TPMS 511S V2.0"
+  "portfolio_title": "CRT TPMS 511S V2.0",
+  "badge": "NEW"
  },
  {
   "slug": "launch-i-tpms",
@@ -394,11 +371,11 @@
    }
   ],
   "images": [
-   "images/launch-i-tpms/1.webp",
-   "images/launch-i-tpms/2.webp"
+   "images/launch-i-tpms/1.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-271.html",
-  "portfolio_title": "LAUNCH i-TPMS"
+  "portfolio_title": "LAUNCH i-TPMS",
+  "badge": "NEW"
  },
  {
   "slug": "launch-bst360-battery-tester",
@@ -464,7 +441,8 @@
    "images/launch-bst360-battery-tester/2.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-77.html",
-  "portfolio_title": "LAUNCH BST360 Battery Tester"
+  "portfolio_title": "LAUNCH BST360 Battery Tester",
+  "badge": "NEW"
  },
  {
   "slug": "launch-x-431-key-programmer",
@@ -501,11 +479,11 @@
   "images": [
    "images/launch-x-431-key-programmer/1.webp",
    "images/launch-x-431-key-programmer/2.webp",
-   "images/launch-x-431-key-programmer/3.webp",
-   "images/launch-x-431-key-programmer/4.webp"
+   "images/launch-x-431-key-programmer/3.webp"
   ],
   "source": "https://en.cnlaunch.com/products-detail/i-252.html",
-  "portfolio_title": "LAUNCH X-431 Key Programmer"
+  "portfolio_title": "LAUNCH X-431 Key Programmer",
+  "badge": "NEW"
  },
  {
   "slug": "unite-pl-42dbs-4-ton-2-post-clear-floor-lift",
@@ -519,7 +497,8 @@
    "images/unite-pl-42dbs-4-ton-2-post-clear-floor-lift/1.webp"
   ],
   "source": "portfolio PDF p15",
-  "portfolio_title": "UNITE PL-4-2DBS 4-Ton 2-Post Clear Floor Lift"
+  "portfolio_title": "UNITE PL-4-2DBS 4-Ton 2-Post Clear Floor Lift",
+  "badge": "NEW"
  },
  {
   "slug": "unite-pl-4-2d-4-ton-2-post-base-plate-lift",
@@ -533,7 +512,8 @@
    "images/unite-pl-4-2d-4-ton-2-post-base-plate-lift/1.webp"
   ],
   "source": "portfolio PDF p16",
-  "portfolio_title": "UNITE PL-4-2D 4-Ton 2-Post Base Plate Lift"
+  "portfolio_title": "UNITE PL-4-2D 4-Ton 2-Post Base Plate Lift",
+  "badge": "NEW"
  },
  {
   "slug": "unite-pl-fs45-4-5-ton-4-post-wheel-alignment-lift",
@@ -592,96 +572,23 @@
    "images/unite-pl-fs45-4-5-ton-4-post-wheel-alignment-lift/2.webp"
   ],
   "source": "https://www.uniteautomotive.com/4-post-car-lifts/4-5t-capacity-u-fs45-alignment-rack-four-post-vehicle-lift",
-  "portfolio_title": "UNITE 4-Post 4.5-Ton Wheel Alignment Lift PL-FS45"
+  "portfolio_title": "UNITE 4-Post 4.5-Ton Wheel Alignment Lift PL-FS45",
+  "badge": "NEW"
  },
  {
   "slug": "unite-ultra-premium-wheel-balancer",
-  "name": "UNITE U-659 Ultra Premium Wheel Balancer",
+  "name": "UNITE Ultra Premium Wheel Balancer",
   "category": "wheel-balancers",
   "brands": [
    "unite"
   ],
-  "summary": "The U-659 is a wheel balancer with a monitor-style large LED display, electromagnetic brake, laser pointer, automatic measurement and a 3D animation interface. Inner and outer measuring arms enter offset, diameter and rim width automatically, and the split-weight function lets weights be hidden behind the spokes.",
-  "description": "The U-659 is a wheel balancer with a monitor-style large LED display, electromagnetic brake, laser pointer, automatic measurement and a 3D animation interface. Inner and outer measuring arms enter offset, diameter and rim width automatically, and the split-weight function lets weights be hidden behind the spokes.",
-  "features": [
-   "Electromagnetic brake - automatically positions the inner and outer unbalance positions",
-   "Automatic positioning of unbalance points - no manual hand-spinning of the tire",
-   "Laser pointer marks the unbalance position automatically",
-   "LED light illuminates the operating area / inside of the rim",
-   "Automatic distance and diameter measurement via inner measuring arm",
-   "Outer measuring arm / automatic width measuring scale for rim width entry",
-   "Tracking stick-on balancing mode for high-class wheels using stick-on weights only",
-   "Split-weight function for hiding weights behind the spokes",
-   "Monitor-style large LED display",
-   "3D animation interface (patented software) with dynamic indicator light",
-   "Easy-to-use buttons with quick, understandable symbols",
-   "Multi-language support: 20 languages, customization of other languages accepted"
-  ],
-  "functions": [],
-  "technicalTable": [
-   {
-    "label": "Product Code",
-    "value": "U-659"
-   },
-   {
-    "label": "Balancing modes",
-    "value": "6 Balancing Modes"
-   },
-   {
-    "label": "Balancing speed",
-    "value": "200 r.p.m"
-   },
-   {
-    "label": "Rim diameter",
-    "value": "252-610 mm (10\"-24\")"
-   },
-   {
-    "label": "Rim width",
-    "value": "40-510 mm (1.5\"-20\")"
-   },
-   {
-    "label": "Split and hidden weight solution",
-    "value": "Yes"
-   },
-   {
-    "label": "Measuring time",
-    "value": "8s"
-   },
-   {
-    "label": "Balancing accuracy",
-    "value": "±1g (±0.04 oz)"
-   },
-   {
-    "label": "Max. wheel weight",
-    "value": "65 kg (143 lbs)"
-   },
-   {
-    "label": "Power supply voltage options",
-    "value": "220V 1Ph"
-   },
-   {
-    "label": "Option motor power",
-    "value": "0.2kW/0.25kW"
-   },
-   {
-    "label": "Noise level",
-    "value": "< 70dB"
-   },
-   {
-    "label": "N/G weight",
-    "value": "105/126kg"
-   },
-   {
-    "label": "Package dimension",
-    "value": "960*760*1250mm"
-   }
-  ],
+  "summary": "UNITE Ultra Premium wheel balancer with a monitor display, a full wheel guard and a moulded top tray for balancing weights and tools, for accurate wheel balancing in tyre workshops.",
   "images": [
-   "images/unite-ultra-premium-wheel-balancer/1.webp",
-   "images/unite-ultra-premium-wheel-balancer/2.webp"
+   "images/unite-ultra-premium-wheel-balancer/1.webp"
   ],
-  "source": "https://www.uniteautomotive.com/u-659-led-display-wheel-balancer-with-opt-function-split-and-hidden-weight-solution",
-  "portfolio_title": "UNITE Ultra Premium Wheel Balancer"
+  "source": "portfolio PDF p29",
+  "portfolio_title": "UNITE Ultra Premium Wheel Balancer",
+  "badge": "NEW"
  },
  {
   "slug": "unite-g-68-wheel-balancer",
@@ -757,7 +664,8 @@
    "images/unite-g-68-wheel-balancer/1.webp"
   ],
   "source": "https://www.uniteautomotive.com/g-68-digital-wheel-balancer-with-lcd-display-precision-calibration-heavy-duty-motor-auto-positioning-quick-cycle-and-durable-design",
-  "portfolio_title": "UNITE G-68 Self-Calibrating Computer Wheel Balancer"
+  "portfolio_title": "UNITE G-68 Self-Calibrating Computer Wheel Balancer",
+  "badge": "NEW"
  },
  {
   "slug": "unite-g-55-wheel-balancer",
@@ -832,7 +740,8 @@
    "images/unite-g-55-wheel-balancer/1.webp"
   ],
   "source": "https://www.uniteautomotive.com/pro-line-wheel-balancer-ad-banner-g55-tire-balancer",
-  "portfolio_title": "UNITE G-55 Self-Calibrating Computer Wheel Balancer"
+  "portfolio_title": "UNITE G-55 Self-Calibrating Computer Wheel Balancer",
+  "badge": "NEW"
  },
  {
   "slug": "unite-hj827-sj-voice-controlled-tire-inflator",
@@ -906,7 +815,8 @@
    "images/unite-hj827-sj-voice-controlled-tire-inflator/3.webp"
   ],
   "source": "https://www.uniteautomotive.com/tire-inflator/hj827s-j-classic-standing-smart-voice-control-tyre-inflator-with-air-pressure-gauge",
-  "portfolio_title": "UNITE HJ827-SJ Voice-Controlled Tyre Inflator"
+  "portfolio_title": "UNITE HJ827-SJ Voice-Controlled Tyre Inflator",
+  "badge": "NEW"
  },
  {
   "slug": "unite-engine-crane-2-ton",
@@ -920,7 +830,8 @@
    "images/unite-engine-crane-2-ton/1.webp"
   ],
   "source": "portfolio PDF p50",
-  "portfolio_title": "UNITE 2-Ton Engine Crane"
+  "portfolio_title": "UNITE 2-Ton Engine Crane",
+  "badge": "NEW"
  },
  {
   "slug": "unite-brake-disc-lathe",
@@ -934,7 +845,8 @@
    "images/unite-brake-disc-lathe/1.webp"
   ],
   "source": "portfolio PDF p53",
-  "portfolio_title": "UNITE Brake Disc Lathe"
+  "portfolio_title": "UNITE Brake Disc Lathe",
+  "badge": "NEW"
  },
  {
   "slug": "metal-sheet-repair-machine",
@@ -946,7 +858,8 @@
    "images/metal-sheet-repair-machine/1.webp"
   ],
   "source": "portfolio PDF p62",
-  "portfolio_title": "Metal Sheet Repair Machine"
+  "portfolio_title": "Metal Sheet Repair Machine",
+  "badge": "NEW"
  },
  {
   "slug": "gti-tools-wheel-balancer-digital-plus",
@@ -960,7 +873,8 @@
    "images/gti-tools-wheel-balancer-digital-plus/1.webp"
   ],
   "source": "portfolio PDF p32",
-  "portfolio_title": "GTI.tools Wheel Balancer Digital Plus"
+  "portfolio_title": "GTI.tools Wheel Balancer Digital Plus",
+  "badge": "NEW"
  },
  {
   "slug": "gti-tools-sticker-weight",
@@ -974,7 +888,8 @@
    "images/gti-tools-sticker-weight/1.webp"
   ],
   "source": "portfolio PDF p33",
-  "portfolio_title": "GTI.tools Sticker Weight"
+  "portfolio_title": "GTI.tools Sticker Weight",
+  "badge": "NEW"
  },
  {
   "slug": "gti-tools-clip-weight",
@@ -988,7 +903,8 @@
    "images/gti-tools-clip-weight/1.webp"
   ],
   "source": "portfolio PDF p34",
-  "portfolio_title": "GTI.tools Clip Weight"
+  "portfolio_title": "GTI.tools Clip Weight",
+  "badge": "NEW"
  },
  {
   "slug": "gti-tools-catalytic-dpf-cleaner-c2025-ai",
@@ -1002,7 +918,8 @@
    "images/gti-tools-catalytic-dpf-cleaner-c2025-ai/1.webp"
   ],
   "source": "portfolio PDF p48",
-  "portfolio_title": "GTI.tools Catalytic & DPF Cleaner (C2025 AI)"
+  "portfolio_title": "GTI.tools Catalytic & DPF Cleaner (C2025 AI)",
+  "badge": "NEW"
  },
  {
   "slug": "gti-tools-catalytic-dpf-cleaner-hho-power-x",
@@ -1016,7 +933,8 @@
    "images/gti-tools-catalytic-dpf-cleaner-hho-power-x/1.webp"
   ],
   "source": "portfolio PDF p49",
-  "portfolio_title": "GTI.tools Catalytic & DPF Cleaner (HHO Power X)"
+  "portfolio_title": "GTI.tools Catalytic & DPF Cleaner (HHO Power X)",
+  "badge": "NEW"
  },
  {
   "slug": "gti-tools-frame-aligner",
@@ -1030,6 +948,7 @@
    "images/gti-tools-frame-aligner/1.webp"
   ],
   "source": "portfolio PDF p63",
-  "portfolio_title": "GTI.tools Frame Aligner"
+  "portfolio_title": "GTI.tools Frame Aligner",
+  "badge": "NEW"
  }
 ]
