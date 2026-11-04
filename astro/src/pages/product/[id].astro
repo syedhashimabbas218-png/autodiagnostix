@@ -26,6 +26,12 @@ const breadcrumbs = [
   },
   { name: product.name, url: `https://autodiagnostix.com.pk/product/${id}` },
 ];
+
+const quoteHref = `/contact?subject=quote&product=${encodeURIComponent(product.name)}#contact-form`;
+const pdfHref = `/api/product-pdf/${product.id}`;
+// Long CMS summaries (some exceed 1,000 characters) are clamped with a
+// "Read more" control so the image and actions stay above the fold.
+const longSummary = (product.summary || '').length > 320;
 ---
 
 <BaseLayout
@@ -38,28 +44,56 @@ const breadcrumbs = [
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 
-  <main id="main-content" class="min-h-screen pt-20 bg-surface-container-lowest">
-    <section class="flex flex-col items-center justify-center text-center px-6 py-24">
-      <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
-        {(product.brands.length > 0 ? product.brands : [product.brand]).filter(Boolean).map(b => (
-          <span class="inline-block px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] uppercase bg-surface-container-high rounded-full text-on-surface-variant font-label">
-            {b}
-          </span>
-        ))}
-      </div>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline font-extrabold tracking-tighter text-on-surface leading-[1.05] mb-8 max-w-5xl">
-        {product.name}
-        {product.badge && (
-          <span class={`ml-4 align-middle text-xs px-3 py-1 rounded-full text-white font-black tracking-widest ${product.badge === 'NEW' ? 'bg-green-600' : product.badge === 'DISCONTINUED' ? 'bg-red-600' : 'bg-amber-500'}`}>
-            {product.badge}
-          </span>
+  <main id="main-content" class="min-h-screen pt-14 md:pt-16 bg-surface-container-lowest">
+    <section class="product-hero max-w-screen-2xl mx-auto px-4 sm:px-8 pt-8 pb-12 md:pt-12 lg:py-[clamp(2rem,5vh,4rem)] grid gap-8 lg:gap-12 xl:gap-16 lg:grid-cols-12 lg:items-center" aria-labelledby="product-title">
+      <div class="lg:col-span-6 2xl:col-span-5 lg:order-2 min-w-0">
+        <nav aria-label="Breadcrumb" class="breadcrumb mb-5">
+          <ol class="flex flex-wrap items-center gap-x-1 text-xs font-label uppercase tracking-widest text-on-surface-variant">
+            <li><a href="/" class="breadcrumb-link">Home</a></li>
+            <li aria-hidden="true" class="text-[10px]">/</li>
+            <li><a href={breadcrumbs[1].url.replace('https://autodiagnostix.com.pk', '')} class="breadcrumb-link">{breadcrumbs[1].name}</a></li>
+          </ol>
+        </nav>
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          {(product.brands.length > 0 ? product.brands : [product.brand]).filter(Boolean).map(b => (
+            <span class="inline-block px-3 py-1 text-[11px] font-bold tracking-[0.2em] uppercase bg-surface-container-high rounded-full text-on-surface-variant font-label">
+              {b}
+            </span>
+          ))}
+          {product.badge && (
+            <span class={`inline-block px-3 py-1 rounded-full text-white text-[11px] font-black tracking-widest ${product.badge === 'NEW' ? 'bg-green-700' : product.badge === 'DISCONTINUED' ? 'bg-red-700' : 'bg-amber-700'}`}>
+              {product.badge}
+            </span>
+          )}
+        </div>
+        <h1 id="product-title" class="text-[clamp(2rem,1.2rem+2.2vw,3.25rem)] font-headline font-extrabold tracking-tighter text-on-surface leading-[1.05] mb-5 text-balance">
+          {product.name}
+        </h1>
+        {product.summary && (
+          <div class="mb-8">
+            <p id="product-summary" class={`text-base md:text-lg text-on-surface-variant leading-relaxed max-w-[65ch] ${longSummary ? 'summary-clamped' : ''}`}>{product.summary}</p>
+            {longSummary && (
+              <button type="button" class="summary-toggle mt-2 min-h-[44px] text-sm font-bold text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary" aria-controls="product-summary" aria-expanded="false" hidden>Read more</button>
+            )}
+          </div>
         )}
-      </h1>
-      <p class="text-base md:text-lg text-slate-500 max-w-4xl mx-auto leading-relaxed mb-12">{product.summary}</p>
+        <div id="hero-actions" class="flex flex-col sm:flex-row sm:flex-wrap gap-3">
+          <a href={quoteHref} class="inline-flex items-center justify-center whitespace-nowrap min-h-[48px] px-8 rounded-full bg-primary-container text-white font-headline font-bold text-sm uppercase tracking-[0.1em] shadow-lg hover:brightness-110 transition-[filter]">
+            Request a Quote
+          </a>
+          <a href={pdfHref} download data-pdf-link class="pdf-link inline-flex items-center justify-center gap-2 whitespace-nowrap min-h-[48px] px-6 rounded-full border border-primary-container text-primary-container font-headline font-bold text-sm uppercase tracking-[0.1em] hover:bg-primary-container/5 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+            <span data-pdf-label>Technical Sheet (PDF)</span>
+          </a>
+        </div>
+        <p data-pdf-status class="mt-3 text-sm text-on-surface-variant min-h-[1.25rem]" aria-live="polite"></p>
+      </div>
 
       {product.heroImages.length > 0 && (
-        <div class="w-full max-w-5xl aspect-video bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5">
-          <img class="w-full h-full object-contain p-8 mix-blend-multiply" src={product.heroImages[0]} alt={product.name} width="800" height="600" />
+        <div class="order-first lg:col-span-6 2xl:col-span-7 lg:order-1 min-w-0">
+          <div class="product-hero-media w-full aspect-[4/3] bg-white rounded-2xl overflow-hidden shadow-sm border border-black/5 flex items-center justify-center">
+            <img class="w-full h-full object-contain p-6 md:p-10 mix-blend-multiply" src={product.heroImages[0]} alt={product.name} width="800" height="600" fetchpriority="high" decoding="async" />
+          </div>
         </div>
       )}
     </section>
@@ -91,14 +125,14 @@ const breadcrumbs = [
     )}
 
     {product.technicalTable.length > 0 && (
-      <section class="py-24 bg-surface-container-lowest">
-        <div class="max-w-7xl mx-auto px-8">
-          <h2 class="text-4xl font-headline font-extrabold tracking-tighter mb-16">TECHNICAL SPECIFICATIONS</h2>
-          <dl class="grid grid-cols-1 md:grid-cols-3 gap-0.5 bg-outline-variant/20 border border-outline-variant/20 rounded-xl overflow-hidden">
+      <section class="py-16 md:py-24 bg-surface-container-lowest" aria-labelledby="specs-heading">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-8">
+          <h2 id="specs-heading" class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8 md:mb-12 uppercase">Technical Specifications</h2>
+          <dl class="spec-grid flex flex-col sm:flex-row sm:flex-wrap gap-0.5 bg-outline-variant/30 border border-outline-variant/30 rounded-xl overflow-hidden">
             {product.technicalTable.map(spec => (
-              <div class="bg-surface-container-lowest p-10 flex flex-col gap-4">
-                <dt class="text-[10px] font-bold tracking-widest text-slate-400 uppercase">{spec.label}</dt>
-                <dd class="text-2xl font-headline font-medium">{spec.value}</dd>
+              <div class="spec-cell grow bg-surface-container-lowest p-6 md:p-8 flex flex-col gap-2 md:gap-3">
+                <dt class="text-[11px] font-bold tracking-widest text-on-surface-variant uppercase">{spec.label}</dt>
+                <dd class="text-lg md:text-xl lg:text-2xl font-headline font-medium break-words">{spec.value}</dd>
               </div>
             ))}
           </dl>
@@ -106,17 +140,18 @@ const breadcrumbs = [
       </section>
     )}
 
-    <div id="product-actions" class="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-slate-100 z-50">
-      <div class="max-w-7xl mx-auto h-24 px-8 flex items-center justify-between gap-4">
-        <div class="hidden sm:block">
-          <h3 class="font-headline font-bold text-lg text-on-surface">{product.name}</h3>
-          <p class="text-xs text-slate-500 font-label tracking-wide">{product.brand}</p>
+    <div id="product-actions" class="fixed bottom-0 inset-x-0 bg-white/90 backdrop-blur-xl border-t border-zinc-200 z-40" data-visible="false">
+      <div class="max-w-screen-2xl mx-auto h-16 md:h-20 px-4 sm:px-8 flex items-center justify-between gap-3">
+        <div class="hidden md:block min-w-0" aria-hidden="true">
+          <p class="font-headline font-bold text-base lg:text-lg text-on-surface truncate">{product.name}</p>
+          <p class="text-xs text-on-surface-variant font-label tracking-wide truncate">{product.brand}</p>
         </div>
-        <div class="flex items-center gap-3 ml-auto">
+        <div class="flex items-center gap-2 sm:gap-3 ml-auto w-full md:w-auto">
           <a
-            href={`/api/product-pdf/${product.id}`}
+            href={pdfHref}
             download
-            class="border border-primary-container text-primary-container px-5 sm:px-6 h-12 rounded-full font-headline font-bold text-xs sm:text-sm uppercase tracking-[0.1em] flex items-center gap-2 hover:bg-primary-container/5 transition-all"
+            data-pdf-link
+            class="pdf-link shrink-0 border border-primary-container text-primary-container px-4 sm:px-6 min-h-[48px] rounded-full font-headline font-bold text-xs sm:text-sm uppercase tracking-[0.1em] flex items-center justify-center gap-2 hover:bg-primary-container/5 transition-colors"
             aria-label="Download technical sheet PDF"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -124,10 +159,10 @@ const breadcrumbs = [
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            <span class="hidden sm:inline">Technical Sheet</span>
+            <span class="hidden sm:inline" data-pdf-label>Technical Sheet</span>
             <span class="sm:hidden">PDF</span>
           </a>
-          <a href={`/contact?subject=quote&product=${encodeURIComponent(product.name)}#contact-form`} class="bg-primary-container text-white px-6 sm:px-8 h-12 rounded-full font-headline font-bold text-sm uppercase tracking-[0.1em] shadow-xl flex items-center hover:-translate-y-1 transition-all">
+          <a href={quoteHref} class="grow md:grow-0 bg-primary-container text-white px-6 sm:px-8 min-h-[48px] rounded-full font-headline font-bold text-sm uppercase tracking-[0.1em] shadow-lg flex items-center justify-center hover:brightness-110 transition-[filter]">
             Request a Quote
           </a>
         </div>
@@ -138,11 +173,90 @@ const breadcrumbs = [
   <Footer />
 </BaseLayout>
 
+<script>
+  // "Read more" for long summaries: only offered when the text is actually clamped.
+  document.querySelectorAll<HTMLButtonElement>('.summary-toggle').forEach(button => {
+    const summary = document.getElementById(button.getAttribute('aria-controls') || '');
+    if (!summary) return;
+    if (summary.scrollHeight <= summary.clientHeight + 2) { summary.classList.remove('summary-clamped'); return; }
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      summary.classList.toggle('summary-clamped', expanded);
+      button.setAttribute('aria-expanded', String(!expanded));
+      button.textContent = expanded ? 'Read more' : 'Show less';
+    });
+  });
+
+  // The hero already shows both actions, so the fixed bar only slides in once
+  // they scroll out of view (it stays hidden without JavaScript).
+  const bar = document.getElementById('product-actions');
+  const heroActions = document.getElementById('hero-actions');
+  if (bar && heroActions && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      bar.dataset.visible = String(!entry.isIntersecting && entry.boundingClientRect.top < 0);
+    }).observe(heroActions);
+  }
+
+  // Technical sheets are generated on demand. Fetch them so the visitor sees
+  // progress and a clear error instead of a silent multi-second wait.
+  const status = document.querySelector<HTMLElement>('[data-pdf-status]');
+  document.querySelectorAll<HTMLAnchorElement>('[data-pdf-link]').forEach(link => {
+    link.addEventListener('click', async event => {
+      if (!window.fetch || !window.URL?.createObjectURL || event.metaKey || event.ctrlKey || event.shiftKey) return;
+      event.preventDefault();
+      if (link.getAttribute('aria-busy') === 'true') return;
+      const links = document.querySelectorAll<HTMLAnchorElement>('[data-pdf-link]');
+      const labels = document.querySelectorAll<HTMLElement>('[data-pdf-label]');
+      const original = [...labels].map(label => label.textContent);
+      links.forEach(l => l.setAttribute('aria-busy', 'true'));
+      labels.forEach(label => { label.textContent = 'Preparing PDF…'; });
+      if (status) status.textContent = 'Preparing the technical sheet. This can take a few seconds.';
+      try {
+        const response = await fetch(link.href);
+        if (!response.ok) throw new Error(await response.text());
+        const blob = await response.blob();
+        const filename = /filename="([^"]+)"/.exec(response.headers.get('Content-Disposition') || '')?.[1] || 'technical-sheet.pdf';
+        const url = URL.createObjectURL(blob);
+        const download = Object.assign(document.createElement('a'), { href: url, download: filename });
+        document.body.append(download);
+        download.click();
+        download.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 10_000);
+        if (status) status.textContent = 'Technical sheet downloaded.';
+      } catch {
+        if (status) status.textContent = 'The technical sheet could not be prepared. Please try again, or request it through the quote form.';
+      } finally {
+        links.forEach(l => l.removeAttribute('aria-busy'));
+        labels.forEach((label, index) => { label.textContent = original[index]; });
+      }
+    });
+  });
+</script>
+
 <style>
-  :global(body:has(#product-actions)) { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
-  #product-actions { padding-bottom: env(safe-area-inset-bottom); }
-  @media (max-width: 23.4375rem) {
-    #product-actions > div { padding-inline: 1rem; }
-    #product-actions a { padding-inline: 1rem; }
+  :global(body:has(#product-actions)) { padding-bottom: calc(4rem + env(safe-area-inset-bottom)); }
+  #product-actions { padding-bottom: env(safe-area-inset-bottom); transition: transform 250ms ease-out; }
+  #product-actions[data-visible='false'] { transform: translateY(100%); visibility: hidden; transition: transform 250ms ease-out, visibility 0s 250ms; }
+  .summary-clamped { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden; }
+  .pdf-link[aria-busy='true'] { opacity: 0.75; cursor: progress; }
+  .breadcrumb-link { display: inline-flex; align-items: center; min-height: 44px; transition: color 150ms; }
+  .breadcrumb-link:hover { color: #97000d; }
+  .text-balance { text-wrap: balance; }
+  /* Specs fill each row evenly instead of leaving grey empty cells. */
+  @media (min-width: 40rem) { .spec-cell { flex-basis: calc((100% - 2px) / 2); } }
+  @media (min-width: 64rem) { .spec-cell { flex-basis: calc((100% - 4px) / 3); } }
+  @media (min-width: 48rem) {
+    :global(body:has(#product-actions)) { padding-bottom: calc(5rem + env(safe-area-inset-bottom)); }
+  }
+  @media (min-width: 64rem) {
+    /* Keep the image, title and actions inside short laptop viewports. */
+    .product-hero-media { max-height: calc(100svh - 8rem); }
+    .summary-clamped { -webkit-line-clamp: 5; }
+  }
+  @media (min-width: 64rem) and (max-height: 50rem) {
+    .summary-clamped { -webkit-line-clamp: 3; }
+    .product-hero h1 { font-size: clamp(1.75rem, 0.9rem + 2vw, 2.75rem); margin-bottom: 1rem; }
+    .product-hero .breadcrumb { margin-bottom: 0.5rem; }
   }
 </style>

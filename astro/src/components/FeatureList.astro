@@ -17,7 +17,7 @@ const { eyebrow, title, headingId, items, compact = false } = Astro.props;
 ---
 
 <section class={`bg-surface ${compact ? 'py-10 md:py-12 lg:py-16 lg:pl-10 xl:pl-14' : 'py-12 md:py-16'}`} aria-labelledby={headingId}>
-  <div class={`${compact ? '' : 'max-w-7xl mx-auto'} px-8`}>
+  <div class={`${compact ? '' : 'max-w-screen-2xl mx-auto'} px-4 sm:px-8`}>
     <header class={`${compact ? 'mb-6 md:mb-8' : 'mb-8 md:mb-12'} max-w-2xl`}>
       <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] uppercase text-primary mb-4">
         <span class="block w-8 h-px bg-primary" aria-hidden="true"></span>
@@ -27,7 +27,7 @@ const { eyebrow, title, headingId, items, compact = false } = Astro.props;
         {title}
       </h2>
     </header>
-    <ul class={`grid grid-cols-1 ${compact ? 'md:grid-cols-1' : 'md:grid-cols-2'} gap-x-12 ${compact ? 'gap-y-5' : 'gap-y-8'}`}>
+    <ul class={`grid grid-cols-1 ${compact ? 'md:grid-cols-1' : 'md:grid-cols-2 max-w-6xl'} gap-x-12 ${compact ? 'gap-y-5' : 'gap-y-8'}`}>
       {items.map((feat, i) => {
         const text = feat.description || feat.title;
         return (
@@ -38,7 +38,7 @@ const { eyebrow, title, headingId, items, compact = false } = Astro.props;
             >
               {String(i + 1).padStart(2, '0')}
             </span>
-            <span class="flex-1 text-[14px] leading-relaxed text-slate-700 pt-1">
+            <span class="flex-1 text-[15px] leading-relaxed text-zinc-700 pt-1">
               {text}
             </span>
           </li>
