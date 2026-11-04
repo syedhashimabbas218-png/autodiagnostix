@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { SITE_URL, canonicalUrl, normalizeSiteUrls } from '../utils/site.mjs';
 import { CMS_URL } from '../lib/strapi';
+import { pageTitle } from '../utils/seo.mjs';
 
 export interface Props {
   title?: string;
@@ -39,8 +40,8 @@ const {
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = 'website',
-  ogImageWidth = '1200',
-  ogImageHeight = '630',
+  ogImageWidth,
+  ogImageHeight,
   ogImageAlt = 'Autodiagnostix, Pakistan\'s authorized dealer for LAUNCH, Smartsafe, UNITE, GTI.tools, Liberty Lifts and AUTOOL',
   jsonLd,
   noindex,
@@ -50,12 +51,12 @@ const {
   author = PUBLISHER_NAME,
 } = Astro.props;
 
-// Don't append SITE_NAME if the title already ends with it (avoids "Foo | Bar | Bar" duplication).
-const cleanTitle = (title || '').trim();
-const siteNameLower = SITE_NAME.toLowerCase();
-const cleanTitleLower = cleanTitle.toLowerCase();
-const titleAlreadyHasSite = cleanTitleLower === siteNameLower || cleanTitleLower.endsWith(` | ${siteNameLower}`);
-const fullTitle = title ? (titleAlreadyHasSite ? title : `${title} | ${SITE_NAME}`) : `Autodiagnostix | Launch, Smartsafe, UNITE Dealer in Pakistan`;
+const fullTitle = pageTitle(title, { isHome: Astro.url.pathname === '/' });
+// Dimensions are only declared for the default card, whose size is known;
+// product photos vary, and a wrong size breaks some preview renderers.
+const isDefaultImage = ogImage === DEFAULT_OG_IMAGE;
+const imageWidth = ogImageWidth ?? (isDefaultImage ? '1200' : undefined);
+const imageHeight = ogImageHeight ?? (isDefaultImage ? '630' : undefined);
 const pageCanonical = canonicalUrl(canonical || Astro.url.pathname);
 const socialImage = normalizeSiteUrls(new URL(ogImage, `${SITE_URL}/`).href);
 const structuredData = normalizeSiteUrls(jsonLd);
@@ -84,8 +85,8 @@ const structuredData = normalizeSiteUrls(jsonLd);
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImage} />
-    <meta property="og:image:width" content={ogImageWidth} />
-    <meta property="og:image:height" content={ogImageHeight} />
+    {imageWidth && <meta property="og:image:width" content={imageWidth} />}
+    {imageHeight && <meta property="og:image:height" content={imageHeight} />}
     <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:type" content={ogType} />

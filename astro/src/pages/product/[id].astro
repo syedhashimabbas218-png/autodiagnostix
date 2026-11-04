@@ -6,6 +6,7 @@ import FeatureList from '../../components/FeatureList.astro';
 import ProductGallery from '../../components/ProductGallery';
 import { getProduct, heroImage } from '../../lib/strapi';
 import { productSchema, breadcrumbListSchema } from '../../utils/schema';
+import { metaDescription } from '../../utils/seo.mjs';
 
 export const prerender = false;
 
@@ -36,10 +37,11 @@ const longSummary = (product.summary || '').length > 320;
 
 <BaseLayout
   title={`${product.name} in Pakistan`}
-  description={product.summary || product.description?.substring(0, 160) || `${product.name} , buy in Pakistan from Autodiagnostix. Authorized dealer for ${product.brand || 'premium brands'}.`}
+  description={metaDescription(product.summary || product.description) || `${product.name}, buy in Pakistan from Autodiagnostix. Authorized dealer for ${product.brand || 'premium brands'}.`}
   canonical={`https://autodiagnostix.com.pk/product/${id}`}
   ogType="product"
   ogImage={product.heroImages?.[0] || undefined}
+  ogImageAlt={product.heroImages?.[0] ? product.name : undefined}
   jsonLd={[productSchema(product), breadcrumbListSchema(breadcrumbs)]}
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />

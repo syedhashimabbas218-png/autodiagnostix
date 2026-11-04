@@ -45,6 +45,9 @@ try {
 } catch (error) { throw error; }
 
 if (!brand) return Astro.rewrite('/404');
+// Aliases and case variants (e.g. /brand/gti-tools, /brand/Launch) served a
+// duplicate of the canonical brand page; consolidate them with a 301.
+if (id !== brand.slug) return Astro.redirect(`/brand/${brand.slug}`, 301);
 
 const breadcrumbs = [
   { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
@@ -54,7 +57,7 @@ const breadcrumbs = [
 ---
 
 <BaseLayout
-  title={`${brand.name} Products in Pakistan , Authorized Dealer | Autodiagnostix`}
+  title={`${brand.name} Products in Pakistan: Authorized Dealer`}
   description={`Browse ${brandProducts.length} ${brand.name} products in Pakistan at Autodiagnostix. Authorized ${brand.name} dealer for diagnostic scanners, car lifts, wheel aligners, tyre changers, ADAS, EV tools and workshop equipment. Delivery across Pakistan.`}
   canonical={`https://autodiagnostix.com.pk/brand/${brand.slug}`}
   jsonLd={[breadcrumbListSchema(breadcrumbs), brandSchema({ name: brand.name, url: `https://autodiagnostix.com.pk/brand/${brand.slug}`, description: brand.description, image: brand.image })]}

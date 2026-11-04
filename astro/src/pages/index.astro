@@ -76,7 +76,13 @@ const categoryIcons: Record<string, string> = {
 const categories = allCategories
   .map(c => ({ id: c.id, name: c.name, icon: categoryIcons[c.id] || c.icon || 'build' }));
 
-const allBrands = (await getBrands(catalogue)).filter(b => b.slug !== 'gtitools');
+const productBrands = await getBrands(catalogue);
+const allBrands = productBrands.filter(b => b.slug !== 'gtitools');
+// Link to the canonical brand URL (product-derived slug, e.g. /brand/gtitools)
+// rather than the CMS alias (gti-tools), which now 301s.
+const brandKey = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, '');
+const canonicalBrandSlug = (brand: { slug: string; name: string }) =>
+  productBrands.find(b => brandKey(b.slug) === brandKey(brand.slug) || brandKey(b.name) === brandKey(brand.name))?.slug ?? brand.slug;
 
 // Fetch brand logos + descriptions from Strapi directly (getBrands in strapi.ts doesn't include logo)
 const brandLogoMap: Record<string, string> = {};
@@ -197,7 +203,7 @@ const products = allProducts
               const logoSrc = brandLogoMap[brand.slug] || '';
               return (
                 <a
-                  href={`/brand/${brand.slug}`}
+                  href={`/brand/${canonicalBrandSlug(brand)}`}
                   class="group flex flex-col items-center justify-center gap-2 px-4 py-6 border border-transparent hover:border-zinc-200 transition-all duration-200 ease-out"
                   title={brand.name}
                   aria-label={brand.name}
@@ -383,11 +389,11 @@ const products = allProducts
           </a>
           <a href="/adas-calibration-pakistan" class="group bg-white p-6 md:p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
             <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">ADAS Calibration in Pakistan</h3>
-            <p class="text-sm text-zinc-600 leading-relaxed">Launch X-431 ADAS PRO PLUS , dealer-level ADAS calibration for camera, radar and lidar.</p>
+            <p class="text-sm text-zinc-600 leading-relaxed">Launch X-431 ADAS PRO PLUS, dealer-level ADAS calibration for camera, radar and lidar.</p>
           </a>
           <a href="/ev-diagnostics-pakistan" class="group bg-white p-6 md:p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
             <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">EV Car Diagnostics in Pakistan</h3>
-            <p class="text-sm text-zinc-600 leading-relaxed">Launch EV Diagnosis Add-on Kit, EVM324 battery equalizer , purpose-built for EV service centers.</p>
+            <p class="text-sm text-zinc-600 leading-relaxed">Launch EV Diagnosis Add-on Kit, EVM324 battery equalizer, purpose-built for EV service centers.</p>
           </a>
           <a href="/battery-testers-pakistan" class="group bg-white p-6 md:p-8 border border-zinc-100 hover:border-primary/30 hover:shadow-lg transition-all">
             <h3 class="font-headline font-extrabold text-xl mb-2 group-hover:text-primary">Battery Testers in Pakistan</h3>
