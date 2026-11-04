@@ -20,6 +20,11 @@ export interface Props {
 }
 
 const SITE_NAME = 'Autodiagnostix';
+const TEXT_FONTS_URL = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap';
+// Keep this list alphabetical and in sync with `material-symbols-outlined`
+// usages; an unlisted name renders as plain text.
+const ICON_NAMES = ['arrow_forward', 'call', 'category', 'info', 'local_shipping', 'location_on', 'mail', 'map', 'precision_manufacturing', 'schedule', 'support_agent', 'verified', 'workspace_premium'];
+const ICON_FONT_URL = `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=${ICON_NAMES.join(',')}&display=block`;
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
 const PUBLISHER_NAME = 'Autodiagnostix';
 
@@ -64,12 +69,13 @@ const structuredData = normalizeSiteUrls(jsonLd);
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts. Text faces swap in; the icon font is subset to the
+         glyphs the site actually uses (3.5 KB instead of the 3.9 MB full
+         variable font) and blocks briefly so ligature names never flash. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" /></noscript>
+    <link href={TEXT_FONTS_URL} rel="stylesheet" />
+    <link href={ICON_FONT_URL} rel="stylesheet" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />

@@ -113,7 +113,7 @@ export default function CategoryNav({ categories = [] }: { categories?: Category
             <a href={`/category/${cat.id}`} className="flex items-center gap-2 md:gap-4 group w-full">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container group-hover:scale-110 group-hover:shadow-xl transition-all duration-200 ease-out shrink-0 relative z-10 ring-0 group-hover:ring-4 ring-primary/20">
                 <span className="text-zinc-500 group-hover:text-white transition-colors flex items-center justify-center">
-                  {IconMap[cat.icon] || <span className="material-symbols-outlined text-lg md:text-xl">{cat.icon}</span>}
+                  {IconMap[cat.icon] || IconMap.build}
                 </span>
               </div>
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-zinc-900 transition-colors leading-tight">
