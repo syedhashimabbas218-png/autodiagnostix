@@ -47,31 +47,10 @@ const seoLinks = [
       </picture>
     </a>
 
-    <nav id="desktop-navigation" aria-label="Main" class="hidden lg:flex items-center gap-1 xl:gap-2 mr-auto">
-      <div class="relative" id="products-menu">
-        <button
-          id="products-menu-btn"
-          type="button"
-          class="nav-link inline-flex items-center gap-1"
-          aria-expanded="false"
-          aria-controls="products-menu-panel"
-        >
-          Products
-          <svg class="nav-chevron w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
-        </button>
-        <div id="products-menu-panel" hidden class="absolute left-0 top-full mt-2 w-[34rem] max-w-[calc(100vw-2rem)] rounded-xl border border-zinc-200 bg-white p-3 shadow-2xl">
-          <p class="px-3 pt-1 pb-2 text-[11px] font-bold uppercase tracking-widest text-zinc-500">Categories</p>
-          <ul class="grid grid-cols-2 gap-1">
-            {headerNav.map(cat => (
-              <li><a href={`/category/${cat.id}`} class="menu-link">{cat.name}</a></li>
-            ))}
-          </ul>
-          <div class="mt-2 pt-2 border-t border-zinc-100 grid grid-cols-2 gap-1">
-            <a href="/products" class="menu-link font-semibold text-primary">All products &rarr;</a>
-            <a href="/brands" class="menu-link font-semibold text-primary">All brands &rarr;</a>
-          </div>
-        </div>
-      </div>
+    <nav id="desktop-navigation" aria-label="Main" class="items-center">
+      {headerNav.map(cat => (
+        <a href={`/category/${cat.id}`} class="nav-link">{cat.name}</a>
+      ))}
       {seoLinks.map(l => (
         <a href={l.href} class="nav-link">{l.name}</a>
       ))}
@@ -80,7 +59,7 @@ const seoLinks = [
 
     <div class="flex items-center gap-1 md:gap-3 shrink-0">
       <SearchToggle client:idle />
-      <button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center w-11 h-11 transition-colors" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
+      <button id="mobile-menu-btn" class="flex items-center justify-center w-11 h-11 transition-colors" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
         <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6" />
           <line x1="3" y1="12" x2="21" y2="12" />
@@ -91,11 +70,11 @@ const seoLinks = [
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <a id="header-cta" href={ctaHref} class="hidden md:inline-flex items-center min-h-[40px] primary-gradient text-white px-5 text-xs font-bold uppercase tracking-widest whitespace-nowrap hover:brightness-110 transition-[filter]">{ctaLabel}</a>
+      <a id="header-cta" href={ctaHref} class="hidden md:inline-flex items-center min-h-[2.5rem] primary-gradient text-white px-5 text-xs font-bold uppercase tracking-widest whitespace-nowrap hover:brightness-110 transition-[filter]">{ctaLabel}</a>
     </div>
   </div>
 
-  <nav id="mobile-menu" aria-label="Mobile" class="lg:hidden hidden absolute top-full left-0 w-full bg-white border-b border-zinc-100 shadow-lg">
+  <nav id="mobile-menu" aria-label="Mobile" class="hidden absolute top-full left-0 w-full bg-white border-b border-zinc-100 shadow-lg">
     <div class="flex flex-col px-4 md:px-8 py-4 gap-0.5 max-w-site mx-auto md:grid md:grid-cols-2 md:gap-x-8">
       <div>
         <span class="block text-[11px] font-bold uppercase tracking-widest text-zinc-500 pt-2 pb-1">Categories</span>
@@ -119,15 +98,14 @@ const seoLinks = [
 </header>
 
 <script>
+  // Keep in sync with the #desktop-navigation media query below.
+  const DESKTOP_NAV = '(min-width: 80rem) and (pointer: fine), (min-width: 80rem) and (pointer: none), (min-width: 100rem)';
   const header = document.getElementById('site-header');
   if (header) {
     const mobileMenu = document.getElementById('mobile-menu');
     const menuBtn = document.getElementById('mobile-menu-btn');
     const menuOpen = document.getElementById('menu-icon-open');
     const menuClose = document.getElementById('menu-icon-close');
-    const productsBtn = document.getElementById('products-menu-btn');
-    const productsPanel = document.getElementById('products-menu-panel');
-    const productsMenu = document.getElementById('products-menu');
 
     const setMenuOpen = (open: boolean) => {
       mobileMenu?.classList.toggle('hidden', !open);
@@ -138,45 +116,9 @@ const seoLinks = [
       header.dataset.menuOpen = String(open);
       updateHeader(true);
     };
-    const setProductsOpen = (open: boolean) => {
-      if (!productsPanel || !productsBtn) return;
-      productsPanel.hidden = !open;
-      productsBtn.setAttribute('aria-expanded', String(open));
-    };
-
     menuBtn?.addEventListener('click', () => setMenuOpen(menuBtn.getAttribute('aria-expanded') !== 'true'));
-    // Hover opens the menu for mouse users; touch and keyboard use the button.
-    // A click that lands right after a hover-open keeps the menu open rather
-    // than immediately toggling it shut.
-    let closeTimer: ReturnType<typeof setTimeout> | undefined;
-    let openedByHover = false;
-    productsBtn?.addEventListener('click', () => {
-      if (openedByHover) { openedByHover = false; return; }
-      setProductsOpen(productsBtn.getAttribute('aria-expanded') !== 'true');
-    });
-    productsMenu?.addEventListener('pointerenter', event => {
-      if (event.pointerType !== 'mouse') return;
-      clearTimeout(closeTimer);
-      if (productsBtn?.getAttribute('aria-expanded') !== 'true') {
-        openedByHover = true;
-        setProductsOpen(true);
-      }
-    });
-    productsMenu?.addEventListener('pointerleave', event => {
-      if (event.pointerType !== 'mouse') return;
-      openedByHover = false;
-      closeTimer = setTimeout(() => setProductsOpen(false), 200);
-    });
-    productsMenu?.addEventListener('focusout', event => {
-      if (!productsMenu.contains(event.relatedTarget as Node | null)) setProductsOpen(false);
-    });
-
     document.addEventListener('keydown', event => {
       if (event.key !== 'Escape') return;
-      if (productsBtn?.getAttribute('aria-expanded') === 'true') {
-        setProductsOpen(false);
-        productsBtn.focus();
-      }
       if (menuBtn?.getAttribute('aria-expanded') === 'true') {
         setMenuOpen(false);
         menuBtn.focus();
@@ -185,9 +127,8 @@ const seoLinks = [
     document.addEventListener('click', event => {
       const target = event.target as Node;
       if (!header.contains(target)) setMenuOpen(false);
-      if (productsMenu && !productsMenu.contains(target)) setProductsOpen(false);
     });
-    window.matchMedia('(min-width: 64rem)').addEventListener('change', () => { setMenuOpen(false); setProductsOpen(false); });
+    window.matchMedia(DESKTOP_NAV).addEventListener('change', () => setMenuOpen(false));
     mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
 
     // Transparent-over-hero state is styled in CSS from a data attribute.
@@ -228,26 +169,28 @@ const seoLinks = [
   #site-header[data-transparent='true'] #mobile-menu-btn:hover { color: #fff; }
 
   .nav-link {
-    display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.75rem;
+    display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.625rem;
     font-size: 0.875rem; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap;
     color: inherit; transition: color 150ms ease-out;
   }
-  .nav-link:hover, .nav-link[aria-current='page'], #products-menu-btn[aria-expanded='true'] { color: #18181b; }
+  .nav-link:hover, .nav-link[aria-current='page'] { color: #18181b; }
   #site-header[data-transparent='true'] .nav-link:hover,
-  #site-header[data-transparent='true'] #products-menu-btn[aria-expanded='true'] { color: #fff; }
-  #products-menu-btn[aria-expanded='true'] .nav-chevron { transform: rotate(180deg); }
-
-  .menu-link {
-    display: flex; align-items: center; min-height: 44px; padding: 0.5rem 0.75rem; border-radius: 0.5rem;
-    font-size: 0.875rem; font-weight: 500; color: #3f3f46; transition: background-color 150ms, color 150ms;
-  }
-  .menu-link:hover, .menu-link[aria-current='page'] { background-color: #f4f4f5; color: #97000d; }
+  #site-header[data-transparent='true'] .nav-link[aria-current='page'] { color: #fff; }
 
   .mobile-link {
     display: flex; align-items: center; min-height: 48px; border-bottom: 1px solid #f4f4f5;
     font-size: 0.9375rem; font-weight: 500; color: #3f3f46; transition: color 150ms;
   }
   .mobile-link:hover, .mobile-link[aria-current='page'] { color: #97000d; }
+  /* All ten links inline need about 64rem. Non-touch screens from 1280px have
+     the root scaled to 80% (global.css) and fit; touch screens keep full size,
+     so they get the inline links from 1600px and the menu below that. */
+  #desktop-navigation { display: none; }
+  @media (min-width: 80rem) and (pointer: fine), (min-width: 80rem) and (pointer: none), (min-width: 100rem) {
+    #desktop-navigation { display: flex; }
+    #mobile-menu-btn, #mobile-menu { display: none; }
+  }
+
   #mobile-menu { max-height: calc(100dvh - 3.5rem); overflow-y: auto; overscroll-behavior: contain; }
   @media (min-width: 48rem) { #mobile-menu { max-height: calc(100dvh - 4rem); } }
 </style>

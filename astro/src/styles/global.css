@@ -55,7 +55,7 @@
 @layer components {
   .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
-    font-weight: normal; font-style: normal; font-size: 24px; line-height: 1;
+    font-weight: normal; font-style: normal; font-size: 1.5rem; line-height: 1;
     letter-spacing: normal; text-transform: none; display: inline-block;
     white-space: nowrap; word-wrap: normal; direction: ltr;
     -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga';
@@ -118,9 +118,19 @@
 
 /* Keep corrections scoped to intrinsic overflow, keyboard use and motion preferences. */
 :root { --header-clearance: 5rem; --focus-ring: #97000d; }
+
+/* Laptop density. Laptops report 1280-1600px to the browser (1080p screens at
+   125-150% OS scaling), where the layout read as zoomed in; the owner's sweet
+   spot is 80% browser zoom. Scaling the root size gives the same result, since
+   sizes are rem or rem+vw: rem shrinks with the root and the vw part already
+   matches what zoom would give. Not on touch screens (pointer: coarse), so
+   tablets keep full-size text; 44px tap targets and 10-11px labels stay in px. */
+@media (min-width: 64rem) and (pointer: fine), (min-width: 64rem) and (pointer: none) { html { font-size: 80%; } }
+@media (min-width: 100rem) and (pointer: fine), (min-width: 100rem) and (pointer: none) { html { font-size: 90%; } }
+@media (min-width: 120rem) { html { font-size: 100%; } }
 /* Light focus ring wherever the surface is dark or brand red. */
 .hero-slideshow, #site-header[data-transparent='true'], .bg-primary, .on-dark { --focus-ring: #fff; }
-#products-menu-panel, #mobile-menu { --focus-ring: #97000d; }
+#mobile-menu { --focus-ring: #97000d; }
 :root {
   --spacing-hero-top: 6rem;
   --spacing-hero-bottom: 5rem;

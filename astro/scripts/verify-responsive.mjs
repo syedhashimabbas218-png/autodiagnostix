@@ -26,6 +26,9 @@ async function measure() {
       overflow: document.documentElement.scrollWidth > innerWidth,
       header: rect(header), navVisible: visible(nav), menuVisible: visible(menu),
       quoteVisible: visible(document.querySelector('#header-cta')),
+      rootFont: parseFloat(getComputedStyle(document.documentElement).fontSize),
+      navLinks: visible(nav) ? nav.querySelectorAll('a[href]').length : 0,
+      navClear: visible(nav) ? Math.round(menu.parentElement.getBoundingClientRect().left - [...nav.querySelectorAll('a')].at(-1).getBoundingClientRect().right) : null,
       // Links have a 44px touch height, so measure the text box, not the link box.
       wrappedLinks: visible(nav) ? [...nav.querySelectorAll('.nav-link')].filter(link => { const range = document.createRange(); range.selectNodeContents(link); return range.getBoundingClientRect().height > parseFloat(getComputedStyle(link).lineHeight) * 1.5; }).map(link => link.innerText) : [],
       hero: hero && rect(hero),
@@ -48,8 +51,11 @@ try {
     await page.screenshot({ path: `${output}/home-${viewport}.png` });
     const initial = await measure();
     check(!initial.overflow, 'No horizontal page overflow', viewport);
-    check(initial.navVisible === (width >= 1024), 'Desktop navigation is shown from 64rem (laptops included)', viewport);
-    check(initial.menuVisible === (width < 1024), 'Compact navigation remains accessible below 64rem', viewport);
+    // Non-touch screens: root scaled to 80% from 64rem, 90% from 100rem, full from 120rem.
+    const expectedRoot = width >= 1920 ? 16 : width >= 1600 ? 14.4 : width >= 1024 ? 12.8 : 16;
+    check(Math.abs(initial.rootFont - expectedRoot) < 0.05, `Root font size is ${expectedRoot}px`, viewport);
+    check(initial.navVisible === (width >= 1280), 'All navigation links are inline from 80rem (laptops included)', viewport);
+    check(initial.menuVisible === (width < 1280), 'Compact navigation remains accessible below 80rem', viewport);
     check(initial.quoteVisible === (width >= 768), 'Laptop quote action remains visible', viewport);
     check(initial.wrappedLinks.length === 0, 'Desktop navigation labels do not wrap', viewport);
     const slides = [];
@@ -67,12 +73,9 @@ try {
       check(current.ctas.every(cta => cta.bottom <= current.controls.top || cta.right <= current.controls.left || cta.left >= current.controls.right), `Slide ${index + 1} actions do not overlap slider controls`, viewport);
       slides.push({ font: current.heroFont, taglineTop: current.tagline.top, headerBottom: current.header.bottom, actionBottom: Math.max(...current.ctas.map(cta => cta.bottom)), heroBottom: current.hero.bottom });
     }
-    if (width >= 1024) {
-      await page.click('#products-menu-btn');
-      const panel = await page.$eval('#products-menu-panel', node => ({ hidden: node.hidden, right: node.getBoundingClientRect().right, links: node.querySelectorAll('a[href]').length }));
-      check(!panel.hidden && panel.right <= width && panel.links >= 7, 'Products menu opens within the viewport with catalog links', viewport);
-      await page.keyboard.press('Escape');
-      check(await page.$eval('#products-menu-btn', node => node.getAttribute('aria-expanded') === 'false'), 'Products menu closes with Escape', viewport);
+    if (width >= 1280) {
+      check(initial.navLinks >= 10, 'Inline navigation has every category plus Wheel Alignment, ADAS and About', viewport);
+      check(initial.navClear >= 16, 'Inline navigation clears the search and quote actions', viewport);
     } else {
       await page.click('#mobile-menu-btn');
       check(await page.$eval('#mobile-menu-btn', node => node.getAttribute('aria-expanded') === 'true'), 'Menu opens', viewport);
