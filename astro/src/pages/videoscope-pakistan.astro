@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { cardGridCols } from '../utils/grid.mjs';
 import { getProducts, sortByAvailability } from '../lib/strapi';
 import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
@@ -51,19 +52,21 @@ const faqs = [
         <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
           Car Videoscopes in Pakistan
         </h1>
-        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-3xl">
           Authorized dealer for <strong>car videoscopes in Pakistan</strong>. We supply the Launch <a href="/product/vsp-600-video-scope" class="text-primary hover:underline">VSP-600</a> HD videoscope and the Launch <a href="/product/vsp-800-video-scope" class="text-primary hover:underline">VSP-800</a> dual-lens videoscope , flexible inspection cameras for engine cylinders, intake valves, transmissions, gearboxes, and body cavities without disassembly.
+        </p>
+      </div>
 </section>
 
     <section class="py-16 px-8 bg-surface-container-low">
       <div class="max-w-screen-2xl mx-auto">
         <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">Videoscope Models</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class={`grid grid-cols-1 gap-6 ${cardGridCols(scopes.length)}`}>
           {scopes.length > 0 ? scopes.map(p => (
             <a href={`/product/${p.id}`} class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col border border-zinc-100">
-              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center">
+              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center overflow-hidden">
                 {p.heroImages[0] ? (
-                  <img src={p.heroImages[0]} alt={`${p.name} , car videoscope in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" />
+                  <img src={p.heroImages[0]} alt={`${p.name} , car videoscope in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" decoding="async" width="800" height="600" />
                 ) : (
                   <div class="text-zinc-300">No image</div>
                 )}
@@ -71,7 +74,7 @@ const faqs = [
               <div class="p-6 flex flex-col flex-grow">
                 <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Videoscope · {p.brand || 'Launch'}</p>
                 <h3 class="font-headline text-lg font-bold tracking-tight mb-2 group-hover:text-primary transition-colors leading-snug">{p.name}</h3>
-                <p class="text-on-surface-variant text-xs leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
                 <span class="text-primary font-bold text-sm">View Specs →</span>
               </div>
             </a>
@@ -92,7 +95,7 @@ const faqs = [
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="py-20 px-8 bg-white">
+    <section class="pt-0 pb-20 px-8 bg-white">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8">Frequently Asked Questions About Videoscopes in Pakistan</h2>
         <div class="space-y-0 border-t border-zinc-200" data-accordion>

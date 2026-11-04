@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { cardGridCols } from '../utils/grid.mjs';
 import { getProducts, sortByAvailability } from '../lib/strapi';
 import { breadcrumbListSchema, faqSchema, organizationSchema, localBusinessSchema, webPageSchema, speakableSchema, definitionBlock } from '../utils/schema';
 
@@ -56,19 +57,20 @@ const faqs = [
         <h1 class="font-headline text-4xl md:text-6xl font-extrabold tracking-tighter text-on-surface mb-6 leading-[1.08]">
           Launch X431 in Pakistan, Authorized Dealer
         </h1>
-        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-4xl">
+        <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-3xl">
           Pakistan's authorized dealer for <strong>Launch X431</strong> diagnostic scanners. We supply genuine Launch products including the <a href="/product/x-431-pro3-link" class="text-primary hover:underline">X431 PRO3 LINK</a>, <a href="/product/x-431-pad-9-link" class="text-primary hover:underline">X431 PAD 9 LINK</a>, <a href="/product/launch-x-431-cnc-605a" class="text-primary hover:underline">X431 CNC 605A</a>, <a href="/product/x-431-adas-pro-plus" class="text-primary hover:underline">X431 ADAS PRO PLUS</a>, <a href="/product/x-431-hd-iii-heavy-duty-module" class="text-primary hover:underline">X431 HD III heavy-duty module</a>, and the <a href="/product/919-max" class="text-primary hover:underline">919 MAX Creader</a>. Full warranty, local support and software updates in Pakistan.
         </p>
         <p class="text-xs text-on-surface-variant mt-3">Last updated: June 2026 by Autodiagnostix</p>
+      </div>
 </section>
 
     <section class="py-16 px-8 bg-surface-container-low">
       <div class="max-w-screen-2xl mx-auto">
         <h2 class="text-3xl font-headline font-extrabold tracking-tighter mb-10">Launch X431 Products in Pakistan</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class={`grid grid-cols-1 gap-6 ${cardGridCols(launch.length)}`}>
           {launch.length > 0 ? launch.map(p => (
             <a href={`/product/${p.id}`} class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col border border-zinc-100">
-              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center">
+              <div class="aspect-[4/3] bg-white p-6 flex items-center justify-center overflow-hidden">
                 {p.heroImages[0] ? (
                   <img src={p.heroImages[0]} alt={`${p.name} , Launch X431 in Pakistan`} class="w-full h-full object-contain group-hover:scale-105 transition-transform" loading="lazy" width="800" height="600" />
                 ) : (
@@ -78,7 +80,7 @@ const faqs = [
               <div class="p-6 flex flex-col flex-grow">
                 <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Launch · {p.brand || 'Launch'}</p>
                 <h3 class="font-headline text-lg font-bold tracking-tight mb-2 group-hover:text-primary transition-colors leading-snug">{p.name}</h3>
-                <p class="text-on-surface-variant text-xs leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed mb-4 flex-grow line-clamp-3">{p.summary}</p>
                 <span class="text-primary font-bold text-sm">View Specs →</span>
               </div>
             </a>
