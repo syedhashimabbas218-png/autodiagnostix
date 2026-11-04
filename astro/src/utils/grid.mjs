@@ -9,6 +9,6 @@ export function cardGridCols(count) {
   if (count % 3 === 0) return 'md:grid-cols-3';
   if (count % 2 === 0) return 'sm:grid-cols-2';
   // 5, 7, 11, ...: a remainder is unavoidable at some width; 3 columns
-  // leaves the smallest gap on laptops.
-  return 'sm:grid-cols-2 lg:grid-cols-3';
+  // leaves the smallest gap on laptops, and long lists use 4 on desktops.
+  return count > 8 ? 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3';
 }
