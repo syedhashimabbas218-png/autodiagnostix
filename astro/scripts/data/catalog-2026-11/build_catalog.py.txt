@@ -56,8 +56,9 @@ OVERRIDES = {
     'launch-x-613-portable-3d-wheel-aligner': dict(name='LAUNCH X-613 Portable 3D Wheel Aligner'),
     'launch-wheel-alignment-tool-trolley': dict(name='LAUNCH TTH-60 Wheel Aligner Tool Cart Kit', pdf_image_first=True),
     'launch-creader-tpms-511s-v2': dict(name='LAUNCH Creader TPMS 511S V2'),
-    'launch-i-tpms': dict(name='LAUNCH i-TPMS Handheld TPMS Service Tool'),
-    'launch-bst360-battery-tester': dict(name='LAUNCH BST360 Bluetooth Battery Tester'),
+    # drop_images: 1-based positions in the researched image list (phone-app screenshot; photo with LAUNCH's own "NEW" ribbon).
+    'launch-i-tpms': dict(name='LAUNCH i-TPMS Handheld TPMS Service Tool', drop_images={3}),
+    'launch-bst360-battery-tester': dict(name='LAUNCH BST360 Bluetooth Battery Tester', drop_images={3}),
     'launch-x-431-key-programmer': dict(name='LAUNCH X-431 Key Programmer'),
     # Portfolio photo is the VSP-600, which the catalog already has (vsp-600-video-scope).
     'launch-ismart-video400-videoscope': dict(skip='duplicate of existing vsp-600-video-scope'),
@@ -122,7 +123,8 @@ def main():
         if 'brands' in o:
             brands = o['brands']
         if row and row.get('found') and row.get('summary'):
-            sources = [i['file'] for i in row.get('images') or [] if os.path.exists(i['file'])]
+            sources = [i['file'] for n, i in enumerate(row.get('images') or [], 1)
+                       if os.path.exists(i['file']) and n not in o.get('drop_images', set())]
             if page and (o.get('pdf_image_first') or not sources):
                 sources = [PDF_IMG.format(page)] + sources
             elif page and o.get('pdf_image_second'):
