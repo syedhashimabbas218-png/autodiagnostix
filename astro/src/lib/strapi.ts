@@ -74,7 +74,15 @@ export function resolveImageUrl(url: string | null | undefined): string {
 const POPULATE = 'populate[heroImages][populate][image][populate]=*&populate[brand][fields][0]=name&populate[category][fields][0]=name&populate[category][fields][1]=slug&populate[features][fields][0]=title&populate[features][fields][1]=description&populate[features][populate][image][fields][0]=url&populate[functions][fields][0]=title&populate[functions][fields][1]=description&populate[technicalTable]=*&populate[specs]=*';
 const SUMMARY_POPULATE = 'populate[heroImages][populate][image][fields][0]=url&populate[brand][fields][0]=name&populate[category][fields][0]=name&populate[category][fields][1]=slug';
 
-const cmsClient = createCmsClient(CMS_URL);
+// Every SSR page reads the whole catalog. Reuse successful CMS responses for a
+// short time (CMS_CACHE_SECONDS, default 60) and refresh them in the
+// background for up to 10 minutes, so page views no longer wait on several
+// Strapi round trips. Edits in Strapi appear within about a minute.
+// Set CMS_CACHE_SECONDS=0 to disable; development always reads live.
+const cacheSeconds = Number(process.env.CMS_CACHE_SECONDS ?? 60);
+const cmsClient = createCmsClient(CMS_URL, fetch, import.meta.env.DEV || !(cacheSeconds > 0)
+  ? {}
+  : { freshMs: cacheSeconds * 1000, staleMs: 10 * 60 * 1000 });
 
 async function fetchAPI<T>(endpoint: string): Promise<T> {
   return await cmsClient.read(endpoint) as T;
@@ -258,4 +266,15 @@ export async function getBrandDetails(slug: string): Promise<Brand | null> {
     description: brand.description || '', productCount: 0,
     image: resolveImageUrl(brand.logo?.url),
   } : null;
+}
+
+// Brand records with logos and descriptions (homepage partner strip).
+// Optional decoration: an outage yields an empty list rather than a 503.
+export async function getBrandRecords(): Promise<{ slug: string; name: string; description?: string; logo?: { url: string } }[]> {
+  try {
+    const response = await fetchAPI<StrapiListResponse<{ slug: string; name: string; description?: string; logo?: { url: string } }>>('/brands?populate=*');
+    return response.data || [];
+  } catch {
+    return [];
+  }
 }

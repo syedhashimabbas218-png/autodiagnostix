@@ -81,3 +81,42 @@ test('metadata-free short collections and total-only pagination work', async () 
   const total = createCmsClient('https://cms.example', async () => Response.json({ data: [{ slug: `tool-${++page}` }], meta: { pagination: { total: 2 } } }));
   assert.equal((await total.list('/products')).length, 2);
 });
+
+test('optional cache: fresh hits skip the network, stale hits revalidate in the background', async () => {
+  let calls = 0;
+  let clock = 0;
+  const client = createCmsClient('https://cms.example', async () => Response.json({ data: [{ version: ++calls }] }), { freshMs: 1000, staleMs: 5000, now: () => clock });
+  assert.equal((await client.read('/products')).data[0].version, 1);
+  clock = 500;
+  assert.equal((await client.read('/products')).data[0].version, 1);
+  assert.equal(calls, 1, 'fresh response is reused');
+  clock = 2000;
+  assert.equal((await client.read('/products')).data[0].version, 1, 'stale response is served immediately');
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(calls, 2, 'one background refresh was started');
+  assert.equal((await client.read('/products')).data[0].version, 2);
+});
+
+test('optional cache: failures are not cached and stale data survives a short outage only', async () => {
+  let up = true;
+  let clock = 0;
+  const client = createCmsClient('https://cms.example', async () => up ? Response.json({ data: [{ slug: 'lift' }] }) : new Response('Down', { status: 503 }), { freshMs: 1000, staleMs: 5000, now: () => clock });
+  await client.read('/products');
+  up = false;
+  clock = 3000;
+  assert.equal((await client.read('/products')).data[0].slug, 'lift', 'stale data is served while the CMS is down');
+  await new Promise(resolve => setImmediate(resolve));
+  clock = 7000;
+  await assert.rejects(() => client.read('/products'), CMSUnavailableError, 'beyond the stale window an outage is reported');
+  await assert.rejects(() => client.read('/other'), CMSUnavailableError);
+  up = true;
+  assert.equal((await client.read('/other')).data[0].slug, 'lift', 'a failed read is retried, not cached');
+});
+
+test('cache is off by default', async () => {
+  let calls = 0;
+  const client = createCmsClient('https://cms.example', async () => Response.json({ data: [{ n: ++calls }] }));
+  await client.read('/products');
+  await client.read('/products');
+  assert.equal(calls, 2);
+});

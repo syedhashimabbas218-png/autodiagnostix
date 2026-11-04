@@ -7,9 +7,19 @@ export class CMSUnavailableError extends Error {
 
 // Strict public, read-only CMS access. An outage is not an empty collection or
 // evidence that a previously indexed product has been deleted.
-export function createCmsClient(cmsUrl, fetcher = fetch) {
+//
+// Optional response cache (off unless freshMs > 0):
+// - within `freshMs` a successful response is reused without a request;
+// - for a further `staleMs` it is still served immediately while one
+//   background request refreshes it (stale-while-revalidate);
+// - failures are never cached. If a background refresh fails the last good
+//   response keeps being served until the stale window ends, after which the
+//   caller sees the normal CMSUnavailableError.
+export function createCmsClient(cmsUrl, fetcher = fetch, { freshMs = 0, staleMs = 0, maxEntries = 500, now = Date.now } = {}) {
   const pending = new Map();
-  async function read(endpoint) {
+  const cache = new Map();
+
+  function fetchFresh(endpoint) {
     if (pending.has(endpoint)) return pending.get(endpoint);
     const request = (async () => {
       try {
@@ -17,17 +27,32 @@ export function createCmsClient(cmsUrl, fetcher = fetch) {
         if (!response.ok) throw new Error(`CMS HTTP ${response.status}`);
         const payload = await response.json();
         if (!Array.isArray(payload.data)) throw new Error('Invalid CMS collection response');
+        if (freshMs > 0) {
+          cache.delete(endpoint);
+          cache.set(endpoint, { payload, at: now() });
+          while (cache.size > maxEntries) cache.delete(cache.keys().next().value);
+        }
         return payload;
       } catch (cause) {
         throw new CMSUnavailableError(undefined, { cause });
       }
     })();
     pending.set(endpoint, request);
-    try {
-      return await request;
-    } finally {
-      pending.delete(endpoint);
+    request.then(() => pending.delete(endpoint), () => pending.delete(endpoint));
+    return request;
+  }
+
+  async function read(endpoint) {
+    const entry = freshMs > 0 ? cache.get(endpoint) : undefined;
+    if (entry) {
+      const age = now() - entry.at;
+      if (age < freshMs) return entry.payload;
+      if (age < freshMs + staleMs) {
+        fetchFresh(endpoint).catch(() => {});
+        return entry.payload;
+      }
     }
+    return fetchFresh(endpoint);
   }
 
   async function list(endpoint, pageSize = 100) {

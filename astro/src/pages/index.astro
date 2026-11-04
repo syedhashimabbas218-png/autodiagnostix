@@ -57,14 +57,12 @@ const icons: Record<string, string> = {
   business: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
 };
 
-import { CMS_URL as STRAPI_URL, getProducts, getCategories, getBrands, sortByAvailability, resolveImageUrl } from '../lib/strapi';
+import { CMS_URL as STRAPI_URL, getProducts, getCategories, getBrands, getBrandRecords, sortByAvailability, resolveImageUrl } from '../lib/strapi';
 
-const [allCategories, catalogue, brandLogosJson] = await Promise.all([
+const [allCategories, catalogue, brandRecords] = await Promise.all([
   getCategories(),
   getProducts({ summaryOnly: true }),
-  fetch(`${STRAPI_URL}/api/brands?populate=*`, { signal: AbortSignal.timeout(5000) })
-    .then(response => response.ok ? response.json() : { data: [] })
-    .catch(() => ({ data: [] })),
+  getBrandRecords(),
 ]);
 const categoryIcons: Record<string, string> = {
   'scanners': 'scanners',
@@ -84,7 +82,7 @@ const allBrands = (await getBrands(catalogue)).filter(b => b.slug !== 'gtitools'
 const brandLogoMap: Record<string, string> = {};
 const brandDescMap: Record<string, string> = {};
 const strapiBrands: { slug: string; name: string }[] = [];
-for (const b of (brandLogosJson.data || [])) {
+for (const b of brandRecords) {
   if (b.logo?.url) {
     const url = b.logo.url.startsWith('/') ? `${STRAPI_URL}${b.logo.url}` : b.logo.url;
     brandLogoMap[b.slug] = resolveImageUrl(url);
