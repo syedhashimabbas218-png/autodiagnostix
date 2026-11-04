@@ -1,0 +1,114 @@
+[
+ {
+  "slug": "launch-wheel-alignment-tool-trolley",
+  "name": "LAUNCH Wheel Alignment Tool Trolley",
+  "category": "wheel-alignment",
+  "brands": [
+   "launch"
+  ],
+  "summary": "Mobile LAUNCH workshop tool trolley with three drawers and a worktop, used to keep wheel alignment clamps, accessories and hand tools organised beside the alignment bay.",
+  "images": [
+   "images/launch-wheel-alignment-tool-trolley/1.webp"
+  ],
+  "source": "portfolio PDF p27",
+  "portfolio_title": "LAUNCH Wheel Alignment Tool Trolley"
+ },
+ {
+  "slug": "unite-metal-sheet-repair-machine",
+  "name": "UNITE Metal Sheet Repair Machine",
+  "category": "maintenance",
+  "brands": [
+   "unite"
+  ],
+  "summary": "Trolley-mounted body repair station (dent puller / stud welder) with a digital control panel, cable and slide-hammer pulling tools, for repairing dents in vehicle sheet-metal panels.",
+  "images": [
+   "images/unite-metal-sheet-repair-machine/1.webp"
+  ],
+  "source": "portfolio PDF p62",
+  "portfolio_title": "UNITE Metal Sheet Repair Machine"
+ },
+ {
+  "slug": "gti-tools-wheel-balancer-digital-plus",
+  "name": "GTI.tools Wheel Balancer Digital Plus",
+  "category": "wheel-balancers",
+  "brands": [
+   "gti-tools"
+  ],
+  "summary": "Computerised wheel balancer with a digital LCD display, wheel guard hood and accessory tray, for balancing passenger car and light commercial vehicle wheels in tyre shops and service workshops.",
+  "images": [
+   "images/gti-tools-wheel-balancer-digital-plus/1.webp"
+  ],
+  "source": "portfolio PDF p32",
+  "portfolio_title": "GTI.tools Wheel Balancer Digital Plus"
+ },
+ {
+  "slug": "gti-tools-sticker-weight",
+  "name": "GTI.tools Sticker Weight",
+  "category": "wheel-balancers",
+  "brands": [
+   "gti-tools"
+  ],
+  "summary": "Self-adhesive wheel balancing weights supplied in segmented strips, for alloy wheels where clip-on weights cannot be fitted. Segments are separated to match the correction the wheel balancer calls for.",
+  "images": [
+   "images/gti-tools-sticker-weight/1.webp"
+  ],
+  "source": "portfolio PDF p33",
+  "portfolio_title": "GTI.tools Sticker Weight"
+ },
+ {
+  "slug": "gti-tools-clip-weight",
+  "name": "GTI.tools Clip Weight",
+  "category": "wheel-balancers",
+  "brands": [
+   "gti-tools"
+  ],
+  "summary": "Clip-on (hammer-on) wheel balancing weights in a range of sizes, fitted to the rim flange of steel and compatible alloy wheels during wheel balancing.",
+  "images": [
+   "images/gti-tools-clip-weight/1.webp"
+  ],
+  "source": "portfolio PDF p34",
+  "portfolio_title": "GTI.tools Clip Weight"
+ },
+ {
+  "slug": "gti-tools-catalytic-dpf-cleaner-c2025-ai",
+  "name": "GTI.tools Catalytic & DPF Cleaner (C2025 AI)",
+  "category": "maintenance",
+  "brands": [
+   "gti-tools"
+  ],
+  "summary": "Catalytic converter and diesel particulate filter (DPF) cleaning and regeneration machine with a touch-screen control panel on a mobile cabinet, for workshops servicing exhaust after-treatment systems.",
+  "images": [
+   "images/gti-tools-catalytic-dpf-cleaner-c2025-ai/1.webp"
+  ],
+  "source": "portfolio PDF p48",
+  "portfolio_title": "GTI.tools Catalytic & DPF Cleaner (C2025 AI)"
+ },
+ {
+  "slug": "gti-tools-catalytic-dpf-cleaner-hho-power-x",
+  "name": "GTI.tools Catalytic & DPF Cleaner (HHO Power X)",
+  "category": "maintenance",
+  "brands": [
+   "gti-tools"
+  ],
+  "summary": "HHO (oxyhydrogen) carbon-cleaning machine for catalytic converter and DPF cleaning, with a front control panel and a mobile cabinet on castors.",
+  "images": [
+   "images/gti-tools-catalytic-dpf-cleaner-hho-power-x/1.webp"
+  ],
+  "source": "portfolio PDF p49",
+  "portfolio_title": "GTI.tools Catalytic & DPF Cleaner (HHO Power X)"
+ },
+ {
+  "slug": "gti-tools-frame-aligner",
+  "name": "GTI.tools Frame Aligner",
+  "category": "maintenance",
+  "brands": [
+   "gti-tools"
+  ],
+  "summary": "Collision-repair frame straightening bench with pulling towers, chains, vehicle clamps, drive-on ramps and hydraulic pump units, for correcting chassis and body damage after an accident.",
+  "images": [
+   "images/gti-tools-frame-aligner/1.webp"
+  ],
+  "source": "portfolio PDF p63",
+  "portfolio_title": "GTI.tools Frame Aligner"
+ }
+]
