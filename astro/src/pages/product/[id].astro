@@ -240,7 +240,7 @@ const longSummary = (product.summary || '').length > 320;
   #product-actions[data-visible='false'] { transform: translateY(100%); visibility: hidden; transition: transform 250ms ease-out, visibility 0s 250ms; }
   .summary-clamped { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden; }
   .pdf-link[aria-busy='true'] { opacity: 0.75; cursor: progress; }
-  .breadcrumb-link { display: inline-flex; align-items: center; min-height: 44px; transition: color 150ms; }
+  .breadcrumb-link { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; transition: color 150ms; }
   .breadcrumb-link:hover { color: #97000d; }
   .text-balance { text-wrap: balance; }
   /* Specs fill each row evenly instead of leaving grey empty cells. */

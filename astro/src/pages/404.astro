@@ -39,7 +39,7 @@ const popularLinks = [
     <section class="py-20 px-8">
       <div class="max-w-3xl mx-auto text-center">
         <div class="mb-6 flex justify-center">
-          <img src="/logo-wordmark.webp" alt="Autodiagnostix" class="h-10 w-auto" width="400" height="82" />
+          <picture><source srcset="/logo-wordmark.avif" type="image/avif" /><img src="/logo-wordmark.webp" alt="Autodiagnostix" class="h-10 w-auto" width="400" height="82" /></picture>
         </div>
         <h1 class="font-headline text-8xl md:text-9xl font-extrabold tracking-tighter text-primary mb-4">{unavailable ? '503' : '404'}</h1>
         <p class="text-2xl text-on-surface mb-2 font-headline font-bold">{unavailable ? 'Catalog temporarily unavailable' : 'Page not found'}</p>
