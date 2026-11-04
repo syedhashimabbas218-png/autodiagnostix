@@ -102,7 +102,7 @@
 :root {
   --spacing-hero-top: 6rem;
   --spacing-hero-bottom: 5rem;
-  --size-hero-laptop-copy: 48rem;
+  --size-hero-laptop-copy: 52rem;
   --font-hero-laptop-min: 3.25rem;
   --font-hero-desktop-max: 6rem;
   --leading-hero-laptop: 1.08;
@@ -142,8 +142,6 @@
   .hero-slideshow .hero-title { font-size: clamp(2.5rem, 14vw, 3.75rem); overflow-wrap: anywhere; }
 }
 .hero-slideshow .hero-cta { text-align: center; }
-.hero-slideshow > div:last-child > button { position: relative; }
-.hero-slideshow > div:last-child > button::after { content: ''; position: absolute; inset: -0.625rem 0; }
 .search-trigger { position: relative; }
 .search-trigger::after { content: ''; position: absolute; inset: -0.75rem; }
 dialog[aria-label="Search products"]::backdrop { background: transparent; }
@@ -166,10 +164,9 @@ section[aria-label$="gallery"] button[aria-current]::after { content: ''; positi
     font-size: clamp(var(--font-hero-laptop-min), min(5vw, 10svh), var(--font-hero-desktop-max));
   }
 }
-@media (min-width: 48rem) and (max-width: 89.999rem),
-       (min-width: 48rem) and (max-height: 56rem) {
+/* One copy measure for every tablet/laptop/desktop width so the headline
+   does not jump between two and four lines across neighbouring sizes. */
+@media (min-width: 48rem) {
   .hero-slideshow .hero-copy { max-width: var(--size-hero-laptop-copy); }
-  .hero-slideshow .hero-title {
-    line-height: var(--leading-hero-laptop);
-  }
+  .hero-slideshow .hero-title { line-height: var(--leading-hero-laptop); }
 }

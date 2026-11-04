@@ -76,26 +76,26 @@ export default function HeroSlideshow({ slides, interval = 6000 }: Props) {
           </div>
           <div className="hero-content relative z-10 max-w-screen-2xl mx-auto px-8 w-full h-full flex items-center">
             <div className="hero-copy min-w-0 max-w-2xl w-full">
-              <span className="hero-tagline text-sm uppercase tracking-[0.2em] text-[#97000d] font-bold mb-4 block">
+              <span className="hero-tagline text-sm uppercase tracking-[0.2em] text-[#ff6b5e] font-bold mb-4 block">
                 {slide.tagline}
               </span>
               <h2 className="hero-title text-6xl md:text-8xl font-headline font-extrabold text-white leading-tight tracking-tighter mb-6">
                 {slide.headline.split('.')[0]}. <br />
-                <span className="text-[#97000d]">{slide.highlight_text}</span>
+                <span className="text-[#ff6b5e]">{slide.highlight_text}</span>
               </h2>
-              <p className="hero-desc text-zinc-400 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+              <p className="hero-desc text-zinc-300 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
                 {slide.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
                   href={slide.cta_primary.href}
-                  className="hero-cta bg-[linear-gradient(135deg,#97000d_0%,#bb2221_100%)] text-white px-6 sm:px-8 py-3 sm:py-4 font-headline font-medium text-xs sm:text-sm tracking-tight hover:scale-[1.05] active:scale-95 transition-transform duration-200 ease-out shadow-xl shadow-[#97000d]/20 cursor-pointer"
+                  className="hero-cta inline-flex items-center justify-center min-h-[48px] bg-[linear-gradient(135deg,#97000d_0%,#bb2221_100%)] text-white px-6 sm:px-8 py-3 sm:py-4 font-headline font-medium text-xs sm:text-sm tracking-tight hover:scale-[1.05] active:scale-95 transition-transform duration-200 ease-out shadow-xl shadow-[#97000d]/20 cursor-pointer"
                 >
                   {slide.cta_primary.label}
                 </a>
                 <a
                   href={slide.cta_secondary.href}
-                  className="hero-cta border border-white/40 text-white px-6 sm:px-8 py-3 sm:py-4 font-headline font-medium text-xs sm:text-sm tracking-tight hover:bg-white/10 hover:scale-[1.05] transition-all duration-200 ease-out cursor-pointer"
+                  className="hero-cta inline-flex items-center justify-center min-h-[48px] border border-white/60 text-white px-6 sm:px-8 py-3 sm:py-4 font-headline font-medium text-xs sm:text-sm tracking-tight hover:bg-white/10 hover:scale-[1.05] transition-all duration-200 ease-out cursor-pointer"
                 >
                   {slide.cta_secondary.label}
                 </a>
@@ -104,17 +104,21 @@ export default function HeroSlideshow({ slides, interval = 6000 }: Props) {
           </div>
         </div>
       ))}
-      <div className="absolute bottom-8 md:bottom-12 left-4 md:left-8 z-20 flex gap-1.5 md:gap-2">
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            type="button"
-            aria-label={`Go to slide ${idx + 1}`}
-            aria-pressed={idx === currentSlide}
-            className={`h-1 w-6 md:w-12 cursor-pointer transition-colors ${idx === currentSlide ? 'bg-[#97000d]' : 'bg-white/20'}`}
-            onClick={() => void goToSlide(idx)}
-          />
-        ))}
+      <div className="hero-controls absolute bottom-5 md:bottom-8 inset-x-0 z-20 pointer-events-none">
+        <div className="max-w-screen-2xl mx-auto px-8 flex gap-1 md:gap-2">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              aria-label={`Go to slide ${idx + 1}`}
+              aria-pressed={idx === currentSlide}
+              className="group pointer-events-auto h-11 w-11 md:w-14 flex items-center cursor-pointer"
+              onClick={() => void goToSlide(idx)}
+            >
+              <span aria-hidden="true" className={`block h-1 w-full transition-colors ${idx === currentSlide ? 'bg-[#ff6b5e]' : 'bg-white/40 group-hover:bg-white/70'}`} />
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );
