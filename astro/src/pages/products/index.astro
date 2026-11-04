@@ -24,16 +24,16 @@ const breadcrumbs = [
 >
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 
-  <main id="main-content" class="min-h-screen pt-20">
-    <header class="bg-surface pt-16 pb-12 px-8 border-b border-outline-variant/10">
+  <main id="main-content" class="min-h-screen pt-14 md:pt-16">
+    <header class="bg-surface pt-6 md:pt-10 pb-8 md:pb-10 px-8 border-b border-outline-variant/10">
       <div class="max-w-screen-2xl mx-auto">
         <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-x-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-4">
           <a href="/" class="inline-flex items-center min-h-[44px] min-w-[44px] hover:text-primary transition-colors">Home</a>
           <span class="text-[10px]" aria-hidden="true">/</span>
           <span class="text-primary font-bold" aria-current="page">All Products</span>
         </nav>
-        <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-4">All Products</h1>
-        <p class="text-on-surface-variant text-xl max-w-xl">{products.length} products</p>
+        <h1 class="font-headline text-[clamp(2.5rem,1.6rem+3.2vw,4.5rem)] leading-[1.05] font-extrabold tracking-tighter text-on-surface mb-3">All Products</h1>
+        <p class="text-on-surface-variant text-lg md:text-xl max-w-xl">{products.length} products</p>
       </div>
     </header>
 
