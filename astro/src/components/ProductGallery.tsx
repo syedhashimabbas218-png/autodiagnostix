@@ -4,6 +4,9 @@ import useReducedMotion from './useReducedMotion';
 interface GalleryImage {
   id: number;
   url: string;
+  src?: string;
+  srcset?: string;
+  sizes?: string;
   alt?: string;
 }
 
@@ -57,7 +60,9 @@ export default function ProductGallery({ images, productName }: Props) {
             {images.map((img, idx) => (
               <img
                 key={img.id}
-                src={img.url}
+                src={img.src || img.url}
+                srcSet={img.srcset}
+                sizes={img.sizes}
                 alt={img.alt || `${productName} image ${idx + 1}`}
                 className={`absolute inset-0 w-full h-full object-contain p-8 md:p-12 mix-blend-multiply transition-opacity duration-500 ease-out ${idx === active ? 'opacity-100' : 'opacity-0'}`}
                 loading={idx === 0 ? 'eager' : 'lazy'} width="800" height="600" />

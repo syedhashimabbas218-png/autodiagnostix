@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { getBrands, getBrandDetails, getProducts, sortByAvailability } from '../../lib/strapi';
+import { getBrands, getBrandDetails, getProducts, sortByAvailability, cardImage } from '../../lib/strapi';
 import type { Brand, Product } from '../../lib/strapi';
 import { breadcrumbListSchema, brandSchema } from '../../utils/schema';
 import { cardGridCols } from '../../utils/grid.mjs';
@@ -81,11 +81,11 @@ const breadcrumbs = [
       <section class="py-16 px-8 bg-white">
         <div class="max-w-screen-2xl mx-auto">
           <div class={`grid grid-cols-1 gap-4 md:gap-6 ${cardGridCols(brandProducts.length)}`}>
-            {brandProducts.map(p => (
+            {brandProducts.map((p, index) => (
               <a href={`/product/${p.id}`} class="group relative bg-surface-container-low overflow-hidden hover:shadow-[0_0_0_1px_rgba(151,0,13,0.15)] transition-all duration-200 ease-out">
                 <div class="aspect-[4/3] bg-white flex items-center justify-center overflow-hidden">
                   {p.heroImages && p.heroImages[0] ? (
-                    <img src={p.heroImages[0]} alt={p.name} class="w-full h-full object-contain p-6 transition-transform duration-200 ease-out group-hover:scale-105" loading="lazy" referrerpolicy="no-referrer" />
+                    <img {...cardImage(p.heroImages[0])} alt={p.name} class="w-full h-full object-contain p-6 transition-transform duration-200 ease-out group-hover:scale-105" loading={index < 4 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : 'auto'} decoding="async" width="800" height="600" referrerpolicy="no-referrer" />
                   ) : (
                     <div class="text-zinc-300 text-4xl">📦</div>
                   )}

@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getProducts, sortByAvailability } from '../../lib/strapi';
+import { getProducts, sortByAvailability, cardImage } from '../../lib/strapi';
 
 export const prerender = false;
 
@@ -26,7 +26,7 @@ export const GET: APIRoute = async ({ url }) => {
       .map((p) => ({
         id: p.id,
         name: p.name,
-        image: p.heroImages?.[0] || '',
+        image: cardImage(p.heroImages?.[0]).srcset ? cardImage(p.heroImages?.[0]).srcset!.split(' ')[0] : (p.heroImages?.[0] || ''),
         brand: p.brand,
         price: p.price ? `PKR ${p.price.toLocaleString()}` : 'Contact for Quote',
         category: p.category,

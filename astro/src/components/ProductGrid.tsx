@@ -8,6 +8,7 @@ interface GridProduct {
   tier?: string;
   badge?: string | null;
   image?: string;
+  imageSrcset?: string;
   description?: string;
 }
 
@@ -113,7 +114,7 @@ export default function ProductGrid({ products = [], initialSearch = '' }: Props
                 <Reveal key={product.id} delay={Math.min(idx * 0.08, 0.4)} direction="up" className="group bg-[#f9f9f9] rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-200 ease-out flex flex-col hover:-translate-y-1">
                   <a href={`/product/${product.id}`} className="flex flex-col flex-grow">
                     <div className="aspect-[4/3] bg-white p-6 flex items-center justify-center relative overflow-hidden">
-                      <img alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 ease-out mix-blend-multiply" src={product.image} referrerPolicy="no-referrer" loading={idx < 4 ? 'eager' : 'lazy'} decoding="async" width="800" height="600" />
+                      <img alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 ease-out mix-blend-multiply" src={product.image} srcSet={product.imageSrcset} sizes="(min-width: 1280px) 22vw, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw" referrerPolicy="no-referrer" loading={idx < 4 ? 'eager' : 'lazy'} fetchPriority={idx === 0 ? 'high' : 'auto'} decoding="async" width="800" height="600" />
                       {product.badge && (
                         <div className="absolute top-3 right-3 z-10">
                           <span className={`${badgeColor[product.badge] || 'bg-zinc-700'} text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm`}>{product.badge}</span>

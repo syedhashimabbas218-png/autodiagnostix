@@ -22,3 +22,13 @@ test('even counts never leave a single orphan card on any breakpoint', () => {
     }
   }
 });
+
+test('excerpt cuts at a word boundary and only adds an ellipsis when it cuts', async () => {
+  const { excerpt } = await import('../src/utils/grid.mjs');
+  assert.equal(excerpt('Short summary.'), 'Short summary.');
+  const long = 'Heavy-duty 6.8 ton two-post lift with auto-manual dual operation, designed for super-heavy-duty cars, SUVs, and light commercial vehicles. '.repeat(4);
+  const out = excerpt(long, 120);
+  assert.ok(out.length <= 121 && out.endsWith('…'));
+  assert.ok(long.startsWith(out.slice(0, -1)), 'is a prefix of the original');
+  assert.match(out.slice(0, -1), /\w$/, 'does not end on punctuation or a partial separator');
+});

@@ -8,6 +8,7 @@ interface Product {
   summary: string;
   description: string;
   heroImages: string[];
+  image?: { src: string; srcset?: string; sizes?: string };
 }
 
 export default function NewArrivals({ products = [] }: { products?: Product[] }) {
@@ -48,7 +49,9 @@ export default function NewArrivals({ products = [] }: { products?: Product[] })
                 <img
                   alt={product.name}
                   className="w-full h-full object-contain p-4 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-200 ease-out mix-blend-multiply"
-                  src={product.heroImages?.[0] || ''}
+                  src={product.image?.src || product.heroImages?.[0] || ''}
+                  srcSet={product.image?.srcset}
+                  sizes={product.image?.sizes}
                   referrerPolicy="no-referrer" loading="lazy" decoding="async" width="800" height="600" />
                 <span className="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 uppercase">
                   New

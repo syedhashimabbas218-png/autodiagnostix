@@ -1,5 +1,6 @@
 import { brandSlug as toSlug } from '../utils/site.mjs';
 import { createCmsClient } from './cms-client.mjs';
+import { responsiveImage } from './media.mjs';
 
 export const CMS_URL = (process.env.PUBLIC_STRAPI_URL || process.env.STRAPI_URL || import.meta.env.PUBLIC_STRAPI_URL || import.meta.env.STRAPI_URL || 'http://localhost:1337').replace(/\/$/, '');
 
@@ -277,4 +278,21 @@ export async function getBrandRecords(): Promise<{ slug: string; name: string; d
   } catch {
     return [];
   }
+}
+
+// Public origin of CMS media, used to recognise CMS uploads for /media/.
+const CMS_ORIGIN = (() => { try { return new URL(CMS_URL).origin; } catch { return ''; } })();
+export const CMS_PUBLIC_ORIGIN = CMS_ORIGIN.startsWith('https:') ? CMS_ORIGIN : '';
+const CMS_ORIGINS = [CMS_ORIGIN, 'https://strapi.autodiagnostix.com.pk'].filter(Boolean);
+
+// Spread onto <img>: same-origin, resized WebP for CMS photos (see
+// pages/media), unchanged src for anything else.
+export function cardImage(url: string | undefined, sizes = '(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 92vw') {
+  const { src, srcset } = responsiveImage(url, CMS_ORIGINS, [320, 480, 640]);
+  return srcset ? { src, srcset, sizes } : { src };
+}
+
+export function heroImage(url: string | undefined, sizes = '(min-width: 1024px) 50vw, 100vw') {
+  const { src, srcset } = responsiveImage(url, CMS_ORIGINS, [480, 640, 960]);
+  return srcset ? { src, srcset, sizes } : { src };
 }

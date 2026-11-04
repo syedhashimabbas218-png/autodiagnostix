@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
 import useReducedMotion from './useReducedMotion';
 
 interface Slide {
@@ -43,14 +41,9 @@ export default function HeroSlideshow({ slides, interval = 6000 }: Props) {
   }, [slides]);
   useEffect(() => () => { slideRequest.current++; }, []);
 
-  useGSAP(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const tl = gsap.timeline();
-    tl.fromTo('.hero-tagline', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'expo.out', delay: 0.1 })
-      .fromTo('.hero-title', { y: 30, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'expo.out' }, '-=0.3')
-      .fromTo('.hero-desc', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'expo.out' }, '-=0.5')
-      .fromTo('.hero-cta', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'expo.out', stagger: 0.1 }, '-=0.4');
-  }, { scope: heroRef });
+  // No intro animation: the server-rendered headline is the page's Largest
+  // Contentful Paint, and hiding it at hydration to fade it back in delayed
+  // LCP by ~3.5 s on mobile. Slides still crossfade on change.
 
   useEffect(() => {
     if (reducedMotion || paused || slides.length < 2) return;

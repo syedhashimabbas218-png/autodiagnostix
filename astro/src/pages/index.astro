@@ -57,7 +57,7 @@ const icons: Record<string, string> = {
   business: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
 };
 
-import { CMS_URL as STRAPI_URL, getProducts, getCategories, getBrands, getBrandRecords, sortByAvailability, resolveImageUrl } from '../lib/strapi';
+import { CMS_URL as STRAPI_URL, getProducts, getCategories, getBrands, getBrandRecords, sortByAvailability, resolveImageUrl, cardImage } from '../lib/strapi';
 
 const [allCategories, catalogue, brandRecords] = await Promise.all([
   getCategories(),
@@ -119,6 +119,7 @@ const products = allProducts
     summary: p.summary || '',
     description: p.description || '',
     heroImages: p.heroImages,
+    image: cardImage(p.heroImages?.[0], '(min-width: 768px) 30vw, 92vw'),
   }));
 ---
 
@@ -150,7 +151,7 @@ const products = allProducts
 
   <main id="main-content">
     <!-- HERO -->
-    <HeroSlideshow client:load slides={hero.hero_slides} interval={heroData.slider_config.interval} />
+    <HeroSlideshow client:idle slides={hero.hero_slides} interval={heroData.slider_config.interval} />
 
     <!-- SEO HEADLINE BLOCK -->
     <section class="bg-white pt-14 md:pt-20 pb-10 px-8 border-b border-zinc-100">
@@ -320,7 +321,7 @@ const products = allProducts
                 <a href={`/product/${p.id}`} class="group relative bg-surface-container-low overflow-hidden hover:shadow-[0_0_0_1px_rgba(151,0,13,0.15)] transition-all duration-200 ease-out">
                   <div class="aspect-[4/3] bg-white flex items-center justify-center overflow-hidden">
                     {p.heroImages && p.heroImages[0] ? (
-                      <img src={p.heroImages[0]} alt={p.name} class="w-full h-full object-contain p-6 transition-transform duration-200 ease-out group-hover:scale-105" loading="lazy" referrerpolicy="no-referrer" width="800" height="600" />
+                      <img {...cardImage(p.heroImages[0])} alt={p.name} class="w-full h-full object-contain p-6 transition-transform duration-200 ease-out group-hover:scale-105" loading="lazy" referrerpolicy="no-referrer" width="800" height="600" />
                     ) : (
                       <div class="text-zinc-300 text-4xl">📦</div>
                     )}
