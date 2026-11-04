@@ -73,7 +73,7 @@ export default function InteractiveLifts({ image, title, tagline, liftTypes }: I
         </div>
 
         <div className="order-1 lg:order-2">
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400 mb-6 block">{tagline}</span>
+          <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-zinc-600 mb-6 block">{tagline}</span>
           <h2 className="text-5xl font-headline font-extrabold tracking-tighter text-zinc-900 mb-12 leading-tight">
             {title.split('.')[0]}.<br />{title.split('.')[1]}.
           </h2>

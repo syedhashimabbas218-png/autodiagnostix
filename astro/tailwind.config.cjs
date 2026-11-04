@@ -55,6 +55,12 @@ module.exports = {
                 "surface": "#f9f9f9",
                 "primary-fixed-dim": "#ffb4ab"
             },
+            // 96rem content + 2rem gutters each side: use on wrappers that
+            // carry their own px-8 so edges align with max-w-screen-2xl
+            // wrappers whose gutter sits on the parent section.
+            maxWidth: {
+                "site": "100rem"
+            },
             fontFamily: {
                 "headline": ["Manrope", "sans-serif"],
                 "body": ["Inter", "sans-serif"],

@@ -17,7 +17,7 @@ const { eyebrow, title, headingId, items, compact = false } = Astro.props;
 ---
 
 <section class={`bg-surface ${compact ? 'py-10 md:py-12 lg:py-16 lg:pl-10 xl:pl-14' : 'py-12 md:py-16'}`} aria-labelledby={headingId}>
-  <div class={`${compact ? '' : 'max-w-screen-2xl mx-auto'} px-4 sm:px-8`}>
+  <div class={`${compact ? '' : 'max-w-site mx-auto'} px-4 sm:px-8`}>
     <header class={`${compact ? 'mb-6 md:mb-8' : 'mb-8 md:mb-12'} max-w-2xl`}>
       <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] uppercase text-primary mb-4">
         <span class="block w-8 h-px bg-primary" aria-hidden="true"></span>

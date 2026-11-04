@@ -62,13 +62,13 @@ const breadcrumbs = [
 
   <main id="main-content" class="min-h-screen pt-20">
     <header class="bg-surface pt-16 pb-12 px-8 border-b border-outline-variant/10">
-      <div class="max-w-7xl mx-auto">
-        <nav class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-6">
-          <a href="/" class="hover:text-primary transition-colors">Home</a>
-          <span class="text-[10px]">/</span>
-          <a href="/brands" class="hover:text-primary transition-colors">Brands</a>
-          <span class="text-[10px]">/</span>
-          <span class="text-primary font-bold">{brand.name}</span>
+      <div class="max-w-screen-2xl mx-auto">
+        <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-x-2 text-xs font-label uppercase tracking-widest text-on-surface-variant mb-4">
+          <a href="/" class="inline-flex items-center min-h-[44px] min-w-[44px] hover:text-primary transition-colors">Home</a>
+          <span class="text-[10px]" aria-hidden="true">/</span>
+          <a href="/brands" class="inline-flex items-center min-h-[44px] min-w-[44px] hover:text-primary transition-colors">Brands</a>
+          <span class="text-[10px]" aria-hidden="true">/</span>
+          <span class="text-primary font-bold" aria-current="page">{brand.name}</span>
         </nav>
         <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-4">{brand.name}</h1>
         <p class="text-on-surface-variant text-xl max-w-xl">{brandProducts.length} product{brandProducts.length !== 1 ? 's' : ''} from {brand.name}</p>

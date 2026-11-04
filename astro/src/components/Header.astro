@@ -39,7 +39,7 @@ const seoLinks = [
   data-transparent-capable={transparentOnScroll ? 'true' : undefined}
   class="fixed top-0 inset-x-0 z-50 h-14 md:h-16 flex items-center transition-colors duration-300"
 >
-  <div class="flex justify-between items-center gap-4 lg:gap-8 w-full max-w-screen-2xl mx-auto px-4 md:px-8 h-full">
+  <div class="flex justify-between items-center gap-4 lg:gap-8 w-full max-w-site mx-auto px-4 md:px-8 h-full">
     <a href="/" class="header-logo-link flex items-center shrink-0 min-h-[44px]" aria-label="Autodiagnostix home">
       <picture>
         <source srcset="/logo-wordmark.avif" type="image/avif" />
@@ -96,7 +96,7 @@ const seoLinks = [
   </div>
 
   <nav id="mobile-menu" aria-label="Mobile" class="lg:hidden hidden absolute top-full left-0 w-full bg-white border-b border-zinc-100 shadow-lg">
-    <div class="flex flex-col px-4 md:px-8 py-4 gap-0.5 max-w-screen-2xl mx-auto md:grid md:grid-cols-2 md:gap-x-8">
+    <div class="flex flex-col px-4 md:px-8 py-4 gap-0.5 max-w-site mx-auto md:grid md:grid-cols-2 md:gap-x-8">
       <div>
         <span class="block text-[11px] font-bold uppercase tracking-widest text-zinc-500 pt-2 pb-1">Categories</span>
         {headerNav.map(cat => (

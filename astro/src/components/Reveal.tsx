@@ -19,6 +19,9 @@ export default function Reveal({ children, delay = 0, direction = 'up', classNam
     const el = container.current;
     if (!el) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Content already on screen at hydration stays put: hiding it to fade it
+    // back in flickers and delays the Largest Contentful Paint.
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
 
     const yOffset = direction === 'up' ? 80 : direction === 'down' ? -80 : 0;
     const xOffset = direction === 'left' ? 80 : direction === 'right' ? -80 : 0;

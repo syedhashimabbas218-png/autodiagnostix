@@ -74,7 +74,7 @@ export default function HeroSlideshow({ slides, interval = 6000 }: Props) {
             {loadedSlides.includes(idx) && <img alt={slide.background.alt} className="w-full h-full object-cover" src={heroImageUrl(slide.background.image)} fetchPriority={idx === 0 ? 'high' : 'low'} decoding="async" width="1024" height="576" />}
             <div className="absolute inset-0 bg-black/70"></div>
           </div>
-          <div className="hero-content relative z-10 max-w-screen-2xl mx-auto px-8 w-full h-full flex items-center">
+          <div className="hero-content relative z-10 max-w-site mx-auto px-8 w-full h-full flex items-center">
             <div className="hero-copy min-w-0 max-w-2xl w-full">
               <span className="hero-tagline text-sm uppercase tracking-[0.2em] text-[#ff6b5e] font-bold mb-4 block">
                 {slide.tagline}
@@ -105,7 +105,7 @@ export default function HeroSlideshow({ slides, interval = 6000 }: Props) {
         </div>
       ))}
       <div className="hero-controls absolute bottom-5 md:bottom-8 inset-x-0 z-20 pointer-events-none">
-        <div className="max-w-screen-2xl mx-auto px-8 flex gap-1 md:gap-2">
+        <div className="max-w-site mx-auto px-8 flex gap-1 md:gap-2">
           {slides.map((_, idx) => (
             <button
               key={idx}

@@ -45,7 +45,7 @@ const longSummary = (product.summary || '').length > 320;
   <Header ctaLabel="Request a Quote" ctaHref="/contact" />
 
   <main id="main-content" class="min-h-screen pt-14 md:pt-16 bg-surface-container-lowest">
-    <section class="product-hero max-w-screen-2xl mx-auto px-4 sm:px-8 pt-8 pb-12 md:pt-12 lg:py-[clamp(2rem,5vh,4rem)] grid gap-8 lg:gap-12 xl:gap-16 lg:grid-cols-12 lg:items-center" aria-labelledby="product-title">
+    <section class="product-hero max-w-site mx-auto px-4 sm:px-8 pt-8 pb-12 md:pt-12 lg:py-[clamp(2rem,5vh,4rem)] grid gap-8 lg:gap-12 xl:gap-16 lg:grid-cols-12 lg:items-center" aria-labelledby="product-title">
       <div class="lg:col-span-6 2xl:col-span-5 lg:order-2 min-w-0">
         <nav aria-label="Breadcrumb" class="breadcrumb mb-5">
           <ol class="flex flex-wrap items-center gap-x-1 text-xs font-label uppercase tracking-widest text-on-surface-variant">
@@ -126,7 +126,7 @@ const longSummary = (product.summary || '').length > 320;
 
     {product.technicalTable.length > 0 && (
       <section class="py-16 md:py-24 bg-surface-container-lowest" aria-labelledby="specs-heading">
-        <div class="max-w-screen-2xl mx-auto px-4 sm:px-8">
+        <div class="max-w-site mx-auto px-4 sm:px-8">
           <h2 id="specs-heading" class="text-3xl md:text-4xl font-headline font-extrabold tracking-tighter mb-8 md:mb-12 uppercase">Technical Specifications</h2>
           <dl class="spec-grid flex flex-col sm:flex-row sm:flex-wrap gap-0.5 bg-outline-variant/30 border border-outline-variant/30 rounded-xl overflow-hidden">
             {product.technicalTable.map(spec => (
@@ -141,7 +141,7 @@ const longSummary = (product.summary || '').length > 320;
     )}
 
     <div id="product-actions" class="fixed bottom-0 inset-x-0 bg-white/90 backdrop-blur-xl border-t border-zinc-200 z-40" data-visible="false">
-      <div class="max-w-screen-2xl mx-auto h-16 md:h-20 px-4 sm:px-8 flex items-center justify-between gap-3">
+      <div class="max-w-site mx-auto h-16 md:h-20 px-4 sm:px-8 flex items-center justify-between gap-3">
         <div class="hidden md:block min-w-0" aria-hidden="true">
           <p class="font-headline font-bold text-base lg:text-lg text-on-surface truncate">{product.name}</p>
           <p class="text-xs text-on-surface-variant font-label tracking-wide truncate">{product.brand}</p>

@@ -82,6 +82,15 @@ const IconMap: Record<string, JSX.Element> = {
   ),
 };
 
+const ALL_PRODUCTS_ICON = (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="3" y="3" width="7" height="7" rx="1" />
+    <rect x="14" y="3" width="7" height="7" rx="1" />
+    <rect x="3" y="14" width="7" height="7" rx="1" />
+    <rect x="14" y="14" width="7" height="7" rx="1" />
+  </svg>
+);
+
 interface Category {
   id: string;
   name: string;
@@ -105,24 +114,32 @@ export default function CategoryNav({ categories = [] }: { categories?: Category
 
   if (categories.length === 0) return null;
 
+  // Every category stays visible (the old scroll row clipped the last one at
+  // laptop widths). "All products" completes the set so rows stay even.
+  const tiles = [...categories.map(cat => ({ key: cat.id, href: `/category/${cat.id}`, label: cat.name, icon: IconMap[cat.icon] || IconMap.build }))];
+  if (tiles.length % 2 === 1) {
+    tiles.push({ key: 'all-products', href: '/products', label: 'All Products', icon: ALL_PRODUCTS_ICON });
+  }
+  const wideCols = tiles.length === 8 ? '2xl:grid-cols-8' : tiles.length === 6 ? 'xl:grid-cols-6' : '';
+
   return (
-    <section ref={sectionRef} className="bg-white border-b border-zinc-100 py-6 md:py-10 relative isolate z-20">
-      <div className="max-w-screen-2xl mx-auto px-8 grid grid-cols-2 sm:grid-cols-3 md:flex md:items-center md:overflow-x-auto md:no-scrollbar gap-2 md:gap-6 lg:gap-12 py-2">
-        {categories.map((cat, idx) => (
-          <div key={cat.id} className="cat-nav-item flex relative z-10">
-            <a href={`/category/${cat.id}`} className="flex items-center gap-2 md:gap-4 group w-full">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container group-hover:scale-110 group-hover:shadow-xl transition-all duration-200 ease-out shrink-0 relative z-10 ring-0 group-hover:ring-4 ring-primary/20">
-                <span className="text-zinc-500 group-hover:text-white transition-colors flex items-center justify-center">
-                  {IconMap[cat.icon] || IconMap.build}
+    <section ref={sectionRef} aria-label="Shop by category" className="bg-white border-b border-zinc-100 py-6 md:py-10 relative isolate z-20">
+      <ul className={`max-w-site mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-4 ${wideCols} gap-2 md:gap-3`}>
+        {tiles.map(tile => (
+          <li key={tile.key} className="cat-nav-item flex relative z-10">
+            <a href={tile.href} className="flex items-center gap-3 group w-full min-h-[56px] rounded-xl px-2 sm:px-3 py-2 hover:bg-surface-container-low transition-colors">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container group-hover:shadow-lg transition-all duration-200 ease-out shrink-0 relative z-10">
+                <span className="text-zinc-600 group-hover:text-white transition-colors flex items-center justify-center">
+                  {tile.icon}
                 </span>
               </div>
-              <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-zinc-900 transition-colors leading-tight">
-                {cat.name}
+              <span className="text-[11px] md:text-xs font-bold uppercase tracking-widest text-zinc-600 group-hover:text-zinc-900 transition-colors leading-tight">
+                {tile.label}
               </span>
             </a>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

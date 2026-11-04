@@ -29,9 +29,9 @@ export default function NewArrivals({ products = [] }: { products?: Product[] })
   if (products.length === 0) return null;
 
   return (
-    <section ref={sectionRef} id="new-arrivals" className="py-24 bg-surface px-8">
+    <section ref={sectionRef} id="new-arrivals" className="py-16 md:py-24 bg-surface px-8">
       <div className="max-w-screen-2xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 md:mb-16 gap-8">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-4 block">
               PREMIUM SELECTION
@@ -41,10 +41,10 @@ export default function NewArrivals({ products = [] }: { products?: Product[] })
             </h2>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {products.map((product, idx) => (
-            <a href={`/product/${product.id}`} key={product.id} className="new-arrival-card group bg-surface-container-lowest p-8 border border-zinc-100 hover:border-primary/20 hover:shadow-2xl transition-all duration-200 ease-out hover:-translate-y-1 hover:scale-[1.02] cursor-pointer h-full flex flex-col no-underline">
-              <div className="aspect-square bg-zinc-50 mb-8 overflow-hidden relative">
+            <a href={`/product/${product.id}`} key={product.id} className="new-arrival-card group bg-surface-container-lowest p-6 lg:p-8 border border-zinc-100 hover:border-primary/20 hover:shadow-2xl transition-all duration-200 ease-out hover:-translate-y-1 hover:scale-[1.02] cursor-pointer h-full flex flex-col no-underline">
+              <div className="aspect-square bg-zinc-50 mb-6 lg:mb-8 overflow-hidden relative">
                 <img
                   alt={product.name}
                   className="w-full h-full object-contain p-4 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-200 ease-out mix-blend-multiply"
@@ -55,7 +55,7 @@ export default function NewArrivals({ products = [] }: { products?: Product[] })
                 </span>
               </div>
               <h3 className="text-lg font-headline font-bold tracking-tight mb-2 uppercase">{product.name}</h3>
-              <p className="text-zinc-400 text-xs mb-6 font-medium">{(product.summary || product.description).substring(0, 80)}...</p>
+              <p className="text-zinc-600 text-sm mb-6 leading-relaxed line-clamp-2">{product.summary || product.description}</p>
               <div className="flex justify-between items-center mt-auto">
                 <span className="text-zinc-900 font-bold">VIEW SPECS</span>
                 <span className="text-primary group-hover:translate-x-1 transition-transform flex items-center justify-center">
