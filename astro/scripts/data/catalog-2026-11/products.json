@@ -1,17 +1,504 @@
 [
  {
-  "slug": "launch-wheel-alignment-tool-trolley",
-  "name": "LAUNCH Wheel Alignment Tool Trolley",
+  "slug": "launch-x-431-pro-se",
+  "name": "LAUNCH X-431 PRO SE",
+  "category": "scanners",
+  "brands": [
+   "launch"
+  ],
+  "summary": "The X-431 PRO SE is a LAUNCH 8-inch Android diagnostic tablet with a brand-new design and DoIP/CAN FD functions, positioned by LAUNCH as the best choice for entry-level technicians. It provides full-system OE-level diagnostics on 1996 and newer U.S., European and Asian vehicles.",
+  "description": "The X-431 PRO SE is a LAUNCH 8-inch Android diagnostic tablet with a brand-new design and DoIP/CAN FD functions, positioned by LAUNCH as the best choice for entry-level technicians. It provides full-system OE-level diagnostics on 1996 and newer U.S., European and Asian vehicles.",
+  "features": [
+   "Android 10.0 operating system with 4GB memory and 64GB storage for faster, smoother diagnosis",
+   "Newly designed VCI supports more communication protocols, e.g. CAN, CAN FD and DoIP (DoIP needs an extra DoIP cable)",
+   "Wireless communication for flexible, easy connections; cabled connection for fast, stable advanced work such as coding",
+   "Full-system OE-level diagnostics on 1996 and newer U.S., European and Asian vehicles",
+   "Comprehensive OBD II diagnostics, read/clear DTCs, bi-directional control, remote diagnosis, live data streaming and coding",
+   "Optional ADAS calibration (LDW, RCW, AVM, NV, BSD and ACC systems) with the X-431 ADAS calibration tools",
+   "Expand diagnostic coverage via the \"Mall\"",
+   "One-stop Info Center with vehicle repair information and latest updates",
+   "Review previous diagnostic reports via Diagnostic History"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "OS",
+    "value": "Android 10.0"
+   },
+   {
+    "label": "Display",
+    "value": "8\", 1280*800"
+   },
+   {
+    "label": "CPU",
+    "value": "2.0GHz, Quad-Core"
+   },
+   {
+    "label": "RAM",
+    "value": "4GB"
+   },
+   {
+    "label": "Storage",
+    "value": "64GB"
+   },
+   {
+    "label": "Battery",
+    "value": "47.88Wh (7.6V, 6300mAh)"
+   },
+   {
+    "label": "Camera",
+    "value": "Rear 8MP"
+   },
+   {
+    "label": "Dimensions",
+    "value": "234*166*39.5 mm"
+   },
+   {
+    "label": "Interface",
+    "value": "TYPE A*1 & TYPE C*1"
+   }
+  ],
+  "images": [
+   "images/launch-x-431-pro-se/1.webp",
+   "images/launch-x-431-pro-se/2.webp"
+  ],
+  "source": "https://en.cnlaunch.com/products-detail/i-206.html",
+  "portfolio_title": "X-431 PRO SE 2026"
+ },
+ {
+  "slug": "launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift",
+  "name": "LAUNCH TLT245SC(S) 4.5-Ton Clear Floor 2-Post Lift",
+  "category": "lifts-jacks",
+  "brands": [
+   "launch"
+  ],
+  "summary": "The TLT245SC(S) is a LAUNCH gantry-type (overhead, clear-floor) two-post lift with a 4,500 kg lifting capacity. It uses a dual hydraulic cylinder drive and a wire-rope balancing system for smooth, level lifting, and is designed to national standards for garage and workshop use.",
+  "description": "The TLT245SC(S) is a LAUNCH gantry-type (overhead, clear-floor) two-post lift with a 4,500 kg lifting capacity. It uses a dual hydraulic cylinder drive and a wire-rope balancing system for smooth, level lifting, and is designed to national standards for garage and workshop use.",
+  "features": [
+   "Cables and oil pipes fully concealed for a neat, attractive appearance",
+   "Designed to national (GB) standards, meeting garage and workshop requirements",
+   "Top limit switch prevents vehicle collision",
+   "Dual hydraulic cylinder drive system for smooth lifting and lowering",
+   "Wire-rope balancing system forces both carriages to move in sync, preventing the vehicle from tilting",
+   "Lowest lifting pad height of 110 mm, suitable for low-chassis vehicles",
+   "Manual lowering control for safe, convenient operation",
+   "Built from Q235 national-standard 5 mm thick steel plate, with a 16 mm thick base plate",
+   "Single-side unlocking mechanism for easier use",
+   "Solid arm-locking mechanism for safer lifting",
+   "Patented slider bracket design for easy replacement",
+   "Pulleys fitted with side plates to stop the wire rope from slipping off",
+   "Large anti-collision (door protection) area prevents vehicle scratches"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "Structure Type",
+    "value": "Gantry type (clear floor)"
+   },
+   {
+    "label": "Lifting Capacity",
+    "value": "4500kg"
+   },
+   {
+    "label": "Lifting Time",
+    "value": "≤55s"
+   },
+   {
+    "label": "Lifting Height",
+    "value": "1850mm"
+   },
+   {
+    "label": "Overall Height",
+    "value": "3900mm"
+   },
+   {
+    "label": "Overall Width",
+    "value": "3528mm"
+   },
+   {
+    "label": "Passing Width",
+    "value": "2596mm"
+   },
+   {
+    "label": "Width Between Columns",
+    "value": "2880mm"
+   },
+   {
+    "label": "Minimum Lifting Pad Height",
+    "value": "110mm"
+   },
+   {
+    "label": "Gross Weight",
+    "value": "720kg"
+   },
+   {
+    "label": "Motor",
+    "value": "2.2kW"
+   }
+  ],
+  "images": [
+   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/1.webp",
+   "images/launch-tlt-245-scs-4-5-ton-2-post-clear-floor-lift/2.webp"
+  ],
+  "source": "https://www.cnlaunch.com/products-detail/i-209.html",
+  "portfolio_title": "TLT 245 SC(S) 4.5 Ton 2-Post Clear Floor Lift"
+ },
+ {
+  "slug": "launch-x-613-portable-3d-wheel-aligner",
+  "name": "LAUNCH X-613 Portable 3D Wheel Aligner",
   "category": "wheel-alignment",
   "brands": [
    "launch"
   ],
-  "summary": "Mobile LAUNCH workshop tool trolley with three drawers and a worktop, used to keep wheel alignment clamps, accessories and hand tools organised beside the alignment bay.",
-  "images": [
-   "images/launch-wheel-alignment-tool-trolley/1.webp"
+  "summary": "The X-613 is a wireless, ready-to-use portable 3D four-wheel aligner made up of two magnetic measurement units and four wheel clamp targets. It needs no beams or cabinets and pairs with a LAUNCH X-431 PAD9/7/5 LINK diagnostic tool to do precise four-wheel alignment, which makes it a good fit for repair shops with limited space.",
+  "description": "The X-613 is a wireless, ready-to-use portable 3D four-wheel aligner made up of two magnetic measurement units and four wheel clamp targets. It needs no beams or cabinets and pairs with a LAUNCH X-431 PAD9/7/5 LINK diagnostic tool to do precise four-wheel alignment, which makes it a good fit for repair shops with limited space.",
+  "features": [
+   "2 magnetic measurement units + 4 wheel clamp targets, connected via a wireless network",
+   "No wiring: ready to use by simply screwing the targets onto the wheel clamps",
+   "No beams or cabinets to preinstall, ideal for repair shops with limited space",
+   "Pairs with the LAUNCH X-431 PAD9/7/5 LINK (which includes the app), saving on tablet and app costs",
+   "Alignment data for 50,000+ vehicle models worldwide, with user customization",
+   "Generates wheel alignment measurement results within 30 seconds",
+   "Can be used on both big scissor lift platforms and four-post lift platforms",
+   "Supports both standard measurement and quick measurement"
   ],
-  "source": "portfolio PDF p27",
+  "functions": [
+   "Toe",
+   "Camber",
+   "Caster",
+   "Kingpin inclination",
+   "Thrust angle",
+   "Track width",
+   "Wheelbase",
+   "Wheel offset",
+   "Axle offset",
+   "Diagonal offset",
+   "Center offset"
+  ],
+  "technicalTable": [
+   {
+    "label": "Toe Angle",
+    "value": "±20°"
+   },
+   {
+    "label": "Camber Angle",
+    "value": "±10°"
+   },
+   {
+    "label": "Kingpin Castor Angle",
+    "value": "±20°"
+   },
+   {
+    "label": "Kingpin Inclination Angle",
+    "value": "±20°"
+   },
+   {
+    "label": "Track Width",
+    "value": "1290~1900 mm"
+   },
+   {
+    "label": "Wheelbase",
+    "value": "1940~4600 mm"
+   },
+   {
+    "label": "Wheel Hub Diameter",
+    "value": "275~640 mm"
+   }
+  ],
+  "images": [
+   "images/launch-x-613-portable-3d-wheel-aligner/1.webp",
+   "images/launch-x-613-portable-3d-wheel-aligner/2.webp",
+   "images/launch-x-613-portable-3d-wheel-aligner/3.webp"
+  ],
+  "source": "https://en.cnlaunch.com/products-detail/i-318.html",
+  "portfolio_title": "X-613 Portable 3D Wheel Aligner"
+ },
+ {
+  "slug": "launch-wheel-alignment-tool-trolley",
+  "name": "LAUNCH TTH-60 Wheel Aligner Tool Cart Kit",
+  "category": "wheel-alignment",
+  "brands": [
+   "launch"
+  ],
+  "summary": "The TTH-60 is a LAUNCH 60-piece modular tool cart kit built around four-wheel aligner work. It contains universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration, carried in a professional 4-wheel aligner tool box.",
+  "description": "The TTH-60 is a LAUNCH 60-piece modular tool cart kit built around four-wheel aligner work. It contains universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration, carried in a professional 4-wheel aligner tool box.",
+  "features": [
+   "60pcs 4-wheel aligner tools cart kit",
+   "Modular tool solution based on 4-wheel aligner operation",
+   "Adds special 4-wheel alignment tools, such as a 4-wheel aligner level gauge and tire balance plier",
+   "Universal tools such as sockets, wrenches and pliers for 4-wheel alignment and calibration",
+   "Complete, practical tools with the overall quantity minimized",
+   "Professional 4-wheel aligner tool box as the carrier, for easy operation and better efficiency and comfort"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "TTH-60-1",
+    "value": "32pcs Socket Tool Set"
+   },
+   {
+    "label": "TTH-60-2",
+    "value": "14pcs Wrench Tool Set"
+   },
+   {
+    "label": "TTH-60-3",
+    "value": "13pcs Comprehensive Tool Set"
+   }
+  ],
+  "images": [
+   "images/launch-wheel-alignment-tool-trolley/1.webp",
+   "images/launch-wheel-alignment-tool-trolley/2.webp"
+  ],
+  "source": "https://en.cnlaunch.com/products-detail/i-92.html",
   "portfolio_title": "LAUNCH Wheel Alignment Tool Trolley"
+ },
+ {
+  "slug": "launch-creader-tpms-511s-v2",
+  "name": "LAUNCH Creader TPMS 511S V2",
+  "category": "maintenance",
+  "brands": [
+   "launch"
+  ],
+  "summary": "The Creader TPMS 511S V2 is a standalone Android 8.1 TPMS service and programming tool. It can activate, read and relearn all known sensors on the market and program LAUNCH sensors an unlimited number of times to replace OE sensors, which suits repair shops expanding their tire business as well as tire shops.",
+  "description": "The Creader TPMS 511S V2 is a standalone Android 8.1 TPMS service and programming tool. It can activate, read and relearn all known sensors on the market and program LAUNCH sensors an unlimited number of times to replace OE sensors, which suits repair shops expanding their tire business as well as tire shops.",
+  "features": [
+   "Supports 99% vehicle coverage with TPMS-equipped systems",
+   "All 315/433 MHz sensors 100% activated",
+   "OE inquiry: input the OE sensor part number for TPMS sensor activation and programming",
+   "Unlimited programming of LAUNCH sensors to replace OE sensors",
+   "Sensor relearn via OBD connection with step-by-step instructions in the app",
+   "TPMS system diagnosis: read/clear TPMS fault codes",
+   "OBDII/EOBD scan functions included",
+   "Software update via WiFi, lifetime free",
+   "Real-time display of tire pressure, temperature, battery status, etc.",
+   "Instant sharing and playback of diagnostic reports, feedback and screenshots",
+   "LAUNCH ACADEMY to learn how to use the tool quickly"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "OS",
+    "value": "Android 8.1"
+   },
+   {
+    "label": "Display",
+    "value": "5\", 720P touch screen"
+   },
+   {
+    "label": "Battery",
+    "value": "6000mAh"
+   },
+   {
+    "label": "OBDII Input Voltage",
+    "value": "9V ~ 18V"
+   },
+   {
+    "label": "DC Input Voltage",
+    "value": "DC 5V"
+   },
+   {
+    "label": "Communication/Upgrade",
+    "value": "WIFI 2.4Ghz (b/g/n)"
+   },
+   {
+    "label": "Storage",
+    "value": "2+32GB"
+   },
+   {
+    "label": "Working Temperature",
+    "value": "0℃~45℃"
+   },
+   {
+    "label": "Storage Temperature",
+    "value": "-20℃~70℃"
+   },
+   {
+    "label": "Dimension",
+    "value": "211.5*99*34.5 (mm)"
+   },
+   {
+    "label": "Weight",
+    "value": "<650g"
+   }
+  ],
+  "images": [
+   "images/launch-creader-tpms-511s-v2/1.webp",
+   "images/launch-creader-tpms-511s-v2/2.webp",
+   "images/launch-creader-tpms-511s-v2/3.webp",
+   "images/launch-creader-tpms-511s-v2/4.webp"
+  ],
+  "source": "https://en.cnlaunch.com/products-detail/i-327.html",
+  "portfolio_title": "CRT TPMS 511S V2.0"
+ },
+ {
+  "slug": "launch-i-tpms",
+  "name": "LAUNCH i-TPMS Handheld TPMS Service Tool",
+  "category": "maintenance",
+  "brands": [
+   "launch"
+  ],
+  "summary": "The i-TPMS is a new-generation handheld TPMS service tool that gives repair shops professional, comprehensive TPMS service to grow their TPMS business. It programs LAUNCH LTR RF sensors an unlimited number of times to replace OE sensors and reads sensor data such as sensor ID, tire pressure, tire temperature and battery status.",
+  "description": "The i-TPMS is a new-generation handheld TPMS service tool that gives repair shops professional, comprehensive TPMS service to grow their TPMS business. It programs LAUNCH LTR RF sensors an unlimited number of times to replace OE sensors and reads sensor data such as sensor ID, tire pressure, tire temperature and battery status.",
+  "features": [
+   "Serves over 99% of mainstream vehicles with a TPMS-equipped system on the market",
+   "Use it bound to an X-431 scanner, or standalone with the i-TPMS app",
+   "Supports all 315/433MHz sensors",
+   "With an X-431 scanner: sensor activation, programming, relearn and diagnosis",
+   "Standalone with the i-TPMS app: sensor activation and programming",
+   "Unlimited programming of LAUNCH sensors to replace OE sensors",
+   "Reads sensor ID, tire pressure, tire temperature, battery status, etc."
+  ],
+  "functions": [
+   "Sensor activation",
+   "Sensor programming",
+   "Relearn (with X-431 scanner)",
+   "TPMS diagnosis (with X-431 scanner)"
+  ],
+  "technicalTable": [
+   {
+    "label": "Display",
+    "value": "1.77\", 168*128"
+   },
+   {
+    "label": "Battery",
+    "value": "2000mAh"
+   },
+   {
+    "label": "OBDII Input Voltage",
+    "value": "9V ~ 18V"
+   },
+   {
+    "label": "DC Input Voltage",
+    "value": "DC 5V"
+   },
+   {
+    "label": "Working Current",
+    "value": "≤1A"
+   },
+   {
+    "label": "Working Temperature",
+    "value": "-10℃~50℃"
+   },
+   {
+    "label": "Storage Temperature",
+    "value": "-20℃~60℃"
+   },
+   {
+    "label": "Dimension",
+    "value": "252*54*30 (mm)"
+   }
+  ],
+  "images": [
+   "images/launch-i-tpms/1.webp"
+  ],
+  "source": "https://en.cnlaunch.com/products-detail/i-271.html",
+  "portfolio_title": "LAUNCH i-TPMS"
+ },
+ {
+  "slug": "launch-bst360-battery-tester",
+  "name": "LAUNCH BST360 Bluetooth Battery Tester",
+  "category": "maintenance",
+  "brands": [
+   "launch"
+  ],
+  "summary": "The BST360 is a LAUNCH Bluetooth battery tester for technicians and on-the-go consumers. It works with LAUNCH X-431 scan tools to monitor battery health and analyse the starting and charging systems, and is safe to use thanks to its anti-heat design and protection against sparks during electrical system diagnosis.",
+  "description": "The BST360 is a LAUNCH Bluetooth battery tester for technicians and on-the-go consumers. It works with LAUNCH X-431 scan tools to monitor battery health and analyse the starting and charging systems, and is safe to use thanks to its anti-heat design and protection against sparks during electrical system diagnosis.",
+  "features": [
+   "Real-time monitoring of battery health status",
+   "Generates a health report within 3 seconds, with all data shown on the colour screen of the connected tool",
+   "Starting and charging system analysis to find related faults",
+   "Portable, lightweight and compact",
+   "Safety first: no heating, no discharge, no sparks, no operating risks",
+   "Works with LAUNCH X-431 scan tools",
+   "Bluetooth wireless automatic connection",
+   "Polarity reverse-connection protection: the tester is not damaged if the clamps are connected in reverse",
+   "Applicable 12V battery types: lead-acid, GEL and AGM",
+   "Supported battery standards: CCA, BCI, CA, MCA, JIS, DIN, IEC, EN, SAE, GB"
+  ],
+  "functions": [
+   "Battery test",
+   "Starter test",
+   "Charging system test",
+   "Voltage test",
+   "Electric current test",
+   "Ripple detection"
+  ],
+  "technicalTable": [
+   {
+    "label": "Display Screen",
+    "value": "N/A"
+   },
+   {
+    "label": "Battery Standard",
+    "value": "CCA, BCI, CA, MCA, JIS, DIN, IEC, EN, SAE, GB"
+   },
+   {
+    "label": "Battery Type",
+    "value": "Lead-acid battery, Gel battery and AGM battery"
+   },
+   {
+    "label": "Battery Range",
+    "value": "12V"
+   },
+   {
+    "label": "Print",
+    "value": "Yes"
+   },
+   {
+    "label": "Work Mode",
+    "value": "With Diagnostic Tool"
+   },
+   {
+    "label": "Weight",
+    "value": "250g"
+   }
+  ],
+  "images": [
+   "images/launch-bst360-battery-tester/1.webp",
+   "images/launch-bst360-battery-tester/2.webp"
+  ],
+  "source": "https://en.cnlaunch.com/products-detail/i-77.html",
+  "portfolio_title": "LAUNCH BST360 Battery Tester"
+ },
+ {
+  "slug": "launch-x-431-key-programmer",
+  "name": "LAUNCH X-431 Key Programmer",
+  "category": "scanners",
+  "brands": [
+   "launch"
+  ],
+  "summary": "The X-431 Key Programmer is a LAUNCH accessory that works with X-431 diagnostic scan tools to read and write key information. Together with LAUNCH universal smart keys, normal remotes and transponder keys, it can program replacement keys for different makes and models.",
+  "description": "The X-431 Key Programmer is a LAUNCH accessory that works with X-431 diagnostic scan tools to read and write key information. Together with LAUNCH universal smart keys, normal remotes and transponder keys, it can program replacement keys for different makes and models.",
+  "features": [
+   "Works with LAUNCH X-431 diagnostic scan tools",
+   "Easily reads and writes key information",
+   "Identifies vehicle chip keys and the remote control frequency, and helps generate various chip types",
+   "Universal smart keys: simulate 8A/4D/4A/46/47/48/49/MQB48/MQB49 immobilizer transponders",
+   "Universal smart keys: reprogrammable proxy key, supports 1000+ vehicle models, smart key replacement and wireless programming",
+   "Universal normal remote: reprogrammable, supports over 2000 vehicle models (programming cable required, no built-in transponder)",
+   "Universal transponder key: built-in cloneable original NXP immobilizer transponder",
+   "Universal transponder key: simulates 11/12/13/7936/7937/7946/7947 and other transponders, supports wireless programming",
+   "Super Chip supports 8A, 8C, 8E, 4C, 4D, 4E, 48, 7935, 7936, 7938, 7939 and 11/12/13 chip types",
+   "Kit with 4 chip keys: LS (Nissan 4-button smart card), LE (Ford 4-button flip key), LN (Peugeot DS 3-button flip key) and LK (Volkswagen 3-button flip key)"
+  ],
+  "functions": [],
+  "technicalTable": [
+   {
+    "label": "Package 307110096",
+    "value": "X-431 Key Programmer and accessories"
+   },
+   {
+    "label": "Package 307110149",
+    "value": "X-431 Key Programmer + 1 Super Chip + 4 Sets of Smart Keys and accessories"
+   }
+  ],
+  "images": [
+   "images/launch-x-431-key-programmer/1.webp",
+   "images/launch-x-431-key-programmer/2.webp",
+   "images/launch-x-431-key-programmer/3.webp"
+  ],
+  "source": "https://en.cnlaunch.com/products-detail/i-252.html",
+  "portfolio_title": "LAUNCH X-431 Key Programmer"
  },
  {
   "slug": "unite-metal-sheet-repair-machine",
