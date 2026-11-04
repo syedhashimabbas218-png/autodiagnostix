@@ -127,7 +127,7 @@ const breadcrumbs = [
             <span class="hidden sm:inline">Technical Sheet</span>
             <span class="sm:hidden">PDF</span>
           </a>
-          <a href="/contact" class="bg-primary-container text-white px-6 sm:px-8 h-12 rounded-full font-headline font-bold text-sm uppercase tracking-[0.1em] shadow-xl flex items-center hover:-translate-y-1 transition-all">
+          <a href={`/contact?subject=quote&product=${encodeURIComponent(product.name)}#contact-form`} class="bg-primary-container text-white px-6 sm:px-8 h-12 rounded-full font-headline font-bold text-sm uppercase tracking-[0.1em] shadow-xl flex items-center hover:-translate-y-1 transition-all">
             Request a Quote
           </a>
         </div>

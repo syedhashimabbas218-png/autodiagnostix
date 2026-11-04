@@ -10,6 +10,20 @@ const breadcrumbs = [
   { name: 'Home', url: 'https://autodiagnostix.com.pk/' },
   { name: 'Contact', url: 'https://autodiagnostix.com.pk/contact' },
 ];
+
+const SUBJECTS: [string, string][] = [
+  ['general', 'General Inquiry'],
+  ['quote', 'Request a Quote'],
+  ['product', 'Product Information'],
+  ['support', 'Technical Support'],
+  ['parts', 'Spare Parts'],
+  ['other', 'Other'],
+];
+// "Request a Quote" links from product pages pass ?subject=quote&product=Name.
+const requestedSubject = Astro.url.searchParams.get('subject') || '';
+const prefillSubject = SUBJECTS.some(([value]) => value === requestedSubject) ? requestedSubject : '';
+const requestedProduct = (Astro.url.searchParams.get('product') || '').replace(/[\r\n]+/g, ' ').trim().slice(0, 120);
+const prefillMessage = requestedProduct ? `I would like a quote for: ${requestedProduct}\n\n` : '';
 ---
 
 <BaseLayout
@@ -90,52 +104,63 @@ const breadcrumbs = [
             <h2 class="font-headline text-3xl md:text-4xl font-extrabold tracking-tighter text-on-surface mb-8">
             Let's Start a Conversation
             </h2>
-            <form action="/api/contact" method="POST" class="bg-surface-container-lowest rounded-xl p-8 md:p-10 shadow-sm border border-outline-variant/20">
+            <form id="contact-form" action="mailto:info@autodiagnostix.com.pk" method="post" enctype="text/plain" class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 md:p-10 shadow-sm border border-outline-variant/20" data-to="info@autodiagnostix.com.pk" data-cc="sales@autodiagnostix.com.pk">
+              <div id="form-error-summary" role="alert" class="hidden mb-6 rounded-lg border border-error/30 bg-error-container/40 px-4 py-3 text-sm text-on-error-container" tabindex="-1"></div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label for="name" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Full Name <span class="text-primary">*</span></label>
-                  <input type="text" id="name" name="name" autocomplete="name" required
-                    class="w-full px-4 py-3 bg-surface rounded-lg border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                  <label for="name" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Full Name <span class="text-primary" aria-hidden="true">*</span></label>
+                  <input type="text" id="name" name="name" autocomplete="name" required maxlength="120" aria-describedby="name-error"
+                    class="w-full px-4 py-3 min-h-[48px] bg-surface rounded-lg border border-outline text-on-surface placeholder:text-on-surface-variant/70 text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors aria-[invalid=true]:border-error aria-[invalid=true]:ring-error/20"
                     placeholder="John Doe" />
+                  <p id="name-error" class="field-error mt-2 text-sm text-error" hidden></p>
                 </div>
                 <div>
-                  <label for="email" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Email Address <span class="text-primary">*</span></label>
-                  <input type="email" id="email" name="email" autocomplete="email" required
-                    class="w-full px-4 py-3 bg-surface rounded-lg border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                  <label for="email" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Email Address <span class="text-primary" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required maxlength="160" aria-describedby="email-error"
+                    class="w-full px-4 py-3 min-h-[48px] bg-surface rounded-lg border border-outline text-on-surface placeholder:text-on-surface-variant/70 text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors aria-[invalid=true]:border-error aria-[invalid=true]:ring-error/20"
                     placeholder="john@example.com" />
+                  <p id="email-error" class="field-error mt-2 text-sm text-error" hidden></p>
                 </div>
                 <div>
                   <label for="phone" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" autocomplete="tel"
-                    class="w-full px-4 py-3 bg-surface rounded-lg border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
-                    placeholder="+92 322 7041953" />
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" maxlength="24" aria-describedby="phone-error"
+                    class="w-full px-4 py-3 min-h-[48px] bg-surface rounded-lg border border-outline text-on-surface placeholder:text-on-surface-variant/70 text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors aria-[invalid=true]:border-error aria-[invalid=true]:ring-error/20"
+                    placeholder="+92 3XX XXXXXXX" />
+                  <p id="phone-error" class="field-error mt-2 text-sm text-error" hidden></p>
                 </div>
                 <div>
-                  <label for="subject" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Subject <span class="text-primary">*</span></label>
-                  <select id="subject" name="subject" required
-                    class="w-full px-4 py-3 bg-surface rounded-lg border border-outline-variant/30 text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all">
-                    <option value="" disabled selected>Select a topic</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="quote">Request a Quote</option>
-                    <option value="product">Product Information</option>
-                    <option value="support">Technical Support</option>
-                    <option value="parts">Spare Parts</option>
-                    <option value="other">Other</option>
+                  <label for="subject" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Subject <span class="text-primary" aria-hidden="true">*</span></label>
+                  <select id="subject" name="subject" required aria-describedby="subject-error"
+                    class="w-full px-4 py-3 min-h-[48px] bg-surface rounded-lg border border-outline text-on-surface placeholder:text-on-surface-variant/70 text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors aria-[invalid=true]:border-error aria-[invalid=true]:ring-error/20">
+                    <option value="" disabled selected={!prefillSubject}>Select a topic</option>
+                    {SUBJECTS.map(([value, text]) => <option value={value} selected={prefillSubject === value}>{text}</option>)}
                   </select>
+                  <p id="subject-error" class="field-error mt-2 text-sm text-error" hidden></p>
                 </div>
               </div>
               <div class="mt-6">
-                <label for="message" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Message <span class="text-primary">*</span></label>
-                <textarea id="message" name="message" required rows="5"
-                  class="w-full px-4 py-3 bg-surface rounded-lg border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/50 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
-                  placeholder="Tell us about your requirements..."></textarea>
+                <label for="message" class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-bold mb-2">Message <span class="text-primary" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" required rows="5" minlength="10" maxlength="3000" aria-describedby="message-error"
+                  class="w-full px-4 py-3 min-h-[48px] bg-surface rounded-lg border border-outline text-on-surface placeholder:text-on-surface-variant/70 text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors aria-[invalid=true]:border-error aria-[invalid=true]:ring-error/20 resize-y"
+                  placeholder="Tell us about your requirements...">{prefillMessage}</textarea>
+                <p id="message-error" class="field-error mt-2 text-sm text-error" hidden></p>
               </div>
-              <div class="mt-2 text-xs text-on-surface-variant/60">Fields marked with <span class="text-primary">*</span> are required</div>
+              <p class="mt-3 text-xs text-on-surface-variant">Fields marked with <span class="text-primary" aria-hidden="true">*</span> are required.</p>
               <button type="submit"
-                class="primary-gradient text-white font-headline font-bold text-xs uppercase tracking-widest px-10 py-4 rounded-lg hover:scale-[0.98] transition-all duration-200 cursor-pointer mt-6">
+                class="primary-gradient text-white font-headline font-bold text-xs uppercase tracking-widest px-10 min-h-[48px] w-full sm:w-auto rounded-lg hover:scale-[0.98] transition-all duration-200 cursor-pointer mt-6">
                 Send Message
               </button>
             </form>
+            <div id="contact-success" class="hidden bg-surface-container-lowest rounded-xl p-6 sm:p-8 md:p-10 shadow-sm border border-outline-variant/20" role="status" tabindex="-1">
+              <h3 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface mb-3">Your message is ready to send</h3>
+              <p class="text-on-surface-variant leading-relaxed mb-6">We opened your email app with your message addressed to our team. Press <strong>Send</strong> there to deliver it. If no email app opened, copy the message and email it to <a href="mailto:info@autodiagnostix.com.pk" class="text-primary underline underline-offset-2">info@autodiagnostix.com.pk</a>, or call us.</p>
+              <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+                <button type="button" id="contact-copy" class="inline-flex items-center justify-center min-h-[48px] px-6 rounded-lg border border-primary text-primary font-headline font-bold text-xs uppercase tracking-widest hover:bg-primary/5 transition-colors">Copy message</button>
+                <a href="tel:+923227041953" class="inline-flex items-center justify-center min-h-[48px] px-6 rounded-lg primary-gradient text-white font-headline font-bold text-xs uppercase tracking-widest">Call +92 322 7041953</a>
+                <button type="button" id="contact-reset" class="inline-flex items-center justify-center min-h-[48px] px-6 rounded-lg text-on-surface-variant font-headline font-bold text-xs uppercase tracking-widest hover:text-primary transition-colors">Edit message</button>
+              </div>
+              <p id="contact-copy-status" class="mt-3 text-sm text-on-surface-variant" aria-live="polite"></p>
+            </div>
           </div>
 
           <!-- Map -->
@@ -195,6 +220,87 @@ const breadcrumbs = [
 
   <Footer />
 </BaseLayout>
+
+<script>
+  // Progressive enhancement: without JavaScript the form still opens the
+  // visitor's mail client via its mailto: action. With JavaScript we validate
+  // inline, then hand a readable message to the mail client and show next
+  // steps. No message is sent to, or stored by, this website.
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const success = document.getElementById('contact-success');
+  const summary = document.getElementById('form-error-summary');
+  if (form && success && summary) {
+    form.noValidate = true;
+    const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    const rules: Record<string, (value: string) => string> = {
+      name: v => v.length < 2 ? 'Please enter your full name.' : '',
+      email: v => !v ? 'Please enter your email address.' : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? 'Please enter a valid email address, for example name@company.com.' : '',
+      phone: v => v && !/^\+?[\d\s()-]{7,20}$/.test(v) ? 'Please enter a valid phone number, or leave it blank.' : '',
+      subject: v => !v ? 'Please choose a subject.' : '',
+      message: v => v.length < 10 ? 'Please tell us a little more (at least 10 characters).' : '',
+    };
+    const validate = (name: string) => {
+      const input = field(name);
+      const error = document.getElementById(`${name}-error`);
+      const message = rules[name](input.value.trim());
+      input.setAttribute('aria-invalid', String(Boolean(message)));
+      if (error) { error.textContent = message; error.hidden = !message; }
+      return message;
+    };
+    Object.keys(rules).forEach(name => {
+      const input = field(name);
+      // Validate on leaving a field, then live once the visitor has seen an error.
+      input.addEventListener('blur', () => { if (input.value.trim() || input.getAttribute('aria-invalid')) validate(name); });
+      input.addEventListener('input', () => { if (input.getAttribute('aria-invalid') === 'true') validate(name); });
+      input.addEventListener('change', () => { if (input.getAttribute('aria-invalid') === 'true') validate(name); });
+    });
+
+    let composed = '';
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const errors = Object.keys(rules).map(name => [name, validate(name)]).filter(([, message]) => message);
+      if (errors.length) {
+        summary.textContent = errors.length === 1 ? 'Please fix the highlighted field.' : `Please fix the ${errors.length} highlighted fields.`;
+        summary.classList.remove('hidden');
+        field(errors[0][0]).focus();
+        return;
+      }
+      summary.classList.add('hidden');
+      const value = (name: string) => field(name).value.trim();
+      const subjectLabel = (field('subject') as HTMLSelectElement).selectedOptions[0]?.text || value('subject');
+      composed = [
+        `Name: ${value('name')}`,
+        `Email: ${value('email')}`,
+        value('phone') ? `Phone: ${value('phone')}` : '',
+        `Subject: ${subjectLabel}`,
+        '',
+        value('message'),
+        '',
+        '(Sent from the autodiagnostix.com.pk contact form)',
+      ].filter((line, index) => line || index > 3).join('\n');
+      const params = new URLSearchParams({ cc: form.dataset.cc || '', subject: `${subjectLabel}: ${value('name')}`, body: composed });
+      window.location.href = `mailto:${form.dataset.to}?${params.toString().replace(/\+/g, '%20')}`;
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+      success.focus();
+    });
+
+    document.getElementById('contact-reset')?.addEventListener('click', () => {
+      success.classList.add('hidden');
+      form.classList.remove('hidden');
+      field('message').focus();
+    });
+    document.getElementById('contact-copy')?.addEventListener('click', async () => {
+      const status = document.getElementById('contact-copy-status');
+      try {
+        await navigator.clipboard.writeText(composed);
+        if (status) status.textContent = 'Message copied. Paste it into an email to info@autodiagnostix.com.pk.';
+      } catch {
+        if (status) status.textContent = 'Copy is not available in this browser. Please select your message in the form and copy it manually.';
+      }
+    });
+  }
+</script>
 
 <style>
   .primary-gradient { background: linear-gradient(135deg, #97000d 0%, #bb2221 100%); }
