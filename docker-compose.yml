@@ -52,6 +52,9 @@ services:
     environment:
       STRAPI_URL: http://strapi:1337
       SITE_URL: ${SITE_URL:-https://autodiagnostix.com}
+      # Optional (see astro/.env.example)
+      CONTACT_WEBHOOK_URL: ${CONTACT_WEBHOOK_URL:-}
+      CMS_CACHE_SECONDS: ${CMS_CACHE_SECONDS:-60}
     depends_on:
       strapi:
         condition: service_started
