@@ -92,15 +92,15 @@ export default function InteractiveLifts({ image, title, tagline, liftTypes }: I
                     isActive ? 'border-primary shadow-sm' : 'border-transparent hover:bg-zinc-50 hover:border-zinc-200'
                   }`}
                 >
-                  <div className={`flex items-start gap-6 transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`}>
-                    <span className={`text-xl font-headline font-extrabold shrink-0 transition-colors duration-200 ${isActive ? 'text-primary' : 'text-zinc-400 group-hover:text-primary'}`}>
+                  <div className="flex items-start gap-6">
+                    <span className={`text-xl font-headline font-extrabold shrink-0 transition-colors duration-200 ${isActive ? 'text-primary' : 'text-zinc-500 group-hover:text-primary'}`}>
                       {lift.number}
                     </span>
                     <div className="flex-1">
                       <h3 className={`text-lg font-headline font-bold mb-2 transition-colors duration-200 ${isActive ? 'text-zinc-900' : 'text-zinc-700'}`}>
                         {lift.name}
                       </h3>
-                      <p className="text-zinc-500 text-sm leading-relaxed">{lift.description}</p>
+                      <p className="text-zinc-600 text-sm leading-relaxed">{lift.description}</p>
                       {isActive && lift.products && (
                         <div className="mt-4 flex flex-wrap gap-2">
                           {lift.products.map(p => (
@@ -111,7 +111,7 @@ export default function InteractiveLifts({ image, title, tagline, liftTypes }: I
                         </div>
                       )}
                     </div>
-                    <span className={`shrink-0 text-zinc-300 transition-all duration-200 ${isActive ? 'text-primary rotate-0' : 'group-hover:text-zinc-400'}`}>
+                    <span aria-hidden="true" className={`shrink-0 transition-all duration-200 ${isActive ? 'text-primary rotate-0' : 'text-zinc-400 group-hover:text-zinc-600'}`}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="9 18 15 12 9 6" />
                       </svg>

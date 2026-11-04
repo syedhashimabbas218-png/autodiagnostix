@@ -18,8 +18,8 @@ interface Props {
 }
 
 const badgeColor: Record<string, string> = {
-  NEW: 'bg-green-600',
-  TRENDING: 'bg-amber-500',
+  NEW: 'bg-green-700',
+  TRENDING: 'bg-amber-700',
 };
 
 const FilterChip = ({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) => (
@@ -117,7 +117,7 @@ export default function ProductGrid({ products = [], initialSearch = '' }: Props
                       <img alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200 ease-out mix-blend-multiply" src={product.image} srcSet={product.imageSrcset} sizes="(min-width: 1280px) 22vw, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw" referrerPolicy="no-referrer" loading={idx < 4 ? 'eager' : 'lazy'} fetchPriority={idx === 0 ? 'high' : 'auto'} decoding="async" width="800" height="600" />
                       {product.badge && (
                         <div className="absolute top-3 right-3 z-10">
-                          <span className={`${badgeColor[product.badge] || 'bg-zinc-700'} text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm`}>{product.badge}</span>
+                          <span className={`${badgeColor[product.badge] || 'bg-zinc-700'} text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm`}>{product.badge}</span>
                         </div>
                       )}
                     </div>
@@ -135,9 +135,9 @@ export default function ProductGrid({ products = [], initialSearch = '' }: Props
               <div className="on-dark bg-[#bb2221] p-8 rounded-2xl flex flex-col justify-between text-white relative overflow-hidden">
                 <div className="absolute -right-12 -top-12 w-48 h-48 bg-white/10 rounded-full blur-3xl" />
                 <div>
-                  <span className="text-[9px] font-bold uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full mb-4 inline-block">Pro Support</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest bg-black/20 px-3 py-1 rounded-full mb-4 inline-block">Pro Support</span>
                   <h3 className="font-headline text-xl font-extrabold tracking-tighter leading-tight mb-3">Need expert advice?</h3>
-                  <p className="text-white/80 text-xs leading-relaxed mb-6">Our technicians can evaluate your needs and recommend the right product.</p>
+                  <p className="text-white text-sm leading-relaxed mb-6">Our technicians can evaluate your needs and recommend the right product.</p>
                 </div>
                 <a href="/contact" className="w-full py-3 bg-white text-[#97000d] font-bold rounded-xl hover:bg-opacity-90 transition-all text-sm flex items-center justify-center gap-2">
                   Contact Now
