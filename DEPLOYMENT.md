@@ -29,6 +29,8 @@ This monorepo contains three deployables. All deploy from the **`main`** branch.
 |----------|-------------|---------|
 | `PUBLIC_STRAPI_URL` | URL of the Strapi CMS API | `http://strapi:1337` |
 | `SITE_URL` | Canonical site URL | `https://autodiagnostix.com.pk` |
+| `CONTACT_WEBHOOK_URL` | Optional. JSON webhook that receives contact-form enquiries (Zapier/Make/n8n, Google Apps Script, Slack, CRM). Unset: the form hands the message to the visitor's email app. | `https://hooks.zapier.com/...` |
+| `CMS_CACHE_SECONDS` | Optional. Seconds to reuse CMS responses before revalidating in the background (default `60`; `0` reads live). | `60` |
 
 ### Content updates
 

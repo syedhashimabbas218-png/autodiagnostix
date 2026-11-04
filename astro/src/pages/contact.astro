@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { breadcrumbListSchema, organizationSchema } from '../utils/schema';
+import { SUBJECTS } from '../lib/contact.mjs';
 
 export const prerender = false;
 
@@ -11,14 +12,7 @@ const breadcrumbs = [
   { name: 'Contact', url: 'https://autodiagnostix.com.pk/contact' },
 ];
 
-const SUBJECTS: [string, string][] = [
-  ['general', 'General Inquiry'],
-  ['quote', 'Request a Quote'],
-  ['product', 'Product Information'],
-  ['support', 'Technical Support'],
-  ['parts', 'Spare Parts'],
-  ['other', 'Other'],
-];
+
 // "Request a Quote" links from product pages pass ?subject=quote&product=Name.
 const requestedSubject = Astro.url.searchParams.get('subject') || '';
 const prefillSubject = SUBJECTS.some(([value]) => value === requestedSubject) ? requestedSubject : '';
@@ -145,12 +139,24 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
                   placeholder="Tell us about your requirements...">{prefillMessage}</textarea>
                 <p id="message-error" class="field-error mt-2 text-sm text-error" hidden></p>
               </div>
+              <div class="hp-field" aria-hidden="true">
+                <label for="website">Leave this field empty</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
               <p class="mt-3 text-xs text-on-surface-variant">Fields marked with <span class="text-primary" aria-hidden="true">*</span> are required.</p>
-              <button type="submit"
+              <button type="submit" id="contact-submit"
                 class="primary-gradient text-white font-headline font-bold text-xs uppercase tracking-widest px-10 min-h-[48px] w-full sm:w-auto rounded-lg hover:scale-[0.98] transition-all duration-200 cursor-pointer mt-6">
                 Send Message
               </button>
             </form>
+            <div id="contact-sent" class="hidden bg-surface-container-lowest rounded-xl p-6 sm:p-8 md:p-10 shadow-sm border border-outline-variant/20" role="status" tabindex="-1">
+              <h3 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface mb-3">Thank you, your message has been sent</h3>
+              <p class="text-on-surface-variant leading-relaxed mb-6">Our team has received your enquiry and will contact you using the details you provided. For anything urgent, please call us during business hours.</p>
+              <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+                <a href="tel:+923227041953" class="inline-flex items-center justify-center min-h-[48px] px-6 rounded-lg primary-gradient text-white font-headline font-bold text-xs uppercase tracking-widest">Call +92 322 7041953</a>
+                <a href="/products" class="inline-flex items-center justify-center min-h-[48px] px-6 rounded-lg border border-primary text-primary font-headline font-bold text-xs uppercase tracking-widest hover:bg-primary/5 transition-colors">Browse products</a>
+              </div>
+            </div>
             <div id="contact-success" class="hidden bg-surface-container-lowest rounded-xl p-6 sm:p-8 md:p-10 shadow-sm border border-outline-variant/20" role="status" tabindex="-1">
               <h3 class="font-headline text-2xl font-extrabold tracking-tight text-on-surface mb-3">Your message is ready to send</h3>
               <p class="text-on-surface-variant leading-relaxed mb-6">We opened your email app with your message addressed to our team. Press <strong>Send</strong> there to deliver it. If no email app opened, copy the message and email it to <a href="mailto:info@autodiagnostix.com.pk" class="text-primary underline underline-offset-2">info@autodiagnostix.com.pk</a>, or call us.</p>
@@ -222,30 +228,34 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
 </BaseLayout>
 
 <script>
-  // Progressive enhancement: without JavaScript the form still opens the
-  // visitor's mail client via its mailto: action. With JavaScript we validate
-  // inline, then hand a readable message to the mail client and show next
-  // steps. No message is sent to, or stored by, this website.
+  // Progressive enhancement. With JavaScript the form validates inline and
+  // posts to /api/contact. If server delivery is not configured (501) or
+  // fails, the message is handed to the visitor's mail app instead, so an
+  // enquiry is never silently dropped. Without JavaScript the form's mailto:
+  // action opens the mail app directly.
+  import { RULES, composeMessage, subjectLabel } from '../lib/contact.mjs';
+
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const sent = document.getElementById('contact-sent');
   const success = document.getElementById('contact-success');
   const summary = document.getElementById('form-error-summary');
-  if (form && success && summary) {
+  const submit = document.getElementById('contact-submit') as HTMLButtonElement | null;
+  if (form && sent && success && summary && submit) {
     form.noValidate = true;
+    const rules = RULES as Record<string, (value: string) => string>;
     const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-    const rules: Record<string, (value: string) => string> = {
-      name: v => v.length < 2 ? 'Please enter your full name.' : '',
-      email: v => !v ? 'Please enter your email address.' : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? 'Please enter a valid email address, for example name@company.com.' : '',
-      phone: v => v && !/^\+?[\d\s()-]{7,20}$/.test(v) ? 'Please enter a valid phone number, or leave it blank.' : '',
-      subject: v => !v ? 'Please choose a subject.' : '',
-      message: v => v.length < 10 ? 'Please tell us a little more (at least 10 characters).' : '',
-    };
-    const validate = (name: string) => {
+    const showError = (name: string, message: string) => {
       const input = field(name);
       const error = document.getElementById(`${name}-error`);
-      const message = rules[name](input.value.trim());
       input.setAttribute('aria-invalid', String(Boolean(message)));
       if (error) { error.textContent = message; error.hidden = !message; }
       return message;
+    };
+    const validate = (name: string) => showError(name, rules[name](field(name).value.trim()));
+    const showSummary = (text: string, focusName?: string) => {
+      summary.textContent = text;
+      summary.classList.remove('hidden');
+      if (focusName) field(focusName).focus(); else summary.focus();
     };
     Object.keys(rules).forEach(name => {
       const input = field(name);
@@ -256,33 +266,62 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
     });
 
     let composed = '';
-    form.addEventListener('submit', event => {
-      event.preventDefault();
-      const errors = Object.keys(rules).map(name => [name, validate(name)]).filter(([, message]) => message);
-      if (errors.length) {
-        summary.textContent = errors.length === 1 ? 'Please fix the highlighted field.' : `Please fix the ${errors.length} highlighted fields.`;
-        summary.classList.remove('hidden');
-        field(errors[0][0]).focus();
-        return;
-      }
-      summary.classList.add('hidden');
-      const value = (name: string) => field(name).value.trim();
-      const subjectLabel = (field('subject') as HTMLSelectElement).selectedOptions[0]?.text || value('subject');
-      composed = [
-        `Name: ${value('name')}`,
-        `Email: ${value('email')}`,
-        value('phone') ? `Phone: ${value('phone')}` : '',
-        `Subject: ${subjectLabel}`,
-        '',
-        value('message'),
-        '',
-        '(Sent from the autodiagnostix.com.pk contact form)',
-      ].filter((line, index) => line || index > 3).join('\n');
-      const params = new URLSearchParams({ cc: form.dataset.cc || '', subject: `${subjectLabel}: ${value('name')}`, body: composed });
+    const values = () => Object.fromEntries(Object.keys(rules).map(name => [name, field(name).value.trim()]));
+    const openMailApp = (data: Record<string, string>) => {
+      const params = new URLSearchParams({ cc: form.dataset.cc || '', subject: `${subjectLabel(data.subject)}: ${data.name}`, body: composed });
       window.location.href = `mailto:${form.dataset.to}?${params.toString().replace(/\+/g, '%20')}`;
       form.classList.add('hidden');
       success.classList.remove('hidden');
       success.focus();
+    };
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (submit.disabled) return;
+      const errors = Object.keys(rules).map(name => [name, validate(name)]).filter(([, message]) => message);
+      if (errors.length) {
+        showSummary(errors.length === 1 ? 'Please fix the highlighted field.' : `Please fix the ${errors.length} highlighted fields.`, errors[0][0]);
+        return;
+      }
+      summary.classList.add('hidden');
+      const data = values();
+      composed = composeMessage(data);
+
+      const label = submit.textContent;
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...data, website: field('website')?.value || '', page: location.href }),
+          signal: AbortSignal.timeout(12_000),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (response.ok && result.ok) {
+          form.reset();
+          form.classList.add('hidden');
+          sent.classList.remove('hidden');
+          sent.focus();
+          return;
+        }
+        if (response.status === 400 && result.errors) {
+          const names = Object.keys(result.errors);
+          names.forEach(name => showError(name, result.errors[name]));
+          showSummary('Please fix the highlighted fields.', names[0]);
+          return;
+        }
+        if (response.status === 429) {
+          showSummary('You have sent several messages in a short time. Please wait a few minutes, or call us on +92 322 7041953.');
+          return;
+        }
+        openMailApp(data); // not configured (501) or delivery failed
+      } catch {
+        openMailApp(data); // offline or timed out
+      } finally {
+        submit.disabled = false;
+        submit.textContent = label;
+      }
     });
 
     document.getElementById('contact-reset')?.addEventListener('click', () => {
@@ -303,6 +342,7 @@ const prefillMessage = requestedProduct ? `I would like a quote for: ${requested
 </script>
 
 <style>
+  .hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
   .primary-gradient { background: linear-gradient(135deg, #97000d 0%, #bb2221 100%); }
   a[href^="mailto:"] { overflow-wrap: anywhere; }
 </style>
