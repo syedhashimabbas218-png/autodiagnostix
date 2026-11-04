@@ -7,6 +7,7 @@ import ProductGallery from '../../components/ProductGallery';
 import { getProduct, heroImage } from '../../lib/strapi';
 import { productSchema, breadcrumbListSchema } from '../../utils/schema';
 import { metaDescription } from '../../utils/seo.mjs';
+import { renamedProductSlug } from '../../lib/renamed-products.mjs';
 
 export const prerender = false;
 
@@ -14,6 +15,8 @@ const { id } = Astro.params;
 const product = await getProduct(id!);
 
 if (!product) {
+  const renamed = renamedProductSlug(id!);
+  if (renamed && await getProduct(renamed)) return Astro.redirect(`/product/${renamed}`, 301);
   return Astro.rewrite('/404');
 }
 
