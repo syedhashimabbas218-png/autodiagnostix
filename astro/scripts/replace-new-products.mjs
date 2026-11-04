@@ -12,7 +12,9 @@
 // Env: STRAPI_URL (default https://strapi.autodiagnostix.com.pk), STRAPI_KEY or STRAPI_API_TOKEN.
 //
 // Safety:
-// - Only products with badge NEW AND createdAt on 2026-11-04 are deleted.
+// - Only products with badge NEW AND created during the bad import (2026-11-04
+//   13:00-14:00 UTC) are deleted. This already ran on 2026-11-04 ~20:00 UTC; for
+//   later corrections use update-catalog-products.mjs, which edits in place.
 // - A full authenticated backup (drafts + published) is written before any change.
 // - Media files are deleted only when no remaining product references them.
 // - Products whose slug already exists (and is not being deleted) are skipped, so
@@ -20,74 +22,21 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { STRAPI_URL, requireToken, sleep, parseArgs, api, listAll, FULL_POPULATE, featureItems, uploadImage, writeBackup } from './lib/strapi-rest.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(HERE, 'data', 'catalog-2026-11');
-const STRAPI_URL = (process.env.STRAPI_URL || 'https://strapi.autodiagnostix.com.pk').replace(/\/$/, '');
-const TOKEN = process.env.STRAPI_KEY || process.env.STRAPI_API_TOKEN || '';
-const args = new Set(process.argv.slice(2).filter(a => !a.includes('=')));
-const opts = Object.fromEntries(process.argv.slice(2).filter(a => a.includes('=')).map(a => a.replace(/^--/, '').split('=')));
-const APPLY = args.has('--apply');
-const KEEP_MEDIA = args.has('--keep-media');
-const ONLY = opts.only ? new Set(opts.only.split(',')) : null;
-const BAD_IMPORT_DAY = '2026-11-04';
+const { flags, list } = parseArgs();
+const APPLY = flags.has('--apply');
+const KEEP_MEDIA = flags.has('--keep-media');
+const ONLY = list('only');
+// The wrong import ran at 13:37-13:38 UTC. The replacements (created ~20:00 UTC the
+// same day) carry the NEW badge again, so the window must stay this narrow.
+const BAD_IMPORT_FROM = '2026-11-04T13:00:00';
+const BAD_IMPORT_TO = '2026-11-04T14:00:00';
+const inBadImport = row => String(row.createdAt) >= BAD_IMPORT_FROM && String(row.createdAt) < BAD_IMPORT_TO;
 
-if (!TOKEN) {
-  console.error('Missing STRAPI_KEY (or STRAPI_API_TOKEN). Aborting.');
-  process.exit(1);
-}
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-async function api(method, route, body, { raw = false, retries = 3 } = {}) {
-  for (let attempt = 1; ; attempt++) {
-    const headers = { Authorization: `Bearer ${TOKEN}` };
-    let payload = body;
-    if (body && !(body instanceof FormData)) {
-      headers['Content-Type'] = 'application/json';
-      payload = JSON.stringify(body);
-    }
-    const response = await fetch(`${STRAPI_URL}${route}`, { method, headers, body: payload });
-    if (response.status >= 500 && attempt < retries) { await sleep(1500 * attempt); continue; }
-    const text = await response.text();
-    if (!response.ok) throw new Error(`${method} ${route} -> ${response.status}: ${text.slice(0, 500)}`);
-    if (raw) return text;
-    return text ? JSON.parse(text) : null;
-  }
-}
-
-async function listAll(route) {
-  const rows = [];
-  for (let page = 1; page < 50; page++) {
-    const sep = route.includes('?') ? '&' : '?';
-    const res = await api('GET', `${route}${sep}pagination[pageSize]=100&pagination[page]=${page}`);
-    rows.push(...res.data);
-    if (page >= (res.meta?.pagination?.pageCount ?? 1)) break;
-  }
-  return rows;
-}
-
-const FULL_POPULATE = 'populate[heroImages][populate][image]=true&populate[features][fields][0]=title&populate[features][fields][1]=description&populate[functions][fields][0]=title&populate[functions][fields][1]=description&populate[technicalTable]=true&populate[specs]=true&populate[brand]=true&populate[category]=true';
-
-function featureItems(list = []) {
-  // Same convention as the existing catalog: short title, full text in description.
-  return list.filter(Boolean).map(text => {
-    const clean = String(text).replace(/\s+/g, ' ').trim();
-    const title = clean.length > 60 ? `${clean.slice(0, 57).trimEnd()}...` : clean;
-    return { title, description: clean };
-  });
-}
-
-async function uploadImage(file, alt) {
-  const buffer = fs.readFileSync(file);
-  const ext = path.extname(file).slice(1).toLowerCase();
-  const type = { webp: 'image/webp', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg' }[ext] || 'application/octet-stream';
-  const form = new FormData();
-  form.append('files', new Blob([buffer], { type }), path.basename(file));
-  form.append('fileInfo', JSON.stringify({ alternativeText: alt, caption: alt }));
-  const res = await api('POST', '/api/upload', form);
-  return Array.isArray(res) ? res[0] : res;
-}
+requireToken();
 
 async function main() {
   const products = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'products.json'), 'utf8'));
@@ -100,21 +49,18 @@ async function main() {
     listAll('/api/brands?fields[0]=name&fields[1]=slug'),
     listAll('/api/categories?fields[0]=name&fields[1]=slug'),
   ]);
-  const backupDir = path.join(HERE, '..', '.tmp', 'cms-backup');
-  fs.mkdirSync(backupDir, { recursive: true });
-  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-  fs.writeFileSync(path.join(backupDir, `products-${stamp}.json`), JSON.stringify({ published, drafts }, null, 1));
-  console.log(`Backup: ${published.length} published, ${drafts.length} draft versions -> .tmp/cms-backup/products-${stamp}.json`);
+  const backup = writeBackup(path.join(HERE, '..', '.tmp', 'cms-backup'), 'products', { published, drafts });
+  console.log(`Backup: ${published.length} published, ${drafts.length} draft versions -> ${path.relative(path.join(HERE, '..'), backup)}`);
 
-  // 2. Deletion set: NEW badge AND created on the bad import day.
+  // 2. Deletion set: NEW badge AND created during the bad import.
   const byDoc = new Map();
   for (const row of [...published, ...drafts]) byDoc.set(row.documentId, { ...byDoc.get(row.documentId), ...row });
   // With --only (canary runs), deletion is limited to those slugs as well.
-  const toDelete = [...byDoc.values()].filter(row => row.badge === 'NEW' && String(row.createdAt).startsWith(BAD_IMPORT_DAY) && (!ONLY || ONLY.has(row.slug)));
-  const notMatching = [...byDoc.values()].filter(row => row.badge === 'NEW' && !String(row.createdAt).startsWith(BAD_IMPORT_DAY));
+  const toDelete = [...byDoc.values()].filter(row => row.badge === 'NEW' && inBadImport(row) && (!ONLY || ONLY.has(row.slug)));
+  const notMatching = [...byDoc.values()].filter(row => row.badge === 'NEW' && !inBadImport(row));
   console.log(`\nTo delete (${toDelete.length}):`);
   toDelete.forEach(row => console.log(`  - ${row.slug}  (created ${row.createdAt})`));
-  if (notMatching.length) console.log(`NEW-badge products NOT created on ${BAD_IMPORT_DAY} (kept): ${notMatching.map(r => r.slug).join(', ')}`);
+  if (notMatching.length) console.log(`NEW-badge products outside the bad import window (kept): ${notMatching.map(r => r.slug).join(', ')}`);
 
   // 3. Validate the replacement data.
   const brandBySlug = Object.fromEntries(brands.map(b => [b.slug, b.documentId]));
@@ -132,7 +78,8 @@ async function main() {
   }
   console.log(`\nTo create (${plan.length}):`);
   plan.forEach(p => console.log(`  + ${p.slug} | ${p.name} | ${p.category} | ${(p.brands || []).join(',')} | ${p.images.length} img | ${(p.features || []).length} feat | ${(p.technicalTable || []).length} specs | ${p.source}`));
-  const skipped = plan.filter(p => existingSlugs.has(p.slug));
+  const exists = p => [p.slug, ...(p.previousSlugs || [])].some(slug => existingSlugs.has(slug));
+  const skipped = plan.filter(exists);
   if (skipped.length) console.log(`Already present (will be skipped): ${skipped.map(p => p.slug).join(', ')}`);
   if (problems.length) {
     console.error(`\nData problems:\n  ${problems.join('\n  ')}`);
@@ -162,7 +109,7 @@ async function main() {
   // 5. Create the replacements.
   const created = [];
   for (const p of plan) {
-    if (existingSlugs.has(p.slug)) { console.log(`skip ${p.slug} (exists)`); continue; }
+    if (exists(p)) { console.log(`skip ${p.slug} (exists)`); continue; }
     const heroImages = [];
     for (const [index, img] of p.images.entries()) {
       const file = await uploadImage(path.join(DATA_DIR, img), `${p.name}${index ? ` image ${index + 1}` : ''}`);
