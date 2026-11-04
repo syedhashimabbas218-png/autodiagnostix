@@ -25,7 +25,8 @@ const TEXT_FONTS_URL = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;
 // usages; an unlisted name renders as plain text.
 const ICON_NAMES = ['arrow_forward', 'call', 'category', 'info', 'local_shipping', 'location_on', 'mail', 'map', 'precision_manufacturing', 'schedule', 'support_agent', 'verified', 'workspace_premium'];
 const ICON_FONT_URL = `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=${ICON_NAMES.join(',')}&display=block`;
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
+// Raster default: Facebook, LinkedIn and WhatsApp do not render SVG previews.
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 const PUBLISHER_NAME = 'Autodiagnostix';
 
 const {
