@@ -185,7 +185,7 @@ Live results vary between runs in this environment because traffic passes throug
 | Test | Result |
 |---|---|
 | Full sweep: 99 URLs × all 11 required viewports (1,089 page loads) | 0 horizontal overflow, 0 console errors, 0 failed requests (after one fix), 0 non-200 except the intentional 404, exactly one H1 everywhere, 0 heading-order skips, 0 missing alt, 0 unnamed controls, 0 targets under 44 px at 360/390/414 px |
-| `npm test` (node:test) | 40 tests pass. New tests cover the icon subset, grid columns, excerpt, media URL validation and LRU, and the CMS cache |
+| `npm test` (node:test) | 45 tests pass (after the follow-up pass); `npm run typecheck` reports 0 errors. New tests cover the icon subset, grid columns, excerpt, media URL validation and LRU, and the CMS cache |
 | `npm run verify:responsive` | 0 failures. Updated for the 64rem nav breakpoint and Products menu |
 | `npm run verify:seo` | 0 failures |
 | `npm run verify:outage` (unreachable CMS) | 10 routes return retryable 503; contact stays 200; `/media` falls back to the original URL |
@@ -218,6 +218,43 @@ Testing was done in Chromium only; no real Safari, iOS, Firefox or Edge devices 
   - `<dialog>`, `inert` and `IntersectionObserver` are supported in all current browsers. Without IntersectionObserver, the product action bar stays hidden and the hero actions remain.
 - **Recommendation:** a quick manual pass on a real iPhone (Safari) and Firefox before release.
 
+## Follow-up pass: SEO audit and remaining fixes
+
+A second crawl of every sitemap URL checked:
+- titles and meta descriptions (length, uniqueness, punctuation)
+- canonical and `og:url` agreement
+- Open Graph data
+- JSON-LD validity
+- sitemap coverage against internal links
+- redirects
+- every internal (218) and external (19) link
+
+| Finding | Fix | Commit |
+|---|---|---|
+| " , " punctuation artifacts (a dash bulk-replaced) in 18 titles, 2 descriptions, 104 image alt texts, FAQ answers and FAQPage schema, visible copy and a heading (Q4) | Normal ", " (or ": " between a title and subtitle); wording otherwise unchanged | `850eeba` |
+| Category titles repeated the category name ("Scanners in Pakistan , Scanners Products & Equipment") | "Scanners in Pakistan: Products & Equipment" | `850eeba` |
+| Literal "&amp;" in the EV page's visible FAQ and its schema | Entity removed from the JavaScript string | `850eeba` |
+| 72 titles over 60 characters, mostly because " \| Autodiagnostix" was always appended | Suffix added only when it fits (Google already shows the site name); home keeps it. 20 remain, mostly long CMS product names | `3db5e03` |
+| Product meta descriptions were the full CMS summary (up to 1,218 characters) | Cut at a word boundary to 158 characters | `3db5e03` |
+| `og:image:width/height` claimed 1200×630 on all 59 product pages (about 500 px photos), with the generic site alt text | Dimensions only for the default card; product name as `og:image:alt` | `3db5e03` |
+| `/brand/gti-tools` and case variants (`/brand/Launch`) duplicated canonical brand pages; the footer and homepage linked the alias | One-hop 301 to the canonical page; internal links point at `/brand/gtitools` | `3db5e03` |
+| TypeScript check failed (4 errors) | Fixed; `npm run typecheck` added | `23d7495` |
+| Contact form had no server endpoint (Q1) | `/api/contact` with validation, honeypot, origin check and rate limit; delivers to `CONTACT_WEBHOOK_URL` when set, otherwise unchanged mail-app fallback | `eb43ff6`, `9c960d0` |
+
+Checks that passed with no change needed:
+- canonical and `og:url` agree on every page
+- all JSON-LD parses, uses www URLs and has the required Product and Breadcrumb fields
+- business hours, phone and address in LocalBusiness match the contact page
+- sitemap covers every internally linked page, and every sitemap URL is linked
+- trailing slashes 301 to the canonical form
+- `/admin` is `noindex` and disallowed
+- unknown URLs return 404
+- no broken internal links
+
+The two external "failures" are bot blocking (Instagram 429, Changan 403) and open normally in a browser.
+
+Lighthouse on the final build (compressed local): `/`, `/contact`, `/product/x-431-pro3-link`, `/category/scanners` and `/brand/gtitools` score 98–100 mobile and 100 desktop, with 100 for Accessibility, Best Practices and SEO.
+
 ## Visible design changes to review
 
 These refine rather than redesign. Each was needed to meet a stated requirement and can be adjusted or reverted on request.
@@ -232,7 +269,9 @@ These refine rather than redesign. Each was needed to meet a stated requirement 
 ## Deployment notes
 
 - **No new services or frameworks.** sharp moved from devDependencies to dependencies at the same locked version. Fonts and images are static files.
-- **Optional environment variable:** `CMS_CACHE_SECONDS` (default 60). Strapi edits appear within about a minute; set it to `0` to read live.
+- **Optional environment variables** (passed through in `docker-compose.yml`, documented in `astro/.env.example` and `DEPLOYMENT.md`):
+  - `CMS_CACHE_SECONDS` (default 60): Strapi edits appear within about a minute; set it to `0` to read live.
+  - `CONTACT_WEBHOOK_URL`: enables server-side delivery of enquiries.
 - **Cloudflare:**
   - `/media/…webp` responses are `public, max-age=31536000, immutable`, which Cloudflare caches by default for `.webp`. Confirm `cf-cache-status: HIT` after deploying.
   - PDFs are cached in the Node process (one hour). The CDN does not cache them (`/api/` path).
@@ -247,11 +286,12 @@ These refine rather than redesign. Each was needed to meet a stated requirement 
 
 | Item | Why it was not done | Recommendation |
 |---|---|---|
-| Contact form delivery backend (Q1) | No SMTP, email API, CRM or Strapi write token exists; picking one is a business decision | Add `/api/contact` backed by an email API (for example Resend or SMTP) or a Strapi "Inquiry" collection. About half a day once credentials exist; the validation is already in place. |
+| Contact form delivery destination (Q1) | The endpoint is built; choosing where enquiries go is a business decision | Set `CONTACT_WEBHOOK_URL` in Coolify (for example a Zapier/Make "Webhook → Gmail" zap, or a Google Apps Script that emails info@). No code change needed. Until then the email-app fallback is used. |
 | WhatsApp contact (Q2) | No WhatsApp number is published | Provide the WhatsApp Business number; a click-to-chat link or floating button is a small change |
 | Hero images are 1024 px (M3) | Higher-resolution sources are not in the repo | Supply at least 1920 px (ideally 2560 px) originals; the same responsive pipeline will serve them |
 | Heavy PNGs in Strapi | CMS content was not modified (out of scope; no CMS writes) | `/media` already serves them small; re-uploading as WebP would also shrink the PDF and direct-link sizes |
-| Inconsistent stats (Q3), punctuation artifacts in titles and copy (Q4), missing CMS brand assignments (Q6) | Business content; titles were kept per the earlier SEO decision | Owner to confirm the numbers and approve copy fixes; assign brands in Strapi (this also fills the SMARTSAFE and AUTOOL brand pages) |
+| Inconsistent stats (Q3), missing CMS brand assignments (Q6) | Business content and CMS data | Owner to confirm the numbers; assign brands in Strapi (this also fills the SMARTSAFE and AUTOOL brand pages) |
+| 77 hand-written meta descriptions over 160 characters; 20 titles over 60 (long product names) | Rewriting traffic-bearing copy is a content decision; search engines truncate rather than penalise | Optional copy pass, prioritising pages with impressions in Search Console |
 | Lighthouse SEO 92 on the live domain (L5) | Cloudflare-managed `robots.txt` `Content-Signal` line, set at the edge | Owner decision; the content-signal policy may be intentional |
 | Text-font repaint counted as LCP | `font-display: optional` would change first-visit typography on slow networks | Keep `swap` (current), or switch to `optional` if lab LCP matters more than first-visit fidelity |
 | Map embed (Q7) | Embedding adds about 500 KB of third-party script | Keep the Google Maps link card (current) |
