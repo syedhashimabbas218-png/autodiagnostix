@@ -26,7 +26,8 @@ async function measure() {
       overflow: document.documentElement.scrollWidth > innerWidth,
       header: rect(header), navVisible: visible(nav), menuVisible: visible(menu),
       quoteVisible: visible(document.querySelector('#header-cta')),
-      wrappedLinks: visible(nav) ? [...nav.querySelectorAll('a')].filter(link => rect(link).height > parseFloat(getComputedStyle(link).lineHeight) + 1).map(link => link.innerText) : [],
+      // Links have a 44px touch height, so measure the text box, not the link box.
+      wrappedLinks: visible(nav) ? [...nav.querySelectorAll('.nav-link')].filter(link => { const range = document.createRange(); range.selectNodeContents(link); return range.getBoundingClientRect().height > parseFloat(getComputedStyle(link).lineHeight) * 1.5; }).map(link => link.innerText) : [],
       hero: hero && rect(hero),
       tagline: slide && rect(slide.querySelector('.hero-tagline')),
       title: slide && rect(slide.querySelector('.hero-title')),
@@ -47,8 +48,8 @@ try {
     await page.screenshot({ path: `${output}/home-${viewport}.png` });
     const initial = await measure();
     check(!initial.overflow, 'No horizontal page overflow', viewport);
-    check(initial.navVisible === (width >= 1440), 'Navigation uses the content-fit breakpoint', viewport);
-    check(initial.menuVisible === (width < 1440), 'Compact navigation remains accessible', viewport);
+    check(initial.navVisible === (width >= 1024), 'Desktop navigation is shown from 64rem (laptops included)', viewport);
+    check(initial.menuVisible === (width < 1024), 'Compact navigation remains accessible below 64rem', viewport);
     check(initial.quoteVisible === (width >= 768), 'Laptop quote action remains visible', viewport);
     check(initial.wrappedLinks.length === 0, 'Desktop navigation labels do not wrap', viewport);
     const slides = [];
@@ -66,7 +67,13 @@ try {
       check(current.ctas.every(cta => cta.bottom <= current.controls.top || cta.right <= current.controls.left || cta.left >= current.controls.right), `Slide ${index + 1} actions do not overlap slider controls`, viewport);
       slides.push({ font: current.heroFont, taglineTop: current.tagline.top, headerBottom: current.header.bottom, actionBottom: Math.max(...current.ctas.map(cta => cta.bottom)), heroBottom: current.hero.bottom });
     }
-    if (width < 1440) {
+    if (width >= 1024) {
+      await page.click('#products-menu-btn');
+      const panel = await page.$eval('#products-menu-panel', node => ({ hidden: node.hidden, right: node.getBoundingClientRect().right, links: node.querySelectorAll('a[href]').length }));
+      check(!panel.hidden && panel.right <= width && panel.links >= 7, 'Products menu opens within the viewport with catalog links', viewport);
+      await page.keyboard.press('Escape');
+      check(await page.$eval('#products-menu-btn', node => node.getAttribute('aria-expanded') === 'false'), 'Products menu closes with Escape', viewport);
+    } else {
       await page.click('#mobile-menu-btn');
       check(await page.$eval('#mobile-menu-btn', node => node.getAttribute('aria-expanded') === 'true'), 'Menu opens', viewport);
       const menu = await page.$eval('#mobile-menu', node => ({ bottom: node.getBoundingClientRect().bottom, links: node.querySelectorAll('a[href]').length }));

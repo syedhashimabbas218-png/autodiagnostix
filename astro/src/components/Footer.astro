@@ -15,9 +15,12 @@ const socialIcons: Record<string, string> = {
 <footer class="bg-zinc-50 border-t border-zinc-200">
   <div class="grid grid-cols-2 md:grid-cols-4 gap-12 w-full px-8 py-16 max-w-[1536px] mx-auto">
     <div class="col-span-2 md:col-span-1">
-      <div class="mb-6 h-16 flex items-center">
-        <img src="/logo-full.webp" alt={footer?.company_info?.name || 'Autodiagnostix'} class="h-full w-auto object-contain" />
-      </div>
+      <a href="/" class="mb-6 inline-flex items-center min-h-[44px]" aria-label="Autodiagnostix home">
+        <picture>
+          <source srcset="/logo-wordmark.avif" type="image/avif" />
+          <img src="/logo-wordmark.webp" alt={footer?.company_info?.name || 'Autodiagnostix'} width="400" height="82" loading="lazy" decoding="async" class="h-8 w-auto" />
+        </picture>
+      </a>
       <p class="text-zinc-500 text-xs leading-relaxed max-w-xs mb-8">
         {footer?.company_info?.description || 'Your trusted partner for professional automotive diagnostic equipment in Pakistan.'}
       </p>

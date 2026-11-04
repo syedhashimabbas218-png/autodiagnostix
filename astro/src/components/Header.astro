@@ -32,125 +32,222 @@ const seoLinks = [
 ];
 ---
 
-<nav id="site-header" aria-label="Main navigation" class="fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20">
-  <div class="flex justify-between items-center w-full max-w-screen-2xl mx-auto px-4 md:px-8 h-14 md:h-16">
-    <div class="flex items-center h-full">
-      <a href="/">
-        <img id="header-logo" src="/logo-full.webp" alt="Autodiagnostix" class="h-14 w-auto object-contain transition-all duration-300" />
-      </a>
-    </div>
-    <div id="desktop-navigation" class="hidden md:flex items-center gap-6">
-      {headerNav.map(cat => (
-        <a href={`/category/${cat.id}`} class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">{cat.name}</a>
-      ))}
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header
+  id="site-header"
+  data-transparent={transparentOnScroll ? 'true' : 'false'}
+  data-transparent-capable={transparentOnScroll ? 'true' : undefined}
+  class="fixed top-0 inset-x-0 z-50 h-14 md:h-16 flex items-center transition-colors duration-300"
+>
+  <div class="flex justify-between items-center gap-4 lg:gap-8 w-full max-w-screen-2xl mx-auto px-4 md:px-8 h-full">
+    <a href="/" class="header-logo-link flex items-center shrink-0 min-h-[44px]" aria-label="Autodiagnostix home">
+      <picture>
+        <source srcset="/logo-wordmark.avif" type="image/avif" />
+        <img id="header-logo" src="/logo-wordmark.webp" alt="Autodiagnostix" width="400" height="82" class="h-7 md:h-8 xl:h-9 w-auto transition-[filter] duration-300" />
+      </picture>
+    </a>
+
+    <nav id="desktop-navigation" aria-label="Main" class="hidden lg:flex items-center gap-1 xl:gap-2 mr-auto">
+      <div class="relative" id="products-menu">
+        <button
+          id="products-menu-btn"
+          type="button"
+          class="nav-link inline-flex items-center gap-1"
+          aria-expanded="false"
+          aria-controls="products-menu-panel"
+        >
+          Products
+          <svg class="nav-chevron w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+        </button>
+        <div id="products-menu-panel" hidden class="absolute left-0 top-full mt-2 w-[34rem] max-w-[calc(100vw-2rem)] rounded-xl border border-zinc-200 bg-white p-3 shadow-2xl">
+          <p class="px-3 pt-1 pb-2 text-[11px] font-bold uppercase tracking-widest text-zinc-500">Categories</p>
+          <ul class="grid grid-cols-2 gap-1">
+            {headerNav.map(cat => (
+              <li><a href={`/category/${cat.id}`} class="menu-link">{cat.name}</a></li>
+            ))}
+          </ul>
+          <div class="mt-2 pt-2 border-t border-zinc-100 grid grid-cols-2 gap-1">
+            <a href="/products" class="menu-link font-semibold text-primary">All products &rarr;</a>
+            <a href="/brands" class="menu-link font-semibold text-primary">All brands &rarr;</a>
+          </div>
+        </div>
+      </div>
       {seoLinks.map(l => (
-        <a href={l.href} class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">{l.name}</a>
+        <a href={l.href} class="nav-link">{l.name}</a>
       ))}
-      <a href="/about" class="text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight">About</a>
-    </div>
-    <div class="flex items-center gap-3 md:gap-6">
+      <a href="/about" class="nav-link">About</a>
+    </nav>
+
+    <div class="flex items-center gap-1 md:gap-3 shrink-0">
       <SearchToggle client:load />
-      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-11 h-11 text-zinc-600 hover:text-primary transition-colors" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
-        <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center w-11 h-11 transition-colors" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
+        <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6" />
           <line x1="3" y1="12" x2="21" y2="12" />
           <line x1="3" y1="18" x2="21" y2="18" />
         </svg>
-        <svg id="menu-icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg id="menu-icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <a id="header-cta" href={ctaHref} class="hidden md:inline-flex primary-gradient text-white px-5 py-2 text-xs font-bold uppercase tracking-widest hover:scale-[0.98] transition-all cursor-pointer">{ctaLabel}</a>
+      <a id="header-cta" href={ctaHref} class="hidden md:inline-flex items-center min-h-[40px] primary-gradient text-white px-5 text-xs font-bold uppercase tracking-widest whitespace-nowrap hover:brightness-110 transition-[filter]">{ctaLabel}</a>
     </div>
   </div>
-  <div id="mobile-menu" class="md:hidden hidden absolute top-14 md:top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-zinc-100 shadow-lg">
-    <div class="flex flex-col px-8 py-6 gap-1">
-      <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 pt-2 pb-1">Categories</span>
-      {headerNav.map(cat => (
-        <a href={`/category/${cat.id}`} class="py-3.5 text-zinc-700 font-medium text-sm hover:text-primary transition-colors border-b border-zinc-50 min-h-[44px] flex items-center">{cat.name}</a>
-      ))}
-      <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 pt-4 pb-1">Popular Searches</span>
-      {seoLinks.map(l => (
-        <a href={l.href} class="py-3.5 text-zinc-700 font-medium text-sm hover:text-primary transition-colors border-b border-zinc-50 min-h-[44px] flex items-center">{l.name}</a>
-      ))}
-      <a href="/about" class="py-3.5 text-zinc-700 font-medium text-sm hover:text-primary transition-colors min-h-[44px] flex items-center">About</a>
-      <a href={ctaHref} class="md:hidden mt-4 primary-gradient text-white px-5 py-3 text-xs font-bold uppercase tracking-widest text-center rounded">{ctaLabel}</a>
-    </div>
-  </div>
-</nav>
 
-<script define:vars={{ transparentOnScroll }}>
+  <nav id="mobile-menu" aria-label="Mobile" class="lg:hidden hidden absolute top-full left-0 w-full bg-white border-b border-zinc-100 shadow-lg">
+    <div class="flex flex-col px-4 md:px-8 py-4 gap-0.5 max-w-screen-2xl mx-auto md:grid md:grid-cols-2 md:gap-x-8">
+      <div>
+        <span class="block text-[11px] font-bold uppercase tracking-widest text-zinc-500 pt-2 pb-1">Categories</span>
+        {headerNav.map(cat => (
+          <a href={`/category/${cat.id}`} class="mobile-link">{cat.name}</a>
+        ))}
+        <a href="/products" class="mobile-link font-semibold text-primary">All products</a>
+      </div>
+      <div>
+        <span class="block text-[11px] font-bold uppercase tracking-widest text-zinc-500 pt-4 md:pt-2 pb-1">Popular Searches</span>
+        {seoLinks.map(l => (
+          <a href={l.href} class="mobile-link">{l.name}</a>
+        ))}
+        <a href="/brands" class="mobile-link">Brands</a>
+        <a href="/about" class="mobile-link">About</a>
+        <a href="/contact" class="mobile-link">Contact</a>
+        <a href={ctaHref} class="md:hidden mt-4 mb-2 flex items-center justify-center min-h-[48px] primary-gradient text-white px-5 text-xs font-bold uppercase tracking-widest rounded">{ctaLabel}</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
   const header = document.getElementById('site-header');
-  const logo = document.getElementById('header-logo');
-  const navLinks = header.querySelectorAll('#desktop-navigation a');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const menuOpen = document.getElementById('menu-icon-open');
-  const menuClose = document.getElementById('menu-icon-close');
+  if (header) {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuOpen = document.getElementById('menu-icon-open');
+    const menuClose = document.getElementById('menu-icon-close');
+    const productsBtn = document.getElementById('products-menu-btn');
+    const productsPanel = document.getElementById('products-menu-panel');
+    const productsMenu = document.getElementById('products-menu');
 
-  function setMenuOpen(open) {
-    mobileMenu?.classList.toggle('hidden', !open);
-    menuOpen?.classList.toggle('hidden', open);
-    menuClose?.classList.toggle('hidden', !open);
-    menuBtn?.setAttribute('aria-expanded', String(open));
-  }
-  menuBtn?.addEventListener('click', () => setMenuOpen(menuBtn.getAttribute('aria-expanded') !== 'true'));
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menuBtn?.getAttribute('aria-expanded') === 'true') {
-      setMenuOpen(false);
-      menuBtn.focus();
-    }
-  });
-  document.addEventListener('click', (event) => {
-    if (!header.contains(event.target)) setMenuOpen(false);
-  });
-  const desktop = window.matchMedia('(min-width: 90rem)');
-  desktop.addEventListener('change', () => setMenuOpen(false));
+    const setMenuOpen = (open: boolean) => {
+      mobileMenu?.classList.toggle('hidden', !open);
+      menuOpen?.classList.toggle('hidden', open);
+      menuClose?.classList.toggle('hidden', !open);
+      menuBtn?.setAttribute('aria-expanded', String(open));
+      menuBtn?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      header.dataset.menuOpen = String(open);
+      updateHeader(true);
+    };
+    const setProductsOpen = (open: boolean) => {
+      if (!productsPanel || !productsBtn) return;
+      productsPanel.hidden = !open;
+      productsBtn.setAttribute('aria-expanded', String(open));
+    };
 
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      setMenuOpen(false);
+    menuBtn?.addEventListener('click', () => setMenuOpen(menuBtn.getAttribute('aria-expanded') !== 'true'));
+    // Hover opens the menu for mouse users; touch and keyboard use the button.
+    // A click that lands right after a hover-open keeps the menu open rather
+    // than immediately toggling it shut.
+    let closeTimer: ReturnType<typeof setTimeout> | undefined;
+    let openedByHover = false;
+    productsBtn?.addEventListener('click', () => {
+      if (openedByHover) { openedByHover = false; return; }
+      setProductsOpen(productsBtn.getAttribute('aria-expanded') !== 'true');
     });
-  });
+    productsMenu?.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse') return;
+      clearTimeout(closeTimer);
+      if (productsBtn?.getAttribute('aria-expanded') !== 'true') {
+        openedByHover = true;
+        setProductsOpen(true);
+      }
+    });
+    productsMenu?.addEventListener('pointerleave', event => {
+      if (event.pointerType !== 'mouse') return;
+      openedByHover = false;
+      closeTimer = setTimeout(() => setProductsOpen(false), 200);
+    });
+    productsMenu?.addEventListener('focusout', event => {
+      if (!productsMenu.contains(event.relatedTarget as Node | null)) setProductsOpen(false);
+    });
 
-  let previousScrolled;
-  function updateHeader() {
-    const scrolled = window.scrollY > 10;
-    if (scrolled === previousScrolled) return;
-    previousScrolled = scrolled;
-    if (transparentOnScroll && !scrolled) {
-      header.className = 'fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-transparent border-b border-white/10';
-      logo.className = 'h-14 w-auto object-contain brightness-0 invert transition-all duration-300';
-      navLinks.forEach(a => {
-        a.className = 'text-white/80 font-medium hover:text-white transition-colors text-sm tracking-tight';
-      });
-    } else {
-      header.className = 'fixed top-0 w-full z-50 h-14 md:h-16 flex items-center transition-all duration-300 bg-white/70 backdrop-blur-xl border-b border-white/20';
-      logo.className = 'h-14 w-auto object-contain transition-all duration-300';
-      navLinks.forEach(a => {
-        a.className = 'text-zinc-600 font-medium hover:text-zinc-900 transition-colors text-sm tracking-tight';
-      });
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      if (productsBtn?.getAttribute('aria-expanded') === 'true') {
+        setProductsOpen(false);
+        productsBtn.focus();
+      }
+      if (menuBtn?.getAttribute('aria-expanded') === 'true') {
+        setMenuOpen(false);
+        menuBtn.focus();
+      }
+    });
+    document.addEventListener('click', event => {
+      const target = event.target as Node;
+      if (!header.contains(target)) setMenuOpen(false);
+      if (productsMenu && !productsMenu.contains(target)) setProductsOpen(false);
+    });
+    window.matchMedia('(min-width: 64rem)').addEventListener('change', () => { setMenuOpen(false); setProductsOpen(false); });
+    mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+
+    // Transparent-over-hero state is styled in CSS from a data attribute.
+    const transparentCapable = header.dataset.transparentCapable === 'true';
+    let previous: string | undefined;
+    function updateHeader(force = false) {
+      if (!transparentCapable) return;
+      const transparent = String(window.scrollY <= 10 && header!.dataset.menuOpen !== 'true');
+      if (!force && transparent === previous) return;
+      previous = transparent;
+      header!.dataset.transparent = transparent;
     }
-  }
+    window.addEventListener('scroll', () => updateHeader(), { passive: true });
+    updateHeader(true);
 
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
-  header.querySelectorAll('a[href]').forEach(link => {
-    if (new URL(link.href).pathname === window.location.pathname) link.setAttribute('aria-current', 'page');
-  });
+    header.querySelectorAll<HTMLAnchorElement>('a[href]').forEach(link => {
+      if (new URL(link.href).pathname === window.location.pathname) link.setAttribute('aria-current', 'page');
+    });
+  }
 </script>
 
 <style>
   .primary-gradient { background: linear-gradient(135deg, #97000d 0%, #bb2221 100%); }
-  #mobile-menu { max-height: calc(100dvh - 3.5rem); overflow-y: auto; overscroll-behavior: contain; }
-  #site-header > div > :first-child,
-  #site-header > div > :last-child { flex-shrink: 0; }
-  #desktop-navigation a, #header-cta { white-space: nowrap; }
-  @media (min-width: 48rem) and (max-width: 89.999rem) {
-    #desktop-navigation { display: none; }
-    #mobile-menu-btn { display: flex; }
-    #mobile-menu:not(.hidden) { display: block; }
-    #mobile-menu { max-height: calc(100dvh - 4rem); }
+  .skip-link {
+    position: fixed; top: 0.5rem; left: 0.5rem; z-index: 100;
+    padding: 0.75rem 1rem; background: #fff; color: #97000d; font-weight: 700;
+    border: 2px solid #97000d; border-radius: 0.25rem;
+    transform: translateY(-200%); transition: transform 150ms ease-out;
   }
+  .skip-link:focus { transform: translateY(0); }
+
+  #site-header { background-color: rgb(255 255 255 / 0.85); border-bottom: 1px solid rgb(228 228 231 / 0.7); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); color: #52525b; }
+  #site-header[data-transparent='true'] { background-color: transparent; border-bottom-color: rgb(255 255 255 / 0.12); -webkit-backdrop-filter: none; backdrop-filter: none; color: rgb(255 255 255 / 0.9); }
+  #site-header[data-transparent='true'] #header-logo { filter: brightness(0) invert(1); }
+  #site-header[data-transparent='true'] :global(.search-trigger) { color: rgb(255 255 255 / 0.9); }
+  #mobile-menu-btn { color: inherit; }
+  #mobile-menu-btn:hover { color: #97000d; }
+  #site-header[data-transparent='true'] #mobile-menu-btn:hover { color: #fff; }
+
+  .nav-link {
+    display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.75rem;
+    font-size: 0.875rem; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap;
+    color: inherit; transition: color 150ms ease-out;
+  }
+  .nav-link:hover, .nav-link[aria-current='page'], #products-menu-btn[aria-expanded='true'] { color: #18181b; }
+  #site-header[data-transparent='true'] .nav-link:hover,
+  #site-header[data-transparent='true'] #products-menu-btn[aria-expanded='true'] { color: #fff; }
+  #products-menu-btn[aria-expanded='true'] .nav-chevron { transform: rotate(180deg); }
+
+  .menu-link {
+    display: flex; align-items: center; min-height: 44px; padding: 0.5rem 0.75rem; border-radius: 0.5rem;
+    font-size: 0.875rem; font-weight: 500; color: #3f3f46; transition: background-color 150ms, color 150ms;
+  }
+  .menu-link:hover, .menu-link[aria-current='page'] { background-color: #f4f4f5; color: #97000d; }
+
+  .mobile-link {
+    display: flex; align-items: center; min-height: 48px; border-bottom: 1px solid #f4f4f5;
+    font-size: 0.9375rem; font-weight: 500; color: #3f3f46; transition: color 150ms;
+  }
+  .mobile-link:hover, .mobile-link[aria-current='page'] { color: #97000d; }
+  #mobile-menu { max-height: calc(100dvh - 3.5rem); overflow-y: auto; overscroll-behavior: contain; }
+  @media (min-width: 48rem) { #mobile-menu { max-height: calc(100dvh - 4rem); } }
 </style>
