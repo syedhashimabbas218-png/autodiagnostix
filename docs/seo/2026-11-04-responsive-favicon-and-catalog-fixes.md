@@ -2,6 +2,8 @@
 
 Date: 2026-11-04. Status: **implemented and tested locally; not deployed**.
 
+> Update: the navigation breakpoint and hero measurements below are superseded by [the responsive and QA pass](../qa/2026-11-04-responsive-qa-fixes.md) (Products menu from 64rem, retuned hero).
+
 This follows the approved [technical SEO implementation](implementation-and-validation.md). The user approved a responsive-only pass and requested the remaining safe SEO fixes and restoration of the existing favicon. No redesign, new marketing copy, product URL migration or sister-site work was authorized or performed.
 
 ## 1. Laptop responsiveness
