@@ -51,14 +51,21 @@ export default function InteractiveLifts({ image, title, tagline, liftTypes }: I
     <section id="lifts" className="py-24 bg-surface px-8 border-y border-zinc-100">
       <div className="max-w-[1536px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="relative order-2 lg:order-1 h-[300px] md:h-[500px] bg-zinc-200 overflow-hidden">
-          <img
-            alt={activeLift + ' lift'}
-            src={imgSrc}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover transition-opacity duration-300"
-            style={{ opacity: fade ? 1 : 0 }}
-          />
+          <picture>
+            <source type="image/avif" srcSet={`${imgSrc.replace(/\.webp$/, '-800w.avif')} 800w, ${imgSrc.replace(/\.webp$/, '.avif')} 1200w`} sizes="(min-width: 1024px) 50vw, 100vw" />
+            <img
+              alt={activeLift + ' lift'}
+              src={imgSrc}
+              srcSet={`${imgSrc.replace(/\.webp$/, '-800w.webp')} 800w, ${imgSrc} 1200w`}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="800"
+              className="w-full h-full object-cover transition-opacity duration-300"
+              style={{ opacity: fade ? 1 : 0 }}
+            />
+          </picture>
           <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur p-4 border border-zinc-100">
             <span className="text-[10px] font-bold uppercase tracking-widest text-primary block mb-1">{spec.label}</span>
             <span className="text-sm font-headline font-bold text-zinc-900 transition-all duration-300">{spec.value}</span>

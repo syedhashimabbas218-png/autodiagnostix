@@ -106,6 +106,10 @@ const mergedBrands = ORDER
   .map(slug => strapiList.find(b => b.slug === slug))
   .filter((b): b is { slug: string; name: string } => Boolean(b));
 
+// Local display images with generated -800w/-1600w AVIF/WebP variants
+// (scripts/responsive-images.mjs). The original PNGs are 1.9–6.1 MB.
+const RESPONSIVE_IMAGES = new Set(['/images/diagnostics-intelligence.png', '/images/adas-pro.png']);
+
 const allProducts = sortByAvailability(catalogue);
 const NEW_ARRIVAL_IDS = ['919-max', 'wa613-wireless-3d-wheel-aligner', 'x-431-pro3-link'];
 const products = allProducts
@@ -250,7 +254,20 @@ const products = allProducts
           return (
             <div class={`relative min-h-[320px] md:min-h-[500px] bg-zinc-100 overflow-hidden flex items-center ${isRight ? 'md:justify-end' : ''}`}>
               <div class="absolute inset-0">
-                <img src={section.background?.image || ''} alt={section.background?.alt || section.title} class="w-full h-full object-cover object-center" loading="lazy" referrerpolicy="no-referrer" width="800" height="600" />
+                {(() => {
+                  const src = section.background?.image || '';
+                  const base = src.replace(/\.(png|jpe?g|webp)$/i, '');
+                  const sizes = '(min-width: 1536px) 1472px, calc(100vw - 4rem)';
+                  return RESPONSIVE_IMAGES.has(src) ? (
+                    <picture>
+                      <source type="image/avif" srcset={`${base}-800w.avif 800w, ${base}-1600w.avif 1600w`} sizes={sizes} />
+                      <source type="image/webp" srcset={`${base}-800w.webp 800w, ${base}-1600w.webp 1600w`} sizes={sizes} />
+                      <img src={`${base}-1600w.webp`} alt={section.background?.alt || section.title} class="w-full h-full object-cover object-center" loading="lazy" decoding="async" width="1600" height="900" />
+                    </picture>
+                  ) : (
+                    <img src={src} alt={section.background?.alt || section.title} class="w-full h-full object-cover object-center" loading="lazy" decoding="async" width="800" height="600" />
+                  );
+                })()}
               </div>
               <div class={`relative z-10 p-6 md:p-16 max-w-xl ${isRight ? 'bg-zinc-950/80 backdrop-blur-md md:mr-16' : 'bg-white/10 backdrop-blur-md border border-white/20 md:ml-16'}`}>
                 <h2 class="text-2xl md:text-4xl font-headline font-extrabold text-white mb-4 md:mb-6">{section.title}</h2>
